@@ -9,6 +9,19 @@ vignette: >
   \usepackage[utf8]{inputenc}
 ---
 
+```{r echo = F}
+### get knitr just the way we like it
+
+knitr::opts_chunk$set(
+  message = FALSE
+  , warning = FALSE
+  , error = FALSE
+  , tidy = FALSE
+  , cache = FALSE
+  #, results = 'asis'
+)
+```
+
 With `sortableR` [`htmlwidget`](http://htmlwidgets.org) we can amaze our non-R friends and thrill our colleagues with powerful, dependency-free interactivity from [`Sortable.js`](http://rubaxa.github.io/Sortable/) in the browser, RStudio Viewer, or RStudio Shiny.  I encourage you to **think creatively and imaginatively** with `sortableR` as there are all sorts of potential uses for this `htmlwidget`.  Please do not limit yourself to the simple examples within this vignette.
 
 ### Getting Started
@@ -54,4 +67,40 @@ tagList(
   )
   ,sortableR( "example02" )
 )
+```
+
+### Little Harder but Better Example
+
+If you were wondering if `sortableR` works with images, of course it does.  We'll use `base64::img` to embed our plots on the page.
+
+```{r}
+library(base64)
+
+# use example from ?base64::img
+pngfile <- tempfile()
+png( pngfile, width = 400, height = 300 )
+plot( 1:100, rnorm(100), pch = 21, bg = "red", cex = 2 )
+title(main="Best Scatter Chart Ever (Moves Like Jagger)")
+msg<-capture.output(dev.off())
+
+
+# make another plot for demo purposes
+pngfile2 <- tempfile()
+png( pngfile2, width = 400, height = 300 )
+barplot( 1:9, col = blues9 )
+title(main="Best Bar Chart Ever (I Like the Way You Move)")
+msg<-capture.output(dev.off())
+
+tagList(
+  tags$div(id = "example03"
+    ,HTML(img( pngfile ))
+    ,HTML(img( pngfile2 ))
+  )
+  ,sortableR("example03")
+)
+```
+
+```{r echo = F}
+unlink(pngfile)
+unlink(pngfile2)
 ```
