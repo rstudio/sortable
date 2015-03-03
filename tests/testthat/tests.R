@@ -70,22 +70,57 @@ test_that( "works with shiny ",{
 
 library(DiagrammeR)
 library(knob)
-
+library(dygraphs)
 test_that( "works with other widgets",{
   html_print(tagList(
     tags$h1("Does sortable work with other htmlwidgets? Try it!")
     ,tags$div(id = "testdiv"
-      ,tags$div(style = "display:block;float:left;border:solid 0.3em blue;"
+      ,tags$div(style = "float:left;border:solid 0.3em blue;"
         ,grViz("digraph {A -> B;}", height = 200, width = 200)
       )
-      ,tags$div(style = "display:block;float:left;border:dashed 0.3em gray;"
+      ,tags$div(style = "float:left;border:solid 0.3em gray;"
         ,grViz("digraph {C -> D;}", height = 200, width = 200)
       )
-      ,tags$div(style = "display:block;float:left;border:solid 0.3em purple;"
+      ,tags$div(style = "float:left;border:solid 0.3em purple;"
         ,"note: grab from corners"
-        ,knob(90,0,360,height=180,width = 200)
+        ,knob(90,0,360,width=180,height=180)
+      )
+      ,tags$div(style = "float:left;border:solid 0.3em red;"
+        ,dygraph(cbind(mdeaths, fdeaths),height = 200, width = 400)
       )
     )
     ,sortableR("testdiv")
   ))
+})
+
+test_that( "boostrap example works",{
+  html_print(fluidPage(fluidRow(column(width = 4
+    ,tags$a(
+      href = "http://jsbin.com/luxero/2/edit?html,js,output"
+      ,"Bootstrap handle example"
+    )
+    ,HTML(
+'
+<!-- List with handle -->
+<div id="listWithHandle" class="list-group">
+  <div class="list-group-item">
+    <span class="badge">14</span>
+    <span class="glyphicon glyphicon-move" aria-hidden="true"></span>
+    Drag me by the handle
+  </div>
+  <div class="list-group-item">
+    <span class="badge">2</span>
+    <span class="glyphicon glyphicon-move" aria-hidden="true"></span>
+    You can also select text
+  </div>
+  <div class="list-group-item">
+    <span class="badge">1</span>
+    <span class="glyphicon glyphicon-move" aria-hidden="true"></span>
+    Best of both worlds!
+  </div>
+</div>
+'
+    )
+    ,sortableR("listWithHandle",options = list(handle=".glyphicon-move"))
+  ))))
 })
