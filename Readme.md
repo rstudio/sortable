@@ -1,0 +1,55 @@
+[Sortable.js](http://rubaxa.github.io/Sortable) is so ridiculously amazing that of course we need it in **R** as an [htmlwidget](http://htmlwidgets.org).  `sortableR` attempts to harness some of the power of `Sortable.js`.
+
+*note: this is experimental and underdevelopment*, but it does work.  Try it out.  I don't think it will hurt anything.  `sortableR` is not on CRAN, but should install easily with `devtools::install_github`.
+
+```r
+# devtools::install_github("timelyportfolio/sortableR")
+```
+
+### Simple Example
+I think `sortableR` works best with `htmltools::tags`.
+
+```r
+library(sortableR)
+library(htmltools)
+
+html_print(tagList(
+  tags$ul(id = "uniqueId01"
+    ,tags$li("can you move me?")
+    ,tags$li("sure, touch me.")
+    ,tags$li("do you know my powers?")
+  )
+  ,sortableR("uniqueId01") # use the id as the selector
+))
+```
+
+### Good Widgets Work in Shiny
+
+It only works as an output right now, but of course I want it to be an input (*I'll try*) also.  Let's see it s an output.
+
+```r
+library(shiny)
+library(sortableR)
+
+ui = shinyUI(fluidPage(
+  fluidRow(
+    column( width = 4
+      ,tags$h4("sortableR in Shiny + Bootstrap")
+      ,tags$div(id="veryUniqueId", class="list-group"
+        ,tags$div(class="list-group-item","bootstrap 1")
+        ,tags$div(class="list-group-item","bootstrap 2")
+        ,tags$div(class="list-group-item","bootstrap 3")
+      )
+    )
+  )
+  ,sortableROutput( "mySort" )
+))
+
+server = function(input,output){
+  output$mySort <- renderSortableR({
+    sortableR("veryUniqueId")
+  })
+}
+
+shinyApp(ui=ui,server=server)
+```
