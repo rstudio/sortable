@@ -6,7 +6,8 @@
 # devtools::install_github("timelyportfolio/sortableR")
 ```
 
-### Simple Example
+### Good Widgets Just Work
+
 I think `sortableR` works best with `htmltools::tags`.
 
 ```r
@@ -21,6 +22,29 @@ html_print(tagList(
   )
   ,sortableR("uniqueId01") # use the id as the selector
 ))
+```
+
+### Good Widgets Work with other Widgets
+
+When `htmlwidgets` play well together, I am very happy.
+
+```r
+library(DiagrammeR)
+library(htmltools)
+library(sortableR)
+
+html_print(tagList(
+  tags$div(id="aUniqueId"
+    ,tags$div(style = "border: solid 0.2em gray; float:left;"
+      ,mermaid("graph LR; S[Sortable.js] -->|sortableR| R ",height=200,width = 200)
+    )
+    ,tags$div(style = "border: solid 0.2em gray; float:left;"
+      ,mermaid("graph TD; js -->|htmlwidgets| R ",height=200,width = 200)
+    )
+  )
+  ,sortableR("aUniqueId")
+))
+
 ```
 
 ### Good Widgets Work in Shiny
