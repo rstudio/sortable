@@ -1,0 +1,57 @@
+---
+title: "Fun with Sortable.js in R"
+author: "Kenton Russell"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  \usepackage[utf8]{inputenc}
+---
+
+With `sortableR` [`htmlwidget`](http://htmlwidgets.org) we can amaze our non-R friends and thrill our colleagues with powerful, dependency-free interactivity from [`Sortable.js`](http://rubaxa.github.io/Sortable/) in the browser, RStudio Viewer, or RStudio Shiny.  I encourage you to **think creatively and imaginatively** with `sortableR` as there are all sorts of potential uses for this `htmlwidget`.  Please do not limit yourself to the simple examples within this vignette.
+
+### Getting Started
+`sortableR` has not achieved CRAN status yet, so for now we will install with `devtools::install_github` as shown in the code below.
+
+```{r eval = F}
+devtools::install_github("timelyportfolio/sortableR")
+```
+
+### Super Simple Example
+Using `sortableR` in markdown is a little tricky since markdown does not provide an easy way to provide an `id` that we'll need.  We can overcome this by using bare `HTML` or using `htmltools::tags`.  Let's make a simple `ul` list.  Note, however, that `sortableR` works with nearly any `HTML` element, such as `div`.
+
+```
+<ul id = "example01">
+  <li><h4>drag me</h4></li>
+  <li><h4>sort me</h4></li>
+  <li><h4>any way you like</h4></li>
+</ul>
+```
+
+<ul id = "example01">
+  <li><h4>drag me</h4></li>
+  <li><h4>sort me</h4></li>
+  <li><h4>touch (yes touch) me</h4></li>
+  <li><h4>any way you like</h4></li>
+</ul>
+
+```{r}
+library(sortableR)
+sortableR( "example01" )
+```
+
+Now let's use the `htmltools::tags` approach to do exactly the same thing.
+
+```{r}
+library(htmltools)
+tagList(
+  tags$ul(id = "example02"
+    ,tags$li(tags$h4("drag me"))
+    ,tags$li(tags$h4("sort me"))
+    ,tags$li(tags$h4("touch (yes touch) me"))
+    ,tags$li(tags$h4("any way you like"))
+  )
+  ,sortableR( "example02" )
+)
+```
