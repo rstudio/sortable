@@ -1,3 +1,5 @@
+#####
+
 context("creation")
 
 test_that( "sortableR makes a htmlwidget ", {
@@ -24,9 +26,11 @@ test_that( "selector and options passed as expected", {
   )
 })
 
-context("works with tags")
+#####
+context("interoperability")
+
 library(htmltools)
-test_that( "visual inspection of html ", {
+test_that( "works with tags ", {
   html_print(tagList(
     tags$h1( "Check to make sure items move")
     ,HTML('
@@ -37,5 +41,50 @@ test_that( "visual inspection of html ", {
       </ul>
     ')
     ,sortableR( "items" )
+  ))
+})
+
+library(shiny)
+test_that( "works with shiny ",{
+  ui = shinyUI(fluidPage(
+    title = "Does sortableR work in Shiny?"
+    ,fluidRow(
+      column(width = 6
+        ,tags$div(id = "testdiv"
+          ,tags$h3("I should move")
+          ,tags$h3("Drag me")
+          ,tags$h3("I have secret superpowers")
+        )
+      )
+    )
+    ,sortableROutput("testsort")
+  ))
+  server = function(input,output){
+    output$testsort <- renderSortableR({
+      sortableR("testdiv")
+    })
+  }
+
+  shinyApp(ui = ui, server=server)
+})
+
+library(DiagrammeR)
+library(knob)
+test_that( "works with other widgets",{
+  html_print(tagList(
+    tags$h1("Does sortable work with other htmlwidgets? Try it!")
+    ,tags$div(id = "testdiv"
+      ,tags$div(style = "display:block;float:left;border:solid 0.3em blue;"
+        ,grViz("digraph {A -> B;}", height = 200, width = 200)
+      )
+      ,tags$div(style = "display:block;float:left;border:dashed 0.3em gray;"
+        ,grViz("digraph {C -> D;}", height = 200, width = 200)
+      )
+      ,tags$div(style = "display:block;float:left;border:solid 0.3em purple;"
+        ,"note: grab from corners"
+        ,knob(0,20,10,height=180,width = 200)
+      )
+    )
+    ,sortableR("testdiv")
   ))
 })
