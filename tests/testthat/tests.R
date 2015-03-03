@@ -70,6 +70,7 @@ test_that( "works with shiny ",{
 
 library(DiagrammeR)
 library(knob)
+
 test_that( "works with other widgets",{
   html_print(tagList(
     tags$h1("Does sortable work with other htmlwidgets? Try it!")
@@ -82,7 +83,7 @@ test_that( "works with other widgets",{
       )
       ,tags$div(style = "display:block;float:left;border:solid 0.3em purple;"
         ,"note: grab from corners"
-        ,knob(0,20,10,height=180,width = 200)
+        ,knob(90,0,360,height=180,width = 200)
       )
     )
     ,sortableR("testdiv")
