@@ -6,15 +6,16 @@ HTMLWidgets.widget({
 
   initialize: function(el, width, height) {
 
-    return {
-      // TODO: add instance fields as required
-    }
+    return { };
 
   },
 
   renderValue: function(el, x, instance) {
 
-    el.innerText = x.message;
+    instance.sortable = Sortable.create(
+      document.getElementById( x.selector ),
+      x.options
+    )
 
   },
 

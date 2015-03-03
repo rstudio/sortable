@@ -4,7 +4,7 @@
 \alias{sortableROutput}
 \title{Widget output function for use in Shiny}
 \usage{
-sortableROutput(outputId, width = "100\%", height = "400px")
+sortableROutput(outputId, width = "0px", height = "0px")
 }
 \description{
 Widget output function for use in Shiny
