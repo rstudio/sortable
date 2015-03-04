@@ -111,3 +111,7 @@ server = function(input,output){
 
 shinyApp(ui=ui,server=server)
 ```
+
+Or, check out these reorderable tabs by `runGist("2dbe45f77b65e28acab9")`.  All we had to do was add an `id` and add one line of code to the [Tabset example](https://github.com/rstudio/shiny-examples/tree/master/006-tabsets) from [RStudio](http://rstudio.com).
+
+<img src="inst/images/sortableR_tabs.gif"/>
