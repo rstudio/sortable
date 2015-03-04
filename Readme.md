@@ -66,13 +66,11 @@ ui = shinyUI(fluidPage(
       )
     )
   )
-  ,sortableROutput( "mySort" )
+  ,sortableR("veryUniqueId")
 ))
 
 server = function(input,output){
-  output$mySort <- renderSortableR({
-    sortableR("veryUniqueId")
-  })
+
 }
 
 shinyApp(ui=ui,server=server)
