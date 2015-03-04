@@ -49,7 +49,7 @@ html_print(tagList(
 
 ### Good Widgets Work in Shiny
 
-It only works as an output right now, but of course I want it to be an input (*I'll try*) also.  Let's see it s an output.
+It only works as an output right now, but of course I want it to be an input (*I'll try*) also.  Let's see it as an output.
 
 ```r
 library(shiny)
@@ -66,11 +66,47 @@ ui = shinyUI(fluidPage(
       )
     )
   )
-  ,sortableR("veryUniqueId")
+  ,sortableR( "veryUniqueId")
 ))
 
 server = function(input,output){
+  
+}
 
+shinyApp(ui=ui,server=server)
+```
+
+Now, let's see if we can get an idea what it might look like as an input or integral piece of Shiny.
+
+```r
+library(shiny)
+library(sortableR)
+
+ui = shinyUI(fluidPage(
+  fluidRow(
+    column( width = 4
+      ,tags$h4("sortableR in Shiny + Bootstrap")
+      ,tags$div(id="veryUniqueId", class="list-group"
+        ,tags$div(class="list-group-item","bootstrap 1")
+        ,tags$div(class="list-group-item","bootstrap 2")
+        ,tags$div(class="list-group-item","bootstrap 3")
+      )
+    )
+  )
+  ,verbatimTextOutput("results")
+  ,sortableR(
+    "veryUniqueId"
+    ,options = list(onSort = htmlwidgets::JS('
+      function(evt){
+        debugger
+        Shiny.onInputChange("mySort", this.el.textContent)
+      }      
+    '))
+  )
+))
+
+server = function(input,output){
+  output$results <- renderPrint({input$mySort})
 }
 
 shinyApp(ui=ui,server=server)
