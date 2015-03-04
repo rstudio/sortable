@@ -104,3 +104,168 @@ tagList(
 unlink(pngfile)
 unlink(pngfile2)
 ```
+
+
+### Power of Groups
+Looking at the [`Sortable.js`](http://rubaxa.github.io/Sortable) excites me about the potential to use `sortableR` as an important UI element in both a Shiny and non-Shiny context.  We could potentially demo a plot builder with something like this example.  You'll notice that it doesn't really do anything, but I hope the intent and direction is clear.
+
+```{r}
+library(shiny)
+fluidPage(
+  fluidRow(class="panel panel-success"
+    ,tags$div(class="panel-heading"
+      ,tags$h3("Magic Can Happen Here")
+    )
+    ,fluidRow(class = "panel-body"
+      ,column(width = 4
+        ,tags$div(class="panel panel-default"
+          ,tags$div(class="panel-heading","Variables")
+          ,tags$div(class="panel-body"
+            ,id = "sort1"
+            ,lapply(
+              colnames(mtcars)
+              ,function(co){
+                tag("p"
+                  ,list(
+                    class = class(mtcars[,co])
+                    ,tags$span( class = "glyphicon glyphicon-move" )
+                    ,tags$strong( co  )
+                  )
+                )
+              }
+            )      
+          )
+        )       
+      )
+      ,column(width =4
+        ,tags$div(class="panel panel-default"
+          ,tags$div(class="panel-heading"
+            ,tags$span( class = "glyphicon glyphicon-stats" )
+            ,"Analyze as x (drag here)"
+          )
+          ,tags$div(class="panel-body"
+            ,id = "sort2"
+          )
+        )
+      )
+      ,column(width =4
+        ,tags$div(class="panel panel-default"
+          ,tags$div(class="panel-heading"
+            ,tags$span( class = "glyphicon glyphicon-stats" )
+            ,"Analyze as y (drag here)"
+          )
+          ,tags$div(class="panel-body"
+            ,id = "sort3"
+          )
+        )            
+      )
+    )
+  )
+  ,sortableR( "sort1", options = list( group = "sortGroup1" ) )
+  ,sortableR( "sort2", options = list( group = "sortGroup1" ) )
+  ,sortableR( "sort3", options = list( group = "sortGroup1" ) )
+)
+```
+
+### Code For a Shiny Example
+I learned late last night that `sortableR` will allow movable tabs inside a Shiny (and also not Shiny) app.  By adding just one line of code and an `id` to this RStudio [Tabset example](https://github.com/rstudio/shiny-examples/tree/master/006-tabsets), we get rearrangeable tabs.  I really hope you'll copy and paste to see it for yourself, or you can `runGist("2dbe45f77b65e28acab9")`.
+
+```{r eval=F}
+# all credit for code goes to RStudio
+# https://github.com/rstudio/shiny-examples/tree/master/006-tabsets
+library(sortableR)
+library(shiny)
+
+ui = # Define UI for random distribution application 
+shinyUI(fluidPage(
+    
+  # Application title
+  titlePanel("Tabsets"),
+  
+  # Sidebar with controls to select the random distribution type
+  # and number of observations to generate. Note the use of the
+  # br() element to introduce extra vertical spacing
+  sidebarLayout(
+    sidebarPanel(
+      radioButtons("dist", "Distribution type:",
+                   c("Normal" = "norm",
+                     "Uniform" = "unif",
+                     "Log-normal" = "lnorm",
+                     "Exponential" = "exp")),
+      br(),
+      
+      sliderInput("n", 
+                  "Number of observations:", 
+                   value = 500,
+                   min = 1, 
+                   max = 1000)
+    ),
+    
+    # Show a tabset that includes a plot, summary, and table view
+    # of the generated distribution
+    mainPanel(
+      tabsetPanel(type = "tabs", id = "sortTab",
+        tabPanel("Plot", plotOutput("plot")), 
+        tabPanel("Summary", verbatimTextOutput("summary")), 
+        tabPanel("Table", tableOutput("table"))
+      )
+    )
+  )
+  ,sortableR("sortTab")
+))
+
+server = function(input, output) {
+  
+  # Reactive expression to generate the requested distribution.
+  # This is called whenever the inputs change. The output
+  # functions defined below then all use the value computed from
+  # this expression
+  data <- reactive({
+    dist <- switch(input$dist,
+                   norm = rnorm,
+                   unif = runif,
+                   lnorm = rlnorm,
+                   exp = rexp,
+                   rnorm)
+    
+    dist(input$n)
+  })
+  
+  # Generate a plot of the data. Also uses the inputs to build
+  # the plot label. Note that the dependencies on both the inputs
+  # and the data reactive expression are both tracked, and
+  # all expressions are called in the sequence implied by the
+  # dependency graph
+  output$plot <- renderPlot({
+    dist <- input$dist
+    n <- input$n
+    
+    hist(data(), 
+         main=paste('r', dist, '(', n, ')', sep=''))
+  })
+  
+  # Generate a summary of the data
+  output$summary <- renderPrint({
+    summary(data())
+  })
+  
+  # Generate an HTML table view of the data
+  output$table <- renderTable({
+    data.frame(x=data())
+  })
+  
+}
+
+shinyApp( ui, server )
+```
+
+
+### Conclusion
+**Think big with this little `htmlwidget`**.
+
+### Thanks
+With powerful tools from generous people, amazing things can be easily accomplished.  Thanks to:
+
+- [R](http://r-project.org)
+- [Ramnath Vaidyanathan](https://github.com/ramnathv) and [RStudio](http://rstudio.com) for [`htmlwidgets`](http://htmlwidgets.org)
+- [\@RubaXa](https://github.com/RubaXa) for [`Sortable`](https://rubaxa.github.io/Sortable)
