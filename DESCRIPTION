@@ -15,6 +15,7 @@ Description: Make almost anything sortable.  Add drag and drop behavior in R con
               great interactivity with little overhead.
 License: MIT + file LICENSE
 LazyData: TRUE
+Imports: htmlwidgets
 Suggests: testthat,
     knitr
 VignetteBuilder: knitr
