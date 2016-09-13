@@ -54,7 +54,7 @@ sortableR <- function(
 
   # create widget
   htmlwidgets::createWidget(
-    name = 'sortableR',
+    name = 'sortabler',
     x,
     width = width,
     height = height,
@@ -66,7 +66,7 @@ sortableR <- function(
 #'
 #' @export
 sortableROutput <- function(outputId, width = '0px', height = '0px'){
-  shinyWidgetOutput(outputId, 'sortableR', width, height, package = 'sortableR')
+  htmlwidgets::shinyWidgetOutput(outputId, 'sortabler', width, height, package = 'sortableR')
 }
 
 #' Widget render function for use in Shiny
@@ -74,5 +74,5 @@ sortableROutput <- function(outputId, width = '0px', height = '0px'){
 #' @export
 renderSortableR <- function(expr, env = parent.frame(), quoted = FALSE) {
   if (!quoted) { expr <- substitute(expr) } # force quoted
-  shinyRenderWidget(expr, sortableROutput, env, quoted = TRUE)
+  htmlwidgets::shinyRenderWidget(expr, sortableROutput, env, quoted = TRUE)
 }

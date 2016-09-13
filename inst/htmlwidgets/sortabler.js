@@ -1,6 +1,6 @@
 HTMLWidgets.widget({
 
-  name: 'sortableR',
+  name: 'sortabler',
 
   type: 'output',
 

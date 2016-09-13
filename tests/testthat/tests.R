@@ -4,7 +4,7 @@ context("creation")
 
 test_that( "sortableR makes a htmlwidget ", {
   expect_is( sortableR( "" ), "htmlwidget" )
-  expect_is( sortableR( "" ), "sortableR" )
+  expect_is( sortableR( "" ), "sortabler" )
 })
 
 test_that( "sortableR height and width", {
