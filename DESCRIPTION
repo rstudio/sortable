@@ -1,7 +1,7 @@
 Package: sortableR
 Type: Package
 Title: htmlwidget for Sortable.js
-Version: 0.2
+Version: 0.2.0.9000
 Date: 2016-09-12
 Authors@R: c(
     person("Lebedev", "Konstantin", role = c("aut", "cph"), comment = "Sortable.js
