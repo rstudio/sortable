@@ -1,42 +1,45 @@
+---
+output: github_document
+---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
 # sortableR
 
 <!-- badges: start -->
-
 <!-- badges: end -->
 
-The goal of sortableR is to …
+The goal of sortableR is to ...
 
 ## Installation
 
-You can install the released version of sortableR from
-[CRAN](https://CRAN.R-project.org) with:
+You can install the released version of sortableR from [CRAN](https://CRAN.R-project.org) with:
 
-``` r
+```r
 install.packages("sortableR")
 ```
 
 And the development version from [GitHub](https://github.com/) with:
 
-``` r
+```r
 # install.packages("devtools")
 devtools::install_github("timelyportfolio/sortableR")
 ```
-
 ## sortable.js
 
-[Sortable.js](http://rubaxa.github.io/Sortable) is so ridiculously
-amazing that of course we need it in **R** as an
-[htmlwidget](http://htmlwidgets.org). `sortableR` attempts to harness
-some of the power of `Sortable.js`.
+[Sortable.js](http://rubaxa.github.io/Sortable) is so ridiculously amazing that of course we need it in **R** as an [htmlwidget](http://htmlwidgets.org).  `sortableR` attempts to harness some of the power of `Sortable.js`.
 
-*note: this is experimental and underdevelopment*, but it does work. Try
-it out. I don’t think it will hurt anything. `sortableR` is not on CRAN,
-but should install easily with `devtools::install_github`.
+*note: this is experimental and underdevelopment*, but it does work.  Try it out.  I don't think it will hurt anything.  `sortableR` is not on CRAN, but should install easily with `devtools::install_github`.
 
-``` r
+```r
 # install.packages("remotes")
 remotes::install_github("timelyportfolio/sortableR")
 ```
@@ -45,7 +48,7 @@ remotes::install_github("timelyportfolio/sortableR")
 
 I think `sortableR` works best with `htmltools::tags`.
 
-``` r
+```{r, eval=FALSE}
 library(sortableR)
 library(htmltools)
 
@@ -63,7 +66,7 @@ html_print(tagList(
 
 When `htmlwidgets` play well together, I am very happy.
 
-``` r
+```{r, eval=FALSE}
 library(DiagrammeR)
 library(htmltools)
 library(sortableR)
@@ -79,14 +82,14 @@ html_print(tagList(
   )
   ,sortableR("aUniqueId")
 ))
+
 ```
 
 ### Good Widgets Work in Shiny
 
-It only works as an output right now, but of course I want it to be an
-input (*I’ll try*) also. Let’s see it as an output.
+It only works as an output right now, but of course I want it to be an input (*I'll try*) also.  Let's see it as an output.
 
-``` r
+```{r, eval=FALSE}
 library(shiny)
 library(sortableR)
 
@@ -111,10 +114,9 @@ server = function(input,output){
 shinyApp(ui=ui,server=server)
 ```
 
-Now, let’s see if we can get an idea what it might look like as an input
-or integral piece of Shiny.
+Now, let's see if we can get an idea what it might look like as an input or integral piece of Shiny.
 
-``` r
+```{r, eval=FALSE}
 library(shiny)
 library(sortableR)
 
@@ -148,10 +150,6 @@ server = function(input,output){
 shinyApp(ui=ui,server=server)
 ```
 
-Or, check out these reorderable tabs by
-`runGist("2dbe45f77b65e28acab9")`. All we had to do was add an `id` and
-add one line of code to the [Tabset
-example](https://github.com/rstudio/shiny-examples/tree/master/006-tabsets)
-from [RStudio](http://rstudio.com).
+Or, check out these reorderable tabs by `runGist("2dbe45f77b65e28acab9")`.  All we had to do was add an `id` and add one line of code to the [Tabset example](https://github.com/rstudio/shiny-examples/tree/master/006-tabsets) from [RStudio](http://rstudio.com).
 
 <img src="inst/images/sortableR_tabs.gif"/>

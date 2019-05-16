@@ -1,44 +1,41 @@
 #' Sortable.js for R
 #'
-#' htmlwidget that provides \href{http://rubaxa.github.io/Sortable/}{Sortable.js}
+#' htmlwidget that provides \href{https://github.com/SortableJS/Sortable}{Sortable.js}
 #' to use for additional interactivity in the Viewer, Browser, or Shiny.
 #'
-#' @param selector \code{String} selector id on which to apply Sortable.  Note, Sortable
-#'   works with any html element, not just \code{ul/li}.
-#' @param options \code{list} configuration options for Sortable.  For a throrough
-#'   discussion, see \href{https://github.com/RubaXa/Sortable#options}{Sortable Options}.
-#'   Below is the list of supported options.
-#'   \itemize{
-#'      \item group
-#'      \item sort
-#'      \item disabled
-#'      \item store
-#'      \item animation
-#'      \item handle
-#'      \item filter
-#'      \item draggable
-#'      \item ghostClass
-#'      \item scroll
-#'      \item scrollSensitivity
-#'      \item scrollSpeed
-#'      \item setData
-#'      \item onStart
-#'      \item onEnd
-#'      \item onAdd
-#'      \item onUpdate
-#'      \item onSort
-#'      \item onRemove
-#'      \item onFilter
-#'   }
-#' @param width \code{integer} width in pixels.  Since the container is expected
-#'   to not be displayed, \code{0} is the default.
-#' @param height \code{integer} height in pixels.  Since the container is expected
-#'   to not be displayed, \code{0} is the default.
+#' @param selector `String` selector id on which to apply Sortable.  Note, Sortable
+#'   works with any html element, not just `ul/li`.
+#' @param options `list` configuration options for Sortable.  For a throrough
+#'   discussion, see \href{https://github.com/SortableJS/Sortable#options}{Sortable Options}.
+#'   This is the list of supported options:
+#'   * `group`
+#'   * `sort`
+#'   * `disabled`
+#'   * `store`
+#'   * `animation`
+#'   * `handle`
+#'   * `filter`
+#'   * `draggable`
+#'   * `ghostClass`
+#'   * `scroll`
+#'   * `scrollSensitivity`
+#'   * `scrollSpeed`
+#'   * `setData`
+#'   * `onStart`
+#'   * `onEnd`
+#'   * `onAdd`
+#'   * `onUpdate`
+#'   * `onSort`
+#'   * `onRemove`
+#'   * `onFilter`
+#' @param width `integer` width in pixels.  Since the container is expected
+#'   to not be displayed, `0` is the default.
+#' @param height `integer` height in pixels.  Since the container is expected
+#'   to not be displayed, `0` is the default.
 #'
 #' @import htmlwidgets
 #'
 #' @export
-
 sortableR <- function(
   selector
   , options = NULL
@@ -62,14 +59,21 @@ sortableR <- function(
   )
 }
 
-#' Widget output function for use in Shiny
+#' Widget output functionA for use in Shiny.
+#'
+#' @inheritParams sortableR
+#' @param outputId output variable to use for the sortableR object
 #'
 #' @export
 sortableROutput <- function(outputId, width = '0px', height = '0px'){
   htmlwidgets::shinyWidgetOutput(outputId, 'sortabler', width, height, package = 'sortableR')
 }
 
-#' Widget render function for use in Shiny
+#' Widget render function for use in Shiny.
+#'
+#' @param expr An expression
+#' @param env The environment in which to evaluate `expr`.
+#' @param quoted Is `expr` a quoted expression (with `quote()`)? This is useful if you want to save an expression in a variable.
 #'
 #' @export
 renderSortableR <- function(expr, env = parent.frame(), quoted = FALSE) {
