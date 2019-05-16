@@ -17,9 +17,10 @@ License: MIT + file LICENSE
 LazyData: TRUE
 Imports: htmlwidgets
 Suggests: 
-    testthat,
+    testthat (>= 2.1.0),
     knitr,
-    dygraphs
+    dygraphs,
+    DiagrammeR
 VignetteBuilder: knitr
 RoxygenNote: 6.1.1
 Roxygen: list(markdown = TRUE)
