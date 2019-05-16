@@ -20,7 +20,11 @@ Suggests:
     testthat (>= 2.1.0),
     knitr,
     dygraphs,
-    DiagrammeR
+    DiagrammeR,
+    base64,
+    htmltools,
+    shiny
 VignetteBuilder: knitr
 RoxygenNote: 6.1.1
 Roxygen: list(markdown = TRUE)
+Encoding: UTF-8
