@@ -2,12 +2,14 @@ Package: sortableR
 Type: Package
 Title: htmlwidget for Sortable.js
 Version: 0.2.0.9000
-Date: 2016-09-12
+Date: 2019-05-16
 Authors@R: c(
-    person("Lebedev", "Konstantin", role = c("aut", "cph"), comment = "Sortable.js
-    library in htmlwidgets/lib, http://sortablejs.github.io/Sortable/"),
-    person("Kenton", "Russell", role = c("aut", "cre"), comment = "R
-    interface", email = "kent.russell@timelyportfolio.com")
+    person("Lebedev", "Konstantin", role = c("aut", "cph"), 
+        comment = "Sortable.js library in htmlwidgets/lib, 
+        http://sortablejs.github.io/Sortable/"),
+    person("Kenton", "Russell", role = c("aut", "cre"), 
+        comment = "R interface", email = "kent.russell@timelyportfolio.com"),
+    person("de Vries", "Andrie", role = "ctb", email = "apdevries@gmail.com")
     )
 Maintainer: Kenton Russell <kent.russell@timelyportfolio.com>
 Description: Make almost anything sortable.  Add drag and drop behavior in R console,
