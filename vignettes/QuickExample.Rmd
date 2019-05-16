@@ -109,7 +109,8 @@ unlink(pngfile2)
 
 
 ## Power of Groups
-Looking at the [`Sortable.js`](http://rubaxa.github.io/Sortable) excites me about the potential to use `sortableR` as an important UI element in both a Shiny and non-Shiny context.  We could potentially demo a plot builder with something like this example.  You'll notice that it doesn't really do anything, but I hope the intent and direction is clear.
+
+Looking at the [`Sortable.js`](https://github.com/SortableJS/Sortable#options) excites me about the potential to use `sortableR` as an important UI element in both a Shiny and non-Shiny context.  We could potentially demo a plot builder with something like this example.  You'll notice that it doesn't really do anything, but I hope the intent and direction is clear.
 
 ```{r}
 library(shiny)
@@ -271,4 +272,4 @@ With powerful tools from generous people, amazing things can be easily accomplis
 
 - [R](http://r-project.org)
 - [Ramnath Vaidyanathan](https://github.com/ramnathv) and [RStudio](http://rstudio.com) for [`htmlwidgets`](http://htmlwidgets.org)
-- [\@RubaXa](https://github.com/RubaXa) for [`Sortable`](https://rubaxa.github.io/Sortable)
+- [\@RubaXa](https://github.com/RubaXa) for [`Sortable`](http://sortablejs.github.io/Sortable/)

@@ -1,12 +1,12 @@
 #' Sortable.js for R
 #'
-#' htmlwidget that provides \href{http://rubaxa.github.io/Sortable/}{Sortable.js}
+#' htmlwidget that provides \href{https://github.com/SortableJS/Sortable}{Sortable.js}
 #' to use for additional interactivity in the Viewer, Browser, or Shiny.
 #'
 #' @param selector `String` selector id on which to apply Sortable.  Note, Sortable
 #'   works with any html element, not just `ul/li`.
 #' @param options `list` configuration options for Sortable.  For a throrough
-#'   discussion, see \href{https://github.com/RubaXa/Sortable#options}{Sortable Options}.
+#'   discussion, see \href{https://github.com/SortableJS/Sortable#options}{Sortable Options}.
 #'   This is the list of supported options:
 #'   * `group`
 #'   * `sort`

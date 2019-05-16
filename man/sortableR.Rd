@@ -11,7 +11,7 @@ sortableR(selector, options = NULL, width = 0, height = 0)
 works with any html element, not just \code{ul/li}.}
 
 \item{options}{\code{list} configuration options for Sortable.  For a throrough
-discussion, see \href{https://github.com/RubaXa/Sortable#options}{Sortable Options}.
+discussion, see \href{https://github.com/SortableJS/Sortable#options}{Sortable Options}.
 This is the list of supported options:
 \itemize{
 \item \code{group}
@@ -43,6 +43,6 @@ to not be displayed, \code{0} is the default.}
 to not be displayed, \code{0} is the default.}
 }
 \description{
-htmlwidget that provides \href{http://rubaxa.github.io/Sortable/}{Sortable.js}
+htmlwidget that provides \href{https://github.com/SortableJS/Sortable}{Sortable.js}
 to use for additional interactivity in the Viewer, Browser, or Shiny.
 }

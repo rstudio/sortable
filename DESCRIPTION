@@ -5,7 +5,7 @@ Version: 0.2
 Date: 2016-09-12
 Authors@R: c(
     person("Lebedev", "Konstantin", role = c("aut", "cph"), comment = "Sortable.js
-    library in htmlwidgets/lib, http://rubaxa.github.io/Sortable/"),
+    library in htmlwidgets/lib, http://sortablejs.github.io/Sortable/"),
     person("Kenton", "Russell", role = c("aut", "cre"), comment = "R
     interface", email = "kent.russell@timelyportfolio.com")
     )
