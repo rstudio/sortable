@@ -2,10 +2,17 @@
 % Please edit documentation in R/sortableR.R
 \name{renderSortableR}
 \alias{renderSortableR}
-\title{Widget render function for use in Shiny}
+\title{Widget render function for use in Shiny.}
 \usage{
 renderSortableR(expr, env = parent.frame(), quoted = FALSE)
 }
+\arguments{
+\item{expr}{An expression}
+
+\item{env}{The environment in which to evaluate \code{expr}.}
+
+\item{quoted}{Is \code{expr} a quoted expression (with \code{quote()})? This is useful if you want to save an expression in a variable.}
+}
 \description{
-Widget render function for use in Shiny
+Widget render function for use in Shiny.
 }

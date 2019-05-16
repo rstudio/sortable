@@ -59,14 +59,21 @@ sortableR <- function(
   )
 }
 
-#' Widget output function for use in Shiny
+#' Widget output functionA for use in Shiny.
+#'
+#' @inheritParams sortableR
+#' @param outputId output variable to use for the sortableR object
 #'
 #' @export
 sortableROutput <- function(outputId, width = '0px', height = '0px'){
   htmlwidgets::shinyWidgetOutput(outputId, 'sortabler', width, height, package = 'sortableR')
 }
 
-#' Widget render function for use in Shiny
+#' Widget render function for use in Shiny.
+#'
+#' @param expr An expression
+#' @param env The environment in which to evaluate `expr`.
+#' @param quoted Is `expr` a quoted expression (with `quote()`)? This is useful if you want to save an expression in a variable.
 #'
 #' @export
 renderSortableR <- function(expr, env = parent.frame(), quoted = FALSE) {

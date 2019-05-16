@@ -2,10 +2,19 @@
 % Please edit documentation in R/sortableR.R
 \name{sortableROutput}
 \alias{sortableROutput}
-\title{Widget output function for use in Shiny}
+\title{Widget output functionA for use in Shiny.}
 \usage{
 sortableROutput(outputId, width = "0px", height = "0px")
 }
+\arguments{
+\item{outputId}{output variable to use for the sortableR object}
+
+\item{width}{\code{integer} width in pixels.  Since the container is expected
+to not be displayed, \code{0} is the default.}
+
+\item{height}{\code{integer} height in pixels.  Since the container is expected
+to not be displayed, \code{0} is the default.}
+}
 \description{
-Widget output function for use in Shiny
+Widget output functionA for use in Shiny.
 }
