@@ -3,42 +3,39 @@
 #' htmlwidget that provides \href{http://rubaxa.github.io/Sortable/}{Sortable.js}
 #' to use for additional interactivity in the Viewer, Browser, or Shiny.
 #'
-#' @param selector \code{String} selector id on which to apply Sortable.  Note, Sortable
-#'   works with any html element, not just \code{ul/li}.
-#' @param options \code{list} configuration options for Sortable.  For a throrough
+#' @param selector `String` selector id on which to apply Sortable.  Note, Sortable
+#'   works with any html element, not just `ul/li`.
+#' @param options `list` configuration options for Sortable.  For a throrough
 #'   discussion, see \href{https://github.com/RubaXa/Sortable#options}{Sortable Options}.
-#'   Below is the list of supported options.
-#'   \itemize{
-#'      \item group
-#'      \item sort
-#'      \item disabled
-#'      \item store
-#'      \item animation
-#'      \item handle
-#'      \item filter
-#'      \item draggable
-#'      \item ghostClass
-#'      \item scroll
-#'      \item scrollSensitivity
-#'      \item scrollSpeed
-#'      \item setData
-#'      \item onStart
-#'      \item onEnd
-#'      \item onAdd
-#'      \item onUpdate
-#'      \item onSort
-#'      \item onRemove
-#'      \item onFilter
-#'   }
-#' @param width \code{integer} width in pixels.  Since the container is expected
-#'   to not be displayed, \code{0} is the default.
-#' @param height \code{integer} height in pixels.  Since the container is expected
-#'   to not be displayed, \code{0} is the default.
+#'   This is the list of supported options:
+#'   * `group`
+#'   * `sort`
+#'   * `disabled`
+#'   * `store`
+#'   * `animation`
+#'   * `handle`
+#'   * `filter`
+#'   * `draggable`
+#'   * `ghostClass`
+#'   * `scroll`
+#'   * `scrollSensitivity`
+#'   * `scrollSpeed`
+#'   * `setData`
+#'   * `onStart`
+#'   * `onEnd`
+#'   * `onAdd`
+#'   * `onUpdate`
+#'   * `onSort`
+#'   * `onRemove`
+#'   * `onFilter`
+#' @param width `integer` width in pixels.  Since the container is expected
+#'   to not be displayed, `0` is the default.
+#' @param height `integer` height in pixels.  Since the container is expected
+#'   to not be displayed, `0` is the default.
 #'
 #' @import htmlwidgets
 #'
 #' @export
-
 sortableR <- function(
   selector
   , options = NULL
