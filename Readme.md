@@ -123,24 +123,15 @@ ui <- shinyUI(fluidPage(
     column(
       width = 6,
       tags$h4("sortable in Shiny + Bootstrap"),
-      tags$div(
-        id = "veryUniqueId", class = "list-group",
-        tags$div(class = "list-group-item", "bootstrap 1"),
-        tags$div(class = "list-group-item", "bootstrap 2"),
-        tags$div(class = "list-group-item", "bootstrap 3")
+      sortableItemlist(
+        outputId = "mySort", selector = "veryUniqueId", class = "list-group-item",
+        labels = c(
+          "bootstrap 1",
+          "bootstrap 2",
+          "bootstrap 3"
+        )
       ),
-      sortable(
-        "veryUniqueId",
-        options = list(onSort = htmlwidgets::JS('
-          function(evt){
-            debugger
-            Shiny.onInputChange(
-              "mySort", 
-              $.map(this.el.children, function(child){return child.innerText})
-            )
-          }'))
-      ),
-      tags$h4("Results"),
+      tags$h4("Current sorting order"),
       verbatimTextOutput("results")
     )
   )

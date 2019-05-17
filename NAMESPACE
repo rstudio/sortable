@@ -2,5 +2,6 @@
 
 export(renderSortable)
 export(sortable)
+export(sortableItemlist)
 export(sortableOutput)
 importFrom(htmlwidgets,shinyWidgetOutput)
