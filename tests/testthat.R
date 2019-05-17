@@ -1,4 +1,4 @@
 library(testthat)
-library(sortableR)
+library(sortable)
 
-test_check("sortableR")
+test_check("sortable")

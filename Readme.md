@@ -1,52 +1,52 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# sortableR
+# sortable
 
 <!-- badges: start -->
 
 <!-- badges: end -->
 
-The goal of sortableR is to …
+The goal of sortable is to …
 
 ## Installation
 
-You can install the released version of sortableR from
+You can install the released version of sortable from
 [CRAN](https://CRAN.R-project.org) with:
 
 ``` r
-install.packages("sortableR")
+install.packages("sortable")
 ```
 
 And the development version from [GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("timelyportfolio/sortableR")
+devtools::install_github("timelyportfolio/sortable")
 ```
 
 ## sortable.js
 
 [Sortable.js](http://rubaxa.github.io/Sortable) is so ridiculously
 amazing that of course we need it in **R** as an
-[htmlwidget](http://htmlwidgets.org). `sortableR` attempts to harness
+[htmlwidget](http://htmlwidgets.org). `sortable` attempts to harness
 some of the power of `Sortable.js`.
 
 *note: this is experimental and underdevelopment*, but it does work. Try
-it out. I don’t think it will hurt anything. `sortableR` is not on CRAN,
+it out. I don’t think it will hurt anything. `sortable` is not on CRAN,
 but should install easily with `devtools::install_github`.
 
 ``` r
 # install.packages("remotes")
-remotes::install_github("timelyportfolio/sortableR")
+remotes::install_github("timelyportfolio/sortable")
 ```
 
 ### Good Widgets Just Work
 
-I think `sortableR` works best with `htmltools::tags`.
+I think `sortable` works best with `htmltools::tags`.
 
 ``` r
-library(sortableR)
+library(sortable)
 library(htmltools)
 
 html_print(tagList(
@@ -55,7 +55,7 @@ html_print(tagList(
     ,tags$li("sure, touch me.")
     ,tags$li("do you know my powers?")
   )
-  ,sortableR("uniqueId01") # use the id as the selector
+  ,sortable("uniqueId01") # use the id as the selector
 ))
 ```
 
@@ -66,18 +66,18 @@ When `htmlwidgets` play well together, I am very happy.
 ``` r
 library(DiagrammeR)
 library(htmltools)
-library(sortableR)
+library(sortable)
 
 html_print(tagList(
   tags$div(id="aUniqueId"
     ,tags$div(style = "border: solid 0.2em gray; float:left;"
-      ,mermaid("graph LR; S[Sortable.js] -->|sortableR| R ",height=200,width = 200)
+      ,mermaid("graph LR; S[Sortable.js] -->|sortable| R ",height=200,width = 200)
     )
     ,tags$div(style = "border: solid 0.2em gray; float:left;"
       ,mermaid("graph TD; js -->|htmlwidgets| R ",height=200,width = 200)
     )
   )
-  ,sortableR("aUniqueId")
+  ,sortable("aUniqueId")
 ))
 ```
 
@@ -88,12 +88,12 @@ input (*I’ll try*) also. Let’s see it as an output.
 
 ``` r
 library(shiny)
-library(sortableR)
+library(sortable)
 
 ui = shinyUI(fluidPage(
   fluidRow(
     column( width = 4
-      ,tags$h4("sortableR in Shiny + Bootstrap")
+      ,tags$h4("sortable in Shiny + Bootstrap")
       ,tags$div(id="veryUniqueId", class="list-group"
         ,tags$div(class="list-group-item","bootstrap 1")
         ,tags$div(class="list-group-item","bootstrap 2")
@@ -101,7 +101,7 @@ ui = shinyUI(fluidPage(
       )
     )
   )
-  ,sortableR( "veryUniqueId")
+  ,sortable( "veryUniqueId")
 ))
 
 server = function(input,output){
@@ -116,12 +116,12 @@ or integral piece of Shiny.
 
 ``` r
 library(shiny)
-library(sortableR)
+library(sortable)
 
 ui = shinyUI(fluidPage(
   fluidRow(
     column( width = 4
-      ,tags$h4("sortableR in Shiny + Bootstrap")
+      ,tags$h4("sortable in Shiny + Bootstrap")
       ,tags$div(id="veryUniqueId", class="list-group"
         ,tags$div(class="list-group-item","bootstrap 1")
         ,tags$div(class="list-group-item","bootstrap 2")
@@ -130,7 +130,7 @@ ui = shinyUI(fluidPage(
     )
   )
   ,verbatimTextOutput("results")
-  ,sortableR(
+  ,sortable(
     "veryUniqueId"
     ,options = list(onSort = htmlwidgets::JS('
       function(evt){
@@ -154,4 +154,4 @@ add one line of code to the [Tabset
 example](https://github.com/rstudio/shiny-examples/tree/master/006-tabsets)
 from [RStudio](http://rstudio.com).
 
-<img src="inst/images/sortableR_tabs.gif"/>
+<img src="inst/images/sortable_tabs.gif"/>

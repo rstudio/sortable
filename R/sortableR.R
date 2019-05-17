@@ -33,40 +33,40 @@
 #' @param height `integer` height in pixels.  Since the container is expected
 #'   to not be displayed, `0` is the default.
 #'
-#' @import htmlwidgets
+#' @importFrom htmlwidgets shinyWidgetOutput
 #'
 #' @export
-sortableR <- function(
-  selector
-  , options = NULL
-  , width = 0
-  , height = 0
-) {
+sortable <- function(
+  selector,
+  options = NULL,
+  width = 0,
+  height = 0)
+{
 
   # forward options using x
-  x = list(
-    selector = selector
-    , options = options
+  x <- list(
+    selector = selector,
+    options = options
   )
 
   # create widget
   htmlwidgets::createWidget(
-    name = 'sortabler',
+    name = "sortable",
     x,
     width = width,
     height = height,
-    package = 'sortableR'
+    package = "sortable"
   )
 }
 
 #' Widget output functionA for use in Shiny.
 #'
-#' @inheritParams sortableR
-#' @param outputId output variable to use for the sortableR object
+#' @inheritParams sortable
+#' @param outputId output variable to use for the sortable object
 #'
 #' @export
-sortableROutput <- function(outputId, width = '0px', height = '0px'){
-  htmlwidgets::shinyWidgetOutput(outputId, 'sortabler', width, height, package = 'sortableR')
+sortableOutput <- function(outputId, width = "0px", height = "0px") {
+  htmlwidgets::shinyWidgetOutput(outputId, "sortable", width, height, package = "sortable")
 }
 
 #' Widget render function for use in Shiny.
@@ -76,7 +76,9 @@ sortableROutput <- function(outputId, width = '0px', height = '0px'){
 #' @param quoted Is `expr` a quoted expression (with `quote()`)? This is useful if you want to save an expression in a variable.
 #'
 #' @export
-renderSortableR <- function(expr, env = parent.frame(), quoted = FALSE) {
-  if (!quoted) { expr <- substitute(expr) } # force quoted
-  htmlwidgets::shinyRenderWidget(expr, sortableROutput, env, quoted = TRUE)
+renderSortable <- function(expr, env = parent.frame(), quoted = FALSE) {
+  if (!quoted) {
+    expr <- substitute(expr)
+  } # force quoted
+  htmlwidgets::shinyRenderWidget(expr, sortableOutput, env, quoted = TRUE)
 }

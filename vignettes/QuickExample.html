@@ -1174,15 +1174,15 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 
 
 
-<p>With <code>sortableR</code> <a href="http://htmlwidgets.org"><code>htmlwidget</code></a> we can amaze our non-R friends and thrill our colleagues with powerful, dependency-free interactivity from <a href="http://rubaxa.github.io/Sortable/"><code>Sortable.js</code></a> in the browser, RStudio Viewer, or RStudio Shiny. I encourage you to <strong>think creatively and imaginatively</strong> with <code>sortableR</code> as there are all sorts of potential uses for this <code>htmlwidget</code>. Please do not limit yourself to the simple examples within this vignette.</p>
+<p>With <code>sortable</code> <a href="http://htmlwidgets.org"><code>htmlwidget</code></a> we can amaze our non-R friends and thrill our colleagues with powerful, dependency-free interactivity from <a href="http://rubaxa.github.io/Sortable/"><code>Sortable.js</code></a> in the browser, RStudio Viewer, or RStudio Shiny. I encourage you to <strong>think creatively and imaginatively</strong> with <code>sortable</code> as there are all sorts of potential uses for this <code>htmlwidget</code>. Please do not limit yourself to the simple examples within this vignette.</p>
 <div id="getting-started" class="section level2">
 <h2>Getting Started</h2>
-<p><code>sortableR</code> has not achieved CRAN status yet, so for now we will install with <code>devtools::install_github</code> as shown in the code below.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1">devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;timelyportfolio/sortableR&quot;</span>)</a></code></pre></div>
+<p><code>sortable</code> has not achieved CRAN status yet, so for now we will install with <code>devtools::install_github</code> as shown in the code below.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1">devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;timelyportfolio/sortable&quot;</span>)</a></code></pre></div>
 </div>
 <div id="super-simple-example" class="section level2">
 <h2>Super Simple Example</h2>
-<p>Using <code>sortableR</code> in markdown is a little tricky since markdown does not provide an easy way to provide an <code>id</code> that we’ll need. We can overcome this by using bare <code>HTML</code> or using <code>htmltools::tags</code>. Let’s make a simple <code>ul</code> list. Note, however, that <code>sortableR</code> works with nearly any <code>HTML</code> element, such as <code>div</code>.</p>
+<p>Using <code>sortable</code> in markdown is a little tricky since markdown does not provide an easy way to provide an <code>id</code> that we’ll need. We can overcome this by using bare <code>HTML</code> or using <code>htmltools::tags</code>. Let’s make a simple <code>ul</code> list. Note, however, that <code>sortable</code> works with nearly any <code>HTML</code> element, such as <code>div</code>.</p>
 <pre><code>&lt;ul id = &quot;example01&quot;&gt;
   &lt;li&gt;&lt;h4&gt;drag me&lt;/h4&gt;&lt;/li&gt;
   &lt;li&gt;&lt;h4&gt;sort me&lt;/h4&gt;&lt;/li&gt;
@@ -1210,9 +1210,9 @@ any way you like
 </h4>
 </li>
 </ul>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">library</span>(sortableR)</a>
-<a class="sourceLine" id="cb3-2" title="2"><span class="kw">sortableR</span>( <span class="st">&quot;example01&quot;</span> )</a></code></pre></div>
-<div id="htmlwidget-9fd2e6181c543a00429e" style="width:0px;height:0px;" class="sortabler html-widget"></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">library</span>(sortable)</a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="kw">sortable</span>( <span class="st">&quot;example01&quot;</span> )</a></code></pre></div>
+<div id="htmlwidget-9fd2e6181c543a00429e" style="width:0px;height:0px;" class="sortable html-widget"></div>
 <script type="application/json" data-for="htmlwidget-9fd2e6181c543a00429e">{"x":{"selector":"example01","options":null},"evals":[],"jsHooks":[]}</script>
 <p>Now let’s use the <code>htmltools::tags</code> approach to do exactly the same thing.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1"><span class="kw">library</span>(htmltools)</a>
@@ -1223,7 +1223,7 @@ any way you like
 <a class="sourceLine" id="cb4-6" title="6">    ,tags<span class="op">$</span><span class="kw">li</span>(tags<span class="op">$</span><span class="kw">h4</span>(<span class="st">&quot;touch (yes touch) me&quot;</span>))</a>
 <a class="sourceLine" id="cb4-7" title="7">    ,tags<span class="op">$</span><span class="kw">li</span>(tags<span class="op">$</span><span class="kw">h4</span>(<span class="st">&quot;any way you like&quot;</span>))</a>
 <a class="sourceLine" id="cb4-8" title="8">  )</a>
-<a class="sourceLine" id="cb4-9" title="9">  ,<span class="kw">sortableR</span>( <span class="st">&quot;example02&quot;</span> )</a>
+<a class="sourceLine" id="cb4-9" title="9">  ,<span class="kw">sortable</span>( <span class="st">&quot;example02&quot;</span> )</a>
 <a class="sourceLine" id="cb4-10" title="10">)</a></code></pre></div>
 <ul id="example02">
 <li>
@@ -1239,12 +1239,12 @@ any way you like
 <h4>any way you like</h4>
 </li>
 </ul>
-<div id="htmlwidget-e82aa650aee105fb755a" style="width:0px;height:0px;" class="sortabler html-widget"></div>
+<div id="htmlwidget-e82aa650aee105fb755a" style="width:0px;height:0px;" class="sortable html-widget"></div>
 <script type="application/json" data-for="htmlwidget-e82aa650aee105fb755a">{"x":{"selector":"example02","options":null},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="little-harder-but-better-example" class="section level2">
 <h2>Little Harder but Better Example</h2>
-<p>If you were wondering if <code>sortableR</code> works with images, of course it does. We’ll use <code>base64::img</code> to embed our plots on the page.</p>
+<p>If you were wondering if <code>sortable</code> works with images, of course it does. We’ll use <code>base64::img</code> to embed our plots on the page.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">library</span>(base64)</a>
 <a class="sourceLine" id="cb5-2" title="2"></a>
 <a class="sourceLine" id="cb5-3" title="3"><span class="co"># use example from ?base64::img</span></a>
@@ -1267,7 +1267,7 @@ any way you like
 <a class="sourceLine" id="cb5-20" title="20">    ,<span class="kw">HTML</span>(<span class="kw">img</span>( pngfile ))</a>
 <a class="sourceLine" id="cb5-21" title="21">    ,<span class="kw">HTML</span>(<span class="kw">img</span>( pngfile2 ))</a>
 <a class="sourceLine" id="cb5-22" title="22">  )</a>
-<a class="sourceLine" id="cb5-23" title="23">  ,<span class="kw">sortableR</span>(<span class="st">&quot;example03&quot;</span>)</a>
+<a class="sourceLine" id="cb5-23" title="23">  ,<span class="kw">sortable</span>(<span class="st">&quot;example03&quot;</span>)</a>
 <a class="sourceLine" id="cb5-24" title="24">)</a></code></pre></div>
 <div id="example03">
 <img src="data:image/png;base64,
@@ -1275,12 +1275,12 @@ iVBORw0KGgoAAAANSUhEUgAAAZAAAAEsCAMAAADaaRXwAAAA1VBMVEUAAAAAADoAAGYAOjoAOmYAOpAA
 <img src="data:image/png;base64,
 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" alt="image" />
 </div>
-<div id="htmlwidget-ac24e418fb0a9948e8d2" style="width:0px;height:0px;" class="sortabler html-widget"></div>
+<div id="htmlwidget-ac24e418fb0a9948e8d2" style="width:0px;height:0px;" class="sortable html-widget"></div>
 <script type="application/json" data-for="htmlwidget-ac24e418fb0a9948e8d2">{"x":{"selector":"example03","options":null},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="power-of-groups" class="section level2">
 <h2>Power of Groups</h2>
-<p>Looking at the <a href="https://github.com/SortableJS/Sortable#options"><code>Sortable.js</code></a> excites me about the potential to use <code>sortableR</code> as an important UI element in both a Shiny and non-Shiny context. We could potentially demo a plot builder with something like this example. You’ll notice that it doesn’t really do anything, but I hope the intent and direction is clear.</p>
+<p>Looking at the <a href="https://github.com/SortableJS/Sortable#options"><code>Sortable.js</code></a> excites me about the potential to use <code>sortable</code> as an important UI element in both a Shiny and non-Shiny context. We could potentially demo a plot builder with something like this example. You’ll notice that it doesn’t really do anything, but I hope the intent and direction is clear.</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1"><span class="kw">library</span>(shiny)</a>
 <a class="sourceLine" id="cb6-2" title="2"><span class="kw">fluidPage</span>(</a>
 <a class="sourceLine" id="cb6-3" title="3">  <span class="kw">fluidRow</span>(<span class="dt">class=</span><span class="st">&quot;panel panel-success&quot;</span></a>
@@ -1332,9 +1332,9 @@ iVBORw0KGgoAAAANSUhEUgAAAZAAAAEsCAMAAADaaRXwAAAA5FBMVEUAAAAAADoAAGYAOjoAOmYAOpAA
 <a class="sourceLine" id="cb6-49" title="49">      )</a>
 <a class="sourceLine" id="cb6-50" title="50">    )</a>
 <a class="sourceLine" id="cb6-51" title="51">  )</a>
-<a class="sourceLine" id="cb6-52" title="52">  ,<span class="kw">sortableR</span>( <span class="st">&quot;sort1&quot;</span>, <span class="dt">options =</span> <span class="kw">list</span>( <span class="dt">group =</span> <span class="st">&quot;sortGroup1&quot;</span> ) )</a>
-<a class="sourceLine" id="cb6-53" title="53">  ,<span class="kw">sortableR</span>( <span class="st">&quot;sort2&quot;</span>, <span class="dt">options =</span> <span class="kw">list</span>( <span class="dt">group =</span> <span class="st">&quot;sortGroup1&quot;</span> ) )</a>
-<a class="sourceLine" id="cb6-54" title="54">  ,<span class="kw">sortableR</span>( <span class="st">&quot;sort3&quot;</span>, <span class="dt">options =</span> <span class="kw">list</span>( <span class="dt">group =</span> <span class="st">&quot;sortGroup1&quot;</span> ) )</a>
+<a class="sourceLine" id="cb6-52" title="52">  ,<span class="kw">sortable</span>( <span class="st">&quot;sort1&quot;</span>, <span class="dt">options =</span> <span class="kw">list</span>( <span class="dt">group =</span> <span class="st">&quot;sortGroup1&quot;</span> ) )</a>
+<a class="sourceLine" id="cb6-53" title="53">  ,<span class="kw">sortable</span>( <span class="st">&quot;sort2&quot;</span>, <span class="dt">options =</span> <span class="kw">list</span>( <span class="dt">group =</span> <span class="st">&quot;sortGroup1&quot;</span> ) )</a>
+<a class="sourceLine" id="cb6-54" title="54">  ,<span class="kw">sortable</span>( <span class="st">&quot;sort3&quot;</span>, <span class="dt">options =</span> <span class="kw">list</span>( <span class="dt">group =</span> <span class="st">&quot;sortGroup1&quot;</span> ) )</a>
 <a class="sourceLine" id="cb6-55" title="55">)</a></code></pre></div>
 <div class="container-fluid">
 <div class="row panel panel-success">
@@ -1413,20 +1413,20 @@ Analyze as y (drag here)
 </div>
 </div>
 </div>
-<div id="htmlwidget-900a575519dc8aa67aa7" style="width:0px;height:0px;" class="sortabler html-widget"></div>
+<div id="htmlwidget-900a575519dc8aa67aa7" style="width:0px;height:0px;" class="sortable html-widget"></div>
 <script type="application/json" data-for="htmlwidget-900a575519dc8aa67aa7">{"x":{"selector":"sort1","options":{"group":"sortGroup1"}},"evals":[],"jsHooks":[]}</script>
-<div id="htmlwidget-62654dd9eb2e07ad989a" style="width:0px;height:0px;" class="sortabler html-widget"></div>
+<div id="htmlwidget-62654dd9eb2e07ad989a" style="width:0px;height:0px;" class="sortable html-widget"></div>
 <script type="application/json" data-for="htmlwidget-62654dd9eb2e07ad989a">{"x":{"selector":"sort2","options":{"group":"sortGroup1"}},"evals":[],"jsHooks":[]}</script>
-<div id="htmlwidget-20e4bb6656cba628c35a" style="width:0px;height:0px;" class="sortabler html-widget"></div>
+<div id="htmlwidget-20e4bb6656cba628c35a" style="width:0px;height:0px;" class="sortable html-widget"></div>
 <script type="application/json" data-for="htmlwidget-20e4bb6656cba628c35a">{"x":{"selector":"sort3","options":{"group":"sortGroup1"}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <div id="code-for-a-shiny-example" class="section level2">
 <h2>Code For a Shiny Example</h2>
-<p>I learned late last night that <code>sortableR</code> will allow movable tabs inside a Shiny (and also not Shiny) app. By adding just one line of code and an <code>id</code> to this RStudio <a href="https://github.com/rstudio/shiny-examples/tree/master/006-tabsets">Tabset example</a>, we get rearrangeable tabs. I really hope you’ll copy and paste to see it for yourself, or you can <code>runGist(&quot;2dbe45f77b65e28acab9&quot;)</code>.</p>
+<p>I learned late last night that <code>sortable</code> will allow movable tabs inside a Shiny (and also not Shiny) app. By adding just one line of code and an <code>id</code> to this RStudio <a href="https://github.com/rstudio/shiny-examples/tree/master/006-tabsets">Tabset example</a>, we get rearrangeable tabs. I really hope you’ll copy and paste to see it for yourself, or you can <code>runGist(&quot;2dbe45f77b65e28acab9&quot;)</code>.</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1"><span class="co"># all credit for code goes to RStudio</span></a>
 <a class="sourceLine" id="cb7-2" title="2"><span class="co"># https://github.com/rstudio/shiny-examples/tree/master/006-tabsets</span></a>
-<a class="sourceLine" id="cb7-3" title="3"><span class="kw">library</span>(sortableR)</a>
+<a class="sourceLine" id="cb7-3" title="3"><span class="kw">library</span>(sortable)</a>
 <a class="sourceLine" id="cb7-4" title="4"><span class="kw">library</span>(shiny)</a>
 <a class="sourceLine" id="cb7-5" title="5"></a>
 <a class="sourceLine" id="cb7-6" title="6">ui =<span class="st"> </span><span class="co"># Define UI for random distribution application </span></a>
@@ -1464,7 +1464,7 @@ Analyze as y (drag here)
 <a class="sourceLine" id="cb7-38" title="38">      )</a>
 <a class="sourceLine" id="cb7-39" title="39">    )</a>
 <a class="sourceLine" id="cb7-40" title="40">  )</a>
-<a class="sourceLine" id="cb7-41" title="41">  ,<span class="kw">sortableR</span>(<span class="st">&quot;sortTab&quot;</span>)</a>
+<a class="sourceLine" id="cb7-41" title="41">  ,<span class="kw">sortable</span>(<span class="st">&quot;sortTab&quot;</span>)</a>
 <a class="sourceLine" id="cb7-42" title="42">))</a>
 <a class="sourceLine" id="cb7-43" title="43"></a>
 <a class="sourceLine" id="cb7-44" title="44">server =<span class="st"> </span><span class="cf">function</span>(input, output) {</a>

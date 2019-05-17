@@ -1,4 +1,4 @@
-Package: sortableR
+Package: sortable
 Type: Package
 Title: htmlwidget for Sortable.js
 Version: 0.2.0.9000

@@ -3,7 +3,7 @@ context("shiny")
 library(shiny)
 test_that( "works with shiny ",{
   ui = shinyUI(fluidPage(
-    title = "Does sortableR work in Shiny?"
+    title = "Does sortable work in Shiny?"
     ,fluidRow(
       column(width = 6
              ,tags$div(id = "testdiv"
@@ -13,11 +13,11 @@ test_that( "works with shiny ",{
              )
       )
     )
-    ,sortableROutput("testsort")
+    ,sortableOutput("testsort")
   ))
   server = function(input,output){
-    output$testsort <- renderSortableR({
-      sortableR("testdiv")
+    output$testsort <- rendersortable({
+      sortable("testdiv")
     })
   }
 
