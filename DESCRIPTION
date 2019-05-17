@@ -17,14 +17,15 @@ Description: Make almost anything sortable.  Add drag and drop behavior in R con
               great interactivity with little overhead.
 License: MIT + file LICENSE
 LazyData: TRUE
-Imports: htmlwidgets
+Imports: 
+    htmlwidgets,
+    htmltools
 Suggests: 
     testthat (>= 2.1.0),
     knitr,
     dygraphs,
     DiagrammeR,
     base64,
-    htmltools,
     shiny
 VignetteBuilder: knitr
 RoxygenNote: 6.1.1

@@ -7,8 +7,21 @@
 sortableItemlist(outputId, labels, selector, class = "list-group-item")
 }
 \arguments{
-\item{class}{}
+\item{outputId}{output variable to read the plot/image from.}
+
+\item{labels}{A character vector with text to display.}
+
+\item{selector}{This is the css id to use, and must be unique in your shiny
+app. If NULL, the function generates a selector of the form
+\code{sortable_itemlist_id_1}, and will automatically increment for every
+\code{sortableItemlist}}
+
+\item{class}{The css class to use}
 }
 \description{
-Sortable item list.
+Creates a sortable item list using the \code{sortable.js} framework, and generates
+an \strong{htmlwidgets} element.
+}
+\seealso{
+\link{sortable}
 }
