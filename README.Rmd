@@ -54,9 +54,9 @@ library(htmltools)
 
 html_print(tagList(
   tags$ul(id = "uniqueId01"
-    ,tags$li("can you move me?")
-    ,tags$li("sure, touch me.")
-    ,tags$li("do you know my powers?")
+          ,tags$li("can you move me?")
+          ,tags$li("sure, touch me.")
+          ,tags$li("do you know my powers?")
   )
   ,sortable("uniqueId01") # use the id as the selector
 ))
@@ -73,12 +73,12 @@ library(sortable)
 
 html_print(tagList(
   tags$div(id="aUniqueId"
-    ,tags$div(style = "border: solid 0.2em gray; float:left;"
-      ,mermaid("graph LR; S[Sortable.js] -->|sortable| R ",height=200,width = 200)
-    )
-    ,tags$div(style = "border: solid 0.2em gray; float:left;"
-      ,mermaid("graph TD; js -->|htmlwidgets| R ",height=200,width = 200)
-    )
+           ,tags$div(style = "border: solid 0.2em gray; float:left;"
+                     ,mermaid("graph LR; S[Sortable.js] -->|sortable| R ",height=200,width = 200)
+           )
+           ,tags$div(style = "border: solid 0.2em gray; float:left;"
+                     ,mermaid("graph TD; js -->|htmlwidgets| R ",height=200,width = 200)
+           )
   )
   ,sortable("aUniqueId")
 ))
@@ -96,12 +96,12 @@ library(sortable)
 ui = shinyUI(fluidPage(
   fluidRow(
     column( width = 4
-      ,tags$h4("sortable in Shiny + Bootstrap")
-      ,tags$div(id="veryUniqueId", class="list-group"
-        ,tags$div(class="list-group-item","bootstrap 1")
-        ,tags$div(class="list-group-item","bootstrap 2")
-        ,tags$div(class="list-group-item","bootstrap 3")
-      )
+            ,tags$h4("sortable in Shiny + Bootstrap")
+            ,tags$div(id="veryUniqueId", class="list-group"
+                      ,tags$div(class="list-group-item","bootstrap 1")
+                      ,tags$div(class="list-group-item","bootstrap 2")
+                      ,tags$div(class="list-group-item","bootstrap 3")
+            )
     )
   )
   ,sortable( "veryUniqueId")
@@ -120,33 +120,39 @@ Now, let's see if we can get an idea what it might look like as an input or inte
 library(shiny)
 library(sortable)
 
-ui = shinyUI(fluidPage(
+ui <- shinyUI(fluidPage(
   fluidRow(
-    column( width = 4
-      ,tags$h4("sortable in Shiny + Bootstrap")
-      ,tags$div(id="veryUniqueId", class="list-group"
-        ,tags$div(class="list-group-item","bootstrap 1")
-        ,tags$div(class="list-group-item","bootstrap 2")
-        ,tags$div(class="list-group-item","bootstrap 3")
-      )
+    column(
+      width = 6,
+      tags$h4("sortable in Shiny + Bootstrap"),
+      tags$div(
+        id = "veryUniqueId", class = "list-group",
+        tags$div(class = "list-group-item", "bootstrap 1"),
+        tags$div(class = "list-group-item", "bootstrap 2"),
+        tags$div(class = "list-group-item", "bootstrap 3")
+      ),
+      sortable(
+        "veryUniqueId",
+        options = list(onSort = htmlwidgets::JS('
+          function(evt){
+            debugger
+            Shiny.onInputChange(
+              "mySort", 
+              $.map(this.el.children, function(child){return child.innerText})
+            )
+          }'))
+      ),
+      tags$h4("Results"),
+      verbatimTextOutput("results")
     )
-  )
-  ,verbatimTextOutput("results")
-  ,sortable(
-    "veryUniqueId"
-    ,options = list(onSort = htmlwidgets::JS('
-      function(evt){
-        debugger
-        Shiny.onInputChange("mySort", this.el.textContent)
-      }      
-    '))
   )
 ))
 
-server = function(input,output){
-  output$results <- renderPrint({input$mySort})
+server <- function(input, output) {
+  output$results <- renderPrint({
+    input$mySort
+  })
 }
-
 shinyApp(ui=ui,server=server)
 ```
 
