@@ -11,7 +11,7 @@ test_that( "works with tags ", {
         <li>item 3</li>
       </ul>
     ')
-    ,sortableR( "items" )
+    ,sortable( "items" )
   ))
   expect_is(z, "character")
 })

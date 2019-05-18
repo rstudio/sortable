@@ -23,7 +23,7 @@ test_that( "works with other widgets",{
                         ,dygraph(cbind(mdeaths, fdeaths),height = 200, width = 400)
               )
     )
-    ,sortableR("testdiv")
+    ,sortable("testdiv")
   ))
 
   expect_is(z, "character")
@@ -60,7 +60,7 @@ test_that( "boostrap example works",{
                ,"Bootstrap handle example"
              )
              ,HTML(htm)
-             ,sortableR("listWithHandle",options = list(handle=".glyphicon-move"))
+             ,sortable("listWithHandle",options = list(handle=".glyphicon-move"))
       ))))
   expect_is(z, "character")
   expect_true(grepl("index.html", z))

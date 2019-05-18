@@ -22,19 +22,19 @@ knitr::opts_chunk$set(
 )
 ```
 
-With `sortableR` [`htmlwidget`](http://htmlwidgets.org) we can amaze our non-R friends and thrill our colleagues with powerful, dependency-free interactivity from [`Sortable.js`](http://rubaxa.github.io/Sortable/) in the browser, RStudio Viewer, or RStudio Shiny.  I encourage you to **think creatively and imaginatively** with `sortableR` as there are all sorts of potential uses for this `htmlwidget`.  Please do not limit yourself to the simple examples within this vignette.
+With `sortable` [`htmlwidget`](http://htmlwidgets.org) we can amaze our non-R friends and thrill our colleagues with powerful, dependency-free interactivity from [`Sortable.js`](http://rubaxa.github.io/Sortable/) in the browser, RStudio Viewer, or RStudio Shiny.  I encourage you to **think creatively and imaginatively** with `sortable` as there are all sorts of potential uses for this `htmlwidget`.  Please do not limit yourself to the simple examples within this vignette.
 
 ## Getting Started
 
-`sortableR` has not achieved CRAN status yet, so for now we will install with `devtools::install_github` as shown in the code below.
+`sortable` has not achieved CRAN status yet, so for now we will install with `devtools::install_github` as shown in the code below.
 
 ```r
-devtools::install_github("timelyportfolio/sortableR")
+devtools::install_github("timelyportfolio/sortable")
 ```
 
 ## Super Simple Example
 
-Using `sortableR` in markdown is a little tricky since markdown does not provide an easy way to provide an `id` that we'll need.  We can overcome this by using bare `HTML` or using `htmltools::tags`.  Let's make a simple `ul` list.  Note, however, that `sortableR` works with nearly any `HTML` element, such as `div`.
+Using `sortable` in markdown is a little tricky since markdown does not provide an easy way to provide an `id` that we'll need.  We can overcome this by using bare `HTML` or using `htmltools::tags`.  Let's make a simple `ul` list.  Note, however, that `sortable` works with nearly any `HTML` element, such as `div`.
 
 ```
 <ul id = "example01">
@@ -52,8 +52,8 @@ Using `sortableR` in markdown is a little tricky since markdown does not provide
 </ul>
 
 ```{r}
-library(sortableR)
-sortableR( "example01" )
+library(sortable)
+sortable( "example01" )
 ```
 
 Now let's use the `htmltools::tags` approach to do exactly the same thing.
@@ -67,13 +67,13 @@ tagList(
     ,tags$li(tags$h4("touch (yes touch) me"))
     ,tags$li(tags$h4("any way you like"))
   )
-  ,sortableR( "example02" )
+  ,sortable( "example02" )
 )
 ```
 
 ## Little Harder but Better Example
 
-If you were wondering if `sortableR` works with images, of course it does.  We'll use `base64::img` to embed our plots on the page.
+If you were wondering if `sortable` works with images, of course it does.  We'll use `base64::img` to embed our plots on the page.
 
 ```{r, collapse = TRUE}
 library(base64)
@@ -98,7 +98,7 @@ tagList(
     ,HTML(img( pngfile ))
     ,HTML(img( pngfile2 ))
   )
-  ,sortableR("example03")
+  ,sortable("example03")
 )
 ```
 
@@ -110,7 +110,7 @@ unlink(pngfile2)
 
 ## Power of Groups
 
-Looking at the [`Sortable.js`](https://github.com/SortableJS/Sortable#options) excites me about the potential to use `sortableR` as an important UI element in both a Shiny and non-Shiny context.  We could potentially demo a plot builder with something like this example.  You'll notice that it doesn't really do anything, but I hope the intent and direction is clear.
+Looking at the [`Sortable.js`](https://github.com/SortableJS/Sortable#options) excites me about the potential to use `sortable` as an important UI element in both a Shiny and non-Shiny context.  We could potentially demo a plot builder with something like this example.  You'll notice that it doesn't really do anything, but I hope the intent and direction is clear.
 
 ```{r}
 library(shiny)
@@ -164,19 +164,19 @@ fluidPage(
       )
     )
   )
-  ,sortableR( "sort1", options = list( group = "sortGroup1" ) )
-  ,sortableR( "sort2", options = list( group = "sortGroup1" ) )
-  ,sortableR( "sort3", options = list( group = "sortGroup1" ) )
+  ,sortable( "sort1", options = list( group = "sortGroup1" ) )
+  ,sortable( "sort2", options = list( group = "sortGroup1" ) )
+  ,sortable( "sort3", options = list( group = "sortGroup1" ) )
 )
 ```
 
 ## Code For a Shiny Example
-I learned late last night that `sortableR` will allow movable tabs inside a Shiny (and also not Shiny) app.  By adding just one line of code and an `id` to this RStudio [Tabset example](https://github.com/rstudio/shiny-examples/tree/master/006-tabsets), we get rearrangeable tabs.  I really hope you'll copy and paste to see it for yourself, or you can `runGist("2dbe45f77b65e28acab9")`.
+I learned late last night that `sortable` will allow movable tabs inside a Shiny (and also not Shiny) app.  By adding just one line of code and an `id` to this RStudio [Tabset example](https://github.com/rstudio/shiny-examples/tree/master/006-tabsets), we get rearrangeable tabs.  I really hope you'll copy and paste to see it for yourself, or you can `runGist("2dbe45f77b65e28acab9")`.
 
 ```{r eval=F}
 # all credit for code goes to RStudio
 # https://github.com/rstudio/shiny-examples/tree/master/006-tabsets
-library(sortableR)
+library(sortable)
 library(shiny)
 
 ui = # Define UI for random distribution application 
@@ -214,7 +214,7 @@ shinyUI(fluidPage(
       )
     )
   )
-  ,sortableR("sortTab")
+  ,sortable("sortTab")
 ))
 
 server = function(input, output) {
