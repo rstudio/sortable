@@ -3,6 +3,7 @@
 export(renderSortable)
 export(sortable)
 export(sortableItemlist)
+export(sortableJStext)
 export(sortableOutput)
 importFrom(htmltools,tags)
 importFrom(htmlwidgets,shinyWidgetOutput)

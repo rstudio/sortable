@@ -36,6 +36,7 @@
 #' @importFrom htmlwidgets shinyWidgetOutput
 #'
 #' @export
+#' @example inst/examples/sortable_simple_example.R
 sortable <- function(
   selector,
   options = NULL,

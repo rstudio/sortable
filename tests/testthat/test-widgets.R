@@ -56,7 +56,7 @@ test_that( "boostrap example works",{
     fluidPage(fluidRow(
       column(width = 4
              ,tags$a(
-               href = "http://jsbin.com/luxero/2/edit?html,js,output"
+               href = "https://jsbin.com/luxero/2/edit?html,js,output"
                ,"Bootstrap handle example"
              )
              ,HTML(htm)

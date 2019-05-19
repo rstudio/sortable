@@ -7,46 +7,42 @@
 
 <!-- badges: end -->
 
-The goal of sortable is to …
+The goal of `sortable` is to expose the functionality of `sortable.js`
+as an [htmlwidget](https://htmlwidgets.org) in R, so you can use this in
+Shiny apps and widgets, as well as R Markdown.
+
+[Sortable.js](https://rubaxa.github.io/Sortable) is so ridiculously
+amazing that of course we need it in **R** as an
+[htmlwidget](https://htmlwidgets.org). `sortable` attempts to harness
+some of the power of `Sortable.js`.
+
+*Note: this is experimental and under development*, but it does work.
 
 ## Installation
 
-You can install the released version of sortable from
-[CRAN](https://CRAN.R-project.org) with:
+~~You can install the released version of sortable from
+[CRAN](https://CRAN.R-project.org) with:~~
 
 ``` r
-install.packages("sortable")
+~~install.packages("sortable")~~
 ```
 
 And the development version from [GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("timelyportfolio/sortable")
-```
-
-## sortable.js
-
-[Sortable.js](http://rubaxa.github.io/Sortable) is so ridiculously
-amazing that of course we need it in **R** as an
-[htmlwidget](http://htmlwidgets.org). `sortable` attempts to harness
-some of the power of `Sortable.js`.
-
-*note: this is experimental and underdevelopment*, but it does work. Try
-it out. I don’t think it will hurt anything. `sortable` is not on CRAN,
-but should install easily with `devtools::install_github`.
-
-``` r
-# install.packages("remotes")
-remotes::install_github("timelyportfolio/sortable")
+devtools::install_github("timelyportfolio/sortableR")
 ```
 
 ### Good Widgets Just Work
 
+``` r
+library(sortable)
+```
+
 I think `sortable` works best with `htmltools::tags`.
 
 ``` r
-library(sortable)
 library(htmltools)
 
 html_print(tagList(
@@ -67,7 +63,6 @@ When `htmlwidgets` play well together, I am very happy.
 ``` r
 library(DiagrammeR)
 library(htmltools)
-library(sortable)
 
 html_print(tagList(
   tags$div(
@@ -92,7 +87,6 @@ input (*I’ll try*) also. Let’s see it as an output.
 
 ``` r
 library(shiny)
-library(sortable)
 
 ui <- shinyUI(fluidPage(
   fluidRow(
@@ -120,7 +114,6 @@ or integral piece of Shiny.
 
 ``` r
 library(shiny)
-library(sortable)
 
 ui <- shinyUI(fluidPage(
   fluidRow(
@@ -150,6 +143,6 @@ Or, check out these reorderable tabs by
 `runGist("2dbe45f77b65e28acab9")`. All we had to do was add an `id` and
 add one line of code to the [Tabset
 example](https://github.com/rstudio/shiny-examples/tree/master/006-tabsets)
-from [RStudio](http://rstudio.com).
+from [RStudio](https://rstudio.com).
 
 <img src="inst/images/sortable_tabs.gif"/>

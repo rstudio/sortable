@@ -12,7 +12,7 @@
 
 <meta name="author" content="Kenton Russell" />
 
-<meta name="date" content="2019-05-16" />
+<meta name="date" content="2019-05-19" />
 
 <title>Fun with Sortable.js in R</title>
 
@@ -1170,15 +1170,16 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 
 <h1 class="title toc-ignore">Fun with Sortable.js in R</h1>
 <h4 class="author">Kenton Russell</h4>
-<h4 class="date">2019-05-16</h4>
+<h4 class="date">2019-05-19</h4>
 
 
 
-<p>With <code>sortable</code> <a href="http://htmlwidgets.org"><code>htmlwidget</code></a> we can amaze our non-R friends and thrill our colleagues with powerful, dependency-free interactivity from <a href="http://rubaxa.github.io/Sortable/"><code>Sortable.js</code></a> in the browser, RStudio Viewer, or RStudio Shiny. I encourage you to <strong>think creatively and imaginatively</strong> with <code>sortable</code> as there are all sorts of potential uses for this <code>htmlwidget</code>. Please do not limit yourself to the simple examples within this vignette.</p>
+<p>With <code>sortable</code> <a href="https://htmlwidgets.org"><code>htmlwidget</code></a> we can amaze our non-R friends and thrill our colleagues with powerful, dependency-free interactivity from <a href="https://sortablejs.github.io/Sortable/"><code>Sortable.js</code></a> in the browser, RStudio Viewer, or RStudio Shiny. I encourage you to <strong>think creatively and imaginatively</strong> with <code>sortable</code> as there are all sorts of potential uses for this <code>htmlwidget</code>. Please do not limit yourself to the simple examples within this vignette.</p>
 <div id="getting-started" class="section level2">
 <h2>Getting Started</h2>
 <p><code>sortable</code> has not achieved CRAN status yet, so for now we will install with <code>devtools::install_github</code> as shown in the code below.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1">devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;timelyportfolio/sortable&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1">devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;timelyportfolio/sortableR&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">library</span>(sortable)</a></code></pre></div>
 </div>
 <div id="super-simple-example" class="section level2">
 <h2>Super Simple Example</h2>
@@ -1210,21 +1211,21 @@ any way you like
 </h4>
 </li>
 </ul>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">library</span>(sortable)</a>
-<a class="sourceLine" id="cb3-2" title="2"><span class="kw">sortable</span>( <span class="st">&quot;example01&quot;</span> )</a></code></pre></div>
-<div id="htmlwidget-9fd2e6181c543a00429e" style="width:0px;height:0px;" class="sortable html-widget"></div>
-<script type="application/json" data-for="htmlwidget-9fd2e6181c543a00429e">{"x":{"selector":"example01","options":null},"evals":[],"jsHooks":[]}</script>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1"><span class="kw">sortable</span>( <span class="st">&quot;example01&quot;</span> )</a></code></pre></div>
+<div id="htmlwidget-f2a3e766681155b0410e" style="width:0px;height:0px;" class="sortable html-widget"></div>
+<script type="application/json" data-for="htmlwidget-f2a3e766681155b0410e">{"x":{"selector":"example01","options":null},"evals":[],"jsHooks":[]}</script>
 <p>Now let’s use the <code>htmltools::tags</code> approach to do exactly the same thing.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1"><span class="kw">library</span>(htmltools)</a>
-<a class="sourceLine" id="cb4-2" title="2"><span class="kw">tagList</span>(</a>
-<a class="sourceLine" id="cb4-3" title="3">  tags<span class="op">$</span><span class="kw">ul</span>(<span class="dt">id =</span> <span class="st">&quot;example02&quot;</span></a>
-<a class="sourceLine" id="cb4-4" title="4">    ,tags<span class="op">$</span><span class="kw">li</span>(tags<span class="op">$</span><span class="kw">h4</span>(<span class="st">&quot;drag me&quot;</span>))</a>
-<a class="sourceLine" id="cb4-5" title="5">    ,tags<span class="op">$</span><span class="kw">li</span>(tags<span class="op">$</span><span class="kw">h4</span>(<span class="st">&quot;sort me&quot;</span>))</a>
-<a class="sourceLine" id="cb4-6" title="6">    ,tags<span class="op">$</span><span class="kw">li</span>(tags<span class="op">$</span><span class="kw">h4</span>(<span class="st">&quot;touch (yes touch) me&quot;</span>))</a>
-<a class="sourceLine" id="cb4-7" title="7">    ,tags<span class="op">$</span><span class="kw">li</span>(tags<span class="op">$</span><span class="kw">h4</span>(<span class="st">&quot;any way you like&quot;</span>))</a>
-<a class="sourceLine" id="cb4-8" title="8">  )</a>
-<a class="sourceLine" id="cb4-9" title="9">  ,<span class="kw">sortable</span>( <span class="st">&quot;example02&quot;</span> )</a>
-<a class="sourceLine" id="cb4-10" title="10">)</a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">library</span>(htmltools)</a>
+<a class="sourceLine" id="cb5-2" title="2"><span class="kw">tagList</span>(</a>
+<a class="sourceLine" id="cb5-3" title="3">  tags<span class="op">$</span><span class="kw">ul</span>(</a>
+<a class="sourceLine" id="cb5-4" title="4">    <span class="dt">id =</span> <span class="st">&quot;example02&quot;</span>,</a>
+<a class="sourceLine" id="cb5-5" title="5">    tags<span class="op">$</span><span class="kw">li</span>(tags<span class="op">$</span><span class="kw">h4</span>(<span class="st">&quot;drag me&quot;</span>)),</a>
+<a class="sourceLine" id="cb5-6" title="6">    tags<span class="op">$</span><span class="kw">li</span>(tags<span class="op">$</span><span class="kw">h4</span>(<span class="st">&quot;sort me&quot;</span>)),</a>
+<a class="sourceLine" id="cb5-7" title="7">    tags<span class="op">$</span><span class="kw">li</span>(tags<span class="op">$</span><span class="kw">h4</span>(<span class="st">&quot;touch (yes touch) me&quot;</span>)),</a>
+<a class="sourceLine" id="cb5-8" title="8">    tags<span class="op">$</span><span class="kw">li</span>(tags<span class="op">$</span><span class="kw">h4</span>(<span class="st">&quot;any way you like&quot;</span>))</a>
+<a class="sourceLine" id="cb5-9" title="9">  ),</a>
+<a class="sourceLine" id="cb5-10" title="10">  <span class="kw">sortable</span>(<span class="st">&quot;example02&quot;</span>)</a>
+<a class="sourceLine" id="cb5-11" title="11">)</a></code></pre></div>
 <ul id="example02">
 <li>
 <h4>drag me</h4>
@@ -1239,103 +1240,119 @@ any way you like
 <h4>any way you like</h4>
 </li>
 </ul>
-<div id="htmlwidget-e82aa650aee105fb755a" style="width:0px;height:0px;" class="sortable html-widget"></div>
-<script type="application/json" data-for="htmlwidget-e82aa650aee105fb755a">{"x":{"selector":"example02","options":null},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-8fb1f950f04544b4408b" style="width:0px;height:0px;" class="sortable html-widget"></div>
+<script type="application/json" data-for="htmlwidget-8fb1f950f04544b4408b">{"x":{"selector":"example02","options":null},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="little-harder-but-better-example" class="section level2">
 <h2>Little Harder but Better Example</h2>
 <p>If you were wondering if <code>sortable</code> works with images, of course it does. We’ll use <code>base64::img</code> to embed our plots on the page.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">library</span>(base64)</a>
-<a class="sourceLine" id="cb5-2" title="2"></a>
-<a class="sourceLine" id="cb5-3" title="3"><span class="co"># use example from ?base64::img</span></a>
-<a class="sourceLine" id="cb5-4" title="4">pngfile &lt;-<span class="st"> </span><span class="kw">tempfile</span>()</a>
-<a class="sourceLine" id="cb5-5" title="5"><span class="kw">png</span>( pngfile, <span class="dt">width =</span> <span class="dv">400</span>, <span class="dt">height =</span> <span class="dv">300</span> )</a>
-<a class="sourceLine" id="cb5-6" title="6"><span class="kw">plot</span>( <span class="dv">1</span><span class="op">:</span><span class="dv">100</span>, <span class="kw">rnorm</span>(<span class="dv">100</span>), <span class="dt">pch =</span> <span class="dv">21</span>, <span class="dt">bg =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">cex =</span> <span class="dv">2</span> )</a>
-<a class="sourceLine" id="cb5-7" title="7"><span class="kw">title</span>(<span class="dt">main=</span><span class="st">&quot;Best Scatter Chart Ever (Moves Like Jagger)&quot;</span>)</a>
-<a class="sourceLine" id="cb5-8" title="8">msg&lt;-<span class="kw">capture.output</span>(<span class="kw">dev.off</span>())</a>
-<a class="sourceLine" id="cb5-9" title="9"></a>
-<a class="sourceLine" id="cb5-10" title="10"></a>
-<a class="sourceLine" id="cb5-11" title="11"><span class="co"># make another plot for demo purposes</span></a>
-<a class="sourceLine" id="cb5-12" title="12">pngfile2 &lt;-<span class="st"> </span><span class="kw">tempfile</span>()</a>
-<a class="sourceLine" id="cb5-13" title="13"><span class="kw">png</span>( pngfile2, <span class="dt">width =</span> <span class="dv">400</span>, <span class="dt">height =</span> <span class="dv">300</span> )</a>
-<a class="sourceLine" id="cb5-14" title="14"><span class="kw">barplot</span>( <span class="dv">1</span><span class="op">:</span><span class="dv">9</span>, <span class="dt">col =</span> blues9 )</a>
-<a class="sourceLine" id="cb5-15" title="15"><span class="kw">title</span>(<span class="dt">main=</span><span class="st">&quot;Best Bar Chart Ever (I Like the Way You Move)&quot;</span>)</a>
-<a class="sourceLine" id="cb5-16" title="16">msg&lt;-<span class="kw">capture.output</span>(<span class="kw">dev.off</span>())</a>
-<a class="sourceLine" id="cb5-17" title="17"></a>
-<a class="sourceLine" id="cb5-18" title="18"><span class="kw">tagList</span>(</a>
-<a class="sourceLine" id="cb5-19" title="19">  tags<span class="op">$</span><span class="kw">div</span>(<span class="dt">id =</span> <span class="st">&quot;example03&quot;</span></a>
-<a class="sourceLine" id="cb5-20" title="20">    ,<span class="kw">HTML</span>(<span class="kw">img</span>( pngfile ))</a>
-<a class="sourceLine" id="cb5-21" title="21">    ,<span class="kw">HTML</span>(<span class="kw">img</span>( pngfile2 ))</a>
-<a class="sourceLine" id="cb5-22" title="22">  )</a>
-<a class="sourceLine" id="cb5-23" title="23">  ,<span class="kw">sortable</span>(<span class="st">&quot;example03&quot;</span>)</a>
-<a class="sourceLine" id="cb5-24" title="24">)</a></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1"><span class="kw">library</span>(base64)</a>
+<a class="sourceLine" id="cb6-2" title="2"></a>
+<a class="sourceLine" id="cb6-3" title="3"><span class="co"># use example from ?base64::img</span></a>
+<a class="sourceLine" id="cb6-4" title="4">pngfile &lt;-<span class="st"> </span><span class="kw">tempfile</span>()</a>
+<a class="sourceLine" id="cb6-5" title="5"><span class="kw">png</span>(pngfile, <span class="dt">width =</span> <span class="dv">400</span>, <span class="dt">height =</span> <span class="dv">300</span>)</a>
+<a class="sourceLine" id="cb6-6" title="6"><span class="kw">plot</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">100</span>, <span class="kw">rnorm</span>(<span class="dv">100</span>), <span class="dt">pch =</span> <span class="dv">21</span>, <span class="dt">bg =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">cex =</span> <span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb6-7" title="7"><span class="kw">title</span>(<span class="dt">main =</span> <span class="st">&quot;Best Scatter Chart Ever (Moves Like Jagger)&quot;</span>)</a>
+<a class="sourceLine" id="cb6-8" title="8">msg &lt;-<span class="st"> </span><span class="kw">capture.output</span>(<span class="kw">dev.off</span>())</a>
+<a class="sourceLine" id="cb6-9" title="9"></a>
+<a class="sourceLine" id="cb6-10" title="10"></a>
+<a class="sourceLine" id="cb6-11" title="11"><span class="co"># make another plot for demo purposes</span></a>
+<a class="sourceLine" id="cb6-12" title="12">pngfile2 &lt;-<span class="st"> </span><span class="kw">tempfile</span>()</a>
+<a class="sourceLine" id="cb6-13" title="13"><span class="kw">png</span>(pngfile2, <span class="dt">width =</span> <span class="dv">400</span>, <span class="dt">height =</span> <span class="dv">300</span>)</a>
+<a class="sourceLine" id="cb6-14" title="14"><span class="kw">barplot</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">9</span>, <span class="dt">col =</span> blues9)</a>
+<a class="sourceLine" id="cb6-15" title="15"><span class="kw">title</span>(<span class="dt">main =</span> <span class="st">&quot;Best Bar Chart Ever (I Like the Way You Move)&quot;</span>)</a>
+<a class="sourceLine" id="cb6-16" title="16">msg &lt;-<span class="st"> </span><span class="kw">capture.output</span>(<span class="kw">dev.off</span>())</a>
+<a class="sourceLine" id="cb6-17" title="17"></a>
+<a class="sourceLine" id="cb6-18" title="18"><span class="kw">tagList</span>(</a>
+<a class="sourceLine" id="cb6-19" title="19">  tags<span class="op">$</span><span class="kw">div</span>(</a>
+<a class="sourceLine" id="cb6-20" title="20">    <span class="dt">id =</span> <span class="st">&quot;example03&quot;</span>,</a>
+<a class="sourceLine" id="cb6-21" title="21">    <span class="kw">HTML</span>(<span class="kw">img</span>(pngfile)),</a>
+<a class="sourceLine" id="cb6-22" title="22">    <span class="kw">HTML</span>(<span class="kw">img</span>(pngfile2))</a>
+<a class="sourceLine" id="cb6-23" title="23">  ),</a>
+<a class="sourceLine" id="cb6-24" title="24">  <span class="kw">sortable</span>(<span class="st">&quot;example03&quot;</span>)</a>
+<a class="sourceLine" id="cb6-25" title="25">)</a></code></pre></div>
 <div id="example03">
 <img src="data:image/png;base64,
-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" alt="image" />
+iVBORw0KGgoAAAANSUhEUgAAAZAAAAEsCAMAAADaaRXwAAAA1VBMVEUAAAAAADoAAGYAOjoAOmYAOpAAZpAAZrY6AAA6ADo6AGY6OgA6Ojo6OmY6OpA6ZpA6ZrY6kLY6kNtmAABmADpmAGZmOgBmOjpmOpBmZgBmZmZmZrZmkLZmkNtmtttmtv+QOgCQOjqQZgCQZjqQZmaQkDqQtpCQttuQ29uQ2/+2ZgC2Zjq2Zma2kDq2kGa2tma2ttu225C227a22/+2/7a2/9u2///bkDrbkGbbtmbbtpDb2//b/7bb/9vb////AAD/tmb/tpD/25D/27b//7b//9v////vofwnAAASnklEQVR4nO2dCXvcthGGIdmuNnGTulLrpmliyUmPeN30cqqt3Va7XWv5/39SAR4gbgwOksP1fM+TeLXEACBeYAYAQYk1JFRiS1eApIuAIBMBQSYCgkwEBJkICDIREGQiIMhEQJCJgCATAUEmAoJMBASZCAgyERBkIiDIRECQiYAgEwFBJgKCTAQEmQgIMhEQZCIgyERAkCkfyOMNE/rFg+Pa6e1t/+njS3eSNsWYzNDH3zB28S1PcHd577o+GPZ1uHgTruru4s3pjrEr/vHA2DNXjV06brqkjzeX9+I/ZyLvBXeO17EkxUCc97dlt2qiK08KmczQccM6Mx+QwRAG5PFG5MSYyGubAaTLowaQZhtNXAJEZH4U/z/9ZcMuXvHv/vecsafvxM33EMQ9fWyTfC+u8C/4iHna9lf2sy7ZYHy6u/h6c8mTiMb75UOzY6JfX/79JXt6P9h1iS42Q/6PN32THZjoeoKTnR3P6Vb8+Jz/IwgKk3/xRN88OMz6W5CVH+60+09NqDZDXztxl0//Ieo0ftCr0xU4KRBR6W3bT6/7DvvsvyqQi1cPXRsz0UXVFD2QwbhN0rZA1xCn71/1ZjxRb/fQfvH0pQWk/aDVZcyOt4UgefkHbnNgXzOZ6MphNhTkAPLPO/aqkQnVZtBq92SjfDCrIys8CZDBXfCKv2vEOJBjXPqith5fvONJLt+d+m/bQSVdljTmSXvXNnYj/t11c+hzPY6JDJclbpzXY8sTO7JrG0GMtc3l/fbyrzw17yZ/4tkJE9NMdVMGkN+KasmEKpChdvwu3/DxKAqQH/Tq+HxwRSDcoRxYj0Y0/5Nv/q0Gh9PbdmTINj59+P1zpgJRjIdQoALh33UN2tn1iWwgPFw+ihZ2ZNe2K2+Jn24ufrh79p6nPrSNs2u7g2XW34IFhF++bcaEGpC+dm2+orrKB706Y62mACJg8xu4VSr54fuxuQd9eCmSdN31483Tv/3nJgKkd1mvXz20HUrc2GBnARn68+nu2Y+ijACQ+y37+eb6oAGxzOQt2ECe8BGmA9m2UenyfqhdHEg7JKcFwivVjstBp+94LSWQHbt66JLw+Poju96xF837jeWyuiYd6qoF9Q7IYOcFwpO3PdiRnQRyEC1z0FyWZSZvobGD+m7wbY0s84VwSrJ2HpelVGfaEdLRb1u3cxwH5YshqHffDEFdT7Edg7oIhLKuB23aO/Y0BcgQ1Ls63LYf235tZzfEkPs2yUEN6raZrKCsPLseZ1nKvY4Jrpuxdswd1GV1Zogh7Wzv7aZb/n143n3Ba3rVdV05IXzbTVvf8gVf57x5ivZ/g7HaebSFoWjQwa5PNOSvAGljczPWRclu282yRGOKedYw7f22u6ibyVtwAGmDm0wo9J5nwwezvKtHPkf/SfCXH4zqTDnLWo8OnvVndXFXeNu873xi98GuynTrkPVIrNRnUb9suh4/mJpypb4i7WKRtJY+vuau9sWD8kHXpHtZpElEQJCJgCATAUEmAoJMBASZCAgyERBkIiDIRECQiYAgEwFBJgKCTAQEmQgIMhEQZCIgyERAkImAIBMBQaYSIIyUowmBFNhi05631H6WkggIRJzGfh/rvJWKKro8mS0uCRxCc9wRAYlrL4HM4LUISFwDj1mGCAGJi4AgEwFBJooh2ESzLGyidQg20Ur9kxUBQSYCgkwEBJkICDIREGQiIMhEQJCpGMhx0/4yosdfW7+DgIDkqBTI6U78VqlrAlJLpUA6ENsrBQjw/ATJqRojhGv35HMaIVVUHEMeb9pfmLKzf48NAckRzbKQiYAgEwFBJgKCTAQEmQgIMhEQZFoJkPkOGSytdQCZ8RjO0kIMZBwVcx5Uq6GS8YwXyDgqjKOc6N1X0XhGC0QZFfphZ/Tuq2w8YwWijgoNCHr3VXg0e3EgHgekQGAqkFlPomep8OWFpYH4HJByW3vvaEGpdQPxOiA3kAlenqk+RVg1EL8DUq60Q2gYR7WB1J8irDqGBJpXA7KX/bhyDJliirDmWVaov/d910xStQmnmSKseB0SdEDdqLDarKaTmWiKsN6VOqSHWkOiYhhGOGfDOstS00y3NCcgdiJAaxcNiaAxwmXm0kCm3iqMAK89yyq/m8WBlCrcBNEGr+sPK+S2diDhJoi5JLHirDhCa4y3lQOJNIEnaA8QKk8XfPiTmOMGEruV2AhwAxk41A4gHvxp2GcFkuoeorcSm7Y6r8sva0+xPPjTsMOAHNr3PRL/hq+9PZXoIeK3EgPiavP+O3tTplh2hm2MSsMOAXLo/jr56S4NiZl1qocA3Eq0TR1lyu3jCXbyjQrnlAIA8viV/Cu6f7ZeAhn+ZDm7jL1BlewhALcSz9MelWxwVs4OXeS+DPyeUiJ5FF1umvYFQ5BtcoeEGMRHndXIEkjmtmWImpaDD3tYECDHjTEGND3+yvPHr+cAkjFz3Uu37urQ/tJ6ELGFz0jLLKVaDOlfI2wOz6w/AJ6SdTIQwK1kLeyUOGt3aG9xxuMZ+LMFt4W32pAY0r9g63jzOWqrVSGtq0y376HOr6wO7SnPeIAJuQkn9mjN5xshGeuwqXYGnc0aeVg2ti200DF8WOM4UHNIDOlnUp4YErbVvsjw99PsnbsaJNjWw1w5ye+OpRh3Hqo56pV6JP+UxjFt7b4R5DtMzdLK9O3RhHLBvZcVzr8AiKtvhDygtXiBdSzfsYBCIOFpb9h2QvlvK3NXPeBS5VzZT81folXRQiC1gjpICQ3p7a0tDm/b5hU+Ll48OQdKtNq/MIZUmvbCbMDLrsbrY1ioH2drnGA5qcX8nTuI5M2yZhwh4Ya0aDnxGaezqymYaerFonVItWmvVU+zq4Ub0kHL1Vun2Mc1yreLBa4qwzXv0kYqkVrrhKztfVjI2iza7X1AKhwIGWaxdveOdIGEkLYYELvXRJZd0G7vAVLj+XnHNHlV2YR6g3llKSB2f99XAuKOIfXCvHOkZkctOy5G0qdlD7d1zzzG/Tj7xsCBwTXLqhjm7XqI6mYCd/iJiEHjfCgIKwxSExcQt3eBt6ljHVIxzNvLPNZ3oXSX6BrKkdLF//wPBeO23otOINqz7vzdYrlSl0NtQiDh9UlaXg3QZXkfCgJsPVLOfhjf+EdCciec5E04o35FzjAXSJ7isyy9hYe9CX/bJXZCZUjVXCrqI7UIdR6Qx9/JH+1TJxHb0GUrEDIJqUpn1iDkBV3PNonajwr3nK1+Ahkhlc5lxWvT3n81IGpGeUHXZwN/8gutY9Isq6l1ctFTGeNWYGcbEp5pj1Og5NMQgJYudIZo1iGNowcb33vtgZ1dyT/TX4GaunDJmbdSP1RfhzSuHjxcCDc4tAWUQwZZnRi8V1NhU0bJDXK59rTXfLJpNnGlsw1jQrVlwa4LHB2qHhWAAUl8NBXJ2nz2n9aDh9kxoBGMw21ty8L7c+nsAsxJSwhzWbucpbov63E8uBosnq0cVPFm1bdn2yLhJdUO17CEQCAVY4h6n3aDAbJVhxSoIkqJSY1cFK7BxkbC2WOIYzykAcl4RKuMyTT2+eEaXEUzYXEM8Z8RcmbtWokntq9/7eh/Ljq0rNMS/vQILjB5a68ykrz7xx9DAicgnFk7WzPRN/iCTvBcVdeyLsu609Yh00mBBE45OM4Ied6gkuU7xkNim7jvNo5V30oeXvhwDpnSqazLDzhzzBshfqWPEGdETrv/0FPU0PtNKhC5lenY30s5aOcp0D4+6t0X0xMWxxD/6PH4DvCcNVQt3wAJZd21vXUAem9y9PQZT018BZqTJ2+OObOs0+uKs6xINwbmbbdDbDo8Hs9l2lAxOabM4kIFalUMHh5NX4fknZTzZF0nhrrPqoUaUmlnZbdmb3DUHiKHh4jb37mr6MpRXs9YqWfJZ1t160fNNn6MaGw/Jan2NdtDgSQ9u3FNLd0dcyYgyRAyqKUA0fbmNThQIGwf6wFm4XpCn7ODATnd8fZJPGutZp38gCjLrxnrE6NALaQ3+qhQgcBiyN4cSsbNuQpXc/QWAQvq7TmgXfbpd60pQKZju6Zw1J+imwXq02KlCC2e6EBCNVSGnD4pcE2bzRy9Yyth2pv9fgjsFhWZ3Rf+u43sVrbHqfWTPuPqFifKRd96bgSilsXsWUK3R6DfSBmQwhESm//YlmNtUzg2ym171o5q444/GUD2ykrd1yGGe2LGzRmEvGTLgBTGEPBE0lHbFI5CoU2rQIF921rFeTvEOOq15zkyCsU6VFkMyVMFIGlmziygTtK5rxXoEEpctJY3kA5VNsvKkhpD0trHdOrTA5FmZnT25zLOHP1AAPbW15EKdv8UnjoBTSQ1UwgQa2apB4ixwLSJmgwssYGtrLRlWUyvd0r9h1sP12/YOkk8I2dmnfz+hH8r1kzi+dF+cp9a+4QROpZlTrtg9lpekMvlp072qUc5fQ8rXOsIx4/NSCh1ojaUY7RsMPV4c/rCJH1SAnRZ2wqnTvK2sHzjwLhV153vjdNfOafkoDR1TzdOm9N7w/y7vT55n/Qoe6KKH9Kdgd835Eb3wSjZ3xnrjVT7BXZ7Lbk3G8zc9BXYXED2pXvTqfYzxZBgOmOzwZ1IdSByfjkdkExPVy7Y1knFJ4Z2Mt1Z+87jGEAAMUS1TGjZbO9fR4vHEKup3XntzVTRWZZumjrh9nj/iR6uqeUXXa5gaze1P1Voe90fgypu/Nd4/BxhulIg4rvgSl1VQrcOO7gabiw6eYmYlxQNS2X3fYdcT4L063VcSWSvIzEcBQrwNs7iQBzPeJyZyYZybgDVciVOIHlb+p5CYkwXB9JE+r5MFrhe0ZU42nwM8+VA4lnMs/0eDmPaZoNXoRhR0ZVYWXl3B0qKWRRI1J+UBoC6rsTISb1SDl66gwVd1vQrrLo917ONb6x9MrdKlefwnrqWAgn87qbOdoY9iLpAjKbWMg+vGiGlMMcg1NNEsogWEvuDLhVaKyadeVbfhe6FFe2r9AeHwj203GVZLyDqL+xMD0R/HJnXd9P2woqesUQaZPIYMjkQ3SvnRqykvbCiLf2lgUwdQ5TTUUWlpeyF4QfifCl0nlmWfn8F4zFhL6zsGcvUMUQoBGTKP1DfVASSoNxxCNklmgHItA8RlgCSH6lY712nW4dMZAuXOeedNmINyh31w0mYJVfqU0vvrdPvC3SabNSvH4j3tY916gyAeF/7WKXOAchqBOkrBGQ+gbwpAZlNsPkGAZlLwBk5AZlLwDUrQiArnyb5tFoga19I+OQC4jocGcmlpAZ5VjMttWeX60CLo+9hA7LYawDTy+pqzr6HDchM27WLyBgQ7r5HQGYU5LdrEJDFtA4gZxxDTK0DyPnOsizhiiH+1d+5rkNsYZplhVr9TFfqDuFZh3w6fiksLCv1TyhyJ2sRIJ/Q3DZZBASZioEcN+zijfO3bzht/a9WklqVAhF/rkK8IgIEwiCvSHzSKgXSgdhewYB43+QjDaoxQrh2Tz4HABlBnOfqr8YKqjiGPN60B613l4A/eeR/k+8sVKWXzTrLOu9gXscPE5BaqjRTqQMk/H6I1FnPrir1tlmBnPUe1iqBnPPeOiogcNtznF11QhVDqtuuUSucZZ251rcOOXehWKkHbEk5mg5IeR5LWCKvLgFBZklAkFkSEGSWBASZJQFBZklAkFl+eos75CIgyERAkImAIBMBQSYCgkwEBJkICDIREGQiIMhUDOTxhj17SDc7bhi7zbRuz3/nWJ7uuldd0k15dcXZ5mTL4+ejFcy4FIhonN1Vspn4ExjHz97kWe/YbV6529vm8Owhw1RUd5dheRAYeyugcSkQ8drI0X5TIaaDqNn2Nsv6+MXL26xy+1dcMkyPXz4Is1TL7cUfeereCmhcCqStqvkXX2DiZjnWp9c/8L6WY3n88jvhsjJM+xGSbikI9FZA41Ig3AVkAhHvyeVY767F4M+xPG5akDmmnf9PtxRAeiug8WIjpH0PKMOam5yyR0hKV9UsP3vTHC7v1zBCMmNI21uzrHft2abrrBjyVdskGaZ97063PM4eQ4TjyZhldTwyrYcXg3NmWe0ASzbtR0i6pSDQWwGNF1qHdP38duZ1CLfJWk2I+WveCmb+dQipsggIMhEQZCIgyERAkImAIBMBQSYCgkwEBJkICDIREGQiIMhEQJCJgCATAUEmAoJMBASZCAgyERBkIiDIdD5AxiM26ScLEOlsgLTnmsdPaSecEelcgHTnmsXYyDnhjEjnAsR0WfnHRhfWuQJJO+GMSOcKhEbI4tKBUAxZXDqQtBPOiHReQDootA4h1RMBQSYCgkwEBJkICDIREGQiIMhEQJCJgCATAUEmAoJMBASZCAgyERBkIiDIRECQiYAgEwFBpv8DvHXaZRociQcAAAAASUVORK5CYII=" alt="image" />
 <img src="data:image/png;base64,
 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" alt="image" />
 </div>
-<div id="htmlwidget-ac24e418fb0a9948e8d2" style="width:0px;height:0px;" class="sortable html-widget"></div>
-<script type="application/json" data-for="htmlwidget-ac24e418fb0a9948e8d2">{"x":{"selector":"example03","options":null},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-0ebe70aba024b1a3d80b" style="width:0px;height:0px;" class="sortable html-widget"></div>
+<script type="application/json" data-for="htmlwidget-0ebe70aba024b1a3d80b">{"x":{"selector":"example03","options":null},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="power-of-groups" class="section level2">
 <h2>Power of Groups</h2>
 <p>Looking at the <a href="https://github.com/SortableJS/Sortable#options"><code>Sortable.js</code></a> excites me about the potential to use <code>sortable</code> as an important UI element in both a Shiny and non-Shiny context. We could potentially demo a plot builder with something like this example. You’ll notice that it doesn’t really do anything, but I hope the intent and direction is clear.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1"><span class="kw">library</span>(shiny)</a>
-<a class="sourceLine" id="cb6-2" title="2"><span class="kw">fluidPage</span>(</a>
-<a class="sourceLine" id="cb6-3" title="3">  <span class="kw">fluidRow</span>(<span class="dt">class=</span><span class="st">&quot;panel panel-success&quot;</span></a>
-<a class="sourceLine" id="cb6-4" title="4">    ,tags<span class="op">$</span><span class="kw">div</span>(<span class="dt">class=</span><span class="st">&quot;panel-heading&quot;</span></a>
-<a class="sourceLine" id="cb6-5" title="5">      ,tags<span class="op">$</span><span class="kw">h3</span>(<span class="st">&quot;Magic Can Happen Here&quot;</span>)</a>
-<a class="sourceLine" id="cb6-6" title="6">    )</a>
-<a class="sourceLine" id="cb6-7" title="7">    ,<span class="kw">fluidRow</span>(<span class="dt">class =</span> <span class="st">&quot;panel-body&quot;</span></a>
-<a class="sourceLine" id="cb6-8" title="8">      ,<span class="kw">column</span>(<span class="dt">width =</span> <span class="dv">4</span></a>
-<a class="sourceLine" id="cb6-9" title="9">        ,tags<span class="op">$</span><span class="kw">div</span>(<span class="dt">class=</span><span class="st">&quot;panel panel-default&quot;</span></a>
-<a class="sourceLine" id="cb6-10" title="10">          ,tags<span class="op">$</span><span class="kw">div</span>(<span class="dt">class=</span><span class="st">&quot;panel-heading&quot;</span>,<span class="st">&quot;Variables&quot;</span>)</a>
-<a class="sourceLine" id="cb6-11" title="11">          ,tags<span class="op">$</span><span class="kw">div</span>(<span class="dt">class=</span><span class="st">&quot;panel-body&quot;</span></a>
-<a class="sourceLine" id="cb6-12" title="12">            ,<span class="dt">id =</span> <span class="st">&quot;sort1&quot;</span></a>
-<a class="sourceLine" id="cb6-13" title="13">            ,<span class="kw">lapply</span>(</a>
-<a class="sourceLine" id="cb6-14" title="14">              <span class="kw">colnames</span>(mtcars)</a>
-<a class="sourceLine" id="cb6-15" title="15">              ,<span class="cf">function</span>(co){</a>
-<a class="sourceLine" id="cb6-16" title="16">                <span class="kw">tag</span>(<span class="st">&quot;p&quot;</span></a>
-<a class="sourceLine" id="cb6-17" title="17">                  ,<span class="kw">list</span>(</a>
-<a class="sourceLine" id="cb6-18" title="18">                    <span class="dt">class =</span> <span class="kw">class</span>(mtcars[,co])</a>
-<a class="sourceLine" id="cb6-19" title="19">                    ,tags<span class="op">$</span><span class="kw">span</span>( <span class="dt">class =</span> <span class="st">&quot;glyphicon glyphicon-move&quot;</span> )</a>
-<a class="sourceLine" id="cb6-20" title="20">                    ,tags<span class="op">$</span><span class="kw">strong</span>( co  )</a>
-<a class="sourceLine" id="cb6-21" title="21">                  )</a>
-<a class="sourceLine" id="cb6-22" title="22">                )</a>
-<a class="sourceLine" id="cb6-23" title="23">              }</a>
-<a class="sourceLine" id="cb6-24" title="24">            )      </a>
-<a class="sourceLine" id="cb6-25" title="25">          )</a>
-<a class="sourceLine" id="cb6-26" title="26">        )       </a>
-<a class="sourceLine" id="cb6-27" title="27">      )</a>
-<a class="sourceLine" id="cb6-28" title="28">      ,<span class="kw">column</span>(<span class="dt">width =</span><span class="dv">4</span></a>
-<a class="sourceLine" id="cb6-29" title="29">        ,tags<span class="op">$</span><span class="kw">div</span>(<span class="dt">class=</span><span class="st">&quot;panel panel-default&quot;</span></a>
-<a class="sourceLine" id="cb6-30" title="30">          ,tags<span class="op">$</span><span class="kw">div</span>(<span class="dt">class=</span><span class="st">&quot;panel-heading&quot;</span></a>
-<a class="sourceLine" id="cb6-31" title="31">            ,tags<span class="op">$</span><span class="kw">span</span>( <span class="dt">class =</span> <span class="st">&quot;glyphicon glyphicon-stats&quot;</span> )</a>
-<a class="sourceLine" id="cb6-32" title="32">            ,<span class="st">&quot;Analyze as x (drag here)&quot;</span></a>
-<a class="sourceLine" id="cb6-33" title="33">          )</a>
-<a class="sourceLine" id="cb6-34" title="34">          ,tags<span class="op">$</span><span class="kw">div</span>(<span class="dt">class=</span><span class="st">&quot;panel-body&quot;</span></a>
-<a class="sourceLine" id="cb6-35" title="35">            ,<span class="dt">id =</span> <span class="st">&quot;sort2&quot;</span></a>
-<a class="sourceLine" id="cb6-36" title="36">          )</a>
-<a class="sourceLine" id="cb6-37" title="37">        )</a>
-<a class="sourceLine" id="cb6-38" title="38">      )</a>
-<a class="sourceLine" id="cb6-39" title="39">      ,<span class="kw">column</span>(<span class="dt">width =</span><span class="dv">4</span></a>
-<a class="sourceLine" id="cb6-40" title="40">        ,tags<span class="op">$</span><span class="kw">div</span>(<span class="dt">class=</span><span class="st">&quot;panel panel-default&quot;</span></a>
-<a class="sourceLine" id="cb6-41" title="41">          ,tags<span class="op">$</span><span class="kw">div</span>(<span class="dt">class=</span><span class="st">&quot;panel-heading&quot;</span></a>
-<a class="sourceLine" id="cb6-42" title="42">            ,tags<span class="op">$</span><span class="kw">span</span>( <span class="dt">class =</span> <span class="st">&quot;glyphicon glyphicon-stats&quot;</span> )</a>
-<a class="sourceLine" id="cb6-43" title="43">            ,<span class="st">&quot;Analyze as y (drag here)&quot;</span></a>
-<a class="sourceLine" id="cb6-44" title="44">          )</a>
-<a class="sourceLine" id="cb6-45" title="45">          ,tags<span class="op">$</span><span class="kw">div</span>(<span class="dt">class=</span><span class="st">&quot;panel-body&quot;</span></a>
-<a class="sourceLine" id="cb6-46" title="46">            ,<span class="dt">id =</span> <span class="st">&quot;sort3&quot;</span></a>
-<a class="sourceLine" id="cb6-47" title="47">          )</a>
-<a class="sourceLine" id="cb6-48" title="48">        )            </a>
-<a class="sourceLine" id="cb6-49" title="49">      )</a>
-<a class="sourceLine" id="cb6-50" title="50">    )</a>
-<a class="sourceLine" id="cb6-51" title="51">  )</a>
-<a class="sourceLine" id="cb6-52" title="52">  ,<span class="kw">sortable</span>( <span class="st">&quot;sort1&quot;</span>, <span class="dt">options =</span> <span class="kw">list</span>( <span class="dt">group =</span> <span class="st">&quot;sortGroup1&quot;</span> ) )</a>
-<a class="sourceLine" id="cb6-53" title="53">  ,<span class="kw">sortable</span>( <span class="st">&quot;sort2&quot;</span>, <span class="dt">options =</span> <span class="kw">list</span>( <span class="dt">group =</span> <span class="st">&quot;sortGroup1&quot;</span> ) )</a>
-<a class="sourceLine" id="cb6-54" title="54">  ,<span class="kw">sortable</span>( <span class="st">&quot;sort3&quot;</span>, <span class="dt">options =</span> <span class="kw">list</span>( <span class="dt">group =</span> <span class="st">&quot;sortGroup1&quot;</span> ) )</a>
-<a class="sourceLine" id="cb6-55" title="55">)</a></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1"><span class="kw">library</span>(shiny)</a>
+<a class="sourceLine" id="cb7-2" title="2"><span class="kw">fluidPage</span>(</a>
+<a class="sourceLine" id="cb7-3" title="3">  <span class="kw">fluidRow</span>(</a>
+<a class="sourceLine" id="cb7-4" title="4">    <span class="dt">class =</span> <span class="st">&quot;panel panel-success&quot;</span>,</a>
+<a class="sourceLine" id="cb7-5" title="5">    tags<span class="op">$</span><span class="kw">div</span>(</a>
+<a class="sourceLine" id="cb7-6" title="6">      <span class="dt">class =</span> <span class="st">&quot;panel-heading&quot;</span>,</a>
+<a class="sourceLine" id="cb7-7" title="7">      tags<span class="op">$</span><span class="kw">h3</span>(<span class="st">&quot;Magic Can Happen Here&quot;</span>)</a>
+<a class="sourceLine" id="cb7-8" title="8">    ),</a>
+<a class="sourceLine" id="cb7-9" title="9">    <span class="kw">fluidRow</span>(</a>
+<a class="sourceLine" id="cb7-10" title="10">      <span class="dt">class =</span> <span class="st">&quot;panel-body&quot;</span>,</a>
+<a class="sourceLine" id="cb7-11" title="11">      <span class="kw">column</span>(</a>
+<a class="sourceLine" id="cb7-12" title="12">        <span class="dt">width =</span> <span class="dv">4</span>,</a>
+<a class="sourceLine" id="cb7-13" title="13">        tags<span class="op">$</span><span class="kw">div</span>(</a>
+<a class="sourceLine" id="cb7-14" title="14">          <span class="dt">class =</span> <span class="st">&quot;panel panel-default&quot;</span>,</a>
+<a class="sourceLine" id="cb7-15" title="15">          tags<span class="op">$</span><span class="kw">div</span>(<span class="dt">class =</span> <span class="st">&quot;panel-heading&quot;</span>, <span class="st">&quot;Variables&quot;</span>),</a>
+<a class="sourceLine" id="cb7-16" title="16">          tags<span class="op">$</span><span class="kw">div</span>(</a>
+<a class="sourceLine" id="cb7-17" title="17">            <span class="dt">class =</span> <span class="st">&quot;panel-body&quot;</span>,</a>
+<a class="sourceLine" id="cb7-18" title="18">            <span class="dt">id =</span> <span class="st">&quot;sort1&quot;</span>,</a>
+<a class="sourceLine" id="cb7-19" title="19">            <span class="kw">lapply</span>(</a>
+<a class="sourceLine" id="cb7-20" title="20">              <span class="kw">colnames</span>(mtcars),</a>
+<a class="sourceLine" id="cb7-21" title="21">              <span class="cf">function</span>(co) {</a>
+<a class="sourceLine" id="cb7-22" title="22">                <span class="kw">tag</span>(</a>
+<a class="sourceLine" id="cb7-23" title="23">                  <span class="st">&quot;p&quot;</span>,</a>
+<a class="sourceLine" id="cb7-24" title="24">                  <span class="kw">list</span>(</a>
+<a class="sourceLine" id="cb7-25" title="25">                    <span class="dt">class =</span> <span class="kw">class</span>(mtcars[, co]),</a>
+<a class="sourceLine" id="cb7-26" title="26">                    tags<span class="op">$</span><span class="kw">span</span>(<span class="dt">class =</span> <span class="st">&quot;glyphicon glyphicon-move&quot;</span>),</a>
+<a class="sourceLine" id="cb7-27" title="27">                    tags<span class="op">$</span><span class="kw">strong</span>(co)</a>
+<a class="sourceLine" id="cb7-28" title="28">                  )</a>
+<a class="sourceLine" id="cb7-29" title="29">                )</a>
+<a class="sourceLine" id="cb7-30" title="30">              }</a>
+<a class="sourceLine" id="cb7-31" title="31">            )</a>
+<a class="sourceLine" id="cb7-32" title="32">          )</a>
+<a class="sourceLine" id="cb7-33" title="33">        )</a>
+<a class="sourceLine" id="cb7-34" title="34">      ),</a>
+<a class="sourceLine" id="cb7-35" title="35">      <span class="kw">column</span>(</a>
+<a class="sourceLine" id="cb7-36" title="36">        <span class="dt">width =</span> <span class="dv">4</span>,</a>
+<a class="sourceLine" id="cb7-37" title="37">        tags<span class="op">$</span><span class="kw">div</span>(</a>
+<a class="sourceLine" id="cb7-38" title="38">          <span class="dt">class =</span> <span class="st">&quot;panel panel-default&quot;</span>,</a>
+<a class="sourceLine" id="cb7-39" title="39">          tags<span class="op">$</span><span class="kw">div</span>(</a>
+<a class="sourceLine" id="cb7-40" title="40">            <span class="dt">class =</span> <span class="st">&quot;panel-heading&quot;</span>,</a>
+<a class="sourceLine" id="cb7-41" title="41">            tags<span class="op">$</span><span class="kw">span</span>(<span class="dt">class =</span> <span class="st">&quot;glyphicon glyphicon-stats&quot;</span>),</a>
+<a class="sourceLine" id="cb7-42" title="42">            <span class="st">&quot;Analyze as x (drag here)&quot;</span></a>
+<a class="sourceLine" id="cb7-43" title="43">          ),</a>
+<a class="sourceLine" id="cb7-44" title="44">          tags<span class="op">$</span><span class="kw">div</span>(</a>
+<a class="sourceLine" id="cb7-45" title="45">            <span class="dt">class =</span> <span class="st">&quot;panel-body&quot;</span>,</a>
+<a class="sourceLine" id="cb7-46" title="46">            <span class="dt">id =</span> <span class="st">&quot;sort2&quot;</span></a>
+<a class="sourceLine" id="cb7-47" title="47">          )</a>
+<a class="sourceLine" id="cb7-48" title="48">        )</a>
+<a class="sourceLine" id="cb7-49" title="49">      ),</a>
+<a class="sourceLine" id="cb7-50" title="50">      <span class="kw">column</span>(</a>
+<a class="sourceLine" id="cb7-51" title="51">        <span class="dt">width =</span> <span class="dv">4</span>,</a>
+<a class="sourceLine" id="cb7-52" title="52">        tags<span class="op">$</span><span class="kw">div</span>(</a>
+<a class="sourceLine" id="cb7-53" title="53">          <span class="dt">class =</span> <span class="st">&quot;panel panel-default&quot;</span>,</a>
+<a class="sourceLine" id="cb7-54" title="54">          tags<span class="op">$</span><span class="kw">div</span>(</a>
+<a class="sourceLine" id="cb7-55" title="55">            <span class="dt">class =</span> <span class="st">&quot;panel-heading&quot;</span>,</a>
+<a class="sourceLine" id="cb7-56" title="56">            tags<span class="op">$</span><span class="kw">span</span>(<span class="dt">class =</span> <span class="st">&quot;glyphicon glyphicon-stats&quot;</span>),</a>
+<a class="sourceLine" id="cb7-57" title="57">            <span class="st">&quot;Analyze as y (drag here)&quot;</span></a>
+<a class="sourceLine" id="cb7-58" title="58">          ),</a>
+<a class="sourceLine" id="cb7-59" title="59">          tags<span class="op">$</span><span class="kw">div</span>(</a>
+<a class="sourceLine" id="cb7-60" title="60">            <span class="dt">class =</span> <span class="st">&quot;panel-body&quot;</span>,</a>
+<a class="sourceLine" id="cb7-61" title="61">            <span class="dt">id =</span> <span class="st">&quot;sort3&quot;</span></a>
+<a class="sourceLine" id="cb7-62" title="62">          )</a>
+<a class="sourceLine" id="cb7-63" title="63">        )</a>
+<a class="sourceLine" id="cb7-64" title="64">      )</a>
+<a class="sourceLine" id="cb7-65" title="65">    )</a>
+<a class="sourceLine" id="cb7-66" title="66">  ),</a>
+<a class="sourceLine" id="cb7-67" title="67">  <span class="kw">sortable</span>(<span class="st">&quot;sort1&quot;</span>, <span class="dt">options =</span> <span class="kw">list</span>(<span class="dt">group =</span> <span class="st">&quot;sortGroup1&quot;</span>)),</a>
+<a class="sourceLine" id="cb7-68" title="68">  <span class="kw">sortable</span>(<span class="st">&quot;sort2&quot;</span>, <span class="dt">options =</span> <span class="kw">list</span>(<span class="dt">group =</span> <span class="st">&quot;sortGroup1&quot;</span>)),</a>
+<a class="sourceLine" id="cb7-69" title="69">  <span class="kw">sortable</span>(<span class="st">&quot;sort3&quot;</span>, <span class="dt">options =</span> <span class="kw">list</span>(<span class="dt">group =</span> <span class="st">&quot;sortGroup1&quot;</span>))</a>
+<a class="sourceLine" id="cb7-70" title="70">)</a></code></pre></div>
 <div class="container-fluid">
 <div class="row panel panel-success">
 <div class="panel-heading">
@@ -1413,103 +1430,110 @@ Analyze as y (drag here)
 </div>
 </div>
 </div>
-<div id="htmlwidget-900a575519dc8aa67aa7" style="width:0px;height:0px;" class="sortable html-widget"></div>
-<script type="application/json" data-for="htmlwidget-900a575519dc8aa67aa7">{"x":{"selector":"sort1","options":{"group":"sortGroup1"}},"evals":[],"jsHooks":[]}</script>
-<div id="htmlwidget-62654dd9eb2e07ad989a" style="width:0px;height:0px;" class="sortable html-widget"></div>
-<script type="application/json" data-for="htmlwidget-62654dd9eb2e07ad989a">{"x":{"selector":"sort2","options":{"group":"sortGroup1"}},"evals":[],"jsHooks":[]}</script>
-<div id="htmlwidget-20e4bb6656cba628c35a" style="width:0px;height:0px;" class="sortable html-widget"></div>
-<script type="application/json" data-for="htmlwidget-20e4bb6656cba628c35a">{"x":{"selector":"sort3","options":{"group":"sortGroup1"}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-9def6fb1db93245c0a49" style="width:0px;height:0px;" class="sortable html-widget"></div>
+<script type="application/json" data-for="htmlwidget-9def6fb1db93245c0a49">{"x":{"selector":"sort1","options":{"group":"sortGroup1"}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-472638a16ba5aadb4b1a" style="width:0px;height:0px;" class="sortable html-widget"></div>
+<script type="application/json" data-for="htmlwidget-472638a16ba5aadb4b1a">{"x":{"selector":"sort2","options":{"group":"sortGroup1"}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-62d2c72ac94ae32786c1" style="width:0px;height:0px;" class="sortable html-widget"></div>
+<script type="application/json" data-for="htmlwidget-62d2c72ac94ae32786c1">{"x":{"selector":"sort3","options":{"group":"sortGroup1"}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <div id="code-for-a-shiny-example" class="section level2">
 <h2>Code For a Shiny Example</h2>
 <p>I learned late last night that <code>sortable</code> will allow movable tabs inside a Shiny (and also not Shiny) app. By adding just one line of code and an <code>id</code> to this RStudio <a href="https://github.com/rstudio/shiny-examples/tree/master/006-tabsets">Tabset example</a>, we get rearrangeable tabs. I really hope you’ll copy and paste to see it for yourself, or you can <code>runGist(&quot;2dbe45f77b65e28acab9&quot;)</code>.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1"><span class="co"># all credit for code goes to RStudio</span></a>
-<a class="sourceLine" id="cb7-2" title="2"><span class="co"># https://github.com/rstudio/shiny-examples/tree/master/006-tabsets</span></a>
-<a class="sourceLine" id="cb7-3" title="3"><span class="kw">library</span>(sortable)</a>
-<a class="sourceLine" id="cb7-4" title="4"><span class="kw">library</span>(shiny)</a>
-<a class="sourceLine" id="cb7-5" title="5"></a>
-<a class="sourceLine" id="cb7-6" title="6">ui =<span class="st"> </span><span class="co"># Define UI for random distribution application </span></a>
-<a class="sourceLine" id="cb7-7" title="7"><span class="kw">shinyUI</span>(<span class="kw">fluidPage</span>(</a>
-<a class="sourceLine" id="cb7-8" title="8">    </a>
-<a class="sourceLine" id="cb7-9" title="9">  <span class="co"># Application title</span></a>
-<a class="sourceLine" id="cb7-10" title="10">  <span class="kw">titlePanel</span>(<span class="st">&quot;Tabsets&quot;</span>),</a>
-<a class="sourceLine" id="cb7-11" title="11">  </a>
-<a class="sourceLine" id="cb7-12" title="12">  <span class="co"># Sidebar with controls to select the random distribution type</span></a>
-<a class="sourceLine" id="cb7-13" title="13">  <span class="co"># and number of observations to generate. Note the use of the</span></a>
-<a class="sourceLine" id="cb7-14" title="14">  <span class="co"># br() element to introduce extra vertical spacing</span></a>
-<a class="sourceLine" id="cb7-15" title="15">  <span class="kw">sidebarLayout</span>(</a>
-<a class="sourceLine" id="cb7-16" title="16">    <span class="kw">sidebarPanel</span>(</a>
-<a class="sourceLine" id="cb7-17" title="17">      <span class="kw">radioButtons</span>(<span class="st">&quot;dist&quot;</span>, <span class="st">&quot;Distribution type:&quot;</span>,</a>
-<a class="sourceLine" id="cb7-18" title="18">                   <span class="kw">c</span>(<span class="st">&quot;Normal&quot;</span> =<span class="st"> &quot;norm&quot;</span>,</a>
-<a class="sourceLine" id="cb7-19" title="19">                     <span class="st">&quot;Uniform&quot;</span> =<span class="st"> &quot;unif&quot;</span>,</a>
-<a class="sourceLine" id="cb7-20" title="20">                     <span class="st">&quot;Log-normal&quot;</span> =<span class="st"> &quot;lnorm&quot;</span>,</a>
-<a class="sourceLine" id="cb7-21" title="21">                     <span class="st">&quot;Exponential&quot;</span> =<span class="st"> &quot;exp&quot;</span>)),</a>
-<a class="sourceLine" id="cb7-22" title="22">      <span class="kw">br</span>(),</a>
-<a class="sourceLine" id="cb7-23" title="23">      </a>
-<a class="sourceLine" id="cb7-24" title="24">      <span class="kw">sliderInput</span>(<span class="st">&quot;n&quot;</span>, </a>
-<a class="sourceLine" id="cb7-25" title="25">                  <span class="st">&quot;Number of observations:&quot;</span>, </a>
-<a class="sourceLine" id="cb7-26" title="26">                   <span class="dt">value =</span> <span class="dv">500</span>,</a>
-<a class="sourceLine" id="cb7-27" title="27">                   <span class="dt">min =</span> <span class="dv">1</span>, </a>
-<a class="sourceLine" id="cb7-28" title="28">                   <span class="dt">max =</span> <span class="dv">1000</span>)</a>
-<a class="sourceLine" id="cb7-29" title="29">    ),</a>
-<a class="sourceLine" id="cb7-30" title="30">    </a>
-<a class="sourceLine" id="cb7-31" title="31">    <span class="co"># Show a tabset that includes a plot, summary, and table view</span></a>
-<a class="sourceLine" id="cb7-32" title="32">    <span class="co"># of the generated distribution</span></a>
-<a class="sourceLine" id="cb7-33" title="33">    <span class="kw">mainPanel</span>(</a>
-<a class="sourceLine" id="cb7-34" title="34">      <span class="kw">tabsetPanel</span>(<span class="dt">type =</span> <span class="st">&quot;tabs&quot;</span>, <span class="dt">id =</span> <span class="st">&quot;sortTab&quot;</span>,</a>
-<a class="sourceLine" id="cb7-35" title="35">        <span class="kw">tabPanel</span>(<span class="st">&quot;Plot&quot;</span>, <span class="kw">plotOutput</span>(<span class="st">&quot;plot&quot;</span>)), </a>
-<a class="sourceLine" id="cb7-36" title="36">        <span class="kw">tabPanel</span>(<span class="st">&quot;Summary&quot;</span>, <span class="kw">verbatimTextOutput</span>(<span class="st">&quot;summary&quot;</span>)), </a>
-<a class="sourceLine" id="cb7-37" title="37">        <span class="kw">tabPanel</span>(<span class="st">&quot;Table&quot;</span>, <span class="kw">tableOutput</span>(<span class="st">&quot;table&quot;</span>))</a>
-<a class="sourceLine" id="cb7-38" title="38">      )</a>
-<a class="sourceLine" id="cb7-39" title="39">    )</a>
-<a class="sourceLine" id="cb7-40" title="40">  )</a>
-<a class="sourceLine" id="cb7-41" title="41">  ,<span class="kw">sortable</span>(<span class="st">&quot;sortTab&quot;</span>)</a>
-<a class="sourceLine" id="cb7-42" title="42">))</a>
-<a class="sourceLine" id="cb7-43" title="43"></a>
-<a class="sourceLine" id="cb7-44" title="44">server =<span class="st"> </span><span class="cf">function</span>(input, output) {</a>
-<a class="sourceLine" id="cb7-45" title="45">  </a>
-<a class="sourceLine" id="cb7-46" title="46">  <span class="co"># Reactive expression to generate the requested distribution.</span></a>
-<a class="sourceLine" id="cb7-47" title="47">  <span class="co"># This is called whenever the inputs change. The output</span></a>
-<a class="sourceLine" id="cb7-48" title="48">  <span class="co"># functions defined below then all use the value computed from</span></a>
-<a class="sourceLine" id="cb7-49" title="49">  <span class="co"># this expression</span></a>
-<a class="sourceLine" id="cb7-50" title="50">  data &lt;-<span class="st"> </span><span class="kw">reactive</span>({</a>
-<a class="sourceLine" id="cb7-51" title="51">    dist &lt;-<span class="st"> </span><span class="cf">switch</span>(input<span class="op">$</span>dist,</a>
-<a class="sourceLine" id="cb7-52" title="52">                   <span class="dt">norm =</span> rnorm,</a>
-<a class="sourceLine" id="cb7-53" title="53">                   <span class="dt">unif =</span> runif,</a>
-<a class="sourceLine" id="cb7-54" title="54">                   <span class="dt">lnorm =</span> rlnorm,</a>
-<a class="sourceLine" id="cb7-55" title="55">                   <span class="dt">exp =</span> rexp,</a>
-<a class="sourceLine" id="cb7-56" title="56">                   rnorm)</a>
-<a class="sourceLine" id="cb7-57" title="57">    </a>
-<a class="sourceLine" id="cb7-58" title="58">    <span class="kw">dist</span>(input<span class="op">$</span>n)</a>
-<a class="sourceLine" id="cb7-59" title="59">  })</a>
-<a class="sourceLine" id="cb7-60" title="60">  </a>
-<a class="sourceLine" id="cb7-61" title="61">  <span class="co"># Generate a plot of the data. Also uses the inputs to build</span></a>
-<a class="sourceLine" id="cb7-62" title="62">  <span class="co"># the plot label. Note that the dependencies on both the inputs</span></a>
-<a class="sourceLine" id="cb7-63" title="63">  <span class="co"># and the data reactive expression are both tracked, and</span></a>
-<a class="sourceLine" id="cb7-64" title="64">  <span class="co"># all expressions are called in the sequence implied by the</span></a>
-<a class="sourceLine" id="cb7-65" title="65">  <span class="co"># dependency graph</span></a>
-<a class="sourceLine" id="cb7-66" title="66">  output<span class="op">$</span>plot &lt;-<span class="st"> </span><span class="kw">renderPlot</span>({</a>
-<a class="sourceLine" id="cb7-67" title="67">    dist &lt;-<span class="st"> </span>input<span class="op">$</span>dist</a>
-<a class="sourceLine" id="cb7-68" title="68">    n &lt;-<span class="st"> </span>input<span class="op">$</span>n</a>
-<a class="sourceLine" id="cb7-69" title="69">    </a>
-<a class="sourceLine" id="cb7-70" title="70">    <span class="kw">hist</span>(<span class="kw">data</span>(), </a>
-<a class="sourceLine" id="cb7-71" title="71">         <span class="dt">main=</span><span class="kw">paste</span>(<span class="st">&#39;r&#39;</span>, dist, <span class="st">&#39;(&#39;</span>, n, <span class="st">&#39;)&#39;</span>, <span class="dt">sep=</span><span class="st">&#39;&#39;</span>))</a>
-<a class="sourceLine" id="cb7-72" title="72">  })</a>
-<a class="sourceLine" id="cb7-73" title="73">  </a>
-<a class="sourceLine" id="cb7-74" title="74">  <span class="co"># Generate a summary of the data</span></a>
-<a class="sourceLine" id="cb7-75" title="75">  output<span class="op">$</span>summary &lt;-<span class="st"> </span><span class="kw">renderPrint</span>({</a>
-<a class="sourceLine" id="cb7-76" title="76">    <span class="kw">summary</span>(<span class="kw">data</span>())</a>
-<a class="sourceLine" id="cb7-77" title="77">  })</a>
-<a class="sourceLine" id="cb7-78" title="78">  </a>
-<a class="sourceLine" id="cb7-79" title="79">  <span class="co"># Generate an HTML table view of the data</span></a>
-<a class="sourceLine" id="cb7-80" title="80">  output<span class="op">$</span>table &lt;-<span class="st"> </span><span class="kw">renderTable</span>({</a>
-<a class="sourceLine" id="cb7-81" title="81">    <span class="kw">data.frame</span>(<span class="dt">x=</span><span class="kw">data</span>())</a>
-<a class="sourceLine" id="cb7-82" title="82">  })</a>
-<a class="sourceLine" id="cb7-83" title="83">  </a>
-<a class="sourceLine" id="cb7-84" title="84">}</a>
-<a class="sourceLine" id="cb7-85" title="85"></a>
-<a class="sourceLine" id="cb7-86" title="86"><span class="kw">shinyApp</span>( ui, server )</a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1"><span class="co"># all credit for code goes to RStudio</span></a>
+<a class="sourceLine" id="cb8-2" title="2"><span class="co"># https://github.com/rstudio/shiny-examples/tree/master/006-tabsets</span></a>
+<a class="sourceLine" id="cb8-3" title="3"><span class="kw">library</span>(sortable)</a>
+<a class="sourceLine" id="cb8-4" title="4"><span class="kw">library</span>(shiny)</a>
+<a class="sourceLine" id="cb8-5" title="5"></a>
+<a class="sourceLine" id="cb8-6" title="6">ui &lt;-<span class="st"> </span><span class="co"># Define UI for random distribution application</span></a>
+<a class="sourceLine" id="cb8-7" title="7"><span class="kw">shinyUI</span>(<span class="kw">fluidPage</span>(</a>
+<a class="sourceLine" id="cb8-8" title="8"></a>
+<a class="sourceLine" id="cb8-9" title="9">  <span class="co"># Application title</span></a>
+<a class="sourceLine" id="cb8-10" title="10">  <span class="kw">titlePanel</span>(<span class="st">&quot;Tabsets&quot;</span>),</a>
+<a class="sourceLine" id="cb8-11" title="11"></a>
+<a class="sourceLine" id="cb8-12" title="12">  <span class="co"># Sidebar with controls to select the random distribution type</span></a>
+<a class="sourceLine" id="cb8-13" title="13">  <span class="co"># and number of observations to generate. Note the use of the</span></a>
+<a class="sourceLine" id="cb8-14" title="14">  <span class="co"># br() element to introduce extra vertical spacing</span></a>
+<a class="sourceLine" id="cb8-15" title="15">  <span class="kw">sidebarLayout</span>(</a>
+<a class="sourceLine" id="cb8-16" title="16">    <span class="kw">sidebarPanel</span>(</a>
+<a class="sourceLine" id="cb8-17" title="17">      <span class="kw">radioButtons</span>(</a>
+<a class="sourceLine" id="cb8-18" title="18">        <span class="st">&quot;dist&quot;</span>, <span class="st">&quot;Distribution type:&quot;</span>,</a>
+<a class="sourceLine" id="cb8-19" title="19">        <span class="kw">c</span>(</a>
+<a class="sourceLine" id="cb8-20" title="20">          <span class="st">&quot;Normal&quot;</span> =<span class="st"> &quot;norm&quot;</span>,</a>
+<a class="sourceLine" id="cb8-21" title="21">          <span class="st">&quot;Uniform&quot;</span> =<span class="st"> &quot;unif&quot;</span>,</a>
+<a class="sourceLine" id="cb8-22" title="22">          <span class="st">&quot;Log-normal&quot;</span> =<span class="st"> &quot;lnorm&quot;</span>,</a>
+<a class="sourceLine" id="cb8-23" title="23">          <span class="st">&quot;Exponential&quot;</span> =<span class="st"> &quot;exp&quot;</span></a>
+<a class="sourceLine" id="cb8-24" title="24">        )</a>
+<a class="sourceLine" id="cb8-25" title="25">      ),</a>
+<a class="sourceLine" id="cb8-26" title="26">      <span class="kw">br</span>(),</a>
+<a class="sourceLine" id="cb8-27" title="27"></a>
+<a class="sourceLine" id="cb8-28" title="28">      <span class="kw">sliderInput</span>(<span class="st">&quot;n&quot;</span>,</a>
+<a class="sourceLine" id="cb8-29" title="29">        <span class="st">&quot;Number of observations:&quot;</span>,</a>
+<a class="sourceLine" id="cb8-30" title="30">        <span class="dt">value =</span> <span class="dv">500</span>,</a>
+<a class="sourceLine" id="cb8-31" title="31">        <span class="dt">min =</span> <span class="dv">1</span>,</a>
+<a class="sourceLine" id="cb8-32" title="32">        <span class="dt">max =</span> <span class="dv">1000</span></a>
+<a class="sourceLine" id="cb8-33" title="33">      )</a>
+<a class="sourceLine" id="cb8-34" title="34">    ),</a>
+<a class="sourceLine" id="cb8-35" title="35"></a>
+<a class="sourceLine" id="cb8-36" title="36">    <span class="co"># Show a tabset that includes a plot, summary, and table view</span></a>
+<a class="sourceLine" id="cb8-37" title="37">    <span class="co"># of the generated distribution</span></a>
+<a class="sourceLine" id="cb8-38" title="38">    <span class="kw">mainPanel</span>(</a>
+<a class="sourceLine" id="cb8-39" title="39">      <span class="kw">tabsetPanel</span>(</a>
+<a class="sourceLine" id="cb8-40" title="40">        <span class="dt">type =</span> <span class="st">&quot;tabs&quot;</span>, <span class="dt">id =</span> <span class="st">&quot;sortTab&quot;</span>,</a>
+<a class="sourceLine" id="cb8-41" title="41">        <span class="kw">tabPanel</span>(<span class="st">&quot;Plot&quot;</span>, <span class="kw">plotOutput</span>(<span class="st">&quot;plot&quot;</span>)),</a>
+<a class="sourceLine" id="cb8-42" title="42">        <span class="kw">tabPanel</span>(<span class="st">&quot;Summary&quot;</span>, <span class="kw">verbatimTextOutput</span>(<span class="st">&quot;summary&quot;</span>)),</a>
+<a class="sourceLine" id="cb8-43" title="43">        <span class="kw">tabPanel</span>(<span class="st">&quot;Table&quot;</span>, <span class="kw">tableOutput</span>(<span class="st">&quot;table&quot;</span>))</a>
+<a class="sourceLine" id="cb8-44" title="44">      )</a>
+<a class="sourceLine" id="cb8-45" title="45">    )</a>
+<a class="sourceLine" id="cb8-46" title="46">  ),</a>
+<a class="sourceLine" id="cb8-47" title="47">  <span class="kw">sortable</span>(<span class="st">&quot;sortTab&quot;</span>)</a>
+<a class="sourceLine" id="cb8-48" title="48">))</a>
+<a class="sourceLine" id="cb8-49" title="49"></a>
+<a class="sourceLine" id="cb8-50" title="50">server &lt;-<span class="st"> </span><span class="cf">function</span>(input, output) {</a>
+<a class="sourceLine" id="cb8-51" title="51"></a>
+<a class="sourceLine" id="cb8-52" title="52">  <span class="co"># Reactive expression to generate the requested distribution.</span></a>
+<a class="sourceLine" id="cb8-53" title="53">  <span class="co"># This is called whenever the inputs change. The output</span></a>
+<a class="sourceLine" id="cb8-54" title="54">  <span class="co"># functions defined below then all use the value computed from</span></a>
+<a class="sourceLine" id="cb8-55" title="55">  <span class="co"># this expression</span></a>
+<a class="sourceLine" id="cb8-56" title="56">  data &lt;-<span class="st"> </span><span class="kw">reactive</span>({</a>
+<a class="sourceLine" id="cb8-57" title="57">    dist &lt;-<span class="st"> </span><span class="cf">switch</span>(input<span class="op">$</span>dist,</a>
+<a class="sourceLine" id="cb8-58" title="58">      <span class="dt">norm =</span> rnorm,</a>
+<a class="sourceLine" id="cb8-59" title="59">      <span class="dt">unif =</span> runif,</a>
+<a class="sourceLine" id="cb8-60" title="60">      <span class="dt">lnorm =</span> rlnorm,</a>
+<a class="sourceLine" id="cb8-61" title="61">      <span class="dt">exp =</span> rexp,</a>
+<a class="sourceLine" id="cb8-62" title="62">      rnorm</a>
+<a class="sourceLine" id="cb8-63" title="63">    )</a>
+<a class="sourceLine" id="cb8-64" title="64"></a>
+<a class="sourceLine" id="cb8-65" title="65">    <span class="kw">dist</span>(input<span class="op">$</span>n)</a>
+<a class="sourceLine" id="cb8-66" title="66">  })</a>
+<a class="sourceLine" id="cb8-67" title="67"></a>
+<a class="sourceLine" id="cb8-68" title="68">  <span class="co"># Generate a plot of the data. Also uses the inputs to build</span></a>
+<a class="sourceLine" id="cb8-69" title="69">  <span class="co"># the plot label. Note that the dependencies on both the inputs</span></a>
+<a class="sourceLine" id="cb8-70" title="70">  <span class="co"># and the data reactive expression are both tracked, and</span></a>
+<a class="sourceLine" id="cb8-71" title="71">  <span class="co"># all expressions are called in the sequence implied by the</span></a>
+<a class="sourceLine" id="cb8-72" title="72">  <span class="co"># dependency graph</span></a>
+<a class="sourceLine" id="cb8-73" title="73">  output<span class="op">$</span>plot &lt;-<span class="st"> </span><span class="kw">renderPlot</span>({</a>
+<a class="sourceLine" id="cb8-74" title="74">    dist &lt;-<span class="st"> </span>input<span class="op">$</span>dist</a>
+<a class="sourceLine" id="cb8-75" title="75">    n &lt;-<span class="st"> </span>input<span class="op">$</span>n</a>
+<a class="sourceLine" id="cb8-76" title="76"></a>
+<a class="sourceLine" id="cb8-77" title="77">    <span class="kw">hist</span>(<span class="kw">data</span>(),</a>
+<a class="sourceLine" id="cb8-78" title="78">      <span class="dt">main =</span> <span class="kw">paste</span>(<span class="st">&quot;r&quot;</span>, dist, <span class="st">&quot;(&quot;</span>, n, <span class="st">&quot;)&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;&quot;</span>)</a>
+<a class="sourceLine" id="cb8-79" title="79">    )</a>
+<a class="sourceLine" id="cb8-80" title="80">  })</a>
+<a class="sourceLine" id="cb8-81" title="81"></a>
+<a class="sourceLine" id="cb8-82" title="82">  <span class="co"># Generate a summary of the data</span></a>
+<a class="sourceLine" id="cb8-83" title="83">  output<span class="op">$</span>summary &lt;-<span class="st"> </span><span class="kw">renderPrint</span>({</a>
+<a class="sourceLine" id="cb8-84" title="84">    <span class="kw">summary</span>(<span class="kw">data</span>())</a>
+<a class="sourceLine" id="cb8-85" title="85">  })</a>
+<a class="sourceLine" id="cb8-86" title="86"></a>
+<a class="sourceLine" id="cb8-87" title="87">  <span class="co"># Generate an HTML table view of the data</span></a>
+<a class="sourceLine" id="cb8-88" title="88">  output<span class="op">$</span>table &lt;-<span class="st"> </span><span class="kw">renderTable</span>({</a>
+<a class="sourceLine" id="cb8-89" title="89">    <span class="kw">data.frame</span>(<span class="dt">x =</span> <span class="kw">data</span>())</a>
+<a class="sourceLine" id="cb8-90" title="90">  })</a>
+<a class="sourceLine" id="cb8-91" title="91">}</a>
+<a class="sourceLine" id="cb8-92" title="92"></a>
+<a class="sourceLine" id="cb8-93" title="93"><span class="kw">shinyApp</span>( ui, server )</a></code></pre></div>
 </div>
 <div id="conclusion" class="section level2">
 <h2>Conclusion</h2>
@@ -1519,9 +1543,9 @@ Analyze as y (drag here)
 <h2>Thanks</h2>
 <p>With powerful tools from generous people, amazing things can be easily accomplished. Thanks to:</p>
 <ul>
-<li><a href="http://r-project.org">R</a></li>
-<li><a href="https://github.com/ramnathv">Ramnath Vaidyanathan</a> and <a href="http://rstudio.com">RStudio</a> for <a href="http://htmlwidgets.org"><code>htmlwidgets</code></a></li>
-<li><a href="https://github.com/RubaXa">@RubaXa</a> for <a href="http://sortablejs.github.io/Sortable/"><code>Sortable</code></a></li>
+<li><a href="https://r-project.org">R</a></li>
+<li><a href="https://github.com/ramnathv">Ramnath Vaidyanathan</a> and <a href="https://rstudio.com">RStudio</a> for <a href="https://htmlwidgets.org"><code>htmlwidgets</code></a></li>
+<li><a href="https://github.com/RubaXa">@RubaXa</a> for <a href="https://sortablejs.github.io/Sortable/"><code>Sortable</code></a></li>
 </ul>
 </div>
 

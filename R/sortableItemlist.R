@@ -1,15 +1,18 @@
-# Construct the onSort method for sortable
-sortableItemlist_onsort <- function(outputId){
+#'  Construct the onSort method for sortable.
+#'
+#' @export
+sortableJStext <- function(outputId){
   innerText <- '
     $.map(this.el.children, function(child){return child.innerText})
   '
   jsText <- 'function(evt){{
+    debugger
     Shiny.onInputChange("%s", %s)
   }}'
 
   js <- sprintf(jsText, outputId, innerText)
 
-  list(onSort = htmlwidgets::JS(js))
+  htmlwidgets::JS(js)
 }
 
 
@@ -32,6 +35,7 @@ sortableItemlist_onsort <- function(outputId){
 #'
 #' @export
 #' @importFrom htmltools tags
+#' @example inst/examples/example_sortableItemlist.R
 sortableItemlist <- function(outputId, labels, selector, class = "list-group-item"){
   if (missing(selector) || is.null(selector) || is.na(selector)) {
     selector <- incrementSortableItemlist()
@@ -45,7 +49,7 @@ sortableItemlist <- function(outputId, labels, selector, class = "list-group-ite
     ),
     sortable(
       selector = selector,
-      options = sortableItemlist_onsort(outputId = outputId)
+      options = list(onSort = sortableJStext(outputId = outputId))
     )
   )
 
