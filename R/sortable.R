@@ -59,14 +59,14 @@ sortable <- function(
   )
 }
 
-#' Widget output functionA for use in Shiny.
+#' Widget output function for use in Shiny.
 #'
 #' @inheritParams sortable
-#' @param outputId output variable to use for the sortable object
+#' @param output_id output variable to use for the sortable object
 #'
 #' @export
-sortableOutput <- function(outputId, width = "0px", height = "0px") {
-  htmlwidgets::shinyWidgetOutput(outputId, "sortable", width, height, package = "sortable")
+sortable_output <- function(output_id, width = "0px", height = "0px") {
+  htmlwidgets::shinyWidgetOutput(output_id, "sortable", width, height, package = "sortable")
 }
 
 #' Widget render function for use in Shiny.
@@ -76,9 +76,9 @@ sortableOutput <- function(outputId, width = "0px", height = "0px") {
 #' @param quoted Is `expr` a quoted expression (with `quote()`)? This is useful if you want to save an expression in a variable.
 #'
 #' @export
-renderSortable <- function(expr, env = parent.frame(), quoted = FALSE) {
+render_sortable <- function(expr, env = parent.frame(), quoted = FALSE) {
   if (!quoted) {
     expr <- substitute(expr)
   } # force quoted
-  htmlwidgets::shinyRenderWidget(expr, sortableOutput, env, quoted = TRUE)
+  htmlwidgets::shinyRenderWidget(expr, sortable_output, env, quoted = TRUE)
 }
