@@ -1,5 +1,5 @@
 # Construct the onSort method for sortable
-sortableItemlist_onsort <- function(outputId){
+sortableList_onsort <- function(outputId) {
   innerText <- '
     $.map(this.el.children, function(child){return child.innerText})
   '
@@ -24,17 +24,17 @@ sortableItemlist_onsort <- function(outputId){
 #' @param labels A character vector with text to display.
 #' @param selector This is the css id to use, and must be unique in your shiny
 #'   app. If NULL, the function generates a selector of the form
-#'   `sortable_itemlist_id_1`, and will automatically increment for every
-#'   `sortableItemlist`
+#'   `sortable_list_id_1`, and will automatically increment for every
+#'   `sortableList`
 #' @param class The css class to use
 #'
 #' @seealso [sortable]
 #'
 #' @export
 #' @importFrom htmltools tags
-sortableItemlist <- function(outputId, labels, selector, class = "list-group-item"){
+sortableList <- function(outputId, labels, selector, class = "list-group-item") {
   if (missing(selector) || is.null(selector) || is.na(selector)) {
-    selector <- incrementSortableItemlist()
+    selector <- incrementSortableList()
   }
   # browser()
   list(
@@ -45,10 +45,8 @@ sortableItemlist <- function(outputId, labels, selector, class = "list-group-ite
     ),
     sortable(
       selector = selector,
-      options = sortableItemlist_onsort(outputId = outputId)
+      options = sortableList_onsort(outputId = outputId)
     )
   )
 
 }
-
-

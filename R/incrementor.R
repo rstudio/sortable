@@ -6,4 +6,4 @@ incrementor <- function(prefix = "increment_"){
   }
 }
 
-incrementSortableItemlist <- incrementor("sortable_itemlist_id_")
+incrementSortableList <- incrementor("sortable_list_id_")
