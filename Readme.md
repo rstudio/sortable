@@ -122,7 +122,7 @@ ui <- shinyUI(fluidPage(
       tags$h2("Using the sortableListitem() in Shiny with Bootstrap"),
       tags$p("Once you move an item, the new order will appear in results"),
       sortableList(
-        outputId = "mySort",
+        output_id = "mySort",
         labels = paste("bootstrap", 1:3)
       ),
       tags$h4("Current sorting order"),

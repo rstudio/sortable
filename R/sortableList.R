@@ -1,14 +1,13 @@
 # Construct the onSort method for sortable
-sortableList_onsort <- function(outputId) {
-  innerText <- '
+sortable_list_onsort <- function(output_id) {
+  inner_text <- '
     $.map(this.el.children, function(child){return child.innerText})
   '
-  jsText <- 'function(evt){{
-    debugger
+  js_text <- 'function(evt){{
     Shiny.onInputChange("%s", %s)
   }}'
 
-  js <- sprintf(jsText, outputId, innerText)
+  js <- sprintf(js_text, output_id, inner_text)
 
   htmlwidgets::JS(js)
 }
@@ -21,32 +20,33 @@ sortableList_onsort <- function(outputId) {
 #'
 #' @inheritParams sortable
 #'
-#' @param outputId output variable to read the plot/image from.
+#' @param output_id output variable to read the plot/image from.
 #' @param labels A character vector with text to display.
 #' @param selector This is the css id to use, and must be unique in your shiny
 #'   app. If NULL, the function generates a selector of the form
 #'   `sortable_list_id_1`, and will automatically increment for every
-#'   `sortableList`
+#'   `sortable_list`
 #' @param class The css class to use
 #'
 #' @seealso [sortable]
 #'
 #' @export
-#' @importFrom htmltools tags
-sortableList <- function(outputId, labels, selector, class = "list-group-item") {
-  if (missing(selector) || is.null(selector) || is.na(selector)) {
-    selector <- incrementSortableList()
+sortable_list <- function(output_id, labels, selector = NULL, class = "list-group-item") {
+  if (is.null(selector) || is.na(selector)) {
+    selector <- increment_sortable_list()
   }
-  # browser()
-  list(
-    tags$div(
+
+  htmltools::tagList(
+    htmltools::tags$div(
       id = selector,
       class = class,
-      lapply(labels, function(x)tags$div(class = class, x))
+      lapply(labels, function(x) {
+        htmltools::tags$div(class = class, x)
+      })
     ),
     sortable(
       selector = selector,
-      options = sortableList_onsort(outputId = outputId)
+      options = sortable_list_onsort(output_id = output_id)
     )
   )
 
