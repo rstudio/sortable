@@ -1,11 +1,14 @@
 context("widgets")
 
-library(htmltools)
-library(DiagrammeR)
-library(knob)
-library(dygraphs)
 
 test_that( "works with other widgets",{
+  testthat::skip("test does not bring value and adds dependencies")
+
+  library(htmltools)
+  library(DiagrammeR)
+  library(knob)
+  library(dygraphs)
+
   z <- html_print(tagList(
     tags$h1("Does sortable work with other htmlwidgets? Try it!")
     ,tags$div(id = "testdiv"
@@ -31,6 +34,10 @@ test_that( "works with other widgets",{
 })
 
 test_that( "boostrap example works",{
+  testthat::skip("test does not bring value and adds dependencies")
+
+  library(htmltools)
+
   htm <- '
     <!-- List with handle -->
     <div id="listWithHandle" class="list-group">
