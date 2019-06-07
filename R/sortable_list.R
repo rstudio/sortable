@@ -27,13 +27,24 @@ sortable_list_onsort <- function(output_id) {
 #'   `sortable_list_id_1`, and will automatically increment for every
 #'   `sortable_list`
 #' @param class The css class to use
+#' @param options Extra options to be supplied to sortable.js.  See [sortable] for more details.
 #'
 #' @seealso [sortable]
 #'
 #' @export
-sortable_list <- function(output_id, labels, selector = NULL, class = "list-group-item") {
+sortable_list <- function(
+  output_id,
+  labels,
+  selector = NULL,
+  class = "list-group-item",
+  options = list()
+) {
   if (is.null(selector) || is.na(selector)) {
     selector <- increment_sortable_list()
+  }
+  # make sure options is a list
+  if (is.null(options) || identical(options, FALSE) || is.na(options)) {
+    options <- list()
   }
 
   htmltools::tagList(
@@ -46,7 +57,10 @@ sortable_list <- function(output_id, labels, selector = NULL, class = "list-grou
     ),
     sortable(
       selector = selector,
-      options = sortable_list_onsort(output_id = output_id)
+      options = modifyList(
+        sortable_list_onsort(output_id),
+        options
+      )
     )
   )
 
