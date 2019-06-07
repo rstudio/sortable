@@ -28,6 +28,8 @@ Suggests:
     DiagrammeR,
     base64,
     shiny
+Remotes:
+    rstudio/learnr#242
 VignetteBuilder: knitr
 RoxygenNote: 6.1.1
 Roxygen: list(markdown = TRUE)
