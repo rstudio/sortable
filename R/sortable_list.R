@@ -32,6 +32,7 @@ sortable_list_onsort <- function(output_id) {
 #' @seealso [sortable]
 #'
 #' @export
+#' @importFrom utils modifyList
 sortable_list <- function(
   output_id,
   labels,
