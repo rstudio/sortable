@@ -41,8 +41,8 @@ sortable <- function(
   selector,
   options = NULL,
   width = 0,
-  height = 0)
-{
+  height = 0
+) {
 
   # forward options using x
   x <- list(
