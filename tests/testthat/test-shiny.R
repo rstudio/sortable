@@ -2,6 +2,9 @@ context("shiny")
 
 library(shiny)
 test_that( "works with shiny ",{
+
+  testthat::skip("test does not bring value. Maybe implement with shinytest?")
+
   ui = shinyUI(fluidPage(
     title = "Does sortable work in Shiny?"
     ,fluidRow(
@@ -13,7 +16,7 @@ test_that( "works with shiny ",{
              )
       )
     )
-    ,sortableOutput("testsort")
+    ,sortable_output("testsort")
   ))
   server = function(input,output){
     output$testsort <- rendersortable({
@@ -24,4 +27,3 @@ test_that( "works with shiny ",{
 
   shinyApp(ui = ui, server=server)
 })
-
