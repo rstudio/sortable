@@ -1,11 +1,11 @@
 # Construct the onSort method for sortable
 sortable_list_onsort <- function(output_id) {
-  inner_text <- '
+  inner_text <- "
     $.map(this.el.children, function(child){return child.innerText})
-  '
-  js_text <- 'function(evt){{
-    Shiny.onInputChange("%s", %s)
-  }}'
+  "
+  js_text <- "function(evt){{
+    Shiny.onInputChange(\"%s\", %s)
+  }}"
 
   js <- sprintf(js_text, output_id, inner_text)
 

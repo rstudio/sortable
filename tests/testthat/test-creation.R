@@ -19,8 +19,7 @@ test_that( "sortable height and width", {
 test_that( "selector and options passed as expected", {
   expect_identical( sortable( "an_id" )$x$selector, "an_id" )
   expect_identical(
-    sortable( "an_id", options = list( group = "name", sort = F, disabled = F ) )$x
-    ,list( selector = "an_id", options = list( group = "name", sort = F, disabled = F ))
+    sortable( "an_id", options = list( group = "name", sort = F, disabled = F ) )$x,
+    list( selector = "an_id", options = list( group = "name", sort = F, disabled = F ))
   )
 })
-

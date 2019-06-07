@@ -4,3 +4,4 @@
 ^Readme\.md$
 ^README\.Rmd$
 ^\.travis\.yml$
+^\.lintr$
