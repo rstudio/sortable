@@ -3,3 +3,4 @@
 ^LICENSE\.md$
 ^Readme\.md$
 ^README\.Rmd$
+^\.travis\.yml$
