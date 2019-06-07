@@ -4,10 +4,10 @@ Title: htmlwidget for Sortable.js
 Version: 0.2.0.9000
 Date: 2019-05-16
 Authors@R: c(
-    person("Lebedev", "Konstantin", role = c("aut", "cph"), 
-        comment = "Sortable.js library in htmlwidgets/lib, 
-        https://sortablejs.github.io/Sortable/"),
-    person("Kenton", "Russell", role = c("aut", "cre"), 
+    person("Lebedev", "Konstantin", role = c("aut", "cph"),
+        comment = "Sortable.js library in htmlwidgets/lib,
+        http://sortablejs.github.io/Sortable/"),
+    person("Kenton", "Russell", role = c("aut", "cre"),
         comment = "R interface", email = "kent.russell@timelyportfolio.com"),
     person("de Vries", "Andrie", role = "ctb", email = "apdevries@gmail.com")
     )
@@ -17,17 +17,17 @@ Description: Make almost anything sortable.  Add drag and drop behavior in R con
               great interactivity with little overhead.
 License: MIT + file LICENSE
 LazyData: TRUE
-Imports: 
+Imports:
     htmlwidgets,
-    htmltools
-Suggests: 
+    htmltools,
+    learnr
+Suggests:
     testthat (>= 2.1.0),
     knitr,
     dygraphs,
     DiagrammeR,
     base64,
-    shiny,
-    learnr
+    shiny
 VignetteBuilder: knitr
 RoxygenNote: 6.1.1
 Roxygen: list(markdown = TRUE)
