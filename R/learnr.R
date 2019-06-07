@@ -87,8 +87,6 @@ question_is_correct.sortable <- function(question, answer_input, ...) {
   return(question_is_correct_value(FALSE, NULL))
 }
 
-mutate_tags.sortable <-
-
 
 
 
