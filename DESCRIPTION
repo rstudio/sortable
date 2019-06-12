@@ -9,10 +9,9 @@ Authors@R: c(
         http://sortablejs.github.io/Sortable/"),
     person("Kenton", "Russell", role = c("aut", "cre"),
         comment = "R interface", email = "kent.russell@timelyportfolio.com"),
-    person("de Vries", "Andrie", role = "ctb", email = "apdevries@gmail.com"),
+    person("Andrie", "de Vries", role = "ctb", email = "apdevries@gmail.com"),
     person("Barret", "Schloerke", role = "ctb", email = "barret@rstudio.com")
     )
-Maintainer: Kenton Russell <kent.russell@timelyportfolio.com>
 Description: Make almost anything sortable.  Add drag and drop behavior in R console,
               web browser, RStudio Viewer, and Shiny.  This little htmlwidget brings
               great interactivity with little overhead.
