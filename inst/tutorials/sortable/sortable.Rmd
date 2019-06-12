@@ -17,21 +17,16 @@ Sort the answers from A to E:
 
 
 ```{r letters}
-question(
+question_sortable(
   "Sort the first 5 letters",
   answer(LETTERS[1:5], correct = TRUE),
   answer(rev(LETTERS[1:5]), correct = FALSE, "Other direction!"),
-  type = "sortable",
   random_answer_order = TRUE,
-  allow_retry = TRUE
-) %>%
-  modifyList(
-    list(
-      options = list(
-        animation = 150
-      )
-    )
+  allow_retry = TRUE,
+  options = list(
+    animation = 150
   )
+)
 ```
 
 ###### Try E to A as well!
