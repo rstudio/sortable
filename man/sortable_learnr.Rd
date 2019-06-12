@@ -30,12 +30,14 @@ When the question is completed, the first correct answer will be displayed.
 \examples{
 if (require(learnr, quietly = TRUE)) {
   # to be used within a learnr tutorial...
-  question(
+  sortable_question(
     "Sort the first 5 letters",
     answer(letters[1:5], correct = TRUE),
-    type = "sortable",
     allow_retry = TRUE
   )
 
 }
+}
+\seealso{
+\code{\link{sortable_question}}
 }

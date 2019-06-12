@@ -6,17 +6,42 @@
 #' Each set of answer options must contain the same set of answer options.
 #' When the question is completed, the first correct answer will be displayed.
 #'
-#' @inheritParams learnr::question_initialize_input
-#' @rdname sortable_learnr
+#' @param ... parameters passed onto \code{learnr::\link[learnr]{question}}.
 #' @method question_initialize_input sortable
 #' @export
 #' @examples
 #' if (require(learnr, quietly = TRUE)) {
 #'   # to be used within a learnr tutorial...
-#'   question(
+#'   sortable_question(
 #'     "Sort the first 5 letters",
 #'     answer(letters[1:5], correct = TRUE),
 #'     type = "sortable",
+#'     allow_retry = TRUE,
+#'     options = sortable_options(animation = 150)
+#'   )
+#' }
+sortable_question <- function(..., options = sortable_options()) {
+  learnr::question(..., type = "sortable", options = options)
+}
+
+
+#' Learnr methods for sortable_learnr
+#'
+#' Questions will be created using the first set of options.
+#' Each set of answer options must contain the same set of answer options.
+#' When the question is completed, the first correct answer will be displayed.
+#'
+#' @inheritParams learnr::question_initialize_input
+#' @rdname sortable_learnr
+#' @method question_initialize_input sortable
+#' @seealso \code{\link{sortable_question}}
+#' @export
+#' @examples
+#' if (require(learnr, quietly = TRUE)) {
+#'   # to be used within a learnr tutorial...
+#'   sortable_question(
+#'     "Sort the first 5 letters",
+#'     answer(letters[1:5], correct = TRUE),
 #'     allow_retry = TRUE
 #'   )
 #'
