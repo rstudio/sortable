@@ -9,7 +9,7 @@ sortable_list_onsort <- function(output_id) {
 
   js <- sprintf(js_text, output_id, inner_text)
 
-  htmlwidgets::JS(js)
+  sortable_options(onSort = htmlwidgets::JS(js))
 }
 
 
@@ -38,15 +38,12 @@ sortable_list <- function(
   labels,
   selector = NULL,
   class = "list-group-item",
-  options = list()
+  options = sortable_options()
 ) {
   if (is.null(selector) || is.na(selector)) {
     selector <- increment_sortable_list()
   }
-  # make sure options is a list
-  if (is.null(options) || identical(options, FALSE) || is.na(options)) {
-    options <- list()
-  }
+  assert_sortable_options(options)
 
   htmltools::tagList(
     htmltools::tags$div(

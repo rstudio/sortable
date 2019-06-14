@@ -5,7 +5,7 @@ test_that( "works with other widgets", {
   testthat::skip("test does not bring value and adds dependencies")
 
   library(htmltools)
-  library(DiagrammeR)
+  library(DiagrammeR) # nolint
   library(knob)
   library(dygraphs)
 
@@ -15,11 +15,11 @@ test_that( "works with other widgets", {
       id = "testdiv",
       tags$div(
         style = "float:left;border:solid 0.3em blue;",
-        grViz("digraph {A -> B;}", height = 200, width = 200)
+        grViz("digraph {A -> B;}", height = 200, width = 200) # nolint
       ),
       tags$div(
         style = "float:left;border:solid 0.3em gray;",
-        grViz("digraph {C -> D;}", height = 200, width = 200)
+        grViz("digraph {C -> D;}", height = 200, width = 200) # nolint
       ),
       tags$div(
         style = "float:left;border:solid 0.3em purple;",
@@ -73,7 +73,7 @@ test_that( "boostrap example works", {
           "Bootstrap handle example"
         ),
         HTML(htm),
-        sortable("listWithHandle", options = list(handle = ".glyphicon-move"))
+        sortable("listWithHandle", options = sortable_options(handle = ".glyphicon-move"))
       ))))
   expect_is(z, "character")
   expect_true(grepl("index.html", z))

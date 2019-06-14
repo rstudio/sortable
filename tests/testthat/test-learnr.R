@@ -4,11 +4,10 @@ context("learnr")
 
 test_that( "init display validates", {
 
-  question <- learnr::question(
+  question <- question_sortable(
     "Sort the first 5 letters",
     learnr::answer(LETTERS[1:5], correct = TRUE),
-    learnr::answer(rev(LETTERS[1:5]), correct = FALSE, "Other direction!"),
-    type = "sortable"
+    learnr::answer(rev(LETTERS[1:5]), correct = FALSE, "Other direction!")
   )
   expect_s3_class(question, "sortable")
 
@@ -18,12 +17,11 @@ test_that( "init display validates", {
 
   expect_error(
     question_initialize_input(
-      learnr::question(
+      question_sortable(
         "Sort the first 5 letters",
         learnr::answer(LETTERS[1:5], correct = TRUE),
         learnr::answer(letters[1:5], correct = FALSE, "causes error"),
-        learnr::answer(rev(LETTERS[1:5]), correct = FALSE, "Other direction!"),
-        type = "sortable"
+        learnr::answer(rev(LETTERS[1:5]), correct = FALSE, "Other direction!")
       )
     ),
     "answers MUST have the same set"
