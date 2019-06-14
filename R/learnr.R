@@ -63,11 +63,22 @@ question_initialize_input.sortable <- function(question, answer_input, ...) {
     }
   }
 
-  labels <- question$answers[[1]]$option
-  # if the question is to be displayed in random order, shuffle the options
-  if (isTRUE(question$random_answer_order)) {
-    labels <- sample(labels, length(labels))
+  # if no label order has been provided
+  if (!is.null(answer_input)) {
+    labels <- answer_input
+  } else {
+    labels <- question$answers[[1]]$option
+
+    # if the question is to be displayed in random order, shuffle the options
+    if (
+      isTRUE(question$random_answer_order) # and we should randomize the order
+    ) {
+      labels <- sample(labels, length(labels))
+    }
   }
+
+
+  # return the sortable htmlwidget
   sortable_list(
     question$ids$answer,
     labels,
@@ -80,7 +91,7 @@ question_initialize_input.sortable <- function(question, answer_input, ...) {
 #' @export
 question_completed_input.sortable <- function(question, answer_input, ...) {
   # TODO display correct values with X or √ compared to best match
-  # TODO DON'T display correct values (listen to an option)
+  # TODO DON'T display correct values (listen to an option?)
   sortable_list(
     question$ids$answer,
     answer_input,
