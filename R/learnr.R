@@ -7,6 +7,7 @@
 #' When the question is completed, the first correct answer will be displayed.
 #'
 #' @param ... parameters passed onto \code{learnr::\link[learnr]{question}}.
+#' @template options
 #' @export
 #' @examples
 #' if (require(learnr, quietly = TRUE)) {
@@ -14,7 +15,6 @@
 #'   question_sortable(
 #'     "Sort the first 5 letters",
 #'     answer(letters[1:5], correct = TRUE),
-#'     type = "sortable",
 #'     allow_retry = TRUE,
 #'     options = sortable_options(animation = 150)
 #'   )

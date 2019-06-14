@@ -9,7 +9,8 @@ sortable_options(group = NULL, sort = NULL, delay = NULL,
   draggable = NULL, swapThreshold = NULL, invertSwap = NULL,
   direction = NULL, scrollSensitivity = NULL, scrollSpeed = NULL,
   onStart = NULL, onEnd = NULL, onAdd = NULL, onUpdate = NULL,
-  onSort = NULL, onRemove = NULL, onFilter = NULL, ...)
+  onSort = NULL, onRemove = NULL, onFilter = NULL, onMove = NULL,
+  ...)
 }
 \arguments{
 \item{group}{To drag elements from one list into another, both lists must have the same group value. See \href{https://github.com/sortablejs/Sortable/#group-option}{Sortable#group-option} for more details. [\code{"name"}]}
@@ -20,7 +21,7 @@ sortable_options(group = NULL, sort = NULL, delay = NULL,
 
 \item{disabled}{Boolean that disables the sortable if set to true. [\code{FALSE}]}
 
-\item{animation}{Millisecond duration of the animation of items when sorting \link{\code{0} (no animation)}}
+\item{animation}{Millisecond duration of the animation of items when sorting [\code{0} (no animation)]}
 
 \item{handle}{CSS selector used for the drag handle selector within list items. [\code{".my-handle"}]}
 
@@ -28,11 +29,15 @@ sortable_options(group = NULL, sort = NULL, delay = NULL,
 
 \item{draggable}{CSS selector of which items inside the element should be draggable. [\code{".item"}]}
 
-\item{swapThreshold}{Percentage of the target that the swap zone will take up, as a number between 0 and 1. [\code{1}]}
+\item{swapThreshold}{Percentage of the target that the swap zone will take up, as a number between \code{0} and \code{1}. [\code{1}]}
 
 \item{invertSwap}{Set to \code{TRUE} to set the swap zone to the sides of the target, for the effect of sorting "in between" items. [\code{FALSE}]}
 
 \item{direction}{Direction of Sortable [\code{"horizontal"}]}
+
+\item{scrollSensitivity}{Number of pixels the mouse needs to be to an edge to start scrolling. [\code{30}]}
+
+\item{scrollSpeed}{Number of pixels for the speed of scrolling. [\code{10}]}
 
 \item{onStart, onEnd}{JS function called when an element dragging starts or ends}
 
@@ -46,15 +51,9 @@ sortable_options(group = NULL, sort = NULL, delay = NULL,
 
 \item{onFilter}{JS function called when an attempt is made to drag a filtered element}
 
-\item{...}{other params passed onto Sortable.js}
-
-\item{onChoose, onUnchoose}{JS function called when an element is chosen or unchosen}
-
 \item{onMove}{JS function called when an item is moved in a list or between lists}
 
-\item{onClone}{JS function that is called when creating a clone of an element}
-
-\item{onChange}{JS function that is called when a dragging element changes position}
+\item{...}{other params passed onto Sortable.js}
 }
 \description{
 Sortable.js Options

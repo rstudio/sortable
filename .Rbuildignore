@@ -7,3 +7,5 @@
 ^\.lintr$
 ^doc$
 ^Meta$
+^scripts/
+^man-roxygen/
