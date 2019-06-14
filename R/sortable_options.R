@@ -43,6 +43,7 @@
 #' @seealso [https://github.com/sortablejs/Sortable/](https://github.com/sortablejs/Sortable/)
 #' @export
 sortable_options <- function(
+  # nolint start
   group = NULL,
   sort = NULL,
   delay = NULL,
@@ -63,13 +64,32 @@ sortable_options <- function(
   onSort = NULL,
   onRemove = NULL,
   onFilter = NULL,
+  # nolint end
   ...
 ) {
   extra_args <- list(...)
+
+  # get all names and values
   args <- names(formals(sortable_options))
-  arg_vals <- mget(args[-length(args)], environment()) # remove last element
+  arg_vals <- mget(args[-length(args)], environment()) # remove last element (...)
+
+  # remove null values
   is_null <- vapply(arg_vals, is.null, logical(1))
   arg_vals <- arg_vals[!is_null]
+
+  # merge all args
   ret <- append(arg_vals, extra_args)
+
+  class(ret) <- "sortable_options"
   ret
+}
+
+
+
+assert_sortable_options <- function(x) {
+  if (!inherits(x, "sortable_options")) {
+    str(x)
+    stop("`options` must be produced by `sortable_options()`")
+  }
+  invisible(TRUE)
 }

@@ -23,7 +23,7 @@ question_sortable(
   answer(rev(LETTERS[1:5]), correct = FALSE, "Other direction!"),
   random_answer_order = TRUE,
   allow_retry = TRUE,
-  options = list(
+  options = sortable_options(
     animation = 150
   )
 )

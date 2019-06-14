@@ -22,6 +22,8 @@ sortable <- function(
   height = 0
 ) {
 
+  assert_sortable_options(options)
+
   # forward options using x
   x <- list(
     selector = selector,

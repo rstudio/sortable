@@ -5,7 +5,7 @@
 \title{Sortable item list.}
 \usage{
 sortable_list(output_id, labels, selector = NULL,
-  class = "list-group-item", options = list())
+  class = "list-group-item", options = sortable_options())
 }
 \arguments{
 \item{output_id}{output variable to read the plot/image from.}
