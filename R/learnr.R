@@ -95,7 +95,10 @@ question_completed_input.sortable <- function(question, answer_input, ...) {
   sortable_list(
     question$ids$answer,
     answer_input,
-    options = question$options
+    options = modifyList(
+      question$options,
+      sortable_options(disabled = TRUE)
+    )
   )
 }
 
