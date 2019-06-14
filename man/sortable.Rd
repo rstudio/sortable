@@ -4,37 +4,14 @@
 \alias{sortable}
 \title{Sortable.js for R}
 \usage{
-sortable(selector, options = NULL, width = 0, height = 0)
+sortable(selector, options = sortable_options(), width = 0,
+  height = 0)
 }
 \arguments{
 \item{selector}{\code{String} selector id on which to apply Sortable.  Note, Sortable
 works with any html element, not just \code{ul/li}.}
 
-\item{options}{\code{list} configuration options for Sortable.  For a throrough
-discussion, see \href{https://github.com/SortableJS/Sortable#options}{Sortable Options}.
-This is the list of supported options:
-\itemize{
-\item \code{group}
-\item \code{sort}
-\item \code{disabled}
-\item \code{store}
-\item \code{animation}
-\item \code{handle}
-\item \code{filter}
-\item \code{draggable}
-\item \code{ghostClass}
-\item \code{scroll}
-\item \code{scrollSensitivity}
-\item \code{scrollSpeed}
-\item \code{setData}
-\item \code{onStart}
-\item \code{onEnd}
-\item \code{onAdd}
-\item \code{onUpdate}
-\item \code{onSort}
-\item \code{onRemove}
-\item \code{onFilter}
-}}
+\item{options}{See \code{\link[=sortable_options]{sortable_options()}} for more details}
 
 \item{width}{\code{integer} width in pixels.  Since the container is expected
 to not be displayed, \code{0} is the default.}
@@ -45,4 +22,7 @@ to not be displayed, \code{0} is the default.}
 \description{
 htmlwidget that provides \href{https://github.com/SortableJS/Sortable}{Sortable.js}
 to use for additional interactivity in the Viewer, Browser, or Shiny.
+}
+\seealso{
+\code{\link[=sortable_options]{sortable_options()}}
 }

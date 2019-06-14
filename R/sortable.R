@@ -1,44 +1,23 @@
 #' Sortable.js for R
 #'
-#' htmlwidget that provides \href{https://github.com/SortableJS/Sortable}{Sortable.js}
+#' htmlwidget that provides [Sortable.js](https://github.com/SortableJS/Sortable)
 #' to use for additional interactivity in the Viewer, Browser, or Shiny.
 #'
 #' @param selector `String` selector id on which to apply Sortable.  Note, Sortable
 #'   works with any html element, not just `ul/li`.
-#' @param options `list` configuration options for Sortable.  For a throrough
-#'   discussion, see \href{https://github.com/SortableJS/Sortable#options}{Sortable Options}.
-#'   This is the list of supported options:
-#'   * `group`
-#'   * `sort`
-#'   * `disabled`
-#'   * `store`
-#'   * `animation`
-#'   * `handle`
-#'   * `filter`
-#'   * `draggable`
-#'   * `ghostClass`
-#'   * `scroll`
-#'   * `scrollSensitivity`
-#'   * `scrollSpeed`
-#'   * `setData`
-#'   * `onStart`
-#'   * `onEnd`
-#'   * `onAdd`
-#'   * `onUpdate`
-#'   * `onSort`
-#'   * `onRemove`
-#'   * `onFilter`
+#' @param options See [sortable_options()] for more details
 #' @param width `integer` width in pixels.  Since the container is expected
 #'   to not be displayed, `0` is the default.
 #' @param height `integer` height in pixels.  Since the container is expected
 #'   to not be displayed, `0` is the default.
 #'
 #' @importFrom htmlwidgets shinyWidgetOutput
+#' @seealso [sortable_options()]
 #'
 #' @export
 sortable <- function(
   selector,
-  options = NULL,
+  options = sortable_options(),
   width = 0,
   height = 0
 ) {

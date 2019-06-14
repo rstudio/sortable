@@ -30,7 +30,7 @@ When the question is completed, the first correct answer will be displayed.
 \examples{
 if (require(learnr, quietly = TRUE)) {
   # to be used within a learnr tutorial...
-  sortable_question(
+  question_sortable(
     "Sort the first 5 letters",
     answer(letters[1:5], correct = TRUE),
     allow_retry = TRUE
@@ -39,5 +39,5 @@ if (require(learnr, quietly = TRUE)) {
 }
 }
 \seealso{
-\code{\link{sortable_question}}
+\code{\link{question_sortable}}
 }
