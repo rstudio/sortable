@@ -20,7 +20,7 @@
 #'     options = sortable_options(animation = 150)
 #'   )
 #' }
-sortable_question <- function(..., options = sortable_options()) {
+question_sortable <- function(..., options = sortable_options()) {
   learnr::question(..., type = "sortable", options = options)
 }
 
@@ -34,12 +34,12 @@ sortable_question <- function(..., options = sortable_options()) {
 #' @inheritParams learnr::question_initialize_input
 #' @rdname sortable_learnr
 #' @method question_initialize_input sortable
-#' @seealso \code{\link{sortable_question}}
+#' @seealso \code{\link{question_sortable}}
 #' @export
 #' @examples
 #' if (require(learnr, quietly = TRUE)) {
 #'   # to be used within a learnr tutorial...
-#'   sortable_question(
+#'   question_sortable(
 #'     "Sort the first 5 letters",
 #'     answer(letters[1:5], correct = TRUE),
 #'     allow_retry = TRUE
