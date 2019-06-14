@@ -7,12 +7,11 @@
 #' When the question is completed, the first correct answer will be displayed.
 #'
 #' @param ... parameters passed onto \code{learnr::\link[learnr]{question}}.
-#' @method question_initialize_input sortable
 #' @export
 #' @examples
 #' if (require(learnr, quietly = TRUE)) {
 #'   # to be used within a learnr tutorial...
-#'   sortable_question(
+#'   question_sortable(
 #'     "Sort the first 5 letters",
 #'     answer(letters[1:5], correct = TRUE),
 #'     type = "sortable",
