@@ -28,8 +28,8 @@ With `sortable` [`htmlwidget`](https://htmlwidgets.org) we can amaze our non-R f
 
 `sortable` has not achieved CRAN status yet, so for now we will install with `devtools::install_github` as shown in the code below.
 
-```r
-devtools::install_github("timelyportfolio/sortableR")
+```{r, eval = FALSE}
+devtools::install_github("timelyportfolio/sortable")
 ```
 
 ```{r}
@@ -151,19 +151,12 @@ fluidPage(
             )
           )
         )
-      ),
-      column(
-        width = 4,
-        tags$div(
-          class = "panel panel-default",
-          tags$div(
-            class = "panel-heading",
-            tags$span(class = "glyphicon glyphicon-stats"),
-            "Analyze as x (drag here)"
-          ),
-          tags$div(
-            class = "panel-body",
-            id = "sort2"
+      )
+      ,column(width =4
+        ,tags$div(class="panel panel-default"
+          ,tags$div(class="panel-heading"
+            ,tags$span( class = "glyphicon glyphicon-stats" )
+            ,"Analyze as x (drag here)"
           )
         )
       ),
@@ -182,11 +175,22 @@ fluidPage(
           )
         )
       )
+      ,column(width =4
+        ,tags$div(class="panel panel-default"
+          ,tags$div(class="panel-heading"
+            ,tags$span( class = "glyphicon glyphicon-stats" )
+            ,"Analyze as y (drag here)"
+          )
+          ,tags$div(class="panel-body"
+            ,id = "sort3"
+          )
+        )
+      )
     )
-  ),
-  sortable("sort1", options = list(group = "sortGroup1")),
-  sortable("sort2", options = list(group = "sortGroup1")),
-  sortable("sort3", options = list(group = "sortGroup1"))
+  )
+  ,sortable( "sort1", options = sortable_options( group = "sortGroup1" ) )
+  ,sortable( "sort2", options = sortable_options( group = "sortGroup1" ) )
+  ,sortable( "sort3", options = sortable_options( group = "sortGroup1" ) )
 )
 ```
 
@@ -200,7 +204,7 @@ I learned late last night that `sortable` will allow movable tabs inside a Shiny
 library(sortable)
 library(shiny)
 
-ui <- # Define UI for random distribution application
+ui = # Define UI for random distribution application
 shinyUI(fluidPage(
 
   # Application title
@@ -223,18 +227,16 @@ shinyUI(fluidPage(
       br(),
 
       sliderInput("n",
-        "Number of observations:",
-        value = 500,
-        min = 1,
-        max = 1000
-      )
+                  "Number of observations:",
+                   value = 500,
+                   min = 1,
+                   max = 1000)
     ),
 
     # Show a tabset that includes a plot, summary, and table view
     # of the generated distribution
     mainPanel(
-      tabsetPanel(
-        type = "tabs", id = "sortTab",
+      tabsetPanel(type = "tabs", id = "sortTab",
         tabPanel("Plot", plotOutput("plot")),
         tabPanel("Summary", verbatimTextOutput("summary")),
         tabPanel("Table", tableOutput("table"))
@@ -244,7 +246,7 @@ shinyUI(fluidPage(
   sortable("sortTab")
 ))
 
-server <- function(input, output) {
+server = function(input, output) {
 
   # Reactive expression to generate the requested distribution.
   # This is called whenever the inputs change. The output
@@ -252,12 +254,11 @@ server <- function(input, output) {
   # this expression
   data <- reactive({
     dist <- switch(input$dist,
-      norm = rnorm,
-      unif = runif,
-      lnorm = rlnorm,
-      exp = rexp,
-      rnorm
-    )
+                   norm = rnorm,
+                   unif = runif,
+                   lnorm = rlnorm,
+                   exp = rexp,
+                   rnorm)
 
     dist(input$n)
   })
@@ -272,8 +273,7 @@ server <- function(input, output) {
     n <- input$n
 
     hist(data(),
-      main = paste("r", dist, "(", n, ")", sep = "")
-    )
+         main=paste('r', dist, '(', n, ')', sep=''))
   })
 
   # Generate a summary of the data
@@ -285,6 +285,7 @@ server <- function(input, output) {
   output$table <- renderTable({
     data.frame(x = data())
   })
+
 }
 
 shinyApp( ui, server )
