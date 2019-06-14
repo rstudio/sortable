@@ -11,7 +11,7 @@ sortable(selector, options = sortable_options(), width = 0,
 \item{selector}{\code{String} selector id on which to apply Sortable.  Note, Sortable
 works with any html element, not just \code{ul/li}.}
 
-\item{options}{See \code{\link[=sortable_options]{sortable_options()}} for more details}
+\item{options}{Options to be supplied to Sortable. See \link{sortable_options} for more details}
 
 \item{width}{\code{integer} width in pixels.  Since the container is expected
 to not be displayed, \code{0} is the default.}

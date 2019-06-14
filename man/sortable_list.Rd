@@ -19,7 +19,7 @@ app. If NULL, the function generates a selector of the form
 
 \item{class}{The css class to use}
 
-\item{options}{Extra options to be supplied to sortable.js.  See \link{sortable} for more details.}
+\item{options}{Options to be supplied to Sortable. See \link{sortable_options} for more details}
 }
 \description{
 Creates a sortable item list using the \code{sortable.js} framework, and generates

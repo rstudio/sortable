@@ -8,6 +8,8 @@ question_sortable(..., options = sortable_options())
 }
 \arguments{
 \item{...}{parameters passed onto \code{learnr::\link[learnr]{question}}.}
+
+\item{options}{Options to be supplied to Sortable. See \link{sortable_options} for more details}
 }
 \description{
 Questions will be created using the first set of options.
@@ -20,7 +22,6 @@ if (require(learnr, quietly = TRUE)) {
   question_sortable(
     "Sort the first 5 letters",
     answer(letters[1:5], correct = TRUE),
-    type = "sortable",
     allow_retry = TRUE,
     options = sortable_options(animation = 150)
   )

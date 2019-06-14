@@ -5,7 +5,7 @@
 #'
 #' @param selector `String` selector id on which to apply Sortable.  Note, Sortable
 #'   works with any html element, not just `ul/li`.
-#' @param options See [sortable_options()] for more details
+#' @template options
 #' @param width `integer` width in pixels.  Since the container is expected
 #'   to not be displayed, `0` is the default.
 #' @param height `integer` height in pixels.  Since the container is expected

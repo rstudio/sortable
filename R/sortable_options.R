@@ -7,7 +7,7 @@
 # ' @param touchStartThreshold Number of pixels a point should move before cancelling a delayed drag event. \[`0`\]
 #' @param disabled Boolean that disables the sortable if set to true. \[`FALSE`\]
 # ' @param store Saving and restoring of the sort. See [Sortable#store](https://github.com/sortablejs/Sortable/#store)
-#' @param animation Millisecond duration of the animation of items when sorting [\code{0} (no animation)]
+#' @param animation Millisecond duration of the animation of items when sorting \[`0` (no animation)\]
 # ' @param easing Easing for animation. \[`NULL`\] See [https://easings.net/](https://easings.net/) for examples.
 #' @param handle CSS selector used for the drag handle selector within list items. \[`".my-handle"`\]
 #' @param filter CSS selector or JS function used for elements that cannot be dragged. \[`".ignore-elements"`\]
@@ -17,9 +17,9 @@
 # ' @param ghostClass CSS class name for the drop placeholder. \[`"sortable-ghost"`\]
 # ' @param chosenClass CSS class name for the chosen item \[`"sortable-chosen"`\]
 # ' @param dragClass CSS class name for the dragging item \[`"sortable-drag"`\]
-#' @param swapThreshold Percentage of the target that the swap zone will take up, as a number between 0 and 1. \[`1`\]
+#' @param swapThreshold Percentage of the target that the swap zone will take up, as a number between `0` and `1`. \[`1`\]
 #' @param invertSwap Set to \code{TRUE} to set the swap zone to the sides of the target, for the effect of sorting "in between" items. \[`FALSE`\]
-# ' @param invertedSwapThreshold Percentage of the target that the inverted swap zone will take up, as a number between 0 and 1. \[`swapThreshold`\]
+# ' @param invertedSwapThreshold Percentage of the target that the inverted swap zone will take up, as a number between `0` and `1`. \[`swapThreshold`\]
 #' @param direction Direction of Sortable \[`"horizontal"`\]
 # ' @param forceFallback : false,  // ignore the HTML5 DnD behaviour and force the fallback to kick in
 # ' @param fallbackClass : "sortable-fallback",  // Class name for the cloned DOM Element when using forceFallback
@@ -29,7 +29,10 @@
 # ' @param removeCloneOnHide: true, // Remove the clone element when it is not showing, rather than just hiding it
 # ' @param emptyInsertThreshold: Number of pixels a mouse must be from empty sortable to insert drag element into it. \[`5`\]
 # ' @param setData undocumented on website
-#' @param onChoose,onUnchoose JS function called when an element is chosen or unchosen
+# https://github.com/SortableJS/Sortable/tree/master/plugins/AutoScroll
+#' @param scrollSensitivity Number of pixels the mouse needs to be to an edge to start scrolling. \[`30`\]
+#' @param scrollSpeed Number of pixels for the speed of scrolling. \[`10`\]
+# ' @param onChoose,onUnchoose JS function called when an element is chosen or unchosen
 #' @param onStart,onEnd JS function called when an element dragging starts or ends
 #' @param onAdd JS function called when an element is dropped into the list from another list
 #' @param onUpdate JS function called when the sorting is changed within a list
@@ -37,8 +40,8 @@
 #' @param onRemove JS function called when an element is removed from the list into another list
 #' @param onFilter JS function called when an attempt is made to drag a filtered element
 #' @param onMove JS function called when an item is moved in a list or between lists
-#' @param onClone JS function that is called when creating a clone of an element
-#' @param onChange JS function that is called when a dragging element changes position
+# ' @param onClone JS function that is called when creating a clone of an element
+# ' @param onChange JS function that is called when a dragging element changes position
 #' @param ... other params passed onto Sortable.js
 #' @seealso [https://github.com/sortablejs/Sortable/](https://github.com/sortablejs/Sortable/)
 #' @export
@@ -64,6 +67,7 @@ sortable_options <- function(
   onSort = NULL,
   onRemove = NULL,
   onFilter = NULL,
+  onMove = NULL,
   # nolint end
   ...
 ) {
@@ -88,7 +92,6 @@ sortable_options <- function(
 
 assert_sortable_options <- function(x) {
   if (!inherits(x, "sortable_options")) {
-    str(x)
     stop("`options` must be produced by `sortable_options()`")
   }
   invisible(TRUE)

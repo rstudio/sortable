@@ -27,7 +27,7 @@ sortable_list_onsort <- function(output_id) {
 #'   `sortable_list_id_1`, and will automatically increment for every
 #'   `sortable_list`
 #' @param class The css class to use
-#' @param options Extra options to be supplied to sortable.js.  See [sortable] for more details.
+#' @template options
 #'
 #' @seealso [sortable]
 #'
