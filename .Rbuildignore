@@ -5,3 +5,5 @@
 ^README\.Rmd$
 ^\.travis\.yml$
 ^\.lintr$
+^doc$
+^Meta$
