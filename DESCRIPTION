@@ -4,7 +4,6 @@ Title: htmlwidget for Sortable.js
 Version: 0.2.0.9000
 Date: 2019-05-16
 Authors@R: c(
-<<<<<<< HEAD
     person("Andrie", "de Vries", role = "cre", email = "apdevries@gmail.com"),
     person("Barret", "Schloerke", role = "aut", email = "barret@rstudio.com"),
     person("Kenton", "Russell", role = c("aut", "ccp"),
@@ -12,15 +11,6 @@ Authors@R: c(
     person("Lebedev", "Konstantin", role = "cph",
         comment = "Sortable.js library in htmlwidgets/lib,
         http://sortablejs.github.io/Sortable/")
-=======
-    person("Lebedev", "Konstantin", role = c("aut", "cph"),
-        comment = "Sortable.js library in htmlwidgets/lib,
-        http://sortablejs.github.io/Sortable/"),
-    person("Kenton", "Russell", role = c("aut", "cre"),
-        comment = "R interface", email = "kent.russell@timelyportfolio.com"),
-    person("Andrie", "de Vries", role = "ctb", email = "apdevries@gmail.com"),
-    person("Barret", "Schloerke", role = "ctb", email = "barret@rstudio.com")
->>>>>>> master
     )
 Description: Make almost anything sortable.  Add drag and drop behavior in R console,
               web browser, RStudio Viewer, and Shiny.  This little htmlwidget brings
