@@ -62,7 +62,7 @@ sortable_list <- function(
     sortable(
       selector = selector,
       options = modifyList(
-        onSort = sortable_js_capture_input(output_id),
+        sortable_options(onSort = sortable_js_capture_input(output_id)),
         options
       )
     )
