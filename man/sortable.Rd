@@ -23,6 +23,24 @@ to not be displayed, \code{0} is the default.}
 htmlwidget that provides \href{https://github.com/SortableJS/Sortable}{Sortable.js}
 to use for additional interactivity in the Viewer, Browser, or Shiny.
 }
+\examples{
+# Simple example of sortable. Set the tags `id` equal to the sortable `selector`
+if (require(htmltools)) {
+  html_print(
+    tagList(
+      tags$p("You can drag and reorder the items in this list:"),
+      tags$ul(
+        id = "example02",
+        tags$li("drag me"),
+        tags$li("order me"),
+        tags$li("sort me"),
+        tags$li("any way you like")
+      ),
+      sortable(selector = "example02")
+    )
+  )
+}
+}
 \seealso{
 \code{\link[=sortable_options]{sortable_options()}}
 }

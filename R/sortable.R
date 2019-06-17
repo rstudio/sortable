@@ -15,7 +15,7 @@
 #' @seealso [sortable_options()]
 #'
 #' @export
-#' @example inst/examples/sortable_simple_example.R
+#' @example inst/examples/example_sortable.R
 sortable <- function(
   selector,
   options = sortable_options(),

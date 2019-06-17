@@ -1,4 +1,5 @@
-#' Sortable.js Options
+#' Define options to pass to the sortable.js library.
+#'
 #'
 #' @param group To drag elements from one list into another, both lists must have the same group value. See [Sortable#group-option](https://github.com/sortablejs/Sortable/#group-option) for more details. \[`"name"`\]
 #' @param sort Boolean that allows sorting inside a list. \[`TRUE`\]
@@ -43,7 +44,8 @@
 # ' @param onClone JS function that is called when creating a clone of an element
 # ' @param onChange JS function that is called when a dragging element changes position
 #' @param ... other params passed onto Sortable.js
-#' @seealso [https://github.com/sortablejs/Sortable/](https://github.com/sortablejs/Sortable/)
+#' @references  [https://github.com/sortablejs/Sortable/](https://github.com/sortablejs/Sortable/)
+#' @seealso [sortable]
 #' @export
 sortable_options <- function(
   # nolint start

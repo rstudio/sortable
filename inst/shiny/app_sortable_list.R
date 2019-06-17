@@ -10,7 +10,7 @@ ui <- shinyUI(fluidPage(
       width = 12,
       tags$h2("This is a sortable list"),
       tags$p("Drag the items in the correct order"),
-      sortableItemlist(
+      sortable_list(
         "sortable_list_1",
         labels = shuffle(c("one", "two", "three", "four", "five"))
       )

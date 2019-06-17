@@ -1,15 +1,21 @@
-# Construct the onSort method for sortable
-sortable_list_onsort <- function(output_id) {
-  inner_text <- "
+#' Construct JS method to capture inputs on change.
+#'
+#' This captures the inputs of a `sortable` list.  Typically you would use this
+#' with the `onSort` option of `sortable`. See [sortable_options()]
+#' @param output_id The output id.
+#' @export
+#' @examples inst/shiny/app_drag_mtcars.R
+sortable_js_capture_input <- function(output_id) {
+  inner_text <- '
     $.map(this.el.children, function(child){return child.innerText})
-  "
-  js_text <- "function(evt){{
-    Shiny.onInputChange(\"%s\", %s)
-  }}"
+  '
+  js_text <- 'function(evt){{
+    Shiny.onInputChange("%s", %s)
+  }}'
 
   js <- sprintf(js_text, output_id, inner_text)
 
-  sortable_options(onSort = htmlwidgets::JS(js))
+  htmlwidgets::JS(js)
 }
 
 
@@ -56,7 +62,7 @@ sortable_list <- function(
     sortable(
       selector = selector,
       options = modifyList(
-        sortable_list_onsort(output_id),
+        onSort = sortable_js_capture_input(output_id),
         options
       )
     )

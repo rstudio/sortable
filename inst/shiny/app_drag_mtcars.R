@@ -8,7 +8,7 @@ ui <- fluidPage(
     class = "panel panel-success",
     tags$div(
       class = "panel-heading",
-      tags$h3("Magic Can Happen Here")
+      tags$h3("Demo: Dragging variables to define a plot")
     ),
     fluidRow(
       class = "panel-body",
@@ -73,28 +73,24 @@ ui <- fluidPage(
       )
     )
   ),
-  sortable("sort1", options = list(group = "sortGroup1",
-                                   onSort = sortableJStext("sort_vars"))),
-  sortable("sort2", options = list(group = "sortGroup1",
-                                   onSort = sortableJStext("sort_x"))),
-  sortable("sort3", options = list(group = "sortGroup1",
-                                   onSort = sortableJStext("sort_y")))
+  sortable("sort1", options = sortable_options(
+    group = "sortGroup1",
+    onSort = sortable_js_capture_input("sort_vars"))
+  ),
+  sortable("sort2", options = sortable_options(
+    group = "sortGroup1",
+    onSort = sortable_js_capture_input("sort_x"))
+  ),
+  sortable("sort3", options = sortable_options(
+    group = "sortGroup1",
+    onSort = sortable_js_capture_input("sort_y"))
+  )
 )
 server <- function(input, output) {
-  output$variables <-
-    renderPrint(
-      input$sort_vars
-    )
+  output$variables <- renderPrint(input[["sort_vars"]])
+  output$analyse_x <- renderPrint(input[["sort_x"]])
+  output$analyse_y <- renderPrint(input[["sort_y"]])
 
-  output$analyse_x <-
-    renderPrint(
-      input$sort_x
-  )
-
-  output$analyse_y <-
-    renderPrint(
-      input$sort_y
-    )
 
   x <- reactive({
     x <- input$sort_x
@@ -107,6 +103,10 @@ server <- function(input, output) {
 
   output$plot <-
     renderPlot({
+      validate(
+        need(x(), "Drag a variable to x"),
+        need(y(), "Drag a variable to y")
+      )
       if (!is.null(x()) && x() != "" && !is.null(y()) && (y() != "")) {
         dat <- mtcars[, c(x(), y())]
         names(dat) <- c("x", "y")
