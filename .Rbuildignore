@@ -3,3 +3,9 @@
 ^LICENSE\.md$
 ^Readme\.md$
 ^README\.Rmd$
+^\.travis\.yml$
+^\.lintr$
+^doc$
+^Meta$
+^scripts/
+^man-roxygen/

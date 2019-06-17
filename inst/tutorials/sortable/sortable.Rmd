@@ -1,0 +1,32 @@
+---
+title: "sortable - Hello World"
+date: "June 6th, 2019"
+output: learnr::tutorial
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(magrittr)
+library(learnr)
+library(sortable)
+```
+
+# Sorting LETTERS
+
+Sort the answers from A to E:
+
+
+```{r letters}
+question_sortable(
+  "Sort the first 5 letters",
+  answer(LETTERS[1:5], correct = TRUE),
+  answer(rev(LETTERS[1:5]), correct = FALSE, "Other direction!"),
+  random_answer_order = TRUE,
+  allow_retry = TRUE,
+  options = sortable_options(
+    animation = 150
+  )
+)
+```
+
+###### Try E to A as well!
