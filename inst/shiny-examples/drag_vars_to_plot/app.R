@@ -8,7 +8,7 @@ ui <- fluidPage(
     class = "panel panel-success",
     tags$div(
       class = "panel-heading",
-      tags$h3("Demo: Dragging variables to define a plot")
+      tags$h3("Dragging variables to define a plot")
     ),
     fluidRow(
       class = "panel-body",
@@ -73,19 +73,47 @@ ui <- fluidPage(
       )
     )
   ),
-  sortable("sort1", options = sortable_options(
-    group = "sortGroup1",
-    onSort = sortable_js_capture_input("sort_vars"))
+  sortable(
+    "sort1",
+    options = sortable_options(
+      group = list(
+        name = "sortGroup1",
+        put = TRUE
+      ),
+      swap = TRUE,
+      swapClass = "sortable-swap-highlight",
+      sort = FALSE,
+      onSort = sortable_js_capture_input("sort_vars")
+    )
   ),
-  sortable("sort2", options = sortable_options(
-    group = "sortGroup1",
-    onSort = sortable_js_capture_input("sort_x"))
+  sortable(
+    "sort2",
+    options = sortable_options(
+      group = list(
+        group = "sortGroup1",
+        put = htmlwidgets::JS('function (to) { return to.el.children.length < 1; }'),
+        pull = TRUE
+      ),
+      swap = TRUE,
+      swapClass = "sortable-swap-highlight",
+      onSort = sortable_js_capture_input("sort_x")
+    )
   ),
-  sortable("sort3", options = sortable_options(
-    group = "sortGroup1",
-    onSort = sortable_js_capture_input("sort_y"))
+  sortable(
+    "sort3",
+    options = sortable_options(
+      group = list(
+        group = "sortGroup1",
+        put = htmlwidgets::JS('function (to) { return to.el.children.length < 1; }'),
+        pull = TRUE
+      ),
+        swap = TRUE,
+      swapClass = "sortable-swap-highlight",
+      onSort = sortable_js_capture_input("sort_y")
+    )
   )
 )
+
 server <- function(input, output) {
   output$variables <- renderPrint(input[["sort_vars"]])
   output$analyse_x <- renderPrint(input[["sort_x"]])
