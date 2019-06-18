@@ -29,7 +29,7 @@ Suggests:
     base64,
     shiny
 Remotes:
-    rstudio/learnr@tmp_sortable
+    rstudio/learnr
 VignetteBuilder: knitr
 RoxygenNote: 6.1.1
 Roxygen: list(markdown = TRUE)
