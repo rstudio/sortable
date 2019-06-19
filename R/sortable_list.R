@@ -10,18 +10,18 @@
 #' @export
 #' @examples
 #' # For an example, see the Shiny app at
-#' # system.file("shiny-examples/drag_vars_to_plot/app.R", package = "sortable")
+#' system.file("shiny-examples/drag_vars_to_plot/app.R", package = "sortable")
 sortable_js_capture_input <- function(output_id) {
-  inner_text <- '
+  inner_text <- "
     $.map(this.el.children, function(child){return child.innerText})
-  '
-  js_text <- 'function(evt){{
-    Shiny.onInputChange("%s", %s)
-  }}'
+  "
+  js_text <- "function(evt){{
+    Shiny.onInputChange(\"%s\", %s)
+  }}"
 
   js <- sprintf(js_text, output_id, inner_text)
 
-  if(shiny::isRunning()) {
+  if (shiny::isRunning()) {
     htmlwidgets::JS(js)
   } else {
     NULL

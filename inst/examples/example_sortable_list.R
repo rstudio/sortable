@@ -1,6 +1,6 @@
 if (require(htmltools)) {
 
-  list_group_css <- '
+  list_group_css <- "
   .list-group-item {
     position: relative;
     display: block;
@@ -8,7 +8,7 @@ if (require(htmltools)) {
     margin-bottom: -1px;
     background-color: #fff;
       border: 1px solid #ddd;
-  }'
+  }"
 
   html_print(
     tagList(
