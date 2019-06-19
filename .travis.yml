@@ -8,6 +8,8 @@ notifications:
     on_success: change
     on_failure: change
 
+r_binary_packages:
+  - covr
 
 jobs:
   include:
@@ -17,7 +19,10 @@ jobs:
 
     - name: "Release"
       r: release
-      before_cache: Rscript -e 'remotes::install_cran("pkgdown")'
+      after_success:
+        - Rscript -e 'covr::codecov()'
+      before_cache:
+        - Rscript -e 'remotes::install_cran("pkgdown")'
       deploy:
         provider: script
         script: Rscript -e 'pkgdown::deploy_site_github()'
