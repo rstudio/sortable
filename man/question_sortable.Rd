@@ -4,10 +4,13 @@
 \alias{question_sortable}
 \title{Learnr methods for sortable_learnr}
 \usage{
-question_sortable(..., options = sortable_options())
+question_sortable(..., random_answer_order = TRUE,
+  options = sortable_options())
 }
 \arguments{
 \item{...}{parameters passed onto \code{learnr::\link[learnr]{question}}.}
+
+\item{random_answer_order}{Display answers in a random order.}
 
 \item{options}{Options to be supplied to Sortable. See \link{sortable_options} for more details}
 }

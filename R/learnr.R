@@ -8,6 +8,7 @@
 #'
 #' @param ... parameters passed onto \code{learnr::\link[learnr]{question}}.
 #' @template options
+#' @inheritParams learnr::question
 #' @export
 #' @examples
 #' if (require(learnr, quietly = TRUE)) {
@@ -19,8 +20,13 @@
 #'     options = sortable_options(animation = 150)
 #'   )
 #' }
-question_sortable <- function(..., options = sortable_options()) {
-  learnr::question(..., type = "sortable", options = options)
+question_sortable <- function(..., random_answer_order = TRUE, options = sortable_options()) {
+  learnr::question(
+    ...,
+    random_answer_order = random_answer_order,
+    type = "sortable",
+    options = options
+  )
 }
 
 

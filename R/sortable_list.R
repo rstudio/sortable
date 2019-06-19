@@ -10,7 +10,7 @@
 #' @export
 #' @examples
 #' # For an example, see the Shiny app at
-#' # inst/shiny-examples/drag_vars_to_plot/app.R
+#' # system.file("shiny-examples/drag_vars_to_plot/app.R", package = "sortable")
 sortable_js_capture_input <- function(output_id) {
   inner_text <- '
     $.map(this.el.children, function(child){return child.innerText})
