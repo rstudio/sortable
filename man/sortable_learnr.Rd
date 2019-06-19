@@ -5,7 +5,7 @@
 \alias{question_completed_input.sortable}
 \alias{question_is_valid.sortable}
 \alias{question_is_correct.sortable}
-\title{Learnr methods for sortable_learnr}
+\title{Learnr methods for \link{sortable}}
 \usage{
 \method{question_initialize_input}{sortable}(question, answer_input, ...)
 

@@ -1,6 +1,6 @@
 
 
-#' Learnr methods for sortable_learnr
+#' Learnr question method for [sortable]
 #'
 #' Questions will be created using the first set of options.
 #' Each set of answer options must contain the same set of answer options.
@@ -24,7 +24,7 @@ question_sortable <- function(..., options = sortable_options()) {
 }
 
 
-#' Learnr methods for sortable_learnr
+#' Learnr methods for [sortable]
 #'
 #' Questions will be created using the first set of options.
 #' Each set of answer options must contain the same set of answer options.

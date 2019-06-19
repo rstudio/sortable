@@ -2,7 +2,7 @@
 % Please edit documentation in R/learnr.R
 \name{question_sortable}
 \alias{question_sortable}
-\title{Learnr methods for sortable_learnr}
+\title{Learnr question method for \link{sortable}}
 \usage{
 question_sortable(..., options = sortable_options())
 }
