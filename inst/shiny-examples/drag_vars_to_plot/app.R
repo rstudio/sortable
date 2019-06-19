@@ -1,14 +1,12 @@
 library(shiny)
 library(sortable)
-library(ggplot2)
-library(dplyr)
 
 ui <- fluidPage(
   fluidRow(
     class = "panel panel-success",
     tags$div(
       class = "panel-heading",
-      tags$h3("Magic Can Happen Here")
+      tags$h3("Dragging variables to define a plot")
     ),
     fluidRow(
       class = "panel-body",
@@ -73,32 +71,56 @@ ui <- fluidPage(
       )
     )
   ),
-  sortable("sort1", options = list(group = "sortGroup1",
-                                   onSort = sortableJStext("sort_vars"))),
-  sortable("sort2", options = list(group = "sortGroup1",
-                                   onSort = sortableJStext("sort_x"))),
-  sortable("sort3", options = list(group = "sortGroup1",
-                                   onSort = sortableJStext("sort_y")))
-)
-server <- function(input, output) {
-  output$variables <-
-    renderPrint(
-      input$sort_vars
+  sortable(
+    "sort1",
+    options = sortable_options(
+      group = list(
+        name = "sortGroup1",
+        put = TRUE
+      ),
+      swap = TRUE,
+      swapClass = "sortable-swap-highlight",
+      sort = FALSE,
+      onSort = sortable_js_capture_input("sort_vars")
     )
-
-  output$analyse_x <-
-    renderPrint(
-      input$sort_x
+  ),
+  sortable(
+    "sort2",
+    options = sortable_options(
+      group = list(
+        group = "sortGroup1",
+        put = htmlwidgets::JS('function (to) { return to.el.children.length < 1; }'),
+        pull = TRUE
+      ),
+      swap = TRUE,
+      swapClass = "sortable-swap-highlight",
+      onSort = sortable_js_capture_input("sort_x")
+    )
+  ),
+  sortable(
+    "sort3",
+    options = sortable_options(
+      group = list(
+        group = "sortGroup1",
+        put = htmlwidgets::JS('function (to) { return to.el.children.length < 1; }'),
+        pull = TRUE
+      ),
+        swap = TRUE,
+      swapClass = "sortable-swap-highlight",
+      onSort = sortable_js_capture_input("sort_y")
+    )
   )
+)
 
-  output$analyse_y <-
-    renderPrint(
-      input$sort_y
-    )
+server <- function(input, output) {
+  output$variables <- renderPrint(input[["sort_vars"]])
+  output$analyse_x <- renderPrint(input[["sort_x"]])
+  output$analyse_y <- renderPrint(input[["sort_y"]])
+
 
   x <- reactive({
     x <- input$sort_x
-    if (is.character(x)) x %>% trimws()
+    if (is.character(x)) trimws(x)
   })
 
   y <- reactive({
@@ -107,16 +129,13 @@ server <- function(input, output) {
 
   output$plot <-
     renderPlot({
-      if (!is.null(x()) && x() != "" && !is.null(y()) && (y() != "")) {
-        dat <- mtcars[, c(x(), y())]
-        names(dat) <- c("x", "y")
-        ggplot(dat, aes(x = x, y = y)) + geom_point() +
-          xlab(x()) +
-          ylab(y())
-      } else {
-        ggplot() + geom_blank()
-      }
-
+      validate(
+        need(x(), "Drag a variable to x"),
+        need(y(), "Drag a variable to y")
+      )
+      dat <- mtcars[, c(x(), y())]
+      names(dat) <- c("x", "y")
+      plot(y ~ x, data = dat)
     })
 
 }
