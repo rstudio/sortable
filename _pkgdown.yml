@@ -1,0 +1,19 @@
+destination: docs
+reference:
+- title: Sortable functions
+  desc: ~
+  contents:
+  - '`sortable`'
+  - '`sortable_list`'
+  - '`sortable_options`'
+- title: 'Learnr'
+  desc: Methods to enhance learnr tutorial questions
+  contents:
+  - '`question_sortable`'
+  - '`question_initialize_input.sortable`'
+- title: Shiny functions
+  desc: Methods to use `sortable` within Shiny
+  contents:
+  - '`render_sortable`'
+  - '`sortable_output`'
+  - '`sortable_js_capture_input`'
