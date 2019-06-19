@@ -1,4 +1,8 @@
-#' Define options to pass to the sortable.js library.
+#' Define options to pass to a sortable object.
+#'
+#' Use this function to define the options for [sortable] and [sortable_list], which will pass these in turn to the `sortable.js` JavaScript library.
+#'
+#' Many of the `sortable.js` options will accept a JavaScript function. You can do this using the `htmlwidgets::JS` function.
 #'
 #'
 #' @param group To drag elements from one list into another, both lists must have the same group value. See [Sortable#group-option](https://github.com/sortablejs/Sortable/#group-option) for more details. \[`"name"`\]

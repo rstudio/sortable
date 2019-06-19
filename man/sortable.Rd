@@ -5,7 +5,7 @@
 \title{Sortable.js for R}
 \usage{
 sortable(selector, options = sortable_options(), width = 0,
-  height = 0)
+  height = 0, element_id = NULL, pre_render_hook = NULL)
 }
 \arguments{
 \item{selector}{\code{String} selector id on which to apply Sortable.  Note, Sortable
@@ -18,25 +18,30 @@ to not be displayed, \code{0} is the default.}
 
 \item{height}{\code{integer} height in pixels.  Since the container is expected
 to not be displayed, \code{0} is the default.}
+
+\item{element_id}{Passed to \link[htmlwidgets:createWidget]{htmlwidgets::createWidget}}
+
+\item{pre_render_hook}{Passed to \link[htmlwidgets:createWidget]{htmlwidgets::createWidget}}
 }
 \description{
-htmlwidget that provides \href{https://github.com/SortableJS/Sortable}{Sortable.js}
-to use for additional interactivity in the Viewer, Browser, or Shiny.
+Creates an \code{htmlwidget} that provides \href{https://github.com/SortableJS/Sortable}{Sortable.js}
+to use for drag-and-drop interactivity in Shiny apps and R Markdown.
 }
 \examples{
-# Simple example of sortable. Set the tags `id` equal to the sortable `selector`
+# Simple example of sortable.
+# Important: set the tags CSS `id` equal to the sortable `selector`
 if (require(htmltools)) {
   html_print(
     tagList(
       tags$p("You can drag and reorder the items in this list:"),
       tags$ul(
-        id = "example02",
-        tags$li("drag me"),
-        tags$li("order me"),
-        tags$li("sort me"),
-        tags$li("any way you like")
+        id = "example_1",
+        tags$li("Move"),
+        tags$li("Or drag"),
+        tags$li("Each of the items"),
+        tags$li("To different positions")
       ),
-      sortable(selector = "example02")
+      sortable(selector = "example_1")
     )
   )
 }

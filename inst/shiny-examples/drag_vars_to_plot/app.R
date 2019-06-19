@@ -1,7 +1,5 @@
 library(shiny)
 library(sortable)
-library(ggplot2)
-library(dplyr)
 
 ui <- fluidPage(
   fluidRow(
@@ -122,7 +120,7 @@ server <- function(input, output) {
 
   x <- reactive({
     x <- input$sort_x
-    if (is.character(x)) x %>% trimws()
+    if (is.character(x)) trimws(x)
   })
 
   y <- reactive({
@@ -135,16 +133,9 @@ server <- function(input, output) {
         need(x(), "Drag a variable to x"),
         need(y(), "Drag a variable to y")
       )
-      if (!is.null(x()) && x() != "" && !is.null(y()) && (y() != "")) {
-        dat <- mtcars[, c(x(), y())]
-        names(dat) <- c("x", "y")
-        ggplot(dat, aes(x = x, y = y)) + geom_point() +
-          xlab(x()) +
-          ylab(y())
-      } else {
-        ggplot() + geom_blank()
-      }
-
+      dat <- mtcars[, c(x(), y())]
+      names(dat) <- c("x", "y")
+      plot(y ~ x, data = dat)
     })
 
 }

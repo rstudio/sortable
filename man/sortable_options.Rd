@@ -2,7 +2,7 @@
 % Please edit documentation in R/sortable_options.R
 \name{sortable_options}
 \alias{sortable_options}
-\title{Define options to pass to the sortable.js library.}
+\title{Define options to pass to a sortable object.}
 \usage{
 sortable_options(group = NULL, sort = NULL, delay = NULL,
   disabled = NULL, animation = NULL, handle = NULL, filter = NULL,
@@ -56,7 +56,10 @@ sortable_options(group = NULL, sort = NULL, delay = NULL,
 \item{...}{other params passed onto Sortable.js}
 }
 \description{
-Define options to pass to the sortable.js library.
+Use this function to define the options for \link{sortable} and \link{sortable_list}, which will pass these in turn to the \code{sortable.js} JavaScript library.
+}
+\details{
+Many of the \code{sortable.js} options will accept a JavaScript function. You can do this using the \code{htmlwidgets::JS} function.
 }
 \references{
 \url{https://github.com/sortablejs/Sortable/}
