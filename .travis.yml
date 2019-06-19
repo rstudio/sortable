@@ -8,8 +8,6 @@ notifications:
     on_success: change
     on_failure: change
 
-r_binary_packages:
-  - covr
 
 jobs:
   include:
@@ -19,6 +17,8 @@ jobs:
 
     - name: "Release"
       r: release
+      r_binary_packages:
+        - covr
       after_success:
         - Rscript -e 'covr::codecov()'
       before_cache:
