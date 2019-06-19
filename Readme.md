@@ -6,7 +6,7 @@
 <!-- badges: start -->
 
 [![Travis build
-status](https://travis-ci.org/timelyportfolio/sortableR.svg?branch=master)](https://travis-ci.org/rstudio/sortable)
+status](https://travis-ci.org/rstudio/sortable.svg?branch=master)](https://travis-ci.org/rstudio/sortable)
 [![CRAN
 version](http://www.r-pkg.org/badges/version/sortable)](https://cran.r-project.org/package=sortable)
 [![sortable downloads per
@@ -14,7 +14,7 @@ month](http://cranlogs.r-pkg.org/badges/sortable)](http://www.rpackages.io/packa
 <!-- badges: end -->
 
 The goal of `sortable` is to expose the functionality of
-[`Sortable.js`](https://sortablejs.github.io/Sortable/) as an
+[`sortable.js`](https://sortablejs.github.io/Sortable/) as an
 [htmlwidget](https://htmlwidgets.org) in R, so you can use this in Shiny
 apps and widgets, as well as R Markdown.
 
