@@ -12,7 +12,7 @@ Authors@R: c(
         comment = "Sortable.js library in htmlwidgets/lib,
         http://sortablejs.github.io/Sortable/")
     )
-Description: Make almost anything sortable.  Add drag and drop behavior to your 
+Description: Make almost anything sortable.  Add drag and drop behavior to your
     Shiny Apps and gadgets.  Add ranking, sorting and bucketing question types
     to your `learnr` tutorials.
 URL: https://github.com/rstudio/sortable
@@ -32,6 +32,7 @@ Suggests:
 Remotes:
     rstudio/learnr
 VignetteBuilder: knitr
+BuildVignettes: no
 RoxygenNote: 6.1.1
 Roxygen: list(markdown = TRUE)
 Encoding: UTF-8
