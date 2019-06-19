@@ -1,5 +1,9 @@
 
 
+# update Readme.Rmd
+devtools::build_readme()
+
+
 # build vignettes
 devtools::build_vignettes()
 vig_doc_folder <- file.path("inst", "doc")
