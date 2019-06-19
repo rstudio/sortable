@@ -1,3 +1,5 @@
+# example-sortable-list ---------------------------------------------------
+
 if (require(htmltools)) {
 
   list_group_css <- '
