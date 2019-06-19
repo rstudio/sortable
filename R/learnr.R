@@ -21,7 +21,12 @@
 #'   )
 #' }
 question_sortable <- function(..., random_answer_order = TRUE, options = sortable_options()) {
-  learnr::question(..., random_answer_order = random_answer_order, type = "sortable", options = options)
+  learnr::question(
+    ...,
+    random_answer_order = random_answer_order,
+    type = "sortable",
+    options = options
+  )
 }
 
 
