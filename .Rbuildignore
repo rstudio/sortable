@@ -10,3 +10,4 @@
 ^scripts/
 ^man-roxygen/
 ^docs$
+^codecov\.yml$

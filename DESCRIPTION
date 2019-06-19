@@ -28,7 +28,8 @@ Suggests:
     knitr,
     DiagrammeR,
     base64,
-    shiny
+    shiny,
+    covr
 Remotes:
     rstudio/learnr
 VignetteBuilder: knitr

@@ -13,10 +13,11 @@ version](http://www.r-pkg.org/badges/version/sortable)](https://cran.r-project.o
 month](http://cranlogs.r-pkg.org/badges/sortable)](http://www.rpackages.io/package/sortable)
 <!-- badges: end -->
 
-The goal of `sortable` is to expose the functionality of
+The `sortable` package enables drag-and-drop behaviour in your Shiny
+apps. It does this by exposing the functionality of
 [`sortable.js`](https://sortablejs.github.io/Sortable/) as an
 [htmlwidget](https://htmlwidgets.org) in R, so you can use this in Shiny
-apps and widgets, as well as R Markdown.
+apps and widgets, `learnr` tutorials as well as R Markdown.
 
 ## Installation
 
