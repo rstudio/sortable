@@ -26,13 +26,11 @@ Imports:
 Suggests:
     testthat (>= 2.1.0),
     knitr,
-    DiagrammeR,
     base64,
     shiny
 Remotes:
     rstudio/learnr
 VignetteBuilder: knitr
-BuildVignettes: no
 RoxygenNote: 6.1.1
 Roxygen: list(markdown = TRUE)
 Encoding: UTF-8

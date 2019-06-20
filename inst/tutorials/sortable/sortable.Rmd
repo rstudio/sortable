@@ -6,7 +6,6 @@ runtime: shiny_prerendered
 ---
 
 ```{r setup, include=FALSE}
-library(magrittr)
 library(learnr)
 library(sortable)
 ```
