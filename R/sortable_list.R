@@ -42,23 +42,26 @@ sortable_js_capture_input <- function(output_id) {
 #'
 #' @param output_id output variable to read the plot/image from.
 #' @param labels A character vector with the text to display inside the widget.
+#' @param heading Text to appear at top of list.
 #' @param selector This is the css id to use, and must be unique in your shiny
 #'   app. If NULL, the function generates a selector of the form
 #'   `sortable_list_id_1`, and will automatically increment for every
 #'   `sortable_list`.
-#' @param class The css class to use
+#' @param additional_class Additional css class name to use. This gets appended to the `sortable-list` class, and is used by the [bucketable_list()] function.
 #' @template options
 #'
 #' @seealso [sortable]
 #'
 #' @export
 #' @importFrom utils modifyList
+#' @importFrom htmltools  tagList tags
 #' @example inst/examples/example_sortable_list.R
 sortable_list <- function(
   output_id,
   labels,
+  heading = "",
   selector = NULL,
-  class = "list-group-item",
+  additional_class = "",
   options = sortable_options()
 ) {
   if (is.null(selector) || is.na(selector)) {
@@ -66,13 +69,17 @@ sortable_list <- function(
   }
   assert_sortable_options(options)
 
-  htmltools::tagList(
-    htmltools::tags$div(
-      id = selector,
-      class = class,
-      lapply(labels, function(x) {
-        htmltools::tags$div(class = class, x)
-      })
+  tagList(
+    tags$div(
+      class = "sortable-list-container",
+      tags$p(heading),
+      tags$div(
+        class = paste("sortable-list", additional_class),
+        id = selector,
+        lapply(labels, function(x) {
+          tags$div(class = "sortable-list-item", x )
+        })
+      )
     ),
     sortable(
       selector = selector,

@@ -4,47 +4,28 @@
 \alias{bucketable_list}
 \title{Create a bucketable item list.}
 \usage{
-bucketable_list(output_ids, labels_list, group_name,
+bucketable_list(output_ids, labels_list, headings, group_name,
   group_put_max = rep(Inf, length(labels)), selector = NULL,
-  class = "list-group-item", options = sortable_options())
+  options = sortable_options())
 }
 \arguments{
+\item{output_ids}{Character vector of \code{output_id} to pass (individually) to \link{sortable_list}}
+
+\item{labels_list}{List of \code{label} to pass (individually) to \link{sortable_list}}
+
+\item{headings}{Vector of headings for each column}
+
+\item{group_name}{Passed to \code{sortable.js} as the group name}
+
+\item{group_put_max}{Not yet implemented}
+
 \item{selector}{This is the css id to use, and must be unique in your shiny
 app. If NULL, the function generates a selector of the form
 \code{sortable_list_id_1}, and will automatically increment for every
 \code{sortable_list}.}
 
-\item{class}{The css class to use}
-
 \item{options}{Options to be supplied to Sortable. See \link{sortable_options} for more details}
 }
 \description{
 Create a bucketable item list.
-}
-\examples{
-# example-sortable-list ---------------------------------------------------
-
-if (require(htmltools)) {
-
-  list_group_css <- '
-  .list-group-item {
-    position: relative;
-    display: block;
-    padding: 10px 15px;
-    margin-bottom: -1px;
-    background-color: #fff;
-      border: 1px solid #ddd;
-  }'
-
-  html_print(
-    tagList(
-      tags$style(list_group_css),
-      tags$p("You can drag and drop these list items:"),
-      sortable_list("example_2", labels = c("one", "two", "three"))
-    )
-  )
-}
-}
-\seealso{
-\link{sortable}
 }

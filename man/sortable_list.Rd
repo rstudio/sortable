@@ -4,20 +4,22 @@
 \alias{sortable_list}
 \title{Create a sortable item list.}
 \usage{
-sortable_list(output_id, labels, selector = NULL,
-  class = "list-group-item", options = sortable_options())
+sortable_list(output_id, labels, heading = "", selector = NULL,
+  additional_class = "", options = sortable_options())
 }
 \arguments{
 \item{output_id}{output variable to read the plot/image from.}
 
 \item{labels}{A character vector with the text to display inside the widget.}
 
+\item{heading}{Text to appear at top of list.}
+
 \item{selector}{This is the css id to use, and must be unique in your shiny
 app. If NULL, the function generates a selector of the form
 \code{sortable_list_id_1}, and will automatically increment for every
 \code{sortable_list}.}
 
-\item{class}{The css class to use}
+\item{additional_class}{Additional css class name to use. This gets appended to the \code{sortable-list} class, and is used by the \code{\link[=bucketable_list]{bucketable_list()}} function.}
 
 \item{options}{Options to be supplied to Sortable. See \link{sortable_options} for more details}
 }
@@ -35,24 +37,17 @@ The widget automatically updates a Shiny output, with the matching \code{output_
 
 if (require(htmltools)) {
 
-  list_group_css <- '
-  .list-group-item {
-    position: relative;
-    display: block;
-    padding: 10px 15px;
-    margin-bottom: -1px;
-    background-color: #fff;
-      border: 1px solid #ddd;
-  }'
-
   html_print(
     tagList(
-      tags$style(list_group_css),
-      tags$p("You can drag and drop these list items:"),
-      sortable_list("example_2", labels = c("one", "two", "three"))
+      tags$style(css_sortable_list()),
+      tags$p(),
+      sortable_list("example_2",
+                    labels = c("one", "two", "three", "four"),
+                    heading = "You can drag, drap and re-order these items:")
     )
   )
 }
+
 }
 \seealso{
 \link{sortable}
