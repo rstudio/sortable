@@ -23,11 +23,9 @@ jobs:
     - name: "covr; lintr; deploy gh-pages"
       r: release
       r_binary_packages:
-        - lintr
         - covr
         - pkgdown
       script:
-        - Rscript -e 'lintr::lint_package()'
         - Rscript -e 'covr::codecov()'
       deploy:
         provider: script
