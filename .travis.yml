@@ -8,21 +8,23 @@ notifications:
     on_success: change
     on_failure: change
 
+r:
+  - oldred
+  - release
+  - devel
 
 jobs:
   include:
-    - stage: "R CMD check"
-      name: "Old Release"
-      r: oldrel
-
-    - name: "Release"
+    - stage: "Extra Checks"
+      name: "covr; lintr; deploy gh-pages"
       r: release
       r_binary_packages:
+        - lintr
         - covr
-      after_success:
+        - pkgdown
+      script:
+        - Rscript -e 'lintr::lint_package()'
         - Rscript -e 'covr::codecov()'
-      before_cache:
-        - Rscript -e 'remotes::install_cran("pkgdown")'
       deploy:
         provider: script
         script: Rscript -e 'pkgdown::deploy_site_github()'
@@ -30,6 +32,3 @@ jobs:
         on:
           branch: master
           repo: rstudio/sortable
-
-    - name: "Devel"
-      r: devel
