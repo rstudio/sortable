@@ -43,7 +43,6 @@ sortable_list(
   labels = c("one", "two", "three", "four", "five"),
   output_id = "example_2"
 )
-
 }
 \seealso{
 \link{sortable}, \link{bucketable_list}, \link{parsons}

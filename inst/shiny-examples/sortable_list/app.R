@@ -1,10 +1,11 @@
 library(shiny)
 library(sortable)
 
-shuffle <- function(x)sample(x, size = length(x))
+shuffle <- function(x) {
+  sample(x, size = length(x))
+}
 
-ui <- shinyUI(fluidPage(
-
+ui <- fluidPage(
   fluidRow(
     column(
       width = 12,
@@ -19,15 +20,14 @@ ui <- shinyUI(fluidPage(
   fluidRow(
     verbatimTextOutput("results_list_1")
   )
-))
+)
 
-server <-  function(input,output){
+server <- function(input,output) {
   output$results_list_1 <-
     renderPrint(
       input$sortable_list_1
     )
-
 }
 
 
-shiny::shinyApp(ui, server = server)
+shiny::shinyApp(ui, server)

@@ -4,6 +4,8 @@ linters: with_defaults(
   )
 exclusions: list(
     "tests/testthat/test-htmltools.R",
-    "tests/testthat/test-shiny.R",
-    "tests/testthat/test-widgets.R"
+    "inst/examples/example_sortable_list.R",
+    "inst/examples/example_sortable.R",
+    "inst/shiny-examples/drag_vars_to_plot/app.R",
+    "inst/shiny-examples/sortable_list/app.R"
   )

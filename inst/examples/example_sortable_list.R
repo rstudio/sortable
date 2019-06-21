@@ -5,4 +5,3 @@ sortable_list(
   labels = c("one", "two", "three", "four", "five"),
   output_id = "example_2"
 )
-

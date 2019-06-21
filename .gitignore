@@ -1,5 +1,6 @@
 .Rproj.user
 .Rhistory
 .RData
-doc
+docs/
 Meta
+README.html

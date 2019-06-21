@@ -15,7 +15,7 @@ with the \code{onSort} option of \code{sortable}. See \code{\link[=sortable_opti
 }
 \examples{
 # For an example, see the Shiny app at
-# system.file("shiny-examples/drag_vars_to_plot/app.R", package = "sortable")
+system.file("shiny-examples/drag_vars_to_plot/app.R", package = "sortable")
 }
 \seealso{
 \link{sortable} and \link{sortable_list}.
