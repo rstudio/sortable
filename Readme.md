@@ -11,6 +11,8 @@ status](https://travis-ci.org/rstudio/sortable.svg?branch=master)](https://travi
 version](http://www.r-pkg.org/badges/version/sortable)](https://cran.r-project.org/package=sortable)
 [![sortable downloads per
 month](http://cranlogs.r-pkg.org/badges/sortable)](http://www.rpackages.io/package/sortable)
+[![Codecov test
+coverage](https://codecov.io/gh/rstudio/sortable/branch/master/graph/badge.svg)](https://codecov.io/gh/rstudio/sortable?branch=master)
 <!-- badges: end -->
 
 The `sortable` package enables drag-and-drop behaviour in your Shiny
@@ -65,7 +67,7 @@ html_print(tagList(
 ))
 ```
 
-![](inst/images/simple_sortable_list.gif)
+![](man/figures/simple_sortable_list.gif)
 
 ### Sortable widgets
 
@@ -121,7 +123,7 @@ server <- function(input, output) {}
 shinyApp(ui = ui, server = server)
 ```
 
-![](inst/images/simple_sortable_shiny.gif)
+![](man/figures/simple_sortable_shiny.gif)
 
 ### Capturing input with `sortable_list()` inside a Shiny app
 
@@ -156,7 +158,7 @@ server <- function(input, output) {
 shinyApp(ui=ui,server=server)
 ```
 
-![](inst/images/sortable_list_shiny.gif)
+![](man/figures/sortable_list_shiny.gif)
 
 ### Sortable tabsets
 
@@ -168,4 +170,4 @@ from [RStudio](https://rstudio.com). (You can find the [source code in
 this
 gist](https://gist.github.com/timelyportfolio/2dbe45f77b65e28acab9)).
 
-<img src="inst/images/sortable_tabs.gif"/>
+![](man/figures/sortable_tabs.gif)

@@ -24,14 +24,6 @@ knitr::opts_chunk$set(
 
 With `sortable` [`htmlwidget`](https://htmlwidgets.org) we can amaze our non-R friends and thrill our colleagues with powerful, dependency-free interactivity from [`Sortable.js`](https://sortablejs.github.io/Sortable/) in the browser, RStudio Viewer, or RStudio Shiny.  I encourage you to **think creatively and imaginatively** with `sortable` as there are all sorts of potential uses for this `htmlwidget`.  Please do not limit yourself to the simple examples within this vignette.
 
-## Getting Started
-
-`sortable` has not achieved CRAN status yet, so for now we will install with `devtools::install_github` as shown in the code below.
-
-```{r, eval = FALSE}
-devtools::install_github("timelyportfolio/sortable")
-```
-
 ```{r}
 library(sortable)
 ```
@@ -145,21 +137,16 @@ fluidPage(
                     class = class(mtcars[, co]),
                     tags$span(class = "glyphicon glyphicon-move"),
                     tags$strong(co)
-                  )
-                )
-              }
-            )
-          )
-        )
-      )
-      ,column(width =4
-        ,tags$div(class="panel panel-default"
-          ,tags$div(class="panel-heading"
-            ,tags$span( class = "glyphicon glyphicon-stats" )
-            ,"Analyze as x (drag here)"
-          )
-        )
-      ),
+                  ))})))),
+      column(
+        width = 4,
+        tags$div(
+          class="panel panel-default",
+          tags$div(
+            class="panel-heading",
+            tags$span(class = "glyphicon glyphicon-stats"),
+            "Analyze as x (drag here)"
+          ))),
       column(
         width = 4,
         tags$div(
@@ -172,25 +159,23 @@ fluidPage(
           tags$div(
             class = "panel-body",
             id = "sort3"
-          )
-        )
-      )
-      ,column(width =4
-        ,tags$div(class="panel panel-default"
-          ,tags$div(class="panel-heading"
-            ,tags$span( class = "glyphicon glyphicon-stats" )
-            ,"Analyze as y (drag here)"
-          )
-          ,tags$div(class="panel-body"
-            ,id = "sort3"
-          )
-        )
-      )
-    )
-  )
-  ,sortable( "sort1", options = sortable_options( group = "sortGroup1" ) )
-  ,sortable( "sort2", options = sortable_options( group = "sortGroup1" ) )
-  ,sortable( "sort3", options = sortable_options( group = "sortGroup1" ) )
+          ))),
+      column(
+        width = 4,
+        tags$div(
+          class="panel panel-default",
+          tags$div(
+            class="panel-heading",
+            tags$span(class = "glyphicon glyphicon-stats"),
+            "Analyze as y (drag here)"
+          ),
+          tags$div(
+            class="panel-body",
+            id = "sort3"
+          ))))),
+  sortable("sort1", options = sortable_options(group = "sortGroup1")),
+  sortable("sort2", options = sortable_options(group = "sortGroup1")),
+  sortable("sort3", options = sortable_options(group = "sortGroup1"))
 )
 ```
 
@@ -226,17 +211,20 @@ shinyUI(fluidPage(
       ),
       br(),
 
-      sliderInput("n",
-                  "Number of observations:",
-                   value = 500,
-                   min = 1,
-                   max = 1000)
+      sliderInput(
+        "n",
+        "Number of observations:",
+         value = 500,
+         min = 1,
+         max = 1000)
     ),
 
     # Show a tabset that includes a plot, summary, and table view
     # of the generated distribution
     mainPanel(
-      tabsetPanel(type = "tabs", id = "sortTab",
+      tabsetPanel(
+        type = "tabs",
+        id = "sortTab",
         tabPanel("Plot", plotOutput("plot")),
         tabPanel("Summary", verbatimTextOutput("summary")),
         tabPanel("Table", tableOutput("table"))
@@ -253,12 +241,14 @@ server = function(input, output) {
   # functions defined below then all use the value computed from
   # this expression
   data <- reactive({
-    dist <- switch(input$dist,
-                   norm = rnorm,
-                   unif = runif,
-                   lnorm = rlnorm,
-                   exp = rexp,
-                   rnorm)
+    dist <- switch(
+      input$dist,
+      norm = rnorm,
+      unif = runif,
+      lnorm = rlnorm,
+      exp = rexp,
+      rnorm
+    )
 
     dist(input$n)
   })

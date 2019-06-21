@@ -10,4 +10,7 @@
 ^scripts/
 ^man-roxygen/
 ^docs$
+^_pkgdown\.yml$
+^pkgdown$
 ^codecov\.yml$
+^README\.html$

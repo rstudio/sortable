@@ -89,7 +89,7 @@ ui <- fluidPage(
     options = sortable_options(
       group = list(
         group = "sortGroup1",
-        put = htmlwidgets::JS('function (to) { return to.el.children.length < 1; }'),
+        put = htmlwidgets::JS("function (to) { return to.el.children.length < 1; }"),
         pull = TRUE
       ),
       swap = TRUE,
@@ -102,7 +102,7 @@ ui <- fluidPage(
     options = sortable_options(
       group = list(
         group = "sortGroup1",
-        put = htmlwidgets::JS('function (to) { return to.el.children.length < 1; }'),
+        put = htmlwidgets::JS("function (to) { return to.el.children.length < 1; }"),
         pull = TRUE
       ),
         swap = TRUE,
