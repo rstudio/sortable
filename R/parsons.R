@@ -25,7 +25,13 @@ parsons <- function(
   style = css_parsons()
 ) {
   if (is.null(selector)) {
-    selector <- vapply(seq_along(labels), function(i)increment_parsons(), FUN.VALUE = character(1))
+    selector <- vapply(
+      seq_along(labels),
+      function(i) {
+        increment_parsons()
+      },
+      FUN.VALUE = character(1)
+    )
   }
   assert_sortable_options(options)
 
@@ -37,5 +43,4 @@ parsons <- function(
     group_name = group_name,
     style = style
   )
-
 }
