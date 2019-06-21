@@ -20,7 +20,7 @@ jobs:
     - name: "Devel"
       r: devel
 
-    - name: "covr; lintr; deploy gh-pages"
+    - name: "covr; deploy gh-pages"
       r: release
       r_binary_packages:
         - covr
