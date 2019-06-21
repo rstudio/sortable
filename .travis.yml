@@ -9,7 +9,7 @@ notifications:
     on_failure: change
 
 r:
-  - oldred
+  - oldrel
   - release
   - devel
 
