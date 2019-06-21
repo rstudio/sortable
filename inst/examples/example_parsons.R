@@ -15,4 +15,3 @@ parsons(
   output_id = paste0("output", 1:2),
   group_name = "parsons_test",
 )
-

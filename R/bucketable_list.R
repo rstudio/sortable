@@ -25,7 +25,13 @@ bucketable_list <- function(
   style = css_bucketable_list()
 ) {
   if (is.null(selector)) {
-    selector <- vapply(seq_along(labels), function(i)increment_bucketable_list(), FUN.VALUE = character(1))
+    selector <- vapply(
+      seq_along(labels),
+      function(i) {
+        increment_bucketable_list()
+      },
+      FUN.VALUE = character(1)
+    )
   }
   assert_sortable_options(options)
 
