@@ -8,11 +8,6 @@ notifications:
     on_success: change
     on_failure: change
 
-r:
-  - oldrel
-  - release
-  - devel
-
 jobs:
   include:
     - stage: "R CMD check"
