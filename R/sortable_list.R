@@ -98,12 +98,12 @@ sortable_list <- function(
     )
   )
 
-  as.sortable_list(z)
+  as_sortable_list(z)
 
 }
 
 
-as.sortable_list <- function(x){
+as_sortable_list <- function(x){
   class(x) <- c("sortable_list", class(x))
   x
 }

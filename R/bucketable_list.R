@@ -59,6 +59,5 @@ bucketable_list <- function(
     })
   )
 
-  as.sortable_list(z)
-
+  as_sortable_list(z)
 }
