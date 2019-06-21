@@ -20,15 +20,14 @@ BugReports: https://github.com/rstudio/sortable/issues
 License: MIT + file LICENSE
 LazyData: TRUE
 Imports:
-    htmlwidgets,
     htmltools,
-    learnr (>= 0.9.2)
+    htmlwidgets,
+    learnr (>= 0.9.2),
+    shiny
 Suggests:
-    testthat (>= 2.1.0),
-    knitr,
     base64,
-    shiny,
-    covr
+    knitr,
+    testthat (>= 2.1.0)
 Remotes:
     rstudio/learnr
 VignetteBuilder: knitr

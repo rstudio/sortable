@@ -14,7 +14,6 @@
 sortable_js_capture_input <- function(output_id) {
   if (
     !(
-      requireNamespace("shiny", quietly = TRUE) &&
       shiny::isRunning()
     )
   ) {
