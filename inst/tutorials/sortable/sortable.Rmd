@@ -1,17 +1,19 @@
 ---
-title: "sortable - Hello World"
+title: "Ranking and bucketing questions"
 date: "June 6th, 2019"
 output: learnr::tutorial
 runtime: shiny_prerendered
 ---
 
 ```{r setup, include=FALSE}
-library(magrittr)
 library(learnr)
 library(sortable)
+library(magrittr)
 ```
 
-# Sorting LETTERS
+# Ranking questions
+
+## Sorting LETTERS
 
 Sort the answers from A to E:
 
@@ -29,4 +31,4 @@ question_sortable(
 )
 ```
 
-###### Try E to A as well!
+**Try E to A as well!**

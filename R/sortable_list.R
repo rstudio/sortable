@@ -42,37 +42,40 @@ sortable_js_capture_input <- function(output_id) {
 #'
 #' @param output_id output variable to read the plot/image from.
 #' @param labels A character vector with the text to display inside the widget.
-#' @param heading Text to appear at top of list.
+#' @param text Text to appear at top of list.
 #' @param selector This is the css id to use, and must be unique in your shiny
 #'   app. If NULL, the function generates a selector of the form
 #'   `sortable_list_id_1`, and will automatically increment for every
 #'   `sortable_list`.
 #' @param additional_class Additional css class name to use. This gets appended to the `sortable-list` class, and is used by the [bucketable_list()] function.
+#' @param style A css stylesheet, provided as a character string.  See also [css_sortable_list()].
 #' @template options
 #'
-#' @seealso [sortable]
+#' @seealso [sortable], [bucketable_list], [parsons]
 #'
 #' @export
 #' @importFrom utils modifyList
 #' @importFrom htmltools  tagList tags
 #' @example inst/examples/example_sortable_list.R
 sortable_list <- function(
-  output_id,
+  text = "",
   labels,
-  heading = "",
+  output_id,
   selector = NULL,
+  options = sortable_options(),
   additional_class = "",
-  options = sortable_options()
+  style = css_sortable_list()
 ) {
-  if (is.null(selector) || is.na(selector)) {
+  if (is.null(selector)) {
     selector <- increment_sortable_list()
   }
   assert_sortable_options(options)
 
-  tagList(
+  z <- tagList(
     tags$div(
-      class = "sortable-list-container",
-      tags$p(heading),
+      tags$style(htmltools::HTML(style)),
+      class = paste("sortable-list-container", additional_class),
+      tags$p(text),
       tags$div(
         class = paste("sortable-list", additional_class),
         id = selector,
@@ -90,4 +93,17 @@ sortable_list <- function(
     )
   )
 
+  as.sortable_list(z)
+
+}
+
+
+as.sortable_list <- function(x){
+  class(x) <- c("sortable_list", class(x))
+  x
+}
+
+#' @export
+print.sortable_list <- function(x, ...){
+  htmltools::html_print(x)
 }
