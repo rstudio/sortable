@@ -15,8 +15,17 @@ r:
 
 jobs:
   include:
-    - stage: "Extra Checks"
-      name: "covr; lintr; deploy gh-pages"
+    - stage: "R CMD check"
+      name: "Old Release"
+      r: oldrel
+
+    - name: "Release"
+      r: release
+
+    - name: "Devel"
+      r: release
+
+    - name: "covr; lintr; deploy gh-pages"
       r: release
       r_binary_packages:
         - lintr
