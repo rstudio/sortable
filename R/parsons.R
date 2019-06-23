@@ -5,16 +5,17 @@
 #'
 #' @template options
 #'
-#'
-#' @param output_id Character vector of `output_id` to pass (individually) to [sortable_list]
+#' @inheritParams bucketable_list
 #' @param labels List of `label` to pass (individually) to [sortable_list]
 #' @param text Vector of headings for each column.
 #' @param group_name Passed to `sortable.js` as the group name
 #' @param group_put_max Not yet implemented
+#' @param output_id Character vector of `output_id` to pass (individually) to [sortable_list]
 #'
 #' @export
 #' @example inst/examples/example_parsons.R
 parsons <- function(
+  header,
   text,
   labels,
   output_id,
@@ -24,20 +25,21 @@ parsons <- function(
   options = sortable_options(),
   style = css_parsons()
 ) {
-  if (is.null(selector)) {
-    selector <- vapply(
-      seq_along(labels),
-      function(i) {
-        increment_parsons()
-      },
-      FUN.VALUE = character(1)
-    )
-  }
+  # if (is.null(selector)) {
+  #   selector <- vapply(
+  #     seq_along(labels),
+  #     function(i) {
+  #       increment_parsons()
+  #     },
+  #     FUN.VALUE = character(1)
+  #   )
+  # }
   assert_sortable_options(options)
 
   bucketable_list(
-    text = text,
-    labels = labels,
+    header = header,
+    add_sortable_list(text = text[1], labels = labels[[1]]),
+    add_sortable_list(text = text[2], labels = labels[[2]]),
     selector = selector,
     output_id = output_id,
     group_name = group_name,

@@ -2,18 +2,21 @@
 % Please edit documentation in R/bucketable_list.R
 \name{bucketable_list}
 \alias{bucketable_list}
-\title{Create a bucketable item list.}
+\title{Create a bucketable  list.}
 \usage{
-bucketable_list(text, labels, output_id, group_name,
+bucketable_list(header, ..., output_id, group_name,
   group_put_max = rep(Inf, length(labels)), selector = NULL,
   options = sortable_options(), style = css_bucketable_list())
 }
 \arguments{
-\item{text}{Vector of headings for each column.}
+\item{header}{Text that appears at the top of the bucketable list.  (This is
+encoded as an HTML \code{<p>} tag, so not strictly speaking a header.)}
 
-\item{labels}{List of \code{label} to pass (individually) to \link{sortable_list}}
+\item{...}{One or more specifications for a sortable list, and must be
+defined by \link{add_sortable_list}.}
 
-\item{output_id}{Character vector of \code{output_id} to pass (individually) to \link{sortable_list}}
+\item{output_id}{Character vector of \code{output_id} to pass (individually) to
+\link{sortable_list}}
 
 \item{group_name}{Passed to \code{sortable.js} as the group name}
 
@@ -29,37 +32,44 @@ app. If NULL, the function generates a selector of the form
 \item{style}{A css stylesheet, provided as a character string.  See also \code{\link[=css_sortable_list]{css_sortable_list()}}.}
 }
 \description{
-Create a bucketable item list.
+A bucketable list can contain more than one \link{sortable_list} and allows
+drag-and-drop of items between the different lists.
 }
 \examples{
+## Bucketable list
+
+bucketable_list(
+  header = "This is a bucketable list. You can drag items between the lists.",
+  group_name = "bucketable",
+  add_sortable_list(
+    text = "Drag from here",
+    labels = c("a", "bb", "ccc")
+  ),
+  add_sortable_list(
+    text = "to here",
+    labels = NULL
+  )
+)
 
 ## Bucketable list with three columns
 
 bucketable_list(
-  text = c("Sort these items", "into Letters", "and Numbers"),
-  labels = list(
-    sample(c(1:3, letters[1:3])),
-    NULL,
-    NULL
+  header = c("Sort these items into Letters and Numbers"),
+  add_sortable_list(
+    text = "Sort these items",
+    labels = sample(c(1:3, letters[1:2]))
+  ),
+  add_sortable_list(
+    text = "into Letters",
+    labels = NULL
+  ),
+  add_sortable_list(
+    text = "and Numbers",
+    labels = NULL
   ),
   output_id = paste0("output", 1:3),
   group_name = "bucket_test"
 )
 
 
-## Bucketable list with two columns
-library(htmltools)
-
-html_print(tagList(
-  tags$p("A prototype for a bucketable_list with two columns"),
-  bucketable_list(
-    text = c("Drag items from here", "to here"),
-    labels = list(
-      letters[1:5],
-      NULL
-    ),
-    output_id = paste0("output", 1:2),
-    group_name = "bucket_test"
-  )
-))
 }

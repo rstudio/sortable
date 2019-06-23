@@ -98,17 +98,7 @@ sortable_list <- function(
     )
   )
 
-  as_sortable_list(z)
+  as.sortable_list(z)
 
 }
 
-
-as_sortable_list <- function(x){
-  class(x) <- c("sortable_list", class(x))
-  x
-}
-
-#' @export
-print.sortable_list <- function(x, ...){
-  htmltools::html_print(x)
-}

@@ -4,11 +4,14 @@
 \alias{parsons}
 \title{Create a parsons problem.}
 \usage{
-parsons(text, labels, output_id, group_name, group_put_max = rep(Inf,
-  length(labels)), selector = NULL, options = sortable_options(),
-  style = css_parsons())
+parsons(header, text, labels, output_id, group_name,
+  group_put_max = rep(Inf, length(labels)), selector = NULL,
+  options = sortable_options(), style = css_parsons())
 }
 \arguments{
+\item{header}{Text that appears at the top of the bucketable list.  (This is
+encoded as an HTML \code{<p>} tag, so not strictly speaking a header.)}
+
 \item{text}{Vector of headings for each column.}
 
 \item{labels}{List of \code{label} to pass (individually) to \link{sortable_list}}
@@ -35,6 +38,7 @@ Create a parsons problem.
 ## Parson's problem
 
 parsons(
+  header = "This is an example of a Parsons problem",
   text = c("Drag from here", "Construct your solution here"),
   labels = list(
     c(

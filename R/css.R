@@ -5,16 +5,21 @@
 #' @export
 css_sortable_list <- function(){
 "
+.bucketable-list {
+  background-color: #eee;
+  padding: 10px;
+  margin: 5px;
+}
+
 .bucketable-list-container {
   display: flex;
   flex-direction: row;
-  background-color: #eee;
 }
 
 .sortable-list-container {
   flex: 30%;
-  padding: 10px;
   background-color: #ccc;
+  padding: 10px;
   margin: 5px;
 }
 
