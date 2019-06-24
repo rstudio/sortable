@@ -12,21 +12,13 @@
 #' # For an example, see the Shiny app at
 #' system.file("shiny-examples/drag_vars_to_plot/app.R", package = "sortable")
 sortable_js_capture_input <- function(output_id) {
-  if (
-    !(
-      requireNamespace("shiny", quietly = TRUE) &&
-      shiny::isRunning()
-    )
-  ) {
-    # if there is no shiny or no shiny running... quit early
-    return(NULL)
-  }
-
   inner_text <- "
     $.map(this.el.children, function(child){return child.innerText})
   "
   js_text <- "function(evt){{
-    Shiny.onInputChange(\"%s\", %s)
+    if (typeof Shiny !== \"undefined\") {
+      Shiny.onInputChange(\"%s\", %s)
+    }
   }}"
 
   js <- sprintf(js_text, output_id, inner_text)
