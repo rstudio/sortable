@@ -135,7 +135,7 @@ server <- function(input, output) {
       )
       dat <- mtcars[, c(x(), y())]
       names(dat) <- c("x", "y")
-      plot(y ~ x, data = dat)
+      plot(y ~ x, data = dat, xlab = x(), ylab = y())
     })
 
 }
