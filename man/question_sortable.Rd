@@ -2,7 +2,7 @@
 % Please edit documentation in R/learnr.R
 \name{question_sortable}
 \alias{question_sortable}
-\title{Learnr question method for \link{sortable}}
+\title{Learnr question method for \link{sortable_js}}
 \usage{
 question_sortable(..., random_answer_order = TRUE,
   options = sortable_options())
@@ -12,7 +12,7 @@ question_sortable(..., random_answer_order = TRUE,
 
 \item{random_answer_order}{Display answers in a random order.}
 
-\item{options}{Options to be supplied to Sortable. See \link{sortable_options} for more details}
+\item{options}{Options to be supplied to \link{sortable_js} object. See \link{sortable_options} for more details}
 }
 \description{
 Questions will be created using the first set of options.

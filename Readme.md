@@ -63,7 +63,7 @@ html_print(tagList(
     tags$li("Each of the items"),
     tags$li("To different positions")
   ),
-  sortable("uniqueId01") # use the id as the selector
+  sortable_js("uniqueId01") # use the id as the selector
 ))
 ```
 
@@ -71,7 +71,7 @@ html_print(tagList(
 
 ### Sortable widgets
 
-You can also use `sortable()` to drag and drop other widgets:
+You can also use `sortable_js()` to drag and drop other widgets:
 
 ``` r
 library(DiagrammeR)
@@ -82,15 +82,15 @@ html_print(tagList(
   tags$div(
     id = "aUniqueId",
     tags$div(
-      style = "border: solid 0.2em gray; float:left;",
+      style = "border: solid 0.2em gray; float:left; margin: 5px",
       mermaid("graph LR; S[Sortable.js] -->|sortable| R ", height = 300, width = 300)
     ),
     tags$div(
-      style = "border: solid 0.2em gray; float:left;",
-      mermaid("graph TD; JavaScript -->|htmlwidgets| R ", height = 300, width = 200)
+      style = "border: solid 0.2em gray; float:left; margin: 5px",
+      mermaid("graph TD; JavaScript -->|htmlwidgets| R ", height = 300, width = 150)
     )
   ),
-  sortable("aUniqueId") # again, the CSS id must match the selector
+  sortable_js("aUniqueId") # again, the CSS id must match the selector
 ))
 ```
 
@@ -115,7 +115,7 @@ ui <- shinyUI(fluidPage(
       )
     )
   ),
-  sortable("veryUniqueId")
+  sortable_js("veryUniqueId")
 ))
 
 server <- function(input, output) {}
@@ -134,28 +134,31 @@ or integral piece of Shiny.
 library(shiny)
 library(sortable)
 
-ui <- shinyUI(fluidPage(
+ui <- fluidPage(
   fluidRow(
     column(
       width = 12,
-      tags$h2("Using `sortable_list()` in Shiny"),
-      tags$p("Once you move an item, the new order will appear in results"),
+      tags$h2("This is a sortable list"),
       sortable_list(
-        output_id = "mySort",
-        labels = paste("Item", 1:3)
-      ),
-      tags$h4("Current sorting order"),
-      verbatimTextOutput("results")
+        text = "Drag the items in the correct order",
+        labels = sample(c("one", "two", "three", "four", "five")),
+        output_id = "sortable_list_1"
+      )
     )
+  ),
+  fluidRow(
+    textOutput("results")
   )
-))
+)
 
 server <- function(input, output) {
   output$results <- renderPrint({
-    input$mySort
+    input$sortable_list_1 # This matches the output_id of the sortable list
   })
 }
-shinyApp(ui=ui,server=server)
+
+
+shinyApp(ui, server)
 ```
 
 ![](man/figures/sortable_list_shiny.gif)

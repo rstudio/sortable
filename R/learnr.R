@@ -1,6 +1,6 @@
 
 
-#' Learnr question method for [sortable]
+#' Learnr question method for [sortable_js]
 #'
 #' Questions will be created using the first set of options.
 #' Each set of answer options must contain the same set of answer options.
@@ -30,7 +30,7 @@ question_sortable <- function(..., random_answer_order = TRUE, options = sortabl
 }
 
 
-#' Learnr methods for [sortable]
+#' Learnr methods for [sortable_js]
 #'
 #' Questions will be created using the first set of options.
 #' Each set of answer options must contain the same set of answer options.
@@ -86,8 +86,8 @@ question_initialize_input.sortable <- function(question, answer_input, ...) {
 
   # return the sortable htmlwidget
   sortable_list(
-    question$ids$answer,
-    labels,
+    output_id = question$ids$answer,
+    labels = labels,
     options = question$options
   )
 }
@@ -99,8 +99,8 @@ question_completed_input.sortable <- function(question, answer_input, ...) {
   # TODO display correct values with X or √ compared to best match
   # TODO DON'T display correct values (listen to an option?)
   sortable_list(
-    question$ids$answer,
-    answer_input,
+    output_id = question$ids$answer,
+    labels = answer_input,
     options = modifyList(
       question$options,
       sortable_options(disabled = TRUE)

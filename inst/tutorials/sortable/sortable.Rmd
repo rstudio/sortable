@@ -1,5 +1,5 @@
 ---
-title: "sortable - Hello World"
+title: "Ranking and bucketing questions"
 date: "June 6th, 2019"
 output: learnr::tutorial
 runtime: shiny_prerendered
@@ -8,12 +8,14 @@ runtime: shiny_prerendered
 ```{r setup, include=FALSE}
 library(learnr)
 library(sortable)
+library(magrittr)
 ```
 
-# Sorting LETTERS
+## Ranking questions
+
+### Sorting LETTERS
 
 Sort the answers from A to E:
-
 
 ```{r letters}
 question_sortable(
@@ -28,4 +30,23 @@ question_sortable(
 )
 ```
 
-###### Try E to A as well!
+**Try E to A as well!**
+
+### Sorting NUMBERS
+
+Sort the numbers from 1 to 3:
+
+```{r numbers}
+question_sortable(
+  "Sort the first 5 letters",
+  answer(as.character(1:3), correct = TRUE),
+  answer(rev(as.character(1:3)), correct = FALSE, "Other direction!"),
+  random_answer_order = TRUE,
+  allow_retry = TRUE,
+  options = sortable_options(
+    animation = 150
+  )
+)
+```
+
+**Also Try 3 to 1!**

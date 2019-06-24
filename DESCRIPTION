@@ -4,31 +4,32 @@ Title: Create Drag-and-Drop Elements Using the JavaScript `sortable.js` Library
 Version: 0.2.0.9001
 Date: 2019-06-19
 Authors@R: c(
-    person("Andrie", "de Vries", role = "cre", email = "apdevries@gmail.com"),
+    person("Andrie", "de Vries", role = c("cre", "aut"), email = "apdevries@gmail.com"),
     person("Barret", "Schloerke", role = "aut", email = "barret@rstudio.com"),
     person("Kenton", "Russell", role = c("aut", "ccp"),
-        comment = "Original author", email = "kent.r2ussell@timelyportfolio.com"),
+        comment = "Original author", email = "kent.russell@timelyportfolio.com"),
     person("Lebedev", "Konstantin", role = "cph",
-        comment = "Sortable.js library in htmlwidgets/lib,
+        comment = "'Sortable.js' library,
         http://sortablejs.github.io/Sortable/")
     )
-Description: Make almost anything sortable.  Add drag and drop behavior to your
-    Shiny Apps and gadgets.  Add ranking, sorting and bucketing question types
-    to your `learnr` tutorials.
+Description: Add drag-and-drop behavior to Shiny Apps and gadgets.  
+    Add ranking, sorting and bucketing question types to `learnr` tutorials. 
+    The package creates an 'htmlwidget' by wrapping the 'sortable.js' 
+    JavaScript library.
 URL: https://github.com/rstudio/sortable
 BugReports: https://github.com/rstudio/sortable/issues
 License: MIT + file LICENSE
 LazyData: TRUE
 Imports:
-    htmlwidgets,
     htmltools,
-    learnr (>= 0.9.2)
-Suggests:
-    testthat (>= 2.1.0),
-    knitr,
-    base64,
+    htmlwidgets,
+    learnr (>= 0.9.2),
     shiny,
-    covr
+    assertthat
+Suggests:
+    base64,
+    knitr,
+    testthat (>= 2.1.0)
 Remotes:
     rstudio/learnr
 VignetteBuilder: knitr

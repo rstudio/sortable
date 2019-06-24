@@ -1,11 +1,11 @@
 #' Construct JS method to capture inputs on change.
 #'
 #' This captures the inputs of a `sortable` list.  Typically you would use this
-#' with the `onSort` option of `sortable`. See [sortable_options()].
+#' with the `onSort` option of `sortable_js`. See [sortable_options()].
 #'
 #' @param output_id The output id.
 #'
-#' @seealso [sortable] and [sortable_list].
+#' @seealso [sortable_js] and [sortable_list].
 #'
 #' @export
 #' @examples
@@ -14,7 +14,6 @@
 sortable_js_capture_input <- function(output_id) {
   if (
     !(
-      requireNamespace("shiny", quietly = TRUE) &&
       shiny::isRunning()
     )
   ) {
@@ -44,43 +43,59 @@ sortable_js_capture_input <- function(output_id) {
 #'
 #' The widget automatically updates a Shiny output, with the matching `output_id`
 #'
-#' @inheritParams sortable
+#' @inheritParams sortable_js
 #'
 #' @param output_id output variable to read the plot/image from.
 #' @param labels A character vector with the text to display inside the widget.
+#' @param text Text to appear at top of list.
 #' @param selector This is the css id to use, and must be unique in your shiny
 #'   app. If NULL, the function generates a selector of the form
 #'   `sortable_list_id_1`, and will automatically increment for every
 #'   `sortable_list`.
-#' @param class The css class to use
+#' @param additional_class Additional css class name to use. This gets appended to the `sortable-list` class, and is used by the [bucketable_list()] function.
+#' @param style A css stylesheet, provided as a character string.  See also [css_sortable_list()].
 #' @template options
 #'
-#' @seealso [sortable]
+#' @seealso [sortable_js], [bucketable_list], [parsons]
 #'
 #' @export
 #' @importFrom utils modifyList
+#' @importFrom htmltools  tagList tags
 #' @example inst/examples/example_sortable_list.R
+#' @examples
+#' ## Example of a shiny app
+#' if (interactive()) {
+#'   app <- system.file("shiny-examples/sortable_list_app.R", package = "sortable")
+#'   shiny::runApp(app)
+#' }
 sortable_list <- function(
-  output_id,
+  text = "",
   labels,
+  output_id,
   selector = NULL,
-  class = "list-group-item",
-  options = sortable_options()
+  options = sortable_options(),
+  additional_class = "",
+  style = css_sortable_list()
 ) {
-  if (is.null(selector) || is.na(selector)) {
+  if (is.null(selector)) {
     selector <- increment_sortable_list()
   }
   assert_sortable_options(options)
 
-  htmltools::tagList(
-    htmltools::tags$div(
-      id = selector,
-      class = class,
-      lapply(labels, function(x) {
-        htmltools::tags$div(class = class, x)
-      })
+  z <- tagList(
+    tags$div(
+      tags$style(htmltools::HTML(style)),
+      class = paste("sortable-list-container", additional_class),
+      tags$p(text),
+      tags$div(
+        class = paste("sortable-list", additional_class),
+        id = selector,
+        lapply(labels, function(x) {
+          tags$div(class = "sortable-list-item", x )
+        })
+      )
     ),
-    sortable(
+    sortable_js(
       selector = selector,
       options = modifyList(
         sortable_options(onSort = sortable_js_capture_input(output_id)),
@@ -89,4 +104,7 @@ sortable_list <- function(
     )
   )
 
+  as.sortable_list(z)
+
 }
+

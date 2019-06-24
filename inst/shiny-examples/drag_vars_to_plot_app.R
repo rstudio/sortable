@@ -1,3 +1,6 @@
+## - shiny-drag-vars-to-plot ---------------------------------
+## Example shiny app to create a plot from sortable inputs
+
 library(shiny)
 library(sortable)
 
@@ -71,7 +74,7 @@ ui <- fluidPage(
       )
     )
   ),
-  sortable(
+  sortable_js(
     "sort1",
     options = sortable_options(
       group = list(
@@ -84,7 +87,7 @@ ui <- fluidPage(
       onSort = sortable_js_capture_input("sort_vars")
     )
   ),
-  sortable(
+  sortable_js(
     "sort2",
     options = sortable_options(
       group = list(
@@ -97,7 +100,7 @@ ui <- fluidPage(
       onSort = sortable_js_capture_input("sort_x")
     )
   ),
-  sortable(
+  sortable_js(
     "sort3",
     options = sortable_options(
       group = list(
@@ -135,7 +138,7 @@ server <- function(input, output) {
       )
       dat <- mtcars[, c(x(), y())]
       names(dat) <- c("x", "y")
-      plot(y ~ x, data = dat)
+      plot(y ~ x, data = dat, xlab = x(), ylab = y())
     })
 
 }

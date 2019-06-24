@@ -1,9 +1,9 @@
-#' Sortable.js for R
+#' Creates an htmlwidget with the 'sortable.js' library embedded.
 #'
 #' Creates an `htmlwidget` that provides [Sortable.js](https://github.com/SortableJS/Sortable)
 #' to use for drag-and-drop interactivity in Shiny apps and R Markdown.
 #'
-#' @param selector `String` selector id on which to apply Sortable.  Note, Sortable
+#' @param selector `String` selector id on which to apply `sortable.js`.  Note, `sortable_js`
 #'   works with any html element, not just `ul/li`.
 #' @template options
 #' @param width `integer` width in pixels.  Since the container is expected
@@ -18,8 +18,8 @@
 #' @seealso [sortable_options()]
 #'
 #' @export
-#' @example inst/examples/example_sortable.R
-sortable <- function(
+#' @example inst/examples/example_sortable_js.R
+sortable_js <- function(
   selector,
   options = sortable_options(),
   width = 0,
@@ -50,7 +50,7 @@ sortable <- function(
 
 #' Widget output function for use in Shiny.
 #'
-#' @inheritParams sortable
+#' @inheritParams sortable_js
 #' @param output_id output variable to use for the sortable object
 #'
 #' @export

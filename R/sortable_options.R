@@ -1,6 +1,6 @@
 #' Define options to pass to a sortable object.
 #'
-#' Use this function to define the options for [sortable] and [sortable_list], which will pass these in turn to the `sortable.js` JavaScript library.
+#' Use this function to define the options for [sortable_js] and [sortable_list], which will pass these in turn to the `sortable.js` JavaScript library.
 #'
 #' Many of the `sortable.js` options will accept a JavaScript function. You can do this using the `htmlwidgets::JS` function.
 #'
@@ -49,7 +49,7 @@
 # ' @param onChange JS function that is called when a dragging element changes position
 #' @param ... other params passed onto Sortable.js
 #' @references  [https://github.com/sortablejs/Sortable/](https://github.com/sortablejs/Sortable/)
-#' @seealso [sortable]
+#' @seealso [sortable_js]
 #' @export
 sortable_options <- function(
   # nolint start

@@ -48,7 +48,7 @@ Using `sortable` in markdown is a little tricky since markdown does not provide 
 </ul>
 
 ```{r}
-sortable( "example01" )
+sortable_js( "example01" )
 ```
 
 Now let's use the `htmltools::tags` approach to do exactly the same thing.
@@ -63,7 +63,7 @@ tagList(
     tags$li(tags$h4("touch (yes touch) me")),
     tags$li(tags$h4("any way you like"))
   ),
-  sortable("example02")
+  sortable_js("example02")
 )
 ```
 
@@ -95,7 +95,7 @@ tagList(
     HTML(img(pngfile)),
     HTML(img(pngfile2))
   ),
-  sortable("example03")
+  sortable_js("example03")
 )
 ```
 
@@ -173,9 +173,9 @@ fluidPage(
             class="panel-body",
             id = "sort3"
           ))))),
-  sortable("sort1", options = sortable_options(group = "sortGroup1")),
-  sortable("sort2", options = sortable_options(group = "sortGroup1")),
-  sortable("sort3", options = sortable_options(group = "sortGroup1"))
+  sortable_js("sort1", options = sortable_options(group = "sortGroup1")),
+  sortable_js("sort2", options = sortable_options(group = "sortGroup1")),
+  sortable_js("sort3", options = sortable_options(group = "sortGroup1"))
 )
 ```
 
@@ -231,7 +231,7 @@ shinyUI(fluidPage(
       )
     )
   ),
-  sortable("sortTab")
+  sortable_js("sortTab")
 ))
 
 server = function(input, output) {

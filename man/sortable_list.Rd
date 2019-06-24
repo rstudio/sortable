@@ -4,22 +4,27 @@
 \alias{sortable_list}
 \title{Create a sortable item list.}
 \usage{
-sortable_list(output_id, labels, selector = NULL,
-  class = "list-group-item", options = sortable_options())
+sortable_list(text = "", labels, output_id, selector = NULL,
+  options = sortable_options(), additional_class = "",
+  style = css_sortable_list())
 }
 \arguments{
-\item{output_id}{output variable to read the plot/image from.}
+\item{text}{Text to appear at top of list.}
 
 \item{labels}{A character vector with the text to display inside the widget.}
+
+\item{output_id}{output variable to read the plot/image from.}
 
 \item{selector}{This is the css id to use, and must be unique in your shiny
 app. If NULL, the function generates a selector of the form
 \code{sortable_list_id_1}, and will automatically increment for every
 \code{sortable_list}.}
 
-\item{class}{The css class to use}
+\item{options}{Options to be supplied to \link{sortable_js} object. See \link{sortable_options} for more details}
 
-\item{options}{Options to be supplied to Sortable. See \link{sortable_options} for more details}
+\item{additional_class}{Additional css class name to use. This gets appended to the \code{sortable-list} class, and is used by the \code{\link[=bucketable_list]{bucketable_list()}} function.}
+
+\item{style}{A css stylesheet, provided as a character string.  See also \code{\link[=css_sortable_list]{css_sortable_list()}}.}
 }
 \description{
 Creates a sortable item list using the \code{sortable.js} framework, and generates
@@ -31,27 +36,21 @@ Shiny app or any shiny runtime, e.g. a \code{learnr} tutorial.
 The widget automatically updates a Shiny output, with the matching \code{output_id}
 }
 \examples{
-if (require(htmltools)) {
-
-  list_group_css <- "
-  .list-group-item {
-    position: relative;
-    display: block;
-    padding: 10px 15px;
-    margin-bottom: -1px;
-    background-color: #fff;
-      border: 1px solid #ddd;
-  }"
-
-  html_print(
-    tagList(
-      tags$style(list_group_css),
-      tags$p("You can drag and drop these list items:"),
-      sortable_list("example_2", labels = c("one", "two", "three"))
-    )
-  )
+## Example of a shiny app
+if (interactive()) {
+  app <- system.file("shiny-examples/sortable_list_app.R", package = "sortable")
+  shiny::runApp(app)
 }
+## - example-sortable-list ------------------------------------------------
+
+sortable_list(
+  text = "You can drag, drap and re-order these items:",
+  labels = c("one", "two", "three", "four", "five"),
+  output_id = "example_2"
+)
+
+
 }
 \seealso{
-\link{sortable}
+\link{sortable_js}, \link{bucketable_list}, \link{parsons}
 }

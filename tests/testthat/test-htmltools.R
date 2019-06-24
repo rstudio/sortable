@@ -13,7 +13,7 @@ test_that( "works with tags ", {
           <li>item 3</li>
         </ul>
       "),
-      sortable( "items" )
+      sortable_js( "items" )
     )
   )
   expect_is(z, "character")

@@ -1,1 +1,1 @@
-#' @param options Options to be supplied to Sortable. See [sortable_options] for more details
+#' @param options Options to be supplied to [sortable_js] object. See [sortable_options] for more details
