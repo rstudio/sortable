@@ -20,7 +20,7 @@ app. If NULL, the function generates a selector of the form
 \code{sortable_list_id_1}, and will automatically increment for every
 \code{sortable_list}.}
 
-\item{options}{Options to be supplied to Sortable. See \link{sortable_options} for more details}
+\item{options}{Options to be supplied to \link{sortable_js} object. See \link{sortable_options} for more details}
 
 \item{additional_class}{Additional css class name to use. This gets appended to the \code{sortable-list} class, and is used by the \code{\link[=bucketable_list]{bucketable_list()}} function.}
 
@@ -36,14 +36,21 @@ Shiny app or any shiny runtime, e.g. a \code{learnr} tutorial.
 The widget automatically updates a Shiny output, with the matching \code{output_id}
 }
 \examples{
-# example-sortable-list ---------------------------------------------------
+## Example of a shiny app
+if (interactive()) {
+  app <- system.file("shiny-examples/sortable_list_app.R", package = "sortable")
+  shiny::runApp(app)
+}
+## - example-sortable-list ------------------------------------------------
 
 sortable_list(
   text = "You can drag, drap and re-order these items:",
   labels = c("one", "two", "three", "four", "five"),
   output_id = "example_2"
 )
+
+
 }
 \seealso{
-\link{sortable}, \link{bucketable_list}, \link{parsons}
+\link{sortable_js}, \link{bucketable_list}, \link{parsons}
 }

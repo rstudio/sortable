@@ -1,3 +1,6 @@
+## - shiny-bucketable-list -----------------------------------
+## Example shiny app with bucketable list
+
 library(shiny)
 library(sortable)
 

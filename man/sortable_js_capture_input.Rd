@@ -11,12 +11,12 @@ sortable_js_capture_input(output_id)
 }
 \description{
 This captures the inputs of a \code{sortable} list.  Typically you would use this
-with the \code{onSort} option of \code{sortable}. See \code{\link[=sortable_options]{sortable_options()}}.
+with the \code{onSort} option of \code{sortable_js}. See \code{\link[=sortable_options]{sortable_options()}}.
 }
 \examples{
 # For an example, see the Shiny app at
 system.file("shiny-examples/drag_vars_to_plot/app.R", package = "sortable")
 }
 \seealso{
-\link{sortable} and \link{sortable_list}.
+\link{sortable_js} and \link{sortable_list}.
 }

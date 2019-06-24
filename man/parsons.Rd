@@ -14,20 +14,20 @@ encoded as an HTML \code{<p>} tag, so not strictly speaking a header.)}
 
 \item{text}{Vector of headings for each column.}
 
-\item{labels}{List of \code{label} to pass (individually) to \link{sortable_list}}
+\item{labels}{List of \code{label} to pass (individually) to \code{\link[=sortable_list]{sortable_list()}}.}
 
-\item{output_id}{Character vector of \code{output_id} to pass (individually) to \link{sortable_list}}
+\item{output_id}{Character vector of \code{output_id} to pass (individually) to \code{\link[=sortable_list]{sortable_list()}}.}
 
-\item{group_name}{Passed to \code{sortable.js} as the group name}
+\item{group_name}{Passed to \code{sortable.js} options as the group name. See also \code{\link[=sortable_options]{sortable_options()}}.}
 
-\item{group_put_max}{Not yet implemented}
+\item{group_put_max}{Not yet implemented.}
 
 \item{selector}{This is the css id to use, and must be unique in your shiny
 app. If NULL, the function generates a selector of the form
 \code{sortable_list_id_1}, and will automatically increment for every
 \code{sortable_list}.}
 
-\item{options}{Options to be supplied to Sortable. See \link{sortable_options} for more details}
+\item{options}{Options to be supplied to \link{sortable_js} object. See \link{sortable_options} for more details}
 
 \item{style}{A css stylesheet, provided as a character string.  See also \code{\link[=css_sortable_list]{css_sortable_list()}}.}
 }
@@ -35,6 +35,13 @@ app. If NULL, the function generates a selector of the form
 Create a parsons problem.
 }
 \examples{
+## Example of a shiny app
+if (interactive()) {
+  app <- system.file("shiny-examples/parsons_app.R", package = "sortable")
+  shiny::runApp(app)
+}
+## -- example-parsons -----------------------------------------------------
+
 ## Parson's problem
 
 parsons(
@@ -53,4 +60,5 @@ parsons(
   output_id = paste0("output", 1:2),
   group_name = "parsons_test",
 )
+
 }

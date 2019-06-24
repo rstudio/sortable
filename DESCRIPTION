@@ -12,10 +12,10 @@ Authors@R: c(
         comment = "'Sortable.js' library,
         http://sortablejs.github.io/Sortable/")
     )
-Description: Make almost anything sortable, by adding drag-and-drop behavior to 
-    Shiny Apps and gadgets.  Add ranking, sorting and bucketing question types
-    to `learnr` tutorials. The package creates an 'htmlwidget' by wrapping 
-    the 'sortable.js' JavaScript library.
+Description: Add drag-and-drop behavior to Shiny Apps and gadgets.  
+    Add ranking, sorting and bucketing question types to `learnr` tutorials. 
+    The package creates an 'htmlwidget' by wrapping the 'sortable.js' 
+    JavaScript library.
 URL: https://github.com/rstudio/sortable
 BugReports: https://github.com/rstudio/sortable/issues
 License: MIT + file LICENSE

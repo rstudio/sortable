@@ -41,6 +41,12 @@ is.add_sortable_list <- function(x)inherits(x, "add_sortable_list")
 #'
 #' @export
 #' @example inst/examples/example_bucketable_list.R
+#' @examples
+#' ## Example of a shiny app
+#' if (interactive()) {
+#'   app <- system.file("shiny-examples/bucketable_list_app.R", package = "sortable")
+#'   shiny::runApp(app)
+#' }
 bucketable_list <- function(
   header,
   ...,

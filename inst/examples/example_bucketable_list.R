@@ -1,3 +1,5 @@
+## -- example-bucketable-list ---------------------------------------------
+
 ## Bucketable list
 
 bucketable_list(
@@ -18,15 +20,15 @@ bucketable_list(
 bucketable_list(
   header = c("Sort these items into Letters and Numbers"),
   add_sortable_list(
-    text = "Sort these items",
+    text = "Drag from here",
     labels = sample(c(1:3, letters[1:2]))
   ),
   add_sortable_list(
-    text = "into Letters",
+    text = "Letters",
     labels = NULL
   ),
   add_sortable_list(
-    text = "and Numbers",
+    text = "Numbers",
     labels = NULL
   ),
   output_id = paste0("output", 1:3),

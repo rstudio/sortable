@@ -14,7 +14,7 @@ knitr::opts_chunk$set(
 library(sortable)
 
 ## ------------------------------------------------------------------------
-sortable( "example01" )
+sortable_js( "example01" )
 
 ## ------------------------------------------------------------------------
 library(htmltools)
@@ -26,7 +26,7 @@ tagList(
     tags$li(tags$h4("touch (yes touch) me")),
     tags$li(tags$h4("any way you like"))
   ),
-  sortable("example02")
+  sortable_js("example02")
 )
 
 ## ---- collapse=TRUE------------------------------------------------------
@@ -53,7 +53,7 @@ tagList(
     HTML(img(pngfile)),
     HTML(img(pngfile2))
   ),
-  sortable("example03")
+  sortable_js("example03")
 )
 
 ## ----echo=FALSE----------------------------------------------------------
@@ -124,9 +124,9 @@ fluidPage(
             class="panel-body",
             id = "sort3"
           ))))),
-  sortable("sort1", options = sortable_options(group = "sortGroup1")),
-  sortable("sort2", options = sortable_options(group = "sortGroup1")),
-  sortable("sort3", options = sortable_options(group = "sortGroup1"))
+  sortable_js("sort1", options = sortable_options(group = "sortGroup1")),
+  sortable_js("sort2", options = sortable_options(group = "sortGroup1")),
+  sortable_js("sort3", options = sortable_options(group = "sortGroup1"))
 )
 
 ## ----eval=F--------------------------------------------------------------
@@ -177,7 +177,7 @@ fluidPage(
 #        )
 #      )
 #    ),
-#    sortable("sortTab")
+#    sortable_js("sortTab")
 #  ))
 #  
 #  server = function(input, output) {

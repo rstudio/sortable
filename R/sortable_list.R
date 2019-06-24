@@ -1,11 +1,11 @@
 #' Construct JS method to capture inputs on change.
 #'
 #' This captures the inputs of a `sortable` list.  Typically you would use this
-#' with the `onSort` option of `sortable`. See [sortable_options()].
+#' with the `onSort` option of `sortable_js`. See [sortable_options()].
 #'
 #' @param output_id The output id.
 #'
-#' @seealso [sortable] and [sortable_list].
+#' @seealso [sortable_js] and [sortable_list].
 #'
 #' @export
 #' @examples
@@ -43,7 +43,7 @@ sortable_js_capture_input <- function(output_id) {
 #'
 #' The widget automatically updates a Shiny output, with the matching `output_id`
 #'
-#' @inheritParams sortable
+#' @inheritParams sortable_js
 #'
 #' @param output_id output variable to read the plot/image from.
 #' @param labels A character vector with the text to display inside the widget.
@@ -56,12 +56,18 @@ sortable_js_capture_input <- function(output_id) {
 #' @param style A css stylesheet, provided as a character string.  See also [css_sortable_list()].
 #' @template options
 #'
-#' @seealso [sortable], [bucketable_list], [parsons]
+#' @seealso [sortable_js], [bucketable_list], [parsons]
 #'
 #' @export
 #' @importFrom utils modifyList
 #' @importFrom htmltools  tagList tags
 #' @example inst/examples/example_sortable_list.R
+#' @examples
+#' ## Example of a shiny app
+#' if (interactive()) {
+#'   app <- system.file("shiny-examples/sortable_list_app.R", package = "sortable")
+#'   shiny::runApp(app)
+#' }
 sortable_list <- function(
   text = "",
   labels,
@@ -89,7 +95,7 @@ sortable_list <- function(
         })
       )
     ),
-    sortable(
+    sortable_js(
       selector = selector,
       options = modifyList(
         sortable_options(onSort = sortable_js_capture_input(output_id)),

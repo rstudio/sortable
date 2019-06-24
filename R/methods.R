@@ -15,6 +15,7 @@ as.bucketable_list <- function(x){
   x
 }
 
+#' @export
 print.bucketable_list <- function(x, ...){
   htmltools::html_print(x)
 }

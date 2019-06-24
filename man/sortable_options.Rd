@@ -56,7 +56,7 @@ sortable_options(group = NULL, sort = NULL, delay = NULL,
 \item{...}{other params passed onto Sortable.js}
 }
 \description{
-Use this function to define the options for \link{sortable} and \link{sortable_list}, which will pass these in turn to the \code{sortable.js} JavaScript library.
+Use this function to define the options for \link{sortable_js} and \link{sortable_list}, which will pass these in turn to the \code{sortable.js} JavaScript library.
 }
 \details{
 Many of the \code{sortable.js} options will accept a JavaScript function. You can do this using the \code{htmlwidgets::JS} function.
@@ -65,5 +65,5 @@ Many of the \code{sortable.js} options will accept a JavaScript function. You ca
 \url{https://github.com/sortablejs/Sortable/}
 }
 \seealso{
-\link{sortable}
+\link{sortable_js}
 }

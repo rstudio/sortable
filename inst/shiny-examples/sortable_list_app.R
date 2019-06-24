@@ -1,9 +1,9 @@
+## - shiny-sortable-list -------------------------------------
+## Example shiny app with bucketable list
+
+
 library(shiny)
 library(sortable)
-
-shuffle <- function(x) {
-  sample(x, size = length(x))
-}
 
 ui <- fluidPage(
   fluidRow(
@@ -12,7 +12,7 @@ ui <- fluidPage(
       tags$h2("This is a sortable list"),
       sortable_list(
         text = "Drag the items in the correct order",
-        labels = shuffle(c("one", "two", "three", "four", "five")),
+        labels = sample(c("one", "two", "three", "four", "five")),
         output_id = "sortable_list_1"
       )
     )
@@ -22,11 +22,10 @@ ui <- fluidPage(
   )
 )
 
-server <- function(input,output) {
-  output$results <-
-    renderPrint(
-      input$sortable_list_1 # This matches the output_id of the sortable list
-    )
+server <- function(input, output) {
+  output$results <- renderPrint({
+    input$sortable_list_1 # This matches the output_id of the sortable list
+  })
 }
 
 

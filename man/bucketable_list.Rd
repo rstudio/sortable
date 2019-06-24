@@ -27,7 +27,7 @@ app. If NULL, the function generates a selector of the form
 \code{sortable_list_id_1}, and will automatically increment for every
 \code{sortable_list}.}
 
-\item{options}{Options to be supplied to Sortable. See \link{sortable_options} for more details}
+\item{options}{Options to be supplied to \link{sortable_js} object. See \link{sortable_options} for more details}
 
 \item{style}{A css stylesheet, provided as a character string.  See also \code{\link[=css_sortable_list]{css_sortable_list()}}.}
 }
@@ -36,6 +36,13 @@ A bucketable list can contain more than one \link{sortable_list} and allows
 drag-and-drop of items between the different lists.
 }
 \examples{
+## Example of a shiny app
+if (interactive()) {
+  app <- system.file("shiny-examples/bucketable_list_app.R", package = "sortable")
+  shiny::runApp(app)
+}
+## -- example-bucketable-list ---------------------------------------------
+
 ## Bucketable list
 
 bucketable_list(
@@ -56,15 +63,15 @@ bucketable_list(
 bucketable_list(
   header = c("Sort these items into Letters and Numbers"),
   add_sortable_list(
-    text = "Sort these items",
+    text = "Drag from here",
     labels = sample(c(1:3, letters[1:2]))
   ),
   add_sortable_list(
-    text = "into Letters",
+    text = "Letters",
     labels = NULL
   ),
   add_sortable_list(
-    text = "and Numbers",
+    text = "Numbers",
     labels = NULL
   ),
   output_id = paste0("output", 1:3),
