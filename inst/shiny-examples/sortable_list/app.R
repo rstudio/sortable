@@ -10,22 +10,22 @@ ui <- fluidPage(
     column(
       width = 12,
       tags$h2("This is a sortable list"),
-      tags$p("Drag the items in the correct order"),
       sortable_list(
-        "sortable_list_1",
-        labels = shuffle(c("one", "two", "three", "four", "five"))
+        text = "Drag the items in the correct order",
+        labels = shuffle(c("one", "two", "three", "four", "five")),
+        output_id = "sortable_list_1"
       )
     )
   ),
   fluidRow(
-    verbatimTextOutput("results_list_1")
+    verbatimTextOutput("results")
   )
 )
 
 server <- function(input,output) {
-  output$results_list_1 <-
+  output$results <-
     renderPrint(
-      input$sortable_list_1
+      input$sortable_list_1 # This matches the output_id of the sortable list
     )
 }
 
