@@ -1,19 +1,29 @@
 destination: docs
 reference:
-- title: Sortable functions
+- title: "Sortable functions"
   desc: ~
   contents:
-  - '`sortable`'
-  - '`sortable_list`'
-  - '`sortable_options`'
-- title: 'Learnr'
-  desc: Methods to enhance learnr tutorial questions
+  - sortable_list
+  - bucketable_list
+  - add_sortable_list
+  - css_bucketable_list
+  - css_sortable_list
+  - parsons
+- title: "Lower level access to the sortable.js library"
+  desc: ~
   contents:
-  - '`question_sortable`'
-  - '`question_initialize_input.sortable`'
-- title: Shiny functions
-  desc: Methods to use `sortable` within Shiny
+  - starts_with("sortable_js")
+  - sortable_options
+- title: "Learnr"
+  desc: "Methods to enhance learnr tutorial questions"
   contents:
-  - '`render_sortable`'
-  - '`sortable_output`'
-  - '`sortable_js_capture_input`'
+  - starts_with("question")
+- title: "Shiny functions"
+  desc: "Methods to use `sortable` within Shiny"
+  contents:
+  - render_sortable
+  - sortable_output
+- title: "Package documentation"
+  desc: ~
+  contents:
+  - sortable
