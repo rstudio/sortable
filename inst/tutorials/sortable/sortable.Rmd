@@ -18,7 +18,7 @@ library(magrittr)
 Sort the answers from A to E:
 
 ```{r letters}
-question_sortable(
+question_rank(
   "Sort the first 5 letters",
   answer(LETTERS[1:5], correct = TRUE),
   answer(rev(LETTERS[1:5]), correct = FALSE, "Other direction!"),
@@ -37,7 +37,7 @@ question_sortable(
 Sort the numbers from 1 to 3:
 
 ```{r numbers}
-question_sortable(
+question_rank(
   "Sort the first 5 letters",
   answer(as.character(1:3), correct = TRUE),
   answer(rev(as.character(1:3)), correct = FALSE, "Other direction!"),

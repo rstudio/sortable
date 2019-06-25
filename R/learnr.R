@@ -1,10 +1,20 @@
+#' @importFrom learnr question_initialize_input
+#' @importFrom learnr question_completed_input
+#' @importFrom learnr question_is_valid
+#' @importFrom learnr question_is_correct
+#' @importFrom learnr question_is_correct_value
+NULL
 
 
-#' Learnr question method for [sortable_js]
+#' Tutorial ranking question.
 #'
-#' Questions will be created using the first set of options.
-#' Each set of answer options must contain the same set of answer options.
-#' When the question is completed, the first correct answer will be displayed.
+#' Add interactive ranking tasks to your `learnr` tutorials.  The student can
+#' drag-and-drop the answer options into the desired order.
+#'
+#' Each set of answer options must contain the same set of answer options. When
+#' the question is completed, the first correct answer will be displayed.
+#'
+#' Note that, by default, the answer order is randomized.
 #'
 #' @param ... parameters passed onto \code{learnr::\link[learnr]{question}}.
 #' @template options
@@ -13,45 +23,25 @@
 #' @examples
 #' if (require(learnr, quietly = TRUE)) {
 #'   # to be used within a learnr tutorial...
-#'   question_sortable(
+#'   question_rank(
 #'     "Sort the first 5 letters",
 #'     answer(letters[1:5], correct = TRUE),
 #'     allow_retry = TRUE,
 #'     options = sortable_options(animation = 150)
 #'   )
 #' }
-question_sortable <- function(..., random_answer_order = TRUE, options = sortable_options()) {
+question_rank <- function(..., random_answer_order = TRUE, options = sortable_options()) {
   learnr::question(
     ...,
     random_answer_order = random_answer_order,
-    type = "sortable",
+    type = "rank",
     options = options
   )
 }
 
 
-#' Learnr methods for [sortable_js]
-#'
-#' Questions will be created using the first set of options.
-#' Each set of answer options must contain the same set of answer options.
-#' When the question is completed, the first correct answer will be displayed.
-#'
-#' @inheritParams learnr::question_initialize_input
-#' @rdname sortable_learnr
-#' @method question_initialize_input sortable
-#' @seealso \code{\link{question_sortable}}
 #' @export
-#' @examples
-#' if (require(learnr, quietly = TRUE)) {
-#'   # to be used within a learnr tutorial...
-#'   question_sortable(
-#'     "Sort the first 5 letters",
-#'     answer(letters[1:5], correct = TRUE),
-#'     allow_retry = TRUE
-#'   )
-#'
-#' }
-question_initialize_input.sortable <- function(question, answer_input, ...) {
+question_initialize_input.rank <- function(question, answer_input, ...) {
 
   # quickly validate the all possible answers are possible
   answer <- question$answers[[1]]
@@ -92,10 +82,8 @@ question_initialize_input.sortable <- function(question, answer_input, ...) {
   )
 }
 
-#' @rdname sortable_learnr
-#' @method question_completed_input sortable
 #' @export
-question_completed_input.sortable <- function(question, answer_input, ...) {
+question_completed_input.rank <- function(question, answer_input, ...) {
   # TODO display correct values with X or √ compared to best match
   # TODO DON'T display correct values (listen to an option?)
   sortable_list(
@@ -108,18 +96,14 @@ question_completed_input.sortable <- function(question, answer_input, ...) {
   )
 }
 
-#' @rdname sortable_learnr
-#' @method question_is_valid sortable
 #' @export
-question_is_valid.sortable <- function(question, answer_input, ...) {
+question_is_valid.rank <- function(question, answer_input, ...) {
   !is.null(answer_input)
 }
 
 
-#' @rdname sortable_learnr
-#' @method question_is_correct sortable
 #' @export
-question_is_correct.sortable <- function(question, answer_input, ...) {
+question_is_correct.rank <- function(question, answer_input, ...) {
   # for each possible answer, check if it matches
   for (answer in question$answers) {
     if (identical(answer$option, answer_input)) {
@@ -130,13 +114,3 @@ question_is_correct.sortable <- function(question, answer_input, ...) {
   # no match found. not correct
   return(question_is_correct_value(FALSE, NULL))
 }
-
-
-
-
-#' @importFrom learnr question_initialize_input
-#' @importFrom learnr question_completed_input
-#' @importFrom learnr question_is_valid
-#' @importFrom learnr question_is_correct
-#' @importFrom learnr question_is_correct_value
-NULL

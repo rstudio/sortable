@@ -4,7 +4,7 @@ context("learnr")
 
 test_that( "init display validates", {
 
-  question <- question_sortable(
+  question <- question_rank(
     "Sort the first 5 letters",
     learnr::answer(LETTERS[1:5], correct = TRUE),
     learnr::answer(rev(LETTERS[1:5]), correct = FALSE, "Other direction!")
@@ -17,7 +17,7 @@ test_that( "init display validates", {
 
   expect_error(
     question_initialize_input(
-      question_sortable(
+      question_rank(
         "Sort the first 5 letters",
         learnr::answer(LETTERS[1:5], correct = TRUE),
         learnr::answer(letters[1:5], correct = FALSE, "causes error"),

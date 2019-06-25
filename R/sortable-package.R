@@ -16,7 +16,7 @@
 #'
 #' You can also use new question types in your `learnr` tutorials:
 #'
-#' * [question_sortable()]
+#' * [question_rank()]
 #'
 #'
 #' @importFrom assertthat assert_that is.string

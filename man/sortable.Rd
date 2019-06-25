@@ -35,7 +35,7 @@ The important functions in this package are:
 
 You can also use new question types in your \code{learnr} tutorials:
 \itemize{
-\item \code{\link[=question_sortable]{question_sortable()}}
+\item \code{\link[=question_rank]{question_rank()}}
 }
 }
 
