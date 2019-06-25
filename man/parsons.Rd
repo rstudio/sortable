@@ -4,9 +4,8 @@
 \alias{parsons}
 \title{Create a parsons problem.}
 \usage{
-parsons(header, text = c("Drag from here",
+parsons(header = NULL, text = c("Drag from here",
   "Construct your solution here"), labels, input_id, group_name,
-  group_put_max = rep(Inf, length(labels)), selector = NULL,
   options = sortable_options(), style = css_parsons())
 }
 \arguments{
@@ -19,14 +18,7 @@ encoded as an HTML \code{<p>} tag, so not strictly speaking a header.)}
 
 \item{input_id}{Character vector of \code{input_id} to pass (individually) to \code{\link[=sortable_list]{sortable_list()}}.}
 
-\item{group_name}{Passed to \code{sortable.js} options as the group name. See also \code{\link[=sortable_options]{sortable_options()}}.}
-
-\item{group_put_max}{Not yet implemented.}
-
-\item{selector}{This is the css id to use, and must be unique in your shiny
-app. If NULL, the function generates a selector of the form
-\code{sortable_list_id_1}, and will automatically increment for every
-\code{sortable_list}.}
+\item{group_name}{Passed to \code{sortable.js} as the group name}
 
 \item{options}{Options to be supplied to \link{sortable_js} object. See \link{sortable_options} for more details}
 
@@ -58,4 +50,15 @@ parsons(
   group_name = "parsons_test"
 )
 
+
+parsons(
+  labels = c(
+    "iris",
+    "mutate(...)",
+    "summarize(...)",
+    "print()"
+  ),
+  input_id = "input_parsons",
+  group_name = "parsons_test"
+)
 }

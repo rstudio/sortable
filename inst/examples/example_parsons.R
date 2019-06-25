@@ -15,3 +15,14 @@ parsons(
   group_name = "parsons_test"
 )
 
+
+parsons(
+  labels = c(
+    "iris",
+    "mutate(...)",
+    "summarize(...)",
+    "print()"
+  ),
+  input_id = "input_parsons",
+  group_name = "parsons_test"
+)

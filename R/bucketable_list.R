@@ -50,9 +50,9 @@ is.add_sortable_list <- function(x)inherits(x, "add_sortable_list")
 #'   shiny::runApp(app)
 #' }
 bucketable_list <- function(
-  header,
-  group_name,
+  header = NULL,
   ...,
+  group_name,
   group_put_max = rep(Inf, length(labels)),
   selector = NULL,
   options = sortable_options(),
@@ -71,10 +71,13 @@ bucketable_list <- function(
   assert_that(is_header(header))
   for (n in dots) {assert_that(is.add_sortable_list(n))}
   assert_that(is_sortable_options(options))
+  if (missing(group_name) || is.null(group_name)) {
+    group_name <- increment_bucketable_group()
+  }
 
   # capture the dots
 
-  # modidy the dots by adding the group_name to the sortable options
+  # modify the dots by adding the group_name to the sortable options
   mod <- lapply(seq_along(dots), function(i){
     modifyList(
       dots[[i]],
@@ -92,7 +95,7 @@ bucketable_list <- function(
   z <- tagList(
     tags$div(
       class = "bucketable-list",
-      tags$p(header),
+      if(!is.null(header))tags$p(header) else NULL,
       tags$style(htmltools::HTML(style)),
       tags$div(
         class = "bucketable-list-container",

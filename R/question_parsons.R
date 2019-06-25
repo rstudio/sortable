@@ -1,14 +1,6 @@
-#' @importFrom learnr question_initialize_input
-#' @importFrom learnr question_completed_input
-#' @importFrom learnr question_is_valid
-#' @importFrom learnr question_is_correct
-#' @importFrom learnr question_is_correct_value
-NULL
-
-
-#' Ranking question for learnr tutorials.
+#' Parsons problem question for learnr tutorials.
 #'
-#' Add interactive ranking tasks to your `learnr` tutorials.  The student can
+#' Add Parsons Problem tasks to your `learnr` tutorials.  The student can
 #' drag-and-drop the answer options into the desired order.
 #'
 #' Each set of answer options must contain the same set of answer options. When
@@ -20,28 +12,19 @@ NULL
 #' @template options
 #' @inheritParams learnr::question
 #' @export
-#' @examples
-#' if (require(learnr, quietly = TRUE)) {
-#'   # to be used within a learnr tutorial...
-#'   question_rank(
-#'     "Sort the first 5 letters",
-#'     answer(letters[1:5], correct = TRUE),
-#'     allow_retry = TRUE,
-#'     options = sortable_options(animation = 150)
-#'   )
-#' }
-question_rank <- function(..., random_answer_order = TRUE, options = sortable_options()) {
+#' @example inst/examples/example_question_parsons.R
+question_parsons <- function(..., random_answer_order = TRUE, options = sortable_options()) {
   learnr::question(
     ...,
     random_answer_order = random_answer_order,
-    type = "rank",
+    type = "parsons",
     options = options
   )
 }
 
 
 #' @export
-question_initialize_input.rank <- function(question, answer_input, ...) {
+question_initialize_input.parsons <- function(question, answer_input, ...) {
 
   # quickly validate the all possible answers are possible
   answer <- question$answers[[1]]
@@ -75,18 +58,21 @@ question_initialize_input.rank <- function(question, answer_input, ...) {
 
 
   # return the sortable htmlwidget
-  sortable_list(
+  z <- parsons(
     input_id = question$ids$answer,
     labels = labels,
     options = question$options
   )
+  str(z)
+  str(htmltools::as.tags(z))
+  z
 }
 
 #' @export
-question_completed_input.rank <- function(question, answer_input, ...) {
+question_completed_input.parsons <- function(question, answer_input, ...) {
   # TODO display correct values with X or √ compared to best match
   # TODO DON'T display correct values (listen to an option?)
-  sortable_list(
+  parsons(
     input_id = question$ids$answer,
     labels = answer_input,
     options = modifyList(
@@ -97,13 +83,13 @@ question_completed_input.rank <- function(question, answer_input, ...) {
 }
 
 #' @export
-question_is_valid.rank <- function(question, answer_input, ...) {
+question_is_valid.parsons <- function(question, answer_input, ...) {
   !is.null(answer_input)
 }
 
 
 #' @export
-question_is_correct.rank <- function(question, answer_input, ...) {
+question_is_correct.parsons <- function(question, answer_input, ...) {
   # for each possible answer, check if it matches
   for (answer in question$answers) {
     if (identical(answer$option, answer_input)) {

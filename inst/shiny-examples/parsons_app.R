@@ -19,8 +19,7 @@ ui <- fluidPage(
           "summarize(...)",
           "print()"
         ),
-        input_id = "parsons_unique_id",
-        group_name = "parsons_test",
+        input_id = "parsons_unique_id"
       )
 
     )

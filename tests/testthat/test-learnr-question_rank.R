@@ -1,6 +1,4 @@
-context("learnr")
-
-
+context("learnr question_rank")
 
 test_that( "init display validates", {
 
@@ -9,7 +7,7 @@ test_that( "init display validates", {
     learnr::answer(LETTERS[1:5], correct = TRUE),
     learnr::answer(rev(LETTERS[1:5]), correct = FALSE, "Other direction!")
   )
-  expect_s3_class(question, "sortable")
+  expect_s3_class(question, "rank")
 
   expect_silent({
     question_initialize_input(question, "ignored")
