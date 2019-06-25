@@ -4,7 +4,8 @@
 \alias{parsons}
 \title{Create a parsons problem.}
 \usage{
-parsons(header, text, labels, input_id, group_name,
+parsons(header, text = c("Drag from here",
+  "Construct your solution here"), labels, input_id, group_name,
   group_put_max = rep(Inf, length(labels)), selector = NULL,
   options = sortable_options(), style = css_parsons())
 }

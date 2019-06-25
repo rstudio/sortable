@@ -1,4 +1,4 @@
-## - shiny-sortable-list -------------------------------------
+## ---- sortable-list-app -------------------------------------------------
 ## Example shiny app with bucketable list
 
 

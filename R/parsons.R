@@ -22,7 +22,7 @@
 #' }
 parsons <- function(
   header,
-  text,
+  text = c("Drag from here", "Construct your solution here"),
   labels,
   input_id,
   group_name,
@@ -40,12 +40,13 @@ parsons <- function(
   #     FUN.VALUE = character(1)
   #   )
   # }
+  if (is.character(labels)) labels <- list(labels, NULL)
   assert_that(is_sortable_options(options))
 
   bucketable_list(
     header = header,
-    add_sortable_list(text = text[1], labels = labels[[1]], input_id = input_id[1]),
-    add_sortable_list(text = text[2], labels = labels[[2]], input_id = input_id[2]),
+    add_sortable_list(text = text[1], labels = labels[[1]], input_id = paste0(input_id, "_1")),
+    add_sortable_list(text = text[2], labels = labels[[2]], input_id = input_id),
     # selector = selector,
     # input_id = input_id,
     group_name = group_name,

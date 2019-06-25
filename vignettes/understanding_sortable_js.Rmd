@@ -46,9 +46,10 @@ Note:
 ```html
 <p>You can drag and drop these items in any order:</p>
 <ul id = "example01">
-  <li>drag me</li>
-  <li>sort me</li>
-  <li>any way you like</li>
+  <li>Move</li>
+  <li>Or drag</li>
+  <li>Each of the items</li>
+  <li>To different positions</li>
 </ul>
 ```
 
@@ -60,14 +61,18 @@ sortable_js(selector = "example01")
 
 <p>You can drag and drop these items in any order:</p>
 <ul id = "example01">
-  <li>drag me</li>
-  <li>sort me</li>
-  <li>any way you like</li>
+  <li>Move</li>
+  <li>Or drag</li>
+  <li>Each of the items</li>
+  <li>To different positions</li>
 </ul>
 
 ```{r, echo=FALSE}
 sortable_js(selector = "example01")
 ```
+
+![](figures/simple_sortable_list.gif)
+
 
 
 ### Use a tag list to achieve the same, but from R
