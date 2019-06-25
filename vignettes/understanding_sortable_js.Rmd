@@ -1,0 +1,180 @@
+---
+title: "Understanding the interface to sortable.js"
+author: "Andrie de Vries and Kenton Russell"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Understanding the interface to sortable.js}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\usepackage[utf8]{inputenc}
+---
+
+```{r echo = F}
+## get knitr just the way we like it
+
+knitr::opts_chunk$set(
+  message = FALSE,
+  warning = FALSE,
+  error = FALSE,
+  tidy = FALSE,
+  cache = FALSE
+  # , results = 'asis'
+)
+```
+
+With `sortable` [`htmlwidget`](https://htmlwidgets.org) you can use powerful, dependency-free interactivity from [`Sortable.js`](https://sortablejs.github.io/Sortable/) in the browser, RStudio Viewer, or RStudio Shiny.
+
+```{r}
+library(sortable)
+```
+
+## The central idea
+
+The key idea to understand about `sortable`, and `sortable.js` in particular, is that the JavaScript will manipulate an HTML object based on it's CSS `id`.
+
+Using `sortable` in markdown is a little tricky since markdown does not provide an easy way to provide an `id` that we'll need.  We can overcome this by using bare `HTML` or using `htmltools::tags`.  Let's make a simple `ul` list.  Note, however, that `sortable` works with nearly any `HTML` element, such as `div`.
+
+### An example using raw HTML
+
+The following example uses HTML to construct an unordered list (`<ul>`), and then uses `sortable_js()` to link the JavaScript required to create interactivity.
+
+Note:
+
+1. The HTML `id` matches the `selector` argument of `sortable_js()`.
+2. You can drag and drop the list entries. Try it!
+
+```html
+<p>You can drag and drop these items in any order:</p>
+<ul id = "example01">
+  <li>drag me</li>
+  <li>sort me</li>
+  <li>any way you like</li>
+</ul>
+```
+
+````r
+```{r}`r ''`
+sortable_js(selector = "example01")
+```
+````
+
+<p>You can drag and drop these items in any order:</p>
+<ul id = "example01">
+  <li>drag me</li>
+  <li>sort me</li>
+  <li>any way you like</li>
+</ul>
+
+```{r, echo=FALSE}
+sortable_js(selector = "example01")
+```
+
+
+### Use a tag list to achieve the same, but from R
+
+You can use the functions `tags()` and `tagList()`, both from the `htmltools` package, to create HTML.
+
+This means you can construct the 
+
+```{r}
+library(htmltools)
+tagList(
+  tags$ul(
+    id = "example02",
+    tags$li("drag me"),
+    tags$li("sort me"),
+    tags$li("any way you like")
+  ),
+  sortable_js("example02")
+)
+```
+
+
+### Little Harder but Better Example
+
+The `sortable.js` functionality works with any HTML object, not just lists.
+
+In this next example, you can see how to drag and drop images (`<img>`).  To embed the plots on the page, you can use the `base64::img()` function to encode the png images into a format that HTML understands.
+
+Again, notice that the HTML `id` matches the `selector`.
+
+```{r, collapse=TRUE}
+library(base64)
+library(withr)
+
+# use example from ?base64::img
+pngfile_1 <- tempfile()
+with_png(pngfile_1, width = 300, height = 200,{
+  plot(1:100, rnorm(100), pch = 21, bg = "red")
+  title(main = "Moves Like Jagger")
+})
+
+# make another plot for demo purposes
+pngfile_2 <- tempfile()
+with_png(pngfile_2, width = 300, height = 200,{
+  barplot(1:9, col = blues9)
+  title(main = "I Like the Way You Move")
+})
+
+tagList(
+  tags$div(
+    id = "example03",
+    HTML(img(pngfile_1)),
+    HTML(img(pngfile_2))
+  ),
+  sortable_js(selector = "example03")
+)
+```
+
+
+
+## The power of groups
+
+Looking at the [`Sortable.js`](https://github.com/SortableJS/Sortable#options) excites me about the potential to use `sortable` as an important UI element in both a Shiny and non-Shiny context.  We could potentially demo a plot builder with something like this example.  You'll notice that it doesn't really do anything, but I hope the intent and direction is clear.
+
+
+
+```{r shiny-drag-vars-to-plot, eval=FALSE}
+knitr::read_chunk(
+  systm.file("shiny-examples/drag_vars_to_plot_app.R", package = "sortable")
+)
+```
+
+![](figures/drag_vars_to_plot.gif)
+
+## Dragging and dropping shiny tabs
+
+I learned late last night that `sortable` will allow movable tabs inside a Shiny (and also not Shiny) app.  By adding just one line of code and an `id` to this RStudio [Tabset example](https://github.com/rstudio/shiny-examples/tree/master/006-tabsets), we get rearrangeable tabs.  I really hope you'll copy and paste to see it for yourself, or you can `runGist("2dbe45f77b65e28acab9")`.
+
+The modified code snippet is:
+
+```r
+      # Show a tabset that includes a plot, summary, and table view
+      # of the generated distribution
+      mainPanel(
+        tabsetPanel(
+          type = "tabs",
+          id = "sortTab",
+          tabPanel("Plot", plotOutput("plot")),
+          tabPanel("Summary", verbatimTextOutput("summary")),
+          tabPanel("Table", tableOutput("table"))
+        )
+      )
+    ),
+    sortable_js("sortTab")
+```
+
+And the full code:
+
+```{r echo=FALSE, cache=FALSE}
+knitr::read_chunk(
+  system.file("shiny-examples/shiny_tabset_app.R", package = "sortable")
+)
+
+```
+
+```{r shiny-tabset-app, eval=FALSE}
+```
+
+
+![](figures/sortable_tabs.gif)
