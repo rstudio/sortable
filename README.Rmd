@@ -43,34 +43,65 @@ remotes::install_github("rstudio/sortable")
 
 ## Examples
 
-### Simple example of a sortable list
+### Sortable list
 
-```{r}
-library(sortable)
+You can create a drag-and-drop input object in Shiny, using the `sortable_list()` function.
+
+
+```{r echo=FALSE, cache=FALSE}
+knitr::read_chunk(
+  system.file("shiny-examples/sortable_list_app.R", package = "sortable")
+)
 ```
 
-It is easy to use `sortable` with `htmltools::tags`.  You can essentially make any HTML element sortable. The key idea is that the CSS id of the HTML element must match the `selector` argument of the `sortable` object:
-
-```{r, eval=FALSE}
-library(htmltools)
-
-html_print(tagList(
-  tags$p("This is a sortable list:"),
-  tags$ul(
-    id = "uniqueId01",
-    tags$li("Move"),
-    tags$li("Or drag"),
-    tags$li("Each of the items"),
-    tags$li("To different positions")
-  ),
-  sortable_js("uniqueId01") # use the id as the selector
-))
+```{r sortable-list-app, eval=FALSE}
 ```
 
-![](man/figures/simple_sortable_list.gif)
+<center>
+<img src="man/figures/sortable_list_shiny.gif" style = 'width:400px;'></img>
+</center>
 
 
-### Sortable widgets
+### Bucketable list
+
+Witha a bucketable list you can have more than one sortable lists in a single object.  This can be useful for bucketing task, e.g. asking your students to classify objects into multiple categories.
+
+```{r echo=FALSE, cache=FALSE}
+knitr::read_chunk(
+  system.file("shiny-examples/bucketable_list_app.R", package = "sortable")
+)
+```
+
+```{r bucketable-list-app, eval=FALSE}
+```
+
+<center>
+<img src="man/figures/bucketable_list_shiny.gif" style = 'width:500px;'></img>
+</center>
+
+
+### Parsons problems
+
+A Parsons problem is a specific type of question, useful for teaching programming, where all the lines of code are given, but the student must provide the correct order.
+
+The `parsons()` function has experimental support for parsons problems.
+
+
+```{r echo=FALSE, cache=FALSE}
+knitr::read_chunk(
+  system.file("shiny-examples/parsons_app.R", package = "sortable")
+)
+```
+
+```{r parsons-app, eval=FALSE}
+```
+
+<center>
+<img src="man/figures/parsons_app.gif" style = 'width:600px;'></img>
+</center>
+
+
+### Make any HTML element sortable
 
 You can also use `sortable_js()` to drag and drop other widgets:
 
@@ -95,84 +126,8 @@ html_print(tagList(
 ))
 ```
 
+<center>
 ![](man/figures/diagrammer.gif)
+</center>
 
 
-### Using sortable in Shiny
-
-It only works as an output right now, but of course I want it to be an input (*I'll try*) also.  Let's see it as an output.
-
-```{r, eval=FALSE}
-library(shiny)
-
-ui <- shinyUI(fluidPage(
-  fluidRow(
-    column(
-      width = 4,
-      tags$h4("sortable in Shiny + Bootstrap"),
-      tags$div(
-        id = "veryUniqueId", class = "list-group",
-        tags$div(class = "list-group-item", "Item 1"),
-        tags$div(class = "list-group-item", "Item 2"),
-        tags$div(class = "list-group-item", "Item 3")
-      )
-    )
-  ),
-  sortable_js("veryUniqueId")
-))
-
-server <- function(input, output) {}
-
-shinyApp(ui = ui, server = server)
-```
-
-
-![](man/figures/simple_sortable_shiny.gif)
-
-### Capturing input with `sortable_list()` inside a Shiny app
-
-Now, let's see if we can get an idea what it might look like as an input or integral piece of Shiny.
-
-```{r, eval=FALSE}
-library(shiny)
-library(sortable)
-
-ui <- fluidPage(
-  fluidRow(
-    column(
-      width = 6,
-      tags$h2("This is a sortable list"),
-      sortable_list(
-        text = "Drag the items in the correct order",
-        labels = sample(c("one", "two", "three", "four", "five")),
-        input_id = "sortable_list_1"
-      )
-    )
-  ),
-  fluidRow(
-    column(
-      width = 6,
-      tags$h2("Current sorting order"),
-      textOutput("results")
-    )
-  )
-)
-
-server <- function(input, output) {
-  output$results <- renderPrint({
-    input$sortable_list_1 # This matches the input_id of the sortable list
-  })
-}
-
-
-shinyApp(ui, server)
-
-```
-
-![](man/figures/sortable_list_shiny.gif)
-
-### Sortable tabsets
-
-Or, check out these reorderable tabs by `runGist("2dbe45f77b65e28acab9")`.  All we had to do was add an `id` and add one line of code to the [Tabset example](https://github.com/rstudio/shiny-examples/tree/master/006-tabsets) from [RStudio](https://rstudio.com).  (You can find the [source code in this gist](https://gist.github.com/timelyportfolio/2dbe45f77b65e28acab9)).
-
-![](man/figures/sortable_tabs.gif)

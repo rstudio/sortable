@@ -1,4 +1,4 @@
-## - parsons_app ---------------------------------------------
+## ---- parsons-app -------------------------------------------------------
 ## Example shiny app with parsons problem
 
 library(shiny)
@@ -6,31 +6,29 @@ library(sortable)
 
 ui <- fluidPage(
   fluidRow(
-      tags$h2("This shiny app contains a parsons problem."),
     column(
       width = 12,
+      tags$h2("This shiny app contains a parsons problem."),
+
+      ## This is the parsons problem
       parsons(
         header = "This is an example of a Parsons problem",
-        text = c("Drag from here", "Construct your solution here"),
-        labels = list(
-          c(
-            "iris",
-            "mutate(...)",
-            "summarize(...)",
-            "print()"
-          ),
-          NULL
+        labels = c(
+          "iris",
+          "mutate(...)",
+          "summarize(...)",
+          "print()"
         ),
-        selector = paste0("input", 1:2),
-        input_id = paste0("parsons_", 1:2),
+        input_id = "parsons_unique_id",
         group_name = "parsons_test",
       )
+
     )
   ),
   fluidRow(
-    tags$h2("You provided the answer"),
     column(
-      width = 6,
+      width = 12,
+      tags$h2("You provided the answer"),
       verbatimTextOutput("answer")
     )
   )
@@ -39,7 +37,7 @@ ui <- fluidPage(
 server <- function(input,output) {
   output$answer <-
     renderPrint(
-      input$parsons_2 # This matches the input_id of the sortable list
+      input$parsons_unique_id # This matches the input_id of the parsons problem
     )
 }
 

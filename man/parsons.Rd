@@ -4,7 +4,8 @@
 \alias{parsons}
 \title{Create a parsons problem.}
 \usage{
-parsons(header, text, labels, input_id, group_name,
+parsons(header, text = c("Drag from here",
+  "Construct your solution here"), labels, input_id, group_name,
   group_put_max = rep(Inf, length(labels)), selector = NULL,
   options = sortable_options(), style = css_parsons())
 }
@@ -47,18 +48,14 @@ if (interactive()) {
 parsons(
   header = "This is an example of a Parsons problem",
   text = c("Drag from here", "Construct your solution here"),
-  labels = list(
-    c(
+  labels = c(
       "iris",
       "mutate(...)",
       "summarize(...)",
       "print()"
-    ),
-    NULL
   ),
-  selector = paste0("input", 1:2),
-  input_id = paste0("output", 1:2),
-  group_name = "parsons_test",
+  input_id = "input_parsons",
+  group_name = "parsons_test"
 )
 
 }

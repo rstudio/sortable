@@ -1,4 +1,4 @@
-## - shiny-drag-vars-to-plot ---------------------------------
+## ---- shiny-drag-vars-to-plot -------------------------------------------
 ## Example shiny app to create a plot from sortable inputs
 
 library(shiny)
