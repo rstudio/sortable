@@ -8,29 +8,24 @@ notifications:
     on_success: change
     on_failure: change
 
-jobs:
+matrix:
   include:
-    - stage: "R CMD check"
-      name: "Old Release"
-      r: oldrel
-
     - name: "Release"
       r: release
-
-    - name: "Devel"
-      r: devel
-
-    - name: "covr; deploy gh-pages"
-      r: release
-      r_binary_packages:
-        - covr
-        - pkgdown
-      script:
-        - Rscript -e 'covr::codecov()'
+      after_success:
+      - Rscript -e 'covr::codecov()'
+      - find . -name testthat.Rout | xargs cat
+      after_failure:
+      - find . -name testthat.Rout | xargs cat
+      before_cache: Rscript -e 'remotes::install_cran("pkgdown")'
       deploy:
         provider: script
         script: Rscript -e 'pkgdown::deploy_site_github()'
         skip_cleanup: true
-        on:
-          branch: master
-          repo: rstudio/sortable
+
+    - name: "Old Release"
+      r: oldrel
+
+    - name: "Devel"
+      r: devel
+
