@@ -1,17 +1,21 @@
 #' Add a sortable list inside bucketable list.
 #'
-#' Since a [bucketable_list] can contain more than one [sortable_list], you need an easy way to define the contents of each individual sortable list.  This function serves as a specification of a sortable list.
+#' Since a [bucketable_list] can contain more than one [sortable_list], you need
+#' an easy way to define the contents of each individual sortable list.  This
+#' function serves as a specification of a sortable list.
 #'
 #' @inheritParams sortable_list
 #' @param ... Other arguments passed to `sortable_list`
 #'
 #' @export
-add_sortable_list <- function(text, labels, ...){
+add_sortable_list <- function(text, labels = NULL,  input_id, ...){
   z <- list(
     text = text,
     labels = labels,
+    input_id,
     ...
   )
+  assert_that(is_input_id(input_id))
   class(z) <- c("add_sortable_list", "list")
   z
 }
@@ -19,7 +23,7 @@ add_sortable_list <- function(text, labels, ...){
 is.add_sortable_list <- function(x)inherits(x, "add_sortable_list")
 
 
-#' Create a bucketable  list.
+#' Create a bucketable list.
 #'
 #' A bucketable list can contain more than one [sortable_list] and allows
 #' drag-and-drop of items between the different lists.
@@ -34,8 +38,6 @@ is.add_sortable_list <- function(x)inherits(x, "add_sortable_list")
 #' @param ... One or more specifications for a sortable list, and must be
 #'   defined by [add_sortable_list].
 #'
-#' @param output_id Character vector of `output_id` to pass (individually) to
-#'   [sortable_list]
 #' @param group_name Passed to `sortable.js` as the group name
 #' @param group_put_max Not yet implemented
 #'
@@ -49,9 +51,8 @@ is.add_sortable_list <- function(x)inherits(x, "add_sortable_list")
 #' }
 bucketable_list <- function(
   header,
-  ...,
-  output_id,
   group_name,
+  ...,
   group_put_max = rep(Inf, length(labels)),
   selector = NULL,
   options = sortable_options(),
@@ -67,10 +68,9 @@ bucketable_list <- function(
   #   )
   # }
   dots <- list(...)
-  assertthat::is.string(header)
-  assertthat::assert_that(length(header) == 1)
+  assert_that(is_header(header))
   for (n in dots) {assert_that(is.add_sortable_list(n))}
-  assert_sortable_options(options)
+  assert_that(is_sortable_options(options))
 
   # capture the dots
 

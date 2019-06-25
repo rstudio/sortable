@@ -4,7 +4,7 @@
 \alias{sortable_list}
 \title{Create a sortable item list.}
 \usage{
-sortable_list(text = "", labels, output_id, selector = NULL,
+sortable_list(text = "", labels, input_id, selector = NULL,
   options = sortable_options(), additional_class = "",
   style = css_sortable_list())
 }
@@ -13,7 +13,7 @@ sortable_list(text = "", labels, output_id, selector = NULL,
 
 \item{labels}{A character vector with the text to display inside the widget.}
 
-\item{output_id}{output variable to read the plot/image from.}
+\item{input_id}{output variable to read the plot/image from.}
 
 \item{selector}{This is the css id to use, and must be unique in your shiny
 app. If NULL, the function generates a selector of the form
@@ -33,7 +33,7 @@ dropped in any order.  Typically you will embed a \code{sortable_list} inside a
 Shiny app or any shiny runtime, e.g. a \code{learnr} tutorial.
 }
 \details{
-The widget automatically updates a Shiny output, with the matching \code{output_id}
+The widget automatically updates a Shiny output, with the matching \code{input_id}
 }
 \examples{
 ## Example of a shiny app
@@ -46,7 +46,7 @@ if (interactive()) {
 sortable_list(
   text = "You can drag, drap and re-order these items:",
   labels = c("one", "two", "three", "four", "five"),
-  output_id = "example_2"
+  input_id = "example_2"
 )
 
 

@@ -22,7 +22,7 @@ ui <- fluidPage(
           NULL
         ),
         selector = paste0("input", 1:2),
-        output_id = paste0("parsons_", 1:2),
+        input_id = paste0("parsons_", 1:2),
         group_name = "parsons_test",
       )
     )
@@ -39,7 +39,7 @@ ui <- fluidPage(
 server <- function(input,output) {
   output$answer <-
     renderPrint(
-      input$parsons_2 # This matches the output_id of the sortable list
+      input$parsons_2 # This matches the input_id of the sortable list
     )
 }
 

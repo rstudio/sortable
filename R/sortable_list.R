@@ -3,15 +3,15 @@
 #' This captures the inputs of a `sortable` list.  Typically you would use this
 #' with the `onSort` option of `sortable_js`. See [sortable_options()].
 #'
-#' @param output_id The output id.
+#' @param input_id The output id.
 #'
 #' @seealso [sortable_js] and [sortable_list].
 #'
 #' @export
 #' @examples
 #' # For an example, see the Shiny app at
-#' system.file("shiny-examples/drag_vars_to_plot/app.R", package = "sortable")
-sortable_js_capture_input <- function(output_id) {
+#' system.file("shiny-examples/drag_vars_to_plot.R", package = "sortable")
+sortable_js_capture_input <- function(input_id) {
   inner_text <- "
     $.map(this.el.children, function(child){return child.innerText})
   "
@@ -21,7 +21,7 @@ sortable_js_capture_input <- function(output_id) {
     }
   }}"
 
-  js <- sprintf(js_text, output_id, inner_text)
+  js <- sprintf(js_text, input_id, inner_text)
 
   htmlwidgets::JS(js)
 }
@@ -34,11 +34,11 @@ sortable_js_capture_input <- function(output_id) {
 #' dropped in any order.  Typically you will embed a `sortable_list` inside a
 #' Shiny app or any shiny runtime, e.g. a `learnr` tutorial.
 #'
-#' The widget automatically updates a Shiny output, with the matching `output_id`
+#' The widget automatically updates a Shiny output, with the matching `input_id`
 #'
 #' @inheritParams sortable_js
 #'
-#' @param output_id output variable to read the plot/image from.
+#' @param input_id output variable to read the plot/image from.
 #' @param labels A character vector with the text to display inside the widget.
 #' @param text Text to appear at top of list.
 #' @param selector This is the css id to use, and must be unique in your shiny
@@ -64,7 +64,7 @@ sortable_js_capture_input <- function(output_id) {
 sortable_list <- function(
   text = "",
   labels,
-  output_id,
+  input_id,
   selector = NULL,
   options = sortable_options(),
   additional_class = "",
@@ -73,7 +73,8 @@ sortable_list <- function(
   if (is.null(selector)) {
     selector <- increment_sortable_list()
   }
-  assert_sortable_options(options)
+  assert_that(is_sortable_options(options))
+  assert_that(is_input_id(input_id))
 
   z <- tagList(
     tags$div(
@@ -91,7 +92,7 @@ sortable_list <- function(
     sortable_js(
       selector = selector,
       options = modifyList(
-        sortable_options(onSort = sortable_js_capture_input(output_id)),
+        sortable_options(onSort = sortable_js_capture_input(input_id)),
         options
       )
     )

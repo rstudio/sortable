@@ -15,7 +15,7 @@ parsons(
     NULL
   ),
   selector = paste0("input", 1:2),
-  output_id = paste0("output", 1:2),
+  input_id = paste0("output", 1:2),
   group_name = "parsons_test",
 )
 

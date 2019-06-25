@@ -96,9 +96,3 @@ sortable_options <- function(
 
 
 
-assert_sortable_options <- function(x) {
-  if (!inherits(x, "sortable_options")) {
-    stop("`options` must be produced by `sortable_options()`")
-  }
-  invisible(TRUE)
-}

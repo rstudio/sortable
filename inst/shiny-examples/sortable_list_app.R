@@ -13,7 +13,7 @@ ui <- fluidPage(
       sortable_list(
         text = "Drag the items in the correct order",
         labels = sample(c("one", "two", "three", "four", "five")),
-        output_id = "sortable_list_1"
+        input_id = "sortable_list_1"
       )
     )
   ),
@@ -24,7 +24,7 @@ ui <- fluidPage(
 
 server <- function(input, output) {
   output$results <- renderPrint({
-    input$sortable_list_1 # This matches the output_id of the sortable list
+    input$sortable_list_1 # This matches the input_id of the sortable list
   })
 }
 

@@ -4,10 +4,10 @@
 \alias{sortable_js_capture_input}
 \title{Construct JS method to capture inputs on change.}
 \usage{
-sortable_js_capture_input(output_id)
+sortable_js_capture_input(input_id)
 }
 \arguments{
-\item{output_id}{The output id.}
+\item{input_id}{The output id.}
 }
 \description{
 This captures the inputs of a \code{sortable} list.  Typically you would use this
@@ -15,7 +15,7 @@ with the \code{onSort} option of \code{sortable_js}. See \code{\link[=sortable_o
 }
 \examples{
 # For an example, see the Shiny app at
-system.file("shiny-examples/drag_vars_to_plot/app.R", package = "sortable")
+system.file("shiny-examples/drag_vars_to_plot.R", package = "sortable")
 }
 \seealso{
 \link{sortable_js} and \link{sortable_list}.

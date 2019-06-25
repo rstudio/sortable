@@ -7,11 +7,13 @@ bucketable_list(
   group_name = "bucketable",
   add_sortable_list(
     text = "Drag from here",
-    labels = c("a", "bb", "ccc")
+    labels = c("a", "bb", "ccc"),
+    input_id = NULL
   ),
   add_sortable_list(
     text = "to here",
-    labels = NULL
+    labels = NULL,
+    input_id = NULL
   )
 )
 
@@ -19,20 +21,20 @@ bucketable_list(
 
 bucketable_list(
   header = c("Sort these items into Letters and Numbers"),
+  group_name = "bucket_test",
   add_sortable_list(
     text = "Drag from here",
-    labels = sample(c(1:3, letters[1:2]))
+    labels = sample(c(1:3, letters[1:2])),
+    input_id = NULL
   ),
   add_sortable_list(
     text = "Letters",
-    labels = NULL
+    input_id = NULL
   ),
   add_sortable_list(
     text = "Numbers",
-    labels = NULL
-  ),
-  output_id = paste0("output", 1:3),
-  group_name = "bucket_test"
+    input_id = NULL
+  )
 )
 
 

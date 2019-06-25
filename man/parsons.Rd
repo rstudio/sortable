@@ -4,7 +4,7 @@
 \alias{parsons}
 \title{Create a parsons problem.}
 \usage{
-parsons(header, text, labels, output_id, group_name,
+parsons(header, text, labels, input_id, group_name,
   group_put_max = rep(Inf, length(labels)), selector = NULL,
   options = sortable_options(), style = css_parsons())
 }
@@ -16,7 +16,7 @@ encoded as an HTML \code{<p>} tag, so not strictly speaking a header.)}
 
 \item{labels}{List of \code{label} to pass (individually) to \code{\link[=sortable_list]{sortable_list()}}.}
 
-\item{output_id}{Character vector of \code{output_id} to pass (individually) to \code{\link[=sortable_list]{sortable_list()}}.}
+\item{input_id}{Character vector of \code{input_id} to pass (individually) to \code{\link[=sortable_list]{sortable_list()}}.}
 
 \item{group_name}{Passed to \code{sortable.js} options as the group name. See also \code{\link[=sortable_options]{sortable_options()}}.}
 
@@ -57,7 +57,7 @@ parsons(
     NULL
   ),
   selector = paste0("input", 1:2),
-  output_id = paste0("output", 1:2),
+  input_id = paste0("output", 1:2),
   group_name = "parsons_test",
 )
 

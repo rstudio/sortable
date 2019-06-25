@@ -4,10 +4,10 @@
 \alias{sortable_output}
 \title{Widget output function for use in Shiny.}
 \usage{
-sortable_output(output_id, width = "0px", height = "0px")
+sortable_output(input_id, width = "0px", height = "0px")
 }
 \arguments{
-\item{output_id}{output variable to use for the sortable object}
+\item{input_id}{output variable to use for the sortable object}
 
 \item{width}{\code{integer} width in pixels.  Since the container is expected
 to not be displayed, \code{0} is the default.}

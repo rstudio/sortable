@@ -84,16 +84,18 @@ html_print(tagList(
     id = "aUniqueId",
     tags$div(
       style = "border: solid 0.2em gray; float:left; margin: 5px",
-      mermaid("graph LR; S[Sortable.js] -->|sortable| R ", height = 300, width = 300)
+      mermaid("graph LR; S[Sortable.js] -->|sortable| R ", height = 250, width = 300)
     ),
     tags$div(
       style = "border: solid 0.2em gray; float:left; margin: 5px",
-      mermaid("graph TD; JavaScript -->|htmlwidgets| R ", height = 300, width = 150)
+      mermaid("graph TD; JavaScript -->|htmlwidgets| R ", height = 250, width = 150)
     )
   ),
   sortable_js("aUniqueId") # again, the CSS id must match the selector
 ))
 ```
+
+![](man/figures/diagrammer.gif)
 
 
 ### Using sortable in Shiny
@@ -138,23 +140,27 @@ library(sortable)
 ui <- fluidPage(
   fluidRow(
     column(
-      width = 12,
+      width = 6,
       tags$h2("This is a sortable list"),
       sortable_list(
         text = "Drag the items in the correct order",
         labels = sample(c("one", "two", "three", "four", "five")),
-        output_id = "sortable_list_1"
+        input_id = "sortable_list_1"
       )
     )
   ),
   fluidRow(
-    textOutput("results")
+    column(
+      width = 6,
+      tags$h2("Current sorting order"),
+      textOutput("results")
+    )
   )
 )
 
 server <- function(input, output) {
   output$results <- renderPrint({
-    input$sortable_list_1 # This matches the output_id of the sortable list
+    input$sortable_list_1 # This matches the input_id of the sortable list
   })
 }
 

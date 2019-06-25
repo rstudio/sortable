@@ -28,7 +28,7 @@ sortable_js <- function(
   pre_render_hook = NULL
 ) {
 
-  assert_sortable_options(options)
+  assert_that(is_sortable_options(options))
 
   # forward options using x
   x <- list(
@@ -51,11 +51,11 @@ sortable_js <- function(
 #' Widget output function for use in Shiny.
 #'
 #' @inheritParams sortable_js
-#' @param output_id output variable to use for the sortable object
+#' @param input_id output variable to use for the sortable object
 #'
 #' @export
-sortable_output <- function(output_id, width = "0px", height = "0px") {
-  htmlwidgets::shinyWidgetOutput(output_id, "sortable", width, height, package = "sortable")
+sortable_output <- function(input_id, width = "0px", height = "0px") {
+  htmlwidgets::shinyWidgetOutput(input_id, "sortable", width, height, package = "sortable")
 }
 
 #' Widget render function for use in Shiny.

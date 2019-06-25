@@ -86,7 +86,7 @@ question_initialize_input.sortable <- function(question, answer_input, ...) {
 
   # return the sortable htmlwidget
   sortable_list(
-    output_id = question$ids$answer,
+    input_id = question$ids$answer,
     labels = labels,
     options = question$options
   )
@@ -99,7 +99,7 @@ question_completed_input.sortable <- function(question, answer_input, ...) {
   # TODO display correct values with X or √ compared to best match
   # TODO DON'T display correct values (listen to an option?)
   sortable_list(
-    output_id = question$ids$answer,
+    input_id = question$ids$answer,
     labels = answer_input,
     options = modifyList(
       question$options,

@@ -4,15 +4,19 @@
 \alias{add_sortable_list}
 \title{Add a sortable list inside bucketable list.}
 \usage{
-add_sortable_list(text, labels, ...)
+add_sortable_list(text, labels = NULL, input_id, ...)
 }
 \arguments{
 \item{text}{Text to appear at top of list.}
 
 \item{labels}{A character vector with the text to display inside the widget.}
 
+\item{input_id}{output variable to read the plot/image from.}
+
 \item{...}{Other arguments passed to \code{sortable_list}}
 }
 \description{
-Since a \link{bucketable_list} can contain more than one \link{sortable_list}, you need an easy way to define the contents of each individual sortable list.  This function serves as a specification of a sortable list.
+Since a \link{bucketable_list} can contain more than one \link{sortable_list}, you need
+an easy way to define the contents of each individual sortable list.  This
+function serves as a specification of a sortable list.
 }

@@ -1,7 +1,7 @@
 context("bucketable_list")
 
 test_that("Can use add_sortable_list", {
-  z <- add_sortable_list(text = "missing", labels = NULL)
+  z <- add_sortable_list(text = "missing", labels = NULL, input_id = NULL)
   expect_is(z, "add_sortable_list")
 })
 
@@ -12,11 +12,13 @@ test_that("Can create bucketable_list", {
     group_name = "bucketable",
     add_sortable_list(
       text = "Drag from here",
-      labels = c("a", "bb", "ccc")
+      labels = c("a", "bb", "ccc"),
+      input_id = NULL
     ),
     add_sortable_list(
       text = "to here",
-      labels = NULL
+      labels = NULL,
+      input_id = "input_to"
     )
   )
 

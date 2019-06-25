@@ -2,23 +2,20 @@
 % Please edit documentation in R/bucketable_list.R
 \name{bucketable_list}
 \alias{bucketable_list}
-\title{Create a bucketable  list.}
+\title{Create a bucketable list.}
 \usage{
-bucketable_list(header, ..., output_id, group_name,
-  group_put_max = rep(Inf, length(labels)), selector = NULL,
-  options = sortable_options(), style = css_bucketable_list())
+bucketable_list(header, group_name, ..., group_put_max = rep(Inf,
+  length(labels)), selector = NULL, options = sortable_options(),
+  style = css_bucketable_list())
 }
 \arguments{
 \item{header}{Text that appears at the top of the bucketable list.  (This is
 encoded as an HTML \code{<p>} tag, so not strictly speaking a header.)}
 
+\item{group_name}{Passed to \code{sortable.js} as the group name}
+
 \item{...}{One or more specifications for a sortable list, and must be
 defined by \link{add_sortable_list}.}
-
-\item{output_id}{Character vector of \code{output_id} to pass (individually) to
-\link{sortable_list}}
-
-\item{group_name}{Passed to \code{sortable.js} as the group name}
 
 \item{group_put_max}{Not yet implemented}
 
@@ -50,11 +47,13 @@ bucketable_list(
   group_name = "bucketable",
   add_sortable_list(
     text = "Drag from here",
-    labels = c("a", "bb", "ccc")
+    labels = c("a", "bb", "ccc"),
+    input_id = NULL
   ),
   add_sortable_list(
     text = "to here",
-    labels = NULL
+    labels = NULL,
+    input_id = NULL
   )
 )
 
@@ -62,20 +61,20 @@ bucketable_list(
 
 bucketable_list(
   header = c("Sort these items into Letters and Numbers"),
+  group_name = "bucket_test",
   add_sortable_list(
     text = "Drag from here",
-    labels = sample(c(1:3, letters[1:2]))
+    labels = sample(c(1:3, letters[1:2])),
+    input_id = NULL
   ),
   add_sortable_list(
     text = "Letters",
-    labels = NULL
+    input_id = NULL
   ),
   add_sortable_list(
     text = "Numbers",
-    labels = NULL
-  ),
-  output_id = paste0("output", 1:3),
-  group_name = "bucket_test"
+    input_id = NULL
+  )
 )
 
 
