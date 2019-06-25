@@ -19,12 +19,12 @@ to not be displayed, \code{0} is the default.}
 \item{height}{\code{integer} height in pixels.  Since the container is expected
 to not be displayed, \code{0} is the default.}
 
-\item{element_id}{Passed to \link[htmlwidgets:createWidget]{htmlwidgets::createWidget}}
+\item{element_id}{Use an explicit element ID for the widget (rather than an automatically generated one). Useful if you have other JavaScript that needs to explicitly discover and interact with a specific widget instance.  Passed to \link[htmlwidgets:createWidget]{htmlwidgets::createWidget}.}
 
-\item{pre_render_hook}{Passed to \link[htmlwidgets:createWidget]{htmlwidgets::createWidget}}
+\item{pre_render_hook}{A function to be run on the widget, just prior to rendering. It accepts the entire widget object as input, and should return a modified widget object. Passed to \link[htmlwidgets:createWidget]{htmlwidgets::createWidget}.}
 }
 \description{
-Creates an \code{htmlwidget} that provides \href{https://github.com/SortableJS/Sortable}{Sortable.js}
+Creates an \code{htmlwidget} that provides \href{https://github.com/SortableJS/Sortable}{sortable.js}
 to use for drag-and-drop interactivity in Shiny apps and R Markdown.
 }
 \examples{

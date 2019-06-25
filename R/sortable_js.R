@@ -1,6 +1,6 @@
 #' Creates an htmlwidget with the 'sortable.js' library embedded.
 #'
-#' Creates an `htmlwidget` that provides [Sortable.js](https://github.com/SortableJS/Sortable)
+#' Creates an `htmlwidget` that provides [sortable.js](https://github.com/SortableJS/Sortable)
 #' to use for drag-and-drop interactivity in Shiny apps and R Markdown.
 #'
 #' @param selector `String` selector id on which to apply `sortable.js`.  Note, `sortable_js`
@@ -11,8 +11,8 @@
 #' @param height `integer` height in pixels.  Since the container is expected
 #'   to not be displayed, `0` is the default.
 #'
-#' @param element_id Passed to [htmlwidgets::createWidget]
-#' @param pre_render_hook Passed to [htmlwidgets::createWidget]
+#' @param element_id Use an explicit element ID for the widget (rather than an automatically generated one). Useful if you have other JavaScript that needs to explicitly discover and interact with a specific widget instance.  Passed to [htmlwidgets::createWidget].
+#' @param pre_render_hook A function to be run on the widget, just prior to rendering. It accepts the entire widget object as input, and should return a modified widget object. Passed to [htmlwidgets::createWidget].
 #'
 #' @importFrom htmlwidgets shinyWidgetOutput
 #' @seealso [sortable_options()]
