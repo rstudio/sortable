@@ -28,13 +28,17 @@ parsons <- function(
   style = css_parsons()
 ) {
   if (is.character(labels)) labels <- list(labels, NULL)
-  assert_that(is_sortable_options(options))
+  # assert_that(is_sortable_options(options))
 
-  bucketable_list(
+  # str(input_id)
+  if (length(input_id) == 1) input_id <- list(paste0(input_id, "_1"), input_id)
+
+  z <- bucketable_list(
     header = NULL,
-    add_sortable_list(text = text[1], labels = labels[[1]], input_id = paste0(input_id, "_1")),
-    add_sortable_list(text = text[2], labels = labels[[2]], input_id = input_id),
+    add_sortable_list(text = text[1], labels = labels[[1]], input_id = input_id[[1]]),
+    add_sortable_list(text = text[2], labels = labels[[2]], input_id = input_id[[2]]),
     group_name = group_name,
     style = style
   )
+  as.parsons(z)
 }

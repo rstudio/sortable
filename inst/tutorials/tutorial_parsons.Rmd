@@ -15,15 +15,15 @@ library(magrittr)
 
 Try this programming problem:
 
-```{r iris}
+```{r iris, echo=FALSE}
 question_parsons(
   "Try this problem",
   answer(c(
-    # "iris",
-    # "mutate(...)",
-    # "summarize(...)",
+    "iris",
+    "mutate(...)",
+    "summarize(...)",
     "print()"
-  ), 
+  ),
   correct = TRUE)
 )
 ```

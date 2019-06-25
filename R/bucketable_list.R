@@ -15,7 +15,7 @@ add_sortable_list <- function(text, labels = NULL,  input_id, ...){
     input_id,
     ...
   )
-  assert_that(is_input_id(input_id))
+  # assert_that(is_input_id(input_id))
   class(z) <- c("add_sortable_list", "list")
   z
 }
@@ -58,24 +58,17 @@ bucketable_list <- function(
   options = sortable_options(),
   style = css_bucketable_list()
 ) {
-  # if (is.null(selector)) {
-  #   selector <- vapply(
-  #     seq_along(labels),
-  #     function(i) {
-  #       increment_bucketable_list()
-  #     },
-  #     FUN.VALUE = character(1)
-  #   )
-  # }
+
+  # capture the dots
   dots <- list(...)
-  assert_that(is_header(header))
+  # assert_that(is_header(header))
+
   for (n in dots) {assert_that(is.add_sortable_list(n))}
   assert_that(is_sortable_options(options))
   if (missing(group_name) || is.null(group_name)) {
     group_name <- increment_bucketable_group()
   }
 
-  # capture the dots
 
   # modify the dots by adding the group_name to the sortable options
   mod <- lapply(seq_along(dots), function(i){

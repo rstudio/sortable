@@ -26,6 +26,9 @@ question_parsons <- function(..., random_answer_order = TRUE, options = sortable
 #' @export
 question_initialize_input.parsons <- function(question, answer_input, ...) {
 
+  # message("question_initialize_input.parsons")
+  # str(question)
+
   # quickly validate the all possible answers are possible
   answer <- question$answers[[1]]
   possible_answer_vals <- sort(answer$option)
@@ -58,13 +61,12 @@ question_initialize_input.parsons <- function(question, answer_input, ...) {
 
 
   # return the sortable htmlwidget
+  # str(question$ids)
   z <- parsons(
-    input_id = question$ids$answer,
+    input_id = c(question$ids$question, question$ids$answer),
     labels = labels,
     options = question$options
   )
-  str(z)
-  str(htmltools::as.tags(z))
   z
 }
 
@@ -72,8 +74,9 @@ question_initialize_input.parsons <- function(question, answer_input, ...) {
 question_completed_input.parsons <- function(question, answer_input, ...) {
   # TODO display correct values with X or √ compared to best match
   # TODO DON'T display correct values (listen to an option?)
+  str(answer_input)
   parsons(
-    input_id = question$ids$answer,
+    input_id = c(question$ids$question, question$ids$answer),
     labels = answer_input,
     options = modifyList(
       question$options,
