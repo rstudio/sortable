@@ -105,6 +105,27 @@
          inkscape:transform-center-x="3.0492663e-06"
          inkscape:transform-center-y="-6.6020762e-06" />
     </clipPath>
+    <mask
+       maskUnits="userSpaceOnUse"
+       id="mask4825">
+      <g
+         id="g4831">
+        <rect
+           style="opacity:1;vector-effect:none;fill:#578dc5;fill-opacity:1;stroke:none;stroke-width:0.1457504;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+           id="rect4827"
+           width="33.598763"
+           height="33.598763"
+           x="68.167076"
+           y="168.22989" />
+        <rect
+           style="opacity:1;vector-effect:none;fill:#578dc5;fill-opacity:1;stroke:none;stroke-width:0.1457504;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+           id="rect4829"
+           width="33.598763"
+           height="33.598763"
+           x="101.76582"
+           y="168.22989" />
+      </g>
+    </mask>
   </defs>
   <sodipodi:namedview
      id="base"
@@ -113,9 +134,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.76435185"
-     inkscape:cx="-17.055363"
-     inkscape:cy="238.85258"
+     inkscape:zoom="0.38217593"
+     inkscape:cx="-407.2047"
+     inkscape:cy="268.70314"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -175,36 +196,184 @@
            y="643.68262"
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:64px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI'" /></flowRegion><flowPara
          id="flowPara841" /></flowRoot>    <rect
-       style="opacity:1;vector-effect:none;fill:#72b8ff;fill-opacity:1;stroke:none;stroke-width:0.18014227;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       id="rect841"
-       width="93.356834"
-       height="34.494087"
-       x="56.602196"
-       y="98.094948" />
+       style="opacity:1;vector-effect:none;fill:#72b8ff;fill-opacity:1;stroke:none;stroke-width:0.17532545;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect4609"
+       width="33.598763"
+       height="33.598763"
+       x="52.71669"
+       y="101.03244" />
     <rect
-       y="132.56374"
-       x="51.895275"
-       height="34.494087"
-       width="93.356834"
-       id="rect843"
-       style="opacity:1;vector-effect:none;fill:#629fdd;fill-opacity:1;stroke:none;stroke-width:0.18014227;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+       y="101.03244"
+       x="119.9142"
+       height="33.598763"
+       width="33.598763"
+       id="rect4611"
+       style="opacity:1;vector-effect:none;fill:#72b8ff;fill-opacity:1;stroke:none;stroke-width:0.17532545;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
     <rect
-       style="opacity:1;vector-effect:none;fill:#578dc5;fill-opacity:1;stroke:none;stroke-width:0.14975469;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       id="rect845"
-       width="64.459511"
-       height="34.524971"
-       x="69.23394"
-       y="167.06123" />
-    <path
-       style="fill:#588fc6;fill-opacity:1;stroke:none;stroke-width:0.18750671px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 54.455209,132.58903 90.796911,-0.0253 -0.005,4.22225 z"
-       id="path849"
+       style="opacity:1;vector-effect:none;fill:#72b8ff;fill-opacity:1;stroke:none;stroke-width:0.17532545;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect4613"
+       width="33.598763"
+       height="33.598763"
+       x="86.315445"
+       y="101.03244" />
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot4621"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:76.02014923px;line-height:1.25;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-opacity:1"
+       transform="matrix(0.22673429,0,0,0.23423953,-51.336668,-48.390125)"><flowRegion
+         id="flowRegion4617"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:76.02014923px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';fill:#ffffff;fill-opacity:1;stroke:none;stroke-opacity:1"><rect
+           id="rect4615"
+           width="604.099"
+           height="187.93686"
+           x="230.26045"
+           y="627.98303"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:76.02014923px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';fill:#ffffff;fill-opacity:1;stroke:none;stroke-opacity:1" /></flowRegion><flowPara
+         id="flowPara4619"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:152.04029846px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;stroke-opacity:1">s</flowPara></flowRoot>    <flowRoot
+       transform="matrix(0.22673429,0,0,0.23423953,14.724654,-48.233615)"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:76.02014923px;line-height:1.25;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-opacity:1"
+       id="flowRoot4643"
+       xml:space="preserve"><flowRegion
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:76.02014923px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';fill:#ffffff;fill-opacity:1;stroke:none;stroke-opacity:1"
+         id="flowRegion4639"><rect
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:76.02014923px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';fill:#ffffff;fill-opacity:1;stroke:none;stroke-opacity:1"
+           y="627.98303"
+           x="230.26045"
+           height="187.93686"
+           width="604.099"
+           id="rect4637" /></flowRegion><flowPara
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:152.04029846px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;stroke-opacity:1"
+         id="flowPara4641">r</flowPara></flowRoot>    <flowRoot
+       xml:space="preserve"
+       id="flowRoot4651"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:76.02014923px;line-height:1.25;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-opacity:1"
+       transform="matrix(0.22673429,0,0,0.23423953,-17.577998,-48.390125)"><flowRegion
+         id="flowRegion4647"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:76.02014923px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';fill:#ffffff;fill-opacity:1;stroke:none;stroke-opacity:1"><rect
+           id="rect4645"
+           width="604.099"
+           height="187.93686"
+           x="230.26045"
+           y="627.98303"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:76.02014923px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';fill:#ffffff;fill-opacity:1;stroke:none;stroke-opacity:1" /></flowRegion><flowPara
+         id="flowPara4649"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:152.04029846px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;stroke-opacity:1">o</flowPara></flowRoot>    <rect
+       y="-168.22989"
+       x="47.051579"
+       height="33.598763"
+       width="33.598763"
+       id="rect4653"
+       style="opacity:1;vector-effect:none;fill:#629fdd;fill-opacity:1;stroke:none;stroke-width:0.17532545;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       transform="scale(1,-1)" />
+    <rect
+       style="opacity:1;vector-effect:none;fill:#629fdd;fill-opacity:1;stroke:none;stroke-width:0.17532545;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect4655"
+       width="33.598763"
+       height="33.598763"
+       x="114.24902"
+       y="-168.22989"
+       transform="scale(1,-1)" />
+    <rect
+       y="-168.22989"
+       x="80.650337"
+       height="33.598763"
+       width="33.598763"
+       id="rect4657"
+       style="opacity:1;vector-effect:none;fill:#629fdd;fill-opacity:1;stroke:none;stroke-width:0.17532545;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       transform="scale(1,-1)" />
+    <flowRoot
+       transform="matrix(0.22673429,0,0,0.23423953,-57.001894,-14.791265)"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:76.02014923px;line-height:1.25;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-opacity:1"
+       id="flowRoot4665"
+       xml:space="preserve"><flowRegion
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:76.02014923px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';fill:#ffffff;fill-opacity:1;stroke:none;stroke-opacity:1"
+         id="flowRegion4661"><rect
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:76.02014923px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';fill:#ffffff;fill-opacity:1;stroke:none;stroke-opacity:1"
+           y="627.98303"
+           x="230.26045"
+           height="187.93686"
+           width="604.099"
+           id="rect4659" /></flowRegion><flowPara
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:152.04029846px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;stroke-opacity:1"
+         id="flowPara4663">t</flowPara></flowRoot>    <flowRoot
+       xml:space="preserve"
+       id="flowRoot4673"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:76.02014923px;line-height:1.25;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-opacity:1"
+       transform="matrix(0.22673429,0,0,0.23423953,9.0594276,-14.634755)"><flowRegion
+         id="flowRegion4669"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:76.02014923px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';fill:#ffffff;fill-opacity:1;stroke:none;stroke-opacity:1"><rect
+           id="rect4667"
+           width="604.099"
+           height="187.93686"
+           x="230.26045"
+           y="627.98303"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:76.02014923px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';fill:#ffffff;fill-opacity:1;stroke:none;stroke-opacity:1" /></flowRegion><flowPara
+         id="flowPara4671"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:152.04029846px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;stroke-opacity:1">b</flowPara></flowRoot>    <flowRoot
+       transform="matrix(0.22673429,0,0,0.23423953,-23.243224,-14.791265)"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:76.02014923px;line-height:1.25;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-opacity:1"
+       id="flowRoot4681"
+       xml:space="preserve"><flowRegion
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:76.02014923px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';fill:#ffffff;fill-opacity:1;stroke:none;stroke-opacity:1"
+         id="flowRegion4677"><rect
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:76.02014923px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';fill:#ffffff;fill-opacity:1;stroke:none;stroke-opacity:1"
+           y="627.98303"
+           x="230.26045"
+           height="187.93686"
+           width="604.099"
+           id="rect4675" /></flowRegion><flowPara
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:152.04029846px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;stroke-opacity:1"
+         id="flowPara4679">a</flowPara></flowRoot>    <g
+       id="g4809">
+      <rect
+         y="168.22989"
+         x="68.167076"
+         height="33.598763"
+         width="33.598763"
+         id="rect4683"
+         style="opacity:1;vector-effect:none;fill:#578dc5;fill-opacity:1;stroke:none;stroke-width:0.1457504;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <rect
+         y="168.22989"
+         x="101.76582"
+         height="33.598763"
+         width="33.598763"
+         id="rect4685"
+         style="opacity:1;vector-effect:none;fill:#578dc5;fill-opacity:1;stroke:none;stroke-width:0.1457504;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    </g>
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot4693"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:76.02014923px;line-height:1.25;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-opacity:1"
+       transform="matrix(0.22673429,0,0,0.23423953,-35.886078,18.807518)"><flowRegion
+         id="flowRegion4689"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:76.02014923px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';fill:#ffffff;fill-opacity:1;stroke:none;stroke-opacity:1"><rect
+           id="rect4687"
+           width="604.099"
+           height="187.93686"
+           x="230.26045"
+           y="627.98303"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:76.02014923px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';fill:#ffffff;fill-opacity:1;stroke:none;stroke-opacity:1" /></flowRegion><flowPara
+         id="flowPara4691"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:152.04029846px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;stroke-opacity:1">l</flowPara></flowRoot>    <flowRoot
+       xml:space="preserve"
+       id="flowRoot4701"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:76.02014923px;line-height:1.25;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-opacity:1"
+       transform="matrix(0.22673429,0,0,0.23423953,-2.1274106,18.807518)"><flowRegion
+         id="flowRegion4697"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:76.02014923px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';fill:#ffffff;fill-opacity:1;stroke:none;stroke-opacity:1"><rect
+           id="rect4695"
+           width="604.099"
+           height="187.93686"
+           x="230.26045"
+           y="627.98303"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:76.02014923px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';fill:#ffffff;fill-opacity:1;stroke:none;stroke-opacity:1" /></flowRegion><flowPara
+         id="flowPara4699"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:152.04029846px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;stroke-opacity:1">e</flowPara></flowRoot>    <path
+       style="fill:#588fc6;fill-opacity:1;stroke:none;stroke-width:0.18991545px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 52.716688,134.63121 95.131082,-0.0247 -0.005,4.13409 z"
+       id="path4749"
        inkscape:connector-curvature="0" />
-    <path
-       inkscape:connector-curvature="0"
-       id="path851"
-       d="m 133.59982,167.08673 -64.358427,-0.0269 0.0047,4.48205 z"
-       style="fill:#4e7fb1;fill-opacity:1;stroke:none;stroke-width:0.16264835px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
     <path
        inkscape:transform-center-y="-6.6020762e-06"
        inkscape:transform-center-x="3.0492663e-06"
@@ -222,47 +391,11 @@
        id="path840"
        style="opacity:1;fill:none;fill-opacity:0.97979796;stroke:#3771c8;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        sodipodi:type="star" />
-    <flowRoot
-       xml:space="preserve"
-       id="flowRoot843"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:76.02014923px;line-height:1.25;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-opacity:1"
-       transform="matrix(0.23296348,0,0,0.24067492,-21.523642,-55.168117)"><flowRegion
-         id="flowRegion845"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:76.02014923px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';fill:#ffffff;fill-opacity:1;stroke:none;stroke-opacity:1"><rect
-           id="rect847"
-           width="604.099"
-           height="187.93686"
-           x="230.26045"
-           y="627.98303"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:76.02014923px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';fill:#ffffff;fill-opacity:1;stroke:none;stroke-opacity:1" /></flowRegion><flowPara
-         id="flowPara849"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:152.04029846px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;stroke-opacity:1">s o r</flowPara></flowRoot>    <flowRoot
-       transform="matrix(0.23296348,0,0,0.24067492,-24.976669,-20.699324)"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:76.02014923px;line-height:1.25;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-opacity:1"
-       id="flowRoot859"
-       xml:space="preserve"><flowRegion
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:76.02014923px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';fill:#ffffff;fill-opacity:1;stroke:none;stroke-opacity:1"
-         id="flowRegion855"><rect
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:76.02014923px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';fill:#ffffff;fill-opacity:1;stroke:none;stroke-opacity:1"
-           y="627.98303"
-           x="230.26045"
-           height="187.93686"
-           width="604.099"
-           id="rect853" /></flowRegion><flowPara
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:152.04029846px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;stroke-opacity:1"
-         id="flowPara857">t a b</flowPara></flowRoot>    <flowRoot
-       xml:space="preserve"
-       id="flowRoot867"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:76.02014923px;line-height:1.25;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-opacity:1"
-       transform="matrix(0.23296348,0,0,0.24067492,-23.262733,13.829057)"><flowRegion
-         id="flowRegion863"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:76.02014923px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';fill:#ffffff;fill-opacity:1;stroke:none;stroke-opacity:1"><rect
-           id="rect861"
-           width="604.099"
-           height="187.93686"
-           x="230.26045"
-           y="627.98303"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:76.02014923px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';fill:#ffffff;fill-opacity:1;stroke:none;stroke-opacity:1" /></flowRegion><flowPara
-         id="flowPara865"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:152.04029846px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;stroke-opacity:1">l e</flowPara></flowRoot>  </g>
+    <path
+       inkscape:connector-curvature="0"
+       id="path4757"
+       d="m 147.84778,168.23136 -100.791344,-0.0262 0.0053,4.38007 z"
+       style="fill:#4e7fb1;fill-opacity:1;stroke:none;stroke-width:0.1790801px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-variant-east_asian:normal;opacity:1;vector-effect:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0"
+       mask="url(#mask4825)" />
+  </g>
 </svg>

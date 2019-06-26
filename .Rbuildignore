@@ -14,3 +14,4 @@
 ^pkgdown$
 ^codecov\.yml$
 ^README\.html$
+^logo.svg$
