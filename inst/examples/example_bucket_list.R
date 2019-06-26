@@ -1,36 +1,36 @@
-## -- example-bucketable-list ---------------------------------------------
+## -- example-bucket-list ---------------------------------------------
 
-## Bucketable list
+## bucket list
 
-bucketable_list(
-  header = "This is a bucketable list. You can drag items between the lists.",
+bucket_list(
+  header = "This is a bucket list. You can drag items between the lists.",
   group_name = "bucketable",
-  add_sortable_list(
+  add_rank_list(
     text = "Drag from here",
     labels = c("a", "bb", "ccc"),
     input_id = NULL
   ),
-  add_sortable_list(
+  add_rank_list(
     text = "to here",
     labels = NULL,
     input_id = NULL
   )
 )
 
-## Bucketable list with three columns
+## bucket list with three columns
 
-bucketable_list(
+bucket_list(
   header = c("Sort these items into Letters and Numbers"),
-  add_sortable_list(
+  add_rank_list(
     text = "Drag from here",
     labels = sample(c(1:3, letters[1:2])),
     input_id = NULL
   ),
-  add_sortable_list(
+  add_rank_list(
     text = "Letters",
     input_id = NULL
   ),
-  add_sortable_list(
+  add_rank_list(
     text = "Numbers",
     input_id = NULL
   )

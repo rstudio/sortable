@@ -1,5 +1,5 @@
-## ---- sortable-list-app -------------------------------------------------
-## Example shiny app with bucketable list
+## ---- rank-list-app -------------------------------------------------
+## Example shiny app with bucket list
 
 
 library(shiny)
@@ -9,11 +9,11 @@ ui <- fluidPage(
   fluidRow(
     column(
       width = 12,
-      tags$h2("This is a sortable list"),
-      sortable_list(
+      tags$h2("This is a rank list"),
+      rank_list(
         text = "Drag the items in the correct order",
         labels = sample(c("one", "two", "three", "four", "five")),
-        input_id = "sortable_list_1"
+        input_id = "rank_list_1"
       )
     )
   ),
@@ -24,7 +24,7 @@ ui <- fluidPage(
 
 server <- function(input, output) {
   output$results <- renderPrint({
-    input$sortable_list_1 # This matches the input_id of the sortable list
+    input$rank_list_1 # This matches the input_id of the rank list
   })
 }
 
