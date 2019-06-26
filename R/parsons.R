@@ -28,9 +28,8 @@ parsons <- function(
   style = css_parsons()
 ) {
   if (is.character(labels)) labels <- list(labels, NULL)
-  # assert_that(is_sortable_options(options))
+  assert_that(is_sortable_options(options))
 
-  # str(input_id)
   if (length(input_id) == 1) input_id <- list(paste0(input_id, "_1"), input_id)
 
   z <- bucketable_list(

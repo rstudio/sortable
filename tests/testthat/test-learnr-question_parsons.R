@@ -3,7 +3,7 @@ context("learnr question_parsons")
 test_that( "init display validates", {
 
   question <- question_parsons(
-    "Sort the first 5 letters",
+    # "Sort the first 5 letters",
     learnr::answer(LETTERS[1:5], correct = TRUE),
     learnr::answer(rev(LETTERS[1:5]), correct = FALSE, "Other direction!")
   )
@@ -12,19 +12,6 @@ test_that( "init display validates", {
   expect_silent({
     question_initialize_input(question, "ignored")
   })
-
-  expect_error(
-    question_initialize_input(
-      question_parsons(
-        "Sort the first 5 letters",
-        learnr::answer(LETTERS[1:5], correct = TRUE),
-        learnr::answer(letters[1:5], correct = FALSE, "causes error"),
-        learnr::answer(rev(LETTERS[1:5]), correct = FALSE, "Other direction!")
-      )
-    ),
-    "answers MUST have the same set"
-  )
-
 
   expect_silent({
     question_completed_input(question, LETTERS[5:1])

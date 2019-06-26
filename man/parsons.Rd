@@ -46,8 +46,7 @@ parsons(
       "summarize(...)",
       "print()"
   ),
-  input_id = "input_parsons",
-  group_name = "parsons_test"
+  input_id = "input_parsons"
 )
 
 
@@ -58,7 +57,6 @@ parsons(
     "summarize(...)",
     "print()"
   ),
-  input_id = "input_parsons",
-  group_name = "parsons_test"
+  input_id = "input_parsons"
 )
 }

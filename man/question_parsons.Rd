@@ -4,11 +4,51 @@
 \alias{question_parsons}
 \title{Parsons problem question for learnr tutorials.}
 \usage{
-question_parsons(..., random_answer_order = TRUE,
+question_parsons(..., text = c("Drag from here",
+  "Construct your solution here"), type = c("parsons"),
+  correct = "Correct!", incorrect = "Incorrect",
+  try_again = incorrect, message = NULL, post_message = NULL,
+  loading = c("**Loading:** ", text, "<br/><br/><br/>"),
+  submit_button = "Submit Answer", try_again_button = "Try Again",
+  allow_retry = TRUE, random_answer_order = TRUE,
   options = sortable_options())
 }
 \arguments{
 \item{...}{parameters passed onto \code{learnr::\link[learnr]{question}}.}
+
+\item{text}{Question or option text}
+
+\item{type}{Type of quiz question. Typically this can be automatically determined
+based on the provided answers Pass \code{"single"} to indicate that even though
+multiple correct answers are specified that inputs which include only one correct
+answer are still correct. Pass \code{"multiple"} to force the use of checkboxes
+(as opposed to radio buttons) even though only once correct answer was provided.}
+
+\item{correct}{For \code{question}, text to print for a correct answer (defaults
+to "Correct!"). For \code{answer}, a boolean indicating whether this answer is
+correct.}
+
+\item{incorrect}{Text to print for an incorrect answer (defaults to "Incorrect")
+when \code{allow_retry} is \code{FALSE}.}
+
+\item{try_again}{Text to print for an incorrect answer (defaults to "Incorrect")
+when \code{allow_retry} is \code{TRUE}.}
+
+\item{message}{Additional message to display along with correct/incorrect feedback.
+This message is always displayed after a question submission.}
+
+\item{post_message}{Additional message to display along with correct/incorrect feedback.
+If \code{allow_retry} is \code{TRUE}, this message will only be displayed after the
+correct submission.  If \code{allow_retry} is \code{FALSE}, it will produce a second
+message alongside the \code{message} message value.}
+
+\item{loading}{Loading text to display as a placeholder while the question is loaded}
+
+\item{submit_button}{Label for the submit button. Defaults to \code{"Submit Answer"}}
+
+\item{try_again_button}{Label for the try again button. Defaults to \code{"Submit Answer"}}
+
+\item{allow_retry}{Allow retry for incorrect answers. Defaults to \code{FALSE}.}
 
 \item{random_answer_order}{Display answers in a random order.}
 
@@ -23,4 +63,15 @@ Each set of answer options must contain the same set of answer options. When
 the question is completed, the first correct answer will be displayed.
 
 Note that, by default, the answer order is randomized.
+}
+\examples{
+if (require(learnr, quietly = TRUE)) {
+  # to be used within a learnr tutorial...
+  question_rank(
+    "Sort the first 5 letters",
+    answer(letters[1:5], correct = TRUE),
+    allow_retry = TRUE,
+    options = sortable_options(animation = 150)
+  )
+}
 }

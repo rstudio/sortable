@@ -13,11 +13,38 @@
 #' @inheritParams learnr::question
 #' @export
 #' @example inst/examples/example_question_parsons.R
-question_parsons <- function(..., random_answer_order = TRUE, options = sortable_options()) {
+question_parsons <- function(
+  ...,
+  text = c("Drag from here", "Construct your solution here"),
+  type = c("parsons"),
+  correct = "Correct!",
+  incorrect = "Incorrect",
+  try_again = incorrect,
+  message = NULL,
+  post_message = NULL,
+  loading = c("**Loading:** ", text, "<br/><br/><br/>"),
+  submit_button = "Submit Answer",
+  try_again_button = "Try Again",
+  allow_retry = TRUE,
+  random_answer_order = TRUE,
+  options = sortable_options()
+
+
+) {
   learnr::question(
     ...,
-    random_answer_order = random_answer_order,
+    text = text,
     type = "parsons",
+    correct =  correct,
+    incorrect =  incorrect,
+    try_again = try_again,
+    message = message,
+    post_message = post_message,
+    loading = loading,
+    submit_button =  submit_button,
+    try_again_button =  try_again_button,
+    allow_retry = allow_retry,
+    random_answer_order = random_answer_order,
     options = options
   )
 }
@@ -26,24 +53,6 @@ question_parsons <- function(..., random_answer_order = TRUE, options = sortable
 #' @export
 question_initialize_input.parsons <- function(question, answer_input, ...) {
 
-  # message("question_initialize_input.parsons")
-  # str(question)
-
-  # quickly validate the all possible answers are possible
-  answer <- question$answers[[1]]
-  possible_answer_vals <- sort(answer$option)
-  for (answer in question$answers) {
-    if (!identical(
-      possible_answer_vals,
-      sort(answer$option)
-    )) {
-      stop(
-        "All sortable answers MUST have the same set of answers. (Order does not matter.) ",
-        "\nBad set: ", paste0(answer$option, collapse = ", "),
-        call. = FALSE
-      )
-    }
-  }
 
   # if no label order has been provided
   if (!is.null(answer_input)) {
@@ -59,29 +68,28 @@ question_initialize_input.parsons <- function(question, answer_input, ...) {
     }
   }
 
-
-  # return the sortable htmlwidget
-  # str(question$ids)
-  z <- parsons(
+  # return the parsons htmlwidget
+  parsons(
     input_id = c(question$ids$question, question$ids$answer),
     labels = labels,
-    options = question$options
+    options = question$options,
+    ...
   )
-  z
+
 }
 
 #' @export
 question_completed_input.parsons <- function(question, answer_input, ...) {
   # TODO display correct values with X or √ compared to best match
   # TODO DON'T display correct values (listen to an option?)
-  str(answer_input)
   parsons(
     input_id = c(question$ids$question, question$ids$answer),
-    labels = answer_input,
+    labels = question$answers[[1]]$option,
     options = modifyList(
       question$options,
       sortable_options(disabled = TRUE)
-    )
+    ),
+    ...
   )
 }
 

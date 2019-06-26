@@ -9,11 +9,13 @@ sortable_output(input_id, width = "0px", height = "0px")
 \arguments{
 \item{input_id}{output variable to use for the sortable object}
 
-\item{width}{\code{integer} width in pixels.  Since the container is expected
-to not be displayed, \code{0} is the default.}
+\item{width}{Fixed width for widget (in css units). The default is
+\code{NULL}, which results in intelligent automatic sizing based on the
+widget's container.}
 
-\item{height}{\code{integer} height in pixels.  Since the container is expected
-to not be displayed, \code{0} is the default.}
+\item{height}{Fixed height for widget (in css units). The default is
+\code{NULL}, which results in intelligent automatic sizing based on the
+widget's container.}
 }
 \description{
 Widget output function for use in Shiny.
