@@ -24,8 +24,8 @@ Add drag-and-drop behavior to Shiny Apps and gadgets.
 
 The important functions in this package are:
 \itemize{
-\item \code{\link[=sortable_list]{sortable_list()}} creates a drag-and-drop, sortable list
-\item \code{\link[=bucketable_list]{bucketable_list()}} lets you add multiple \code{sortable_list} objects in columns
+\item \code{\link[=rank_list]{rank_list()}} creates a drag-and-drop, rank list
+\item \code{\link[=bucket_list]{bucket_list()}} lets you add multiple \code{rank_list} objects in columns
 \item \code{\link[=parsons]{parsons()}} sets up a Parson's problem, a useful question type when teaching code to students
 }
 }

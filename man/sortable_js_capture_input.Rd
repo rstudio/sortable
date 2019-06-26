@@ -18,5 +18,5 @@ with the \code{onSort} option of \code{sortable_js}. See \code{\link[=sortable_o
 system.file("shiny-examples/drag_vars_to_plot.R", package = "sortable")
 }
 \seealso{
-\link{sortable_js} and \link{sortable_list}.
+\link{sortable_js} and \link{rank_list}.
 }

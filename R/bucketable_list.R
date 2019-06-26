@@ -1,14 +1,14 @@
-#' Add a sortable list inside bucketable list.
+#' Add a rank list inside bucket list.
 #'
-#' Since a [bucketable_list] can contain more than one [sortable_list], you need
-#' an easy way to define the contents of each individual sortable list.  This
-#' function serves as a specification of a sortable list.
+#' Since a [bucket_list] can contain more than one [rank_list], you need
+#' an easy way to define the contents of each individual rank list.  This
+#' function serves as a specification of a rank list.
 #'
-#' @inheritParams sortable_list
-#' @param ... Other arguments passed to `sortable_list`
+#' @inheritParams rank_list
+#' @param ... Other arguments passed to `rank_list`
 #'
 #' @export
-add_sortable_list <- function(text, labels = NULL,  input_id, ...){
+add_rank_list <- function(text, labels = NULL,  input_id, ...){
   z <- list(
     text = text,
     labels = labels,
@@ -16,54 +16,54 @@ add_sortable_list <- function(text, labels = NULL,  input_id, ...){
     ...
   )
   # assert_that(is_input_id(input_id))
-  class(z) <- c("add_sortable_list", "list")
+  class(z) <- c("add_rank_list", "list")
   z
 }
 
-is.add_sortable_list <- function(x)inherits(x, "add_sortable_list")
+is.add_rank_list <- function(x)inherits(x, "add_rank_list")
 
 
-#' Create a bucketable list.
+#' Create a bucket list.
 #'
-#' A bucketable list can contain more than one [sortable_list] and allows
+#' A bucket list can contain more than one [rank_list] and allows
 #' drag-and-drop of items between the different lists.
 #'
 #'
-#' @inheritParams sortable_list
+#' @inheritParams rank_list
 #'
 #' @template options
 #'
-#' @param header Text that appears at the top of the bucketable list.  (This is
+#' @param header Text that appears at the top of the bucket list.  (This is
 #'   encoded as an HTML `<p>` tag, so not strictly speaking a header.)
-#' @param ... One or more specifications for a sortable list, and must be
-#'   defined by [add_sortable_list].
+#' @param ... One or more specifications for a rank list, and must be
+#'   defined by [add_rank_list].
 #'
 #' @param group_name Passed to `sortable.js` as the group name
 #' @param group_put_max Not yet implemented
 #'
 #' @export
-#' @example inst/examples/example_bucketable_list.R
+#' @example inst/examples/example_bucket_list.R
 #' @examples
 #' ## Example of a shiny app
 #' if (interactive()) {
-#'   app <- system.file("shiny-examples/bucketable_list_app.R", package = "sortable")
+#'   app <- system.file("shiny-examples/bucket_list_app.R", package = "sortable")
 #'   shiny::runApp(app)
 #' }
-bucketable_list <- function(
+bucket_list <- function(
   header = NULL,
   ...,
   group_name,
   group_put_max = rep(Inf, length(labels)),
   selector = NULL,
   options = sortable_options(),
-  style = css_bucketable_list()
+  style = css_bucket_list()
 ) {
 
   # capture the dots
   dots <- list(...)
   # assert_that(is_header(header))
 
-  for (n in dots) {assert_that(is.add_sortable_list(n))}
+  for (n in dots) {assert_that(is.add_rank_list(n))}
   assert_that(is_sortable_options(options))
   if (missing(group_name) || is.null(group_name)) {
     group_name <- increment_bucketable_group()
@@ -82,22 +82,22 @@ bucketable_list <- function(
     )
   })
 
-  # construct list sortable_list objects
-  sortables <- lapply(seq_along(mod), function(i) do.call(sortable_list, mod[[i]]) )
+  # construct list rank_list objects
+  sortables <- lapply(seq_along(mod), function(i) do.call(rank_list, mod[[i]]) )
 
   z <- tagList(
     tags$div(
-      class = "bucketable-list",
+      class = "bucket-list",
       if(!is.null(header))tags$p(header) else NULL,
       tags$style(htmltools::HTML(style)),
       tags$div(
-        class = "bucketable-list-container",
+        class = "bucket-list-container",
         sortables
       )
     )
   )
 
 
-  as.bucketable_list(z)
+  as.bucket_list(z)
 }
 

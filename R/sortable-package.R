@@ -6,9 +6,9 @@
 #'
 #' The important functions in this package are:
 #'
-#' * [sortable_list()] creates a drag-and-drop, sortable list
+#' * [rank_list()] creates a drag-and-drop, rank list
 #'
-#' * [bucketable_list()] lets you add multiple `sortable_list` objects in columns
+#' * [bucket_list()] lets you add multiple `rank_list` objects in columns
 #'
 #' * [parsons()] sets up a Parson's problem, a useful question type when teaching code to students
 #'

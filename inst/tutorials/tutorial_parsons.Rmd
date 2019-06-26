@@ -7,14 +7,14 @@ runtime: shiny_prerendered
 
 ```{r setup, include=FALSE}
 library(learnr)
-# library(sortable)
+library(sortable)
 library(magrittr)
 ```
 
 
-```{r, include=FALSE}
+```{r, include=FALSE, eval=TRUE}
 options(warn = 1)
-.shim(); devtools::load_all("C:/Users/apdev/Documents/github/R-packages/maintainer/sortable")
+# .shim(); devtools::load_all("C:/Users/apdev/Documents/github/R-packages/maintainer/sortable")
 ```
 ## Parsons problem
 

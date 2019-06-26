@@ -1,14 +1,16 @@
 destination: docs
 reference:
-- title: Sortable functions
-  desc: ~
+- title: Widgets
+  desc: These functions create htmlwidgets with drag-and-drop behaviour
   contents:
-  - sortable_list
-  - bucketable_list
-  - add_sortable_list
-  - css_bucketable_list
-  - css_sortable_list
+  - rank_list
+  - bucket_list
   - parsons
+  - add_rank_list
+- title: Widget style sheets
+  desc: Control the look-and-feel of your widgets
+  contents:
+  - starts_with("css")
 - title: Access the sortable.js library
   desc: Lower level access to the sortable.js library
   contents:

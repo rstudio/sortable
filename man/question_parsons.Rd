@@ -4,19 +4,15 @@
 \alias{question_parsons}
 \title{Parsons problem question for learnr tutorials.}
 \usage{
-question_parsons(..., text = c("Drag from here",
-  "Construct your solution here"), type = c("parsons"),
-  correct = "Correct!", incorrect = "Incorrect",
-  try_again = incorrect, message = NULL, post_message = NULL,
-  loading = c("**Loading:** ", text, "<br/><br/><br/>"),
+question_parsons(..., type = c("parsons_q"), correct = "Correct!",
+  incorrect = "Incorrect", try_again = incorrect, message = NULL,
+  post_message = NULL, loading = c("Loading: "),
   submit_button = "Submit Answer", try_again_button = "Try Again",
   allow_retry = TRUE, random_answer_order = TRUE,
   options = sortable_options())
 }
 \arguments{
 \item{...}{parameters passed onto \code{learnr::\link[learnr]{question}}.}
-
-\item{text}{Question or option text}
 
 \item{type}{Type of quiz question. Typically this can be automatically determined
 based on the provided answers Pass \code{"single"} to indicate that even though
@@ -67,11 +63,19 @@ Note that, by default, the answer order is randomized.
 \examples{
 if (require(learnr, quietly = TRUE)) {
   # to be used within a learnr tutorial...
-  question_rank(
-    "Sort the first 5 letters",
-    answer(letters[1:5], correct = TRUE),
-    allow_retry = TRUE,
-    options = sortable_options(animation = 150)
+  question_parsons(
+    answer(c(
+      "iris",
+      "mutate(...)",
+      "summarize(...)",
+      "print()"
+    ), correct = FALSE),
+    answer(c(
+      "iris",
+      "mutate(...)",
+      "summarize(...)"
+    ), correct = TRUE)
   )
 }
+
 }

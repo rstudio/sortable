@@ -15,14 +15,14 @@
 #' @example inst/examples/example_question_parsons.R
 question_parsons <- function(
   ...,
-  text = c("Drag from here", "Construct your solution here"),
-  type = c("parsons"),
+  # text = c("Drag from here", "Construct your solution here"),
+  type = c("parsons_q"),
   correct = "Correct!",
   incorrect = "Incorrect",
   try_again = incorrect,
   message = NULL,
   post_message = NULL,
-  loading = c("**Loading:** ", text, "<br/><br/><br/>"),
+  loading = c("Loading: "),
   submit_button = "Submit Answer",
   try_again_button = "Try Again",
   allow_retry = TRUE,
@@ -31,10 +31,10 @@ question_parsons <- function(
 
 
 ) {
-  learnr::question(
+  z <- learnr::question(
+    text = NULL,
     ...,
-    text = text,
-    type = "parsons",
+    type = "parsons_q",
     correct =  correct,
     incorrect =  incorrect,
     try_again = try_again,
@@ -47,39 +47,32 @@ question_parsons <- function(
     random_answer_order = random_answer_order,
     options = options
   )
+  z
 }
 
 
 #' @export
-question_initialize_input.parsons <- function(question, answer_input, ...) {
+question_initialize_input.parsons_q <- function(question, answer_input, ...) {
 
-
-  # if no label order has been provided
-  if (!is.null(answer_input)) {
-    labels <- answer_input
-  } else {
-    labels <- question$answers[[1]]$option
-
-    # if the question is to be displayed in random order, shuffle the options
-    if (
-      isTRUE(question$random_answer_order) # and we should randomize the order
-    ) {
-      labels <- sample(labels, length(labels))
-    }
+  labels <- question$answers[[1]]$option
+  if (isTRUE(question$random_answer_order)) { # and we should randomize the order
+    labels <- sample(labels, length(labels))
   }
 
+
   # return the parsons htmlwidget
-  parsons(
+  z <- parsons(
     input_id = c(question$ids$question, question$ids$answer),
     labels = labels,
     options = question$options,
     ...
   )
+  z
 
 }
 
 #' @export
-question_completed_input.parsons <- function(question, answer_input, ...) {
+question_completed_input.parsons_q <- function(question, answer_input, ...) {
   # TODO display correct values with X or √ compared to best match
   # TODO DON'T display correct values (listen to an option?)
   parsons(
@@ -94,13 +87,13 @@ question_completed_input.parsons <- function(question, answer_input, ...) {
 }
 
 #' @export
-question_is_valid.parsons <- function(question, answer_input, ...) {
+question_is_valid.parsons_q <- function(question, answer_input, ...) {
   !is.null(answer_input)
 }
 
 
 #' @export
-question_is_correct.parsons <- function(question, answer_input, ...) {
+question_is_correct.parsons_q <- function(question, answer_input, ...) {
   # for each possible answer, check if it matches
   for (answer in question$answers) {
     if (identical(answer$option, answer_input)) {

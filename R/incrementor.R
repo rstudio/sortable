@@ -6,9 +6,9 @@ incrementor <- function(prefix = "increment_"){
   }
 }
 
-increment_sortable_list <- incrementor("sortable_list_id_")
+increment_rank_list <- incrementor("rank_list_id_")
 
-increment_bucketable_list <- incrementor("bucketable_list_id_")
+increment_bucket_list <- incrementor("bucket_list_id_")
 
 increment_parsons <- incrementor("parsons_list_id_")
 

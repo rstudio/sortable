@@ -1,14 +1,14 @@
 #' Create a parsons problem.
 #'
 #'
-#' @inheritParams sortable_list
+#' @inheritParams rank_list
 #'
 #' @template options
 #'
-#' @inheritParams bucketable_list
-#' @param labels List of `label` to pass (individually) to [sortable_list()].
+#' @inheritParams bucket_list
+#' @param labels List of `label` to pass (individually) to [rank_list()].
 #' @param text Vector of headings for each column.
-#' @param input_id Character vector of `input_id` to pass (individually) to [sortable_list()].
+#' @param input_id Character vector of `input_id` to pass (individually) to [rank_list()].
 #'
 #' @export
 #' @example inst/examples/example_parsons.R
@@ -32,10 +32,10 @@ parsons <- function(
 
   if (length(input_id) == 1) input_id <- list(paste0(input_id, "_1"), input_id)
 
-  z <- bucketable_list(
+  z <- bucket_list(
     header = NULL,
-    add_sortable_list(text = text[1], labels = labels[[1]], input_id = input_id[[1]]),
-    add_sortable_list(text = text[2], labels = labels[[2]], input_id = input_id[[2]]),
+    add_rank_list(text = text[1], labels = labels[[1]], input_id = input_id[[1]]),
+    add_rank_list(text = text[2], labels = labels[[2]], input_id = input_id[[2]], options = options),
     group_name = group_name,
     style = style
   )

@@ -13,5 +13,5 @@ test_that("Can create parsons", {
   )
 
 
-  expect_is(z, "bucketable_list")
+  expect_is(z, "bucket_list")
 })

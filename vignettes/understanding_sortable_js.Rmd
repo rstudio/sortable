@@ -71,7 +71,7 @@ sortable_js(selector = "example01")
 sortable_js(selector = "example01")
 ```
 
-![](figures/simple_sortable_list.gif)
+![](figures/simple_rank_list.gif)
 
 
 

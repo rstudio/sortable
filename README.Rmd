@@ -43,40 +43,40 @@ remotes::install_github("rstudio/sortable")
 
 ## Examples
 
-### Sortable list
+### rank list
 
-You can create a drag-and-drop input object in Shiny, using the `sortable_list()` function.
+You can create a drag-and-drop input object in Shiny, using the `rank_list()` function.
 
 
 ```{r echo=FALSE, cache=FALSE}
 knitr::read_chunk(
-  system.file("shiny-examples/sortable_list_app.R", package = "sortable")
+  system.file("shiny-examples/rank_list_app.R", package = "sortable")
 )
 ```
 
-```{r sortable-list-app, eval=FALSE}
+```{r rank-list-app, eval=FALSE}
 ```
 
 <center>
-<img src="man/figures/sortable_list_shiny.gif" style = 'width:400px;'></img>
+<img src="man/figures/rank_list_shiny.gif" style = 'width:400px;'></img>
 </center>
 
 
-### Bucketable list
+### bucket list
 
-Witha a bucketable list you can have more than one sortable lists in a single object.  This can be useful for bucketing task, e.g. asking your students to classify objects into multiple categories.
+Witha a bucket list you can have more than one rank lists in a single object.  This can be useful for bucketing task, e.g. asking your students to classify objects into multiple categories.
 
 ```{r echo=FALSE, cache=FALSE}
 knitr::read_chunk(
-  system.file("shiny-examples/bucketable_list_app.R", package = "sortable")
+  system.file("shiny-examples/bucket_list_app.R", package = "sortable")
 )
 ```
 
-```{r bucketable-list-app, eval=FALSE}
+```{r bucket-list-app, eval=FALSE}
 ```
 
 <center>
-<img src="man/figures/bucketable_list_shiny.gif" style = 'width:500px;'></img>
+<img src="man/figures/bucket_list_shiny.gif" style = 'width:500px;'></img>
 </center>
 
 

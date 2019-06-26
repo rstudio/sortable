@@ -7,7 +7,7 @@ test_that( "init display validates", {
     learnr::answer(LETTERS[1:5], correct = TRUE),
     learnr::answer(rev(LETTERS[1:5]), correct = FALSE, "Other direction!")
   )
-  expect_s3_class(question, "parsons")
+  expect_s3_class(question, "parsons_q")
 
   expect_silent({
     question_initialize_input(question, "ignored")

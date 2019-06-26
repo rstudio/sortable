@@ -5,7 +5,7 @@
 #'
 #' @param input_id The output id.
 #'
-#' @seealso [sortable_js] and [sortable_list].
+#' @seealso [sortable_js] and [rank_list].
 #'
 #' @export
 #' @examples
@@ -31,7 +31,7 @@ sortable_js_capture_input <- function(input_id) {
 #'
 #' Creates a sortable item list using the `sortable.js` framework, and generates
 #' an `htmlwidgets` element.  The elements of this list can be dragged and
-#' dropped in any order.  Typically you will embed a `sortable_list` inside a
+#' dropped in any order.  Typically you will embed a `rank_list` inside a
 #' Shiny app or any shiny runtime, e.g. a `learnr` tutorial.
 #'
 #' The widget automatically updates a Shiny output, with the matching `input_id`
@@ -43,35 +43,35 @@ sortable_js_capture_input <- function(input_id) {
 #' @param text Text to appear at top of list.
 #' @param selector This is the css id to use, and must be unique in your shiny
 #'   app. If NULL, the function generates a selector of the form
-#'   `sortable_list_id_1`, and will automatically increment for every
-#'   `sortable_list`.
-#' @param additional_class Additional css class name to use. This gets appended to the `sortable-list` class, and is used by the [bucketable_list()] function.
-#' @param style A css stylesheet, provided as a character string.  See also [css_sortable_list()].
+#'   `rank_list_id_1`, and will automatically increment for every
+#'   `rank_list`.
+#' @param additional_class Additional css class name to use. This gets appended to the `rank-list` class, and is used by the [bucket_list()] function.
+#' @param style A css stylesheet, provided as a character string.  See also [css_rank_list()].
 #' @template options
 #'
-#' @seealso [sortable_js], [bucketable_list], [parsons]
+#' @seealso [sortable_js], [bucket_list], [parsons]
 #'
 #' @export
 #' @importFrom utils modifyList
 #' @importFrom htmltools  tagList tags
-#' @example inst/examples/example_sortable_list.R
+#' @example inst/examples/example_rank_list.R
 #' @examples
 #' ## Example of a shiny app
 #' if (interactive()) {
-#'   app <- system.file("shiny-examples/sortable_list_app.R", package = "sortable")
+#'   app <- system.file("shiny-examples/rank_list_app.R", package = "sortable")
 #'   shiny::runApp(app)
 #' }
-sortable_list <- function(
+rank_list <- function(
   text = "",
   labels,
   input_id,
   selector = NULL,
   options = sortable_options(),
   additional_class = "",
-  style = css_sortable_list()
+  style = css_rank_list()
 ) {
   if (is.null(selector)) {
-    selector <- increment_sortable_list()
+    selector <- increment_rank_list()
   }
   assert_that(is_sortable_options(options))
   assert_that(is_input_id(input_id))
@@ -79,13 +79,13 @@ sortable_list <- function(
   z <- tagList(
     tags$div(
       tags$style(htmltools::HTML(style)),
-      class = paste("sortable-list-container", additional_class),
+      class = paste("rank-list-container", additional_class),
       tags$p(text),
       tags$div(
-        class = paste("sortable-list", additional_class),
+        class = paste("rank-list", additional_class),
         id = selector,
         lapply(labels, function(x) {
-          tags$div(class = "sortable-list-item", x )
+          tags$div(class = "rank-list-item", x )
         })
       )
     ),
@@ -98,7 +98,7 @@ sortable_list <- function(
     )
   )
 
-  as.sortable_list(z)
+  as.rank_list(z)
 
 }
 

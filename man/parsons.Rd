@@ -9,20 +9,20 @@ parsons(header = NULL, text = c("Drag from here",
   options = sortable_options(), style = css_parsons())
 }
 \arguments{
-\item{header}{Text that appears at the top of the bucketable list.  (This is
+\item{header}{Text that appears at the top of the bucket list.  (This is
 encoded as an HTML \code{<p>} tag, so not strictly speaking a header.)}
 
 \item{text}{Vector of headings for each column.}
 
-\item{labels}{List of \code{label} to pass (individually) to \code{\link[=sortable_list]{sortable_list()}}.}
+\item{labels}{List of \code{label} to pass (individually) to \code{\link[=rank_list]{rank_list()}}.}
 
-\item{input_id}{Character vector of \code{input_id} to pass (individually) to \code{\link[=sortable_list]{sortable_list()}}.}
+\item{input_id}{Character vector of \code{input_id} to pass (individually) to \code{\link[=rank_list]{rank_list()}}.}
 
 \item{group_name}{Passed to \code{sortable.js} as the group name}
 
 \item{options}{Options to be supplied to \link{sortable_js} object. See \link{sortable_options} for more details}
 
-\item{style}{A css stylesheet, provided as a character string.  See also \code{\link[=css_sortable_list]{css_sortable_list()}}.}
+\item{style}{A css stylesheet, provided as a character string.  See also \code{\link[=css_rank_list]{css_rank_list()}}.}
 }
 \description{
 Create a parsons problem.
