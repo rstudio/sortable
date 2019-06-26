@@ -13,6 +13,8 @@ version](http://www.r-pkg.org/badges/version/sortable)](https://cran.r-project.o
 month](http://cranlogs.r-pkg.org/badges/sortable)](http://www.rpackages.io/package/sortable)
 [![Codecov test
 coverage](https://codecov.io/gh/rstudio/sortable/branch/master/graph/badge.svg)](https://codecov.io/gh/rstudio/sortable?branch=master)
+[![Lifecycle:
+experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 <!-- badges: end -->
 
 The `sortable` package enables drag-and-drop behaviour in your Shiny
