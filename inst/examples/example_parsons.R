@@ -5,7 +5,7 @@
 parsons(
   header = "This is an example of a Parsons problem",
   text = c("Drag from here", "Construct your solution here"),
-  labels = c(
+  initial = c(
       "iris",
       "mutate(...)",
       "summarize(...)",
@@ -16,7 +16,7 @@ parsons(
 
 
 parsons(
-  labels = c(
+  initial = c(
     "iris",
     "mutate(...)",
     "summarize(...)",

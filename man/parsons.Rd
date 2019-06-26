@@ -5,7 +5,7 @@
 \title{Create a parsons problem.}
 \usage{
 parsons(header = NULL, text = c("Drag from here",
-  "Construct your solution here"), labels, input_id, group_name,
+  "Construct your solution here"), initial, input_id, group_name,
   options = sortable_options(), style = css_parsons())
 }
 \arguments{
@@ -14,7 +14,7 @@ encoded as an HTML \code{<p>} tag, so not strictly speaking a header.)}
 
 \item{text}{Vector of headings for each column.}
 
-\item{labels}{List of \code{label} to pass (individually) to \code{\link[=rank_list]{rank_list()}}.}
+\item{initial}{Vector with initial values for problem (to appear in left column)}
 
 \item{input_id}{Character vector of \code{input_id} to pass (individually) to \code{\link[=rank_list]{rank_list()}}.}
 
@@ -40,7 +40,7 @@ if (interactive()) {
 parsons(
   header = "This is an example of a Parsons problem",
   text = c("Drag from here", "Construct your solution here"),
-  labels = c(
+  initial = c(
       "iris",
       "mutate(...)",
       "summarize(...)",
@@ -51,7 +51,7 @@ parsons(
 
 
 parsons(
-  labels = c(
+  initial = c(
     "iris",
     "mutate(...)",
     "summarize(...)",

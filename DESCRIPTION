@@ -1,6 +1,6 @@
 Package: sortable
 Type: Package
-Title: Create Drag-and-Drop Elements Using the JavaScript `sortable.js` Library
+Title: Create Drag-and-Drop Elements Using the JavaScript 'sortable.js' Library
 Version: 0.2.0.9001
 Date: 2019-06-19
 Authors@R: c(
@@ -31,8 +31,8 @@ Suggests:
     knitr,
     testthat (>= 2.1.0),
     withr
-Remotes:
-    rstudio/learnr
+Remotes: 
+    rstudio/learnr@docs
 VignetteBuilder: knitr
 RoxygenNote: 6.1.1
 Roxygen: list(markdown = TRUE)

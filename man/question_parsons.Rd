@@ -4,20 +4,22 @@
 \alias{question_parsons}
 \title{Parsons problem question for learnr tutorials.}
 \usage{
-question_parsons(..., type = c("parsons_q"), correct = "Correct!",
-  incorrect = "Incorrect", try_again = incorrect, message = NULL,
-  post_message = NULL, loading = c("Loading: "),
-  submit_button = "Submit Answer", try_again_button = "Try Again",
-  allow_retry = TRUE, random_answer_order = TRUE,
-  options = sortable_options())
+question_parsons(initial, ..., type = c("parsons_q"),
+  correct = "Correct!", incorrect = "Incorrect",
+  try_again = incorrect, message = NULL, post_message = NULL,
+  loading = c("Loading: "), submit_button = "Submit Answer",
+  try_again_button = "Try Again", allow_retry = TRUE,
+  random_answer_order = TRUE, options = sortable_options())
 }
 \arguments{
+\item{initial}{Initial value for labels. Note: this must be a super-set of all answers.}
+
 \item{...}{parameters passed onto \code{learnr::\link[learnr]{question}}.}
 
 \item{type}{Type of quiz question. Typically this can be automatically determined
-based on the provided answers Pass \code{"single"} to indicate that even though
+based on the provided answers. Pass \code{"radio"} to indicate that even though
 multiple correct answers are specified that inputs which include only one correct
-answer are still correct. Pass \code{"multiple"} to force the use of checkboxes
+answer are still correct. Pass \code{"checkbox"} to force the use of checkboxes
 (as opposed to radio buttons) even though only once correct answer was provided.}
 
 \item{correct}{For \code{question}, text to print for a correct answer (defaults
@@ -64,12 +66,12 @@ Note that, by default, the answer order is randomized.
 if (require(learnr, quietly = TRUE)) {
   # to be used within a learnr tutorial...
   question_parsons(
-    answer(c(
+    initial = c(
       "iris",
       "mutate(...)",
       "summarize(...)",
       "print()"
-    ), correct = FALSE),
+    ),
     answer(c(
       "iris",
       "mutate(...)",

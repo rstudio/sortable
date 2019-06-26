@@ -5,7 +5,7 @@
 \alias{sortable}
 \alias{_PACKAGE}
 \alias{sortable-package}
-\title{sortable: Create Drag-and-Drop Elements Using the JavaScript `sortable.js` Library}
+\title{sortable: Create Drag-and-Drop Elements Using the JavaScript 'sortable.js' Library}
 \description{
 Add drag-and-drop behavior to Shiny Apps and gadgets.  
     Add ranking, sorting and bucketing question types to `learnr` tutorials. 

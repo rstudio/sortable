@@ -13,7 +13,7 @@ ui <- fluidPage(
       ## This is the parsons problem
       parsons(
         header = "This is an example of a Parsons problem",
-        labels = c(
+        initial = c(
           "iris",
           "mutate(...)",
           "summarize(...)",

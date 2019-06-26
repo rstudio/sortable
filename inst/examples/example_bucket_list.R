@@ -4,7 +4,6 @@
 
 bucket_list(
   header = "This is a bucket list. You can drag items between the lists.",
-  group_name = "bucketable",
   add_rank_list(
     text = "Drag from here",
     labels = c("a", "bb", "ccc"),

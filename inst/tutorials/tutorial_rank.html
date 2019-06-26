@@ -13,7 +13,7 @@
 <meta name="progressive" content="false" />
 <meta name="allow-skip" content="false" />
 
-<title>Parsons problems</title>
+<title>Rank and bucket questions</title>
 
 
 <!-- highlightjs -->
@@ -116,29 +116,47 @@ $(document).ready(function () {
 
 <div class="topics">
 
-<div id="section-example" class="section level2">
-<h2>Example</h2>
-<p>Try this programming problem:</p>
-<pre class="r"><code>question_parsons(
-  initial = c(
-    &quot;iris&quot;,
-    &quot;mutate(...)&quot;,
-    &quot;summarize(...)&quot;,
-    &quot;print()&quot;
-  ),
-  answer(c(
-    &quot;iris&quot;,
-    &quot;mutate(...)&quot;,
-    &quot;summarize(...)&quot;
-  ),
-  correct = TRUE)
+<div id="section-ranking-questions" class="section level2">
+<h2>Ranking questions</h2>
+<div id="section-sorting-letters" class="section level3">
+<h3>Sorting LETTERS</h3>
+<p>Sort the answers from A to E:</p>
+<pre class="r"><code>question_rank(
+  &quot;Sort the first 5 letters&quot;,
+  answer(LETTERS[1:5], correct = TRUE),
+  answer(rev(LETTERS[1:5]), correct = FALSE, &quot;Other direction!&quot;),
+  random_answer_order = TRUE,
+  allow_retry = TRUE,
+  options = sortable_options(
+    animation = 150
+  )
 )</code></pre>
-<div data-label="iris" class="tutorial-question">
-<div id="iris-answer_container" class="shiny-html-output"></div>
-<div id="iris-message_container" class="shiny-html-output"></div>
-<div id="iris-action_button_container" class="shiny-html-output"></div>
+<div data-label="letters" class="tutorial-question">
+<div id="letters-answer_container" class="shiny-html-output"></div>
+<div id="letters-message_container" class="shiny-html-output"></div>
+<div id="letters-action_button_container" class="shiny-html-output"></div>
 </div>
-
+<p><strong>Try E to A as well!</strong></p>
+</div>
+<div id="section-sorting-numbers" class="section level3">
+<h3>Sorting NUMBERS</h3>
+<p>Sort the numbers from 1 to 3:</p>
+<pre class="r"><code>question_rank(
+  &quot;Sort the first 5 letters&quot;,
+  answer(as.character(1:3), correct = TRUE),
+  answer(rev(as.character(1:3)), correct = FALSE, &quot;Other direction!&quot;),
+  random_answer_order = TRUE,
+  allow_retry = TRUE,
+  options = sortable_options(
+    animation = 150
+  )
+)</code></pre>
+<div data-label="numbers" class="tutorial-question">
+<div id="numbers-answer_container" class="shiny-html-output"></div>
+<div id="numbers-message_container" class="shiny-html-output"></div>
+<div id="numbers-action_button_container" class="shiny-html-output"></div>
+</div>
+<strong>Also Try 3 to 1!</strong> 
 <script type="application/shiny-prerendered" data-context="server-start">
 library(learnr)
 library(sortable)
@@ -150,7 +168,11 @@ learnr:::register_http_handlers(session, metadata = NULL)
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
-learnr:::question_prerendered_chunk(structure(list(type = "parsons_q", label = "iris", question = NULL,     answers = list(structure(list(id = "lnr_ans_ed89b", option = c("iris",     "mutate(...)", "summarize(...)"), label = structure("iris\nmutate(...)\nsummarize(...)", html = TRUE, class = c("html",     "character")), is_correct = TRUE, message = NULL), class = c("tutorial_question_answer",     "tutorial_quiz_answer"))), button_labels = list(submit = structure("Submit Answer", html = TRUE, class = c("html",     "character")), try_again = structure("Try Again", html = TRUE, class = c("html",     "character"))), messages = list(correct = structure("Correct!", html = TRUE, class = c("html",     "character")), try_again = structure("Incorrect", html = TRUE, class = c("html",     "character")), incorrect = structure("Incorrect", html = TRUE, class = c("html",     "character")), message = NULL, post_message = NULL), ids = list(        answer = "iris-answer", question = "iris"), loading = structure("Loading: ", html = TRUE, class = c("html",     "character")), random_answer_order = TRUE, allow_retry = TRUE,     options = list(initial = c("iris", "mutate(...)", "summarize(...)",     "print()"), sortable_options = structure(list(), class = "sortable_options"))), class = c("parsons_q", "tutorial_question")))
+learnr:::question_prerendered_chunk(structure(list(type = "rank", label = "letters", question = structure("Sort the first 5 letters", html = TRUE, class = c("html", "character")), answers = list(structure(list(id = "lnr_ans_6043c41",     option = c("A", "B", "C", "D", "E"), label = structure("A\nB\nC\nD\nE", html = TRUE, class = c("html",     "character")), is_correct = TRUE, message = NULL), class = c("tutorial_question_answer", "tutorial_quiz_answer")), structure(list(id = "lnr_ans_b2062c4",     option = c("E", "D", "C", "B", "A"), label = structure("E\nD\nC\nB\nA", html = TRUE, class = c("html",     "character")), is_correct = FALSE, message = structure("Other direction!", html = TRUE, class = c("html",     "character"))), class = c("tutorial_question_answer", "tutorial_quiz_answer"))), button_labels = list(submit = structure("Submit Answer", html = TRUE, class = c("html", "character")), try_again = structure("Try Again", html = TRUE, class = c("html", "character"))), messages = list(correct = structure("Correct!", html = TRUE, class = c("html", "character")), try_again = structure("Incorrect", html = TRUE, class = c("html", "character")), incorrect = structure("Incorrect", html = TRUE, class = c("html", "character")), message = NULL, post_message = NULL), ids = list(    answer = "letters-answer", question = "letters"), loading = structure("<strong>Loading:<\u002fstrong> \nSort the first 5 letters\n<br/><br/><br/>", html = TRUE, class = c("html", "character")), random_answer_order = TRUE, allow_retry = TRUE,     options = structure(list(animation = 150), class = "sortable_options")), class = c("rank", "tutorial_question")))
+</script>
+ 
+<script type="application/shiny-prerendered" data-context="server">
+learnr:::question_prerendered_chunk(structure(list(type = "rank", label = "numbers", question = structure("Sort the first 5 letters", html = TRUE, class = c("html", "character")), answers = list(structure(list(id = "lnr_ans_cfd6cce",     option = c("1", "2", "3"), label = structure("1\n2\n3", html = TRUE, class = c("html",     "character")), is_correct = TRUE, message = NULL), class = c("tutorial_question_answer", "tutorial_quiz_answer")), structure(list(id = "lnr_ans_c9a1c74",     option = c("3", "2", "1"), label = structure("3\n2\n1", html = TRUE, class = c("html",     "character")), is_correct = FALSE, message = structure("Other direction!", html = TRUE, class = c("html",     "character"))), class = c("tutorial_question_answer", "tutorial_quiz_answer"))), button_labels = list(submit = structure("Submit Answer", html = TRUE, class = c("html", "character")), try_again = structure("Try Again", html = TRUE, class = c("html", "character"))), messages = list(correct = structure("Correct!", html = TRUE, class = c("html", "character")), try_again = structure("Incorrect", html = TRUE, class = c("html", "character")), incorrect = structure("Incorrect", html = TRUE, class = c("html", "character")), message = NULL, post_message = NULL), ids = list(    answer = "numbers-answer", question = "numbers"), loading = structure("<strong>Loading:<\u002fstrong> \nSort the first 5 letters\n<br/><br/><br/>", html = TRUE, class = c("html", "character")), random_answer_order = TRUE, allow_retry = TRUE,     options = structure(list(animation = 150), class = "sortable_options")), class = c("rank", "tutorial_question")))
 </script>
  <!--html_preserve-->
 <script type="application/shiny-prerendered" data-context="dependencies">
@@ -163,6 +185,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "parsons_q", label = "
 </script>
 <!--/html_preserve-->
 </div>
+</div>
 
 </div> <!-- topics -->
 
@@ -173,7 +196,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "parsons_q", label = "
 
 <!-- begin doc-metadata -->
 <div id="doc-metadata">
-<h2 class="title toc-ignore" style="display:none;">Parsons problems</h2>
+<h2 class="title toc-ignore" style="display:none;">Rank and bucket questions</h2>
 <h4 class="date"><em>June 6th, 2019</em></h4>
 </div>
 <!-- end doc-metadata -->

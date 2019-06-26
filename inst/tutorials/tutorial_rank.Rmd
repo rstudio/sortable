@@ -1,5 +1,5 @@
 ---
-title: "Ranking and bucketing questions"
+title: "Rank and bucket questions"
 date: "June 6th, 2019"
 output: learnr::tutorial
 runtime: shiny_prerendered

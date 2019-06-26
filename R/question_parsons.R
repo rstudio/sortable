@@ -9,11 +9,13 @@
 #' Note that, by default, the answer order is randomized.
 #'
 #' @param ... parameters passed onto \code{learnr::\link[learnr]{question}}.
+#' @param initial Initial value for labels. Note: this must be a super-set of all answers.
 #' @template options
 #' @inheritParams learnr::question
 #' @export
 #' @example inst/examples/example_question_parsons.R
 question_parsons <- function(
+  initial,
   ...,
   # text = c("Drag from here", "Construct your solution here"),
   type = c("parsons_q"),
@@ -45,7 +47,10 @@ question_parsons <- function(
     try_again_button =  try_again_button,
     allow_retry = allow_retry,
     random_answer_order = random_answer_order,
-    options = options
+    options = list(
+      initial = initial,
+      sortable_options = options
+    )
   )
   z
 }
@@ -54,17 +59,21 @@ question_parsons <- function(
 #' @export
 question_initialize_input.parsons_q <- function(question, answer_input, ...) {
 
-  labels <- question$answers[[1]]$option
+  labels <- question$options$initial
   if (isTRUE(question$random_answer_order)) { # and we should randomize the order
-    labels <- sample(labels, length(labels))
+    shuffle <- shiny::repeatable(sample, question$seed)
+    labels <- shuffle(labels)
   }
 
 
   # return the parsons htmlwidget
   z <- parsons(
     input_id = c(question$ids$question, question$ids$answer),
-    labels = labels,
-    options = question$options,
+    initial = list(
+      setdiff(labels, answer_input),
+      answer_input
+    ),
+    options = question$options$sortable_options,
     ...
   )
   z
@@ -75,11 +84,21 @@ question_initialize_input.parsons_q <- function(question, answer_input, ...) {
 question_completed_input.parsons_q <- function(question, answer_input, ...) {
   # TODO display correct values with X or √ compared to best match
   # TODO DON'T display correct values (listen to an option?)
+
+  labels <- question$options$initial
+  if (isTRUE(question$random_answer_order)) { # and we should randomize the order
+    shuffle <- shiny::repeatable(sample, question$seed)
+    labels <- shuffle(labels)
+  }
+
   parsons(
     input_id = c(question$ids$question, question$ids$answer),
-    labels = question$answers[[1]]$option,
+    initial = list(
+      setdiff(labels, answer_input),
+      answer_input
+    ),
     options = modifyList(
-      question$options,
+      question$options$sortable_options,
       sortable_options(disabled = TRUE)
     ),
     ...

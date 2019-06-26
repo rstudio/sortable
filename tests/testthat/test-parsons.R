@@ -1,17 +1,23 @@
 context("parsons")
 
 test_that("Can create parsons", {
+  library(learnr)
   z <- parsons(
     header = "This is an example of a Parsons problem",
-    labels = c(
+    initial = c(
       "iris",
       "mutate(...)",
       "summarize(...)",
       "print()"
     ),
-    input_id = "parsons_input"
+    answer(c(
+      "iris",
+      "mutate(...)",
+      "summarize(...)",
+      "print()"
+    )),
+    input_id = "test-parsons"
   )
 
-
-  expect_is(z, "bucket_list")
+  expect_is(z, "parsons")
 })

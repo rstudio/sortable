@@ -4,6 +4,7 @@ test_that( "init display validates", {
 
   question <- question_parsons(
     # "Sort the first 5 letters",
+    initial = LETTERS[1:5],
     learnr::answer(LETTERS[1:5], correct = TRUE),
     learnr::answer(rev(LETTERS[1:5]), correct = FALSE, "Other direction!")
   )

@@ -66,7 +66,7 @@ bucket_list <- function(
   for (n in dots) {assert_that(is.add_rank_list(n))}
   assert_that(is_sortable_options(options))
   if (missing(group_name) || is.null(group_name)) {
-    group_name <- increment_bucketable_group()
+    group_name <- increment_bucket_group()
   }
 
 

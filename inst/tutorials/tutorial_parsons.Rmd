@@ -11,31 +11,23 @@ library(sortable)
 library(magrittr)
 ```
 
-
-```{r, include=FALSE, eval=TRUE}
-options(warn = 1)
-# .shim(); devtools::load_all("C:/Users/apdev/Documents/github/R-packages/maintainer/sortable")
-```
-## Parsons problem
-
+## Example
 Try this programming problem:
 
-```{r iris, echo=FALSE}
+```{r iris}
 question_parsons(
-  answer(c(
+  initial = c(
     "iris",
     "mutate(...)",
     "summarize(...)",
     "print()"
-  )),
+  ),
   answer(c(
     "iris",
     "mutate(...)",
     "summarize(...)"
   ),
   correct = TRUE)
-
-  
 )
 ```
 
