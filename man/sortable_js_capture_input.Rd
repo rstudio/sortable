@@ -2,7 +2,7 @@
 % Please edit documentation in R/sortable_list.R
 \name{sortable_js_capture_input}
 \alias{sortable_js_capture_input}
-\title{Construct JS method to capture inputs on change.}
+\title{Construct JavaScript method to capture Shiny inputs on change.}
 \usage{
 sortable_js_capture_input(input_id)
 }

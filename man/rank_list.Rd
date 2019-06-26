@@ -2,7 +2,7 @@
 % Please edit documentation in R/sortable_list.R
 \name{rank_list}
 \alias{rank_list}
-\title{Create a sortable item list.}
+\title{Create a ranking item list.}
 \usage{
 rank_list(text = "", labels, input_id, selector = NULL,
   options = sortable_options(), additional_class = "",
@@ -27,13 +27,13 @@ app. If NULL, the function generates a selector of the form
 \item{style}{A css stylesheet, provided as a character string.  See also \code{\link[=css_rank_list]{css_rank_list()}}.}
 }
 \description{
-Creates a sortable item list using the \code{sortable.js} framework, and generates
+Creates a ranking item list using the \code{sortable.js} framework, and generates
 an \code{htmlwidgets} element.  The elements of this list can be dragged and
 dropped in any order.  Typically you will embed a \code{rank_list} inside a
 Shiny app or any shiny runtime, e.g. a \code{learnr} tutorial.
 }
 \details{
-The widget automatically updates a Shiny output, with the matching \code{input_id}
+The widget automatically updates a Shiny output, with the matching \code{input_id}.
 }
 \examples{
 ## Example of a shiny app

@@ -1,4 +1,4 @@
-#' Construct JS method to capture inputs on change.
+#' Construct JavaScript method to capture Shiny inputs on change.
 #'
 #' This captures the inputs of a `sortable` list.  Typically you would use this
 #' with the `onSort` option of `sortable_js`. See [sortable_options()].
@@ -27,14 +27,14 @@ sortable_js_capture_input <- function(input_id) {
 }
 
 
-#' Create a sortable item list.
+#' Create a ranking item list.
 #'
-#' Creates a sortable item list using the `sortable.js` framework, and generates
+#' Creates a ranking item list using the `sortable.js` framework, and generates
 #' an `htmlwidgets` element.  The elements of this list can be dragged and
 #' dropped in any order.  Typically you will embed a `rank_list` inside a
 #' Shiny app or any shiny runtime, e.g. a `learnr` tutorial.
 #'
-#' The widget automatically updates a Shiny output, with the matching `input_id`
+#' The widget automatically updates a Shiny output, with the matching `input_id`.
 #'
 #' @inheritParams sortable_js
 #'

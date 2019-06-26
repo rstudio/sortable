@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# sortable
+# sortable <img src='man/figures/sortable-logo.png' align="right" height="139" />
 
 <!-- badges: start -->
 
@@ -40,7 +40,7 @@ remotes::install_github("rstudio/sortable")
 
 ## Examples
 
-### rank list
+### Rank list
 
 You can create a drag-and-drop input object in Shiny, using the
 `rank_list()` function.
@@ -85,7 +85,7 @@ shinyApp(ui, server)
 
 </center>
 
-### bucket list
+### Bucket list
 
 Witha a bucket list you can have more than one rank lists in a single
 object. This can be useful for bucketing task, e.g. asking your students
@@ -157,7 +157,7 @@ shinyApp(ui, server)
 
 </center>
 
-### Make any HTML element sortable
+### Add drag-and-drop to any HTML element
 
 You can also use `sortable_js()` to drag and drop other widgets:
 

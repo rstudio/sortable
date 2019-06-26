@@ -36,8 +36,8 @@ drag-and-drop interactivity in Shiny apps and R Markdown.
 }
 \examples{
 ## -- example-sortable-js -------------------------------------------------
-# Simple example of sortable.
-# Important: set the tags CSS `id` equal to the sortable `selector`
+# Simple example of sortable_js.
+# Important: set the tags CSS `id` equal to the sortable_js `selector`
 
 if (require(htmltools)) {
   html_print(

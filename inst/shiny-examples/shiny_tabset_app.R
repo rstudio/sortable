@@ -1,5 +1,5 @@
 ## ---- shiny-tabset-app --------------------------------------------------
-## Example shiny app to create a plot from sortable inputs
+## Example shiny app to drag-and-drop tabsets in a shiny app
 
 
 # all credit for code goes to RStudio

@@ -43,7 +43,7 @@ question_initialize_input.rank <- function(question, answer_input, ...) {
       sort(answer$option)
     )) {
       stop(
-        "All sortable answers MUST have the same set of answers. (Order does not matter.) ",
+        "All question_rank answers MUST have the same set of answers. (Order does not matter.) ",
         "\nBad set: ", paste0(answer$option, collapse = ", "),
         call. = FALSE
       )
@@ -65,7 +65,7 @@ question_initialize_input.rank <- function(question, answer_input, ...) {
   }
 
 
-  # return the sortable htmlwidget
+  # return the rank_list htmlwidget
   rank_list(
     input_id = question$ids$answer,
     labels = labels,
