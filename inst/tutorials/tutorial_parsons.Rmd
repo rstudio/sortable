@@ -1,0 +1,41 @@
+---
+title: "Parsons problems"
+date: "June 6th, 2019"
+output: learnr::tutorial
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+# library(sortable)
+library(magrittr)
+```
+
+
+```{r, include=FALSE}
+options(warn = 1)
+.shim(); devtools::load_all("C:/Users/apdev/Documents/github/R-packages/maintainer/sortable")
+```
+## Parsons problem
+
+Try this programming problem:
+
+```{r iris, echo=FALSE}
+question_parsons(
+  answer(c(
+    "iris",
+    "mutate(...)",
+    "summarize(...)",
+    "print()"
+  )),
+  answer(c(
+    "iris",
+    "mutate(...)",
+    "summarize(...)"
+  ),
+  correct = TRUE)
+
+  
+)
+```
+

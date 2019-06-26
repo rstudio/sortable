@@ -4,18 +4,18 @@
 \alias{bucketable_list}
 \title{Create a bucketable list.}
 \usage{
-bucketable_list(header, group_name, ..., group_put_max = rep(Inf,
-  length(labels)), selector = NULL, options = sortable_options(),
-  style = css_bucketable_list())
+bucketable_list(header = NULL, ..., group_name,
+  group_put_max = rep(Inf, length(labels)), selector = NULL,
+  options = sortable_options(), style = css_bucketable_list())
 }
 \arguments{
 \item{header}{Text that appears at the top of the bucketable list.  (This is
 encoded as an HTML \code{<p>} tag, so not strictly speaking a header.)}
 
-\item{group_name}{Passed to \code{sortable.js} as the group name}
-
 \item{...}{One or more specifications for a sortable list, and must be
 defined by \link{add_sortable_list}.}
+
+\item{group_name}{Passed to \code{sortable.js} as the group name}
 
 \item{group_put_max}{Not yet implemented}
 
@@ -61,7 +61,6 @@ bucketable_list(
 
 bucketable_list(
   header = c("Sort these items into Letters and Numbers"),
-  group_name = "bucket_test",
   add_sortable_list(
     text = "Drag from here",
     labels = sample(c(1:3, letters[1:2])),

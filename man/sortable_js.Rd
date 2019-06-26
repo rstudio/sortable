@@ -2,30 +2,37 @@
 % Please edit documentation in R/sortable_js.R
 \name{sortable_js}
 \alias{sortable_js}
-\title{Creates an htmlwidget with the 'sortable.js' library embedded.}
+\title{Creates an htmlwidget with embedded 'sortable.js' library.}
 \usage{
 sortable_js(selector, options = sortable_options(), width = 0,
-  height = 0, element_id = NULL, pre_render_hook = NULL)
+  height = 0, elementId = NULL, preRenderHook = NULL)
 }
 \arguments{
-\item{selector}{\code{String} selector id on which to apply \code{sortable.js}.  Note, \code{sortable_js}
-works with any html element, not just \code{ul/li}.}
+\item{selector}{\code{String} selector id on which to apply \code{sortable.js}.  Note,
+\code{sortable_js} works with any html element, not just \code{ul/li}.}
 
 \item{options}{Options to be supplied to \link{sortable_js} object. See \link{sortable_options} for more details}
 
-\item{width}{\code{integer} width in pixels.  Since the container is expected
-to not be displayed, \code{0} is the default.}
+\item{width}{Fixed width for widget (in css units). The default is
+\code{NULL}, which results in intelligent automatic sizing based on the
+widget's container.}
 
-\item{height}{\code{integer} height in pixels.  Since the container is expected
-to not be displayed, \code{0} is the default.}
+\item{height}{Fixed height for widget (in css units). The default is
+\code{NULL}, which results in intelligent automatic sizing based on the
+widget's container.}
 
-\item{element_id}{Use an explicit element ID for the widget (rather than an automatically generated one). Useful if you have other JavaScript that needs to explicitly discover and interact with a specific widget instance.  Passed to \link[htmlwidgets:createWidget]{htmlwidgets::createWidget}.}
+\item{elementId}{Use an explicit element ID for the widget (rather than an
+automatically generated one). Useful if you have other JavaScript that
+needs to explicitly discover and interact with a specific widget instance.}
 
-\item{pre_render_hook}{A function to be run on the widget, just prior to rendering. It accepts the entire widget object as input, and should return a modified widget object. Passed to \link[htmlwidgets:createWidget]{htmlwidgets::createWidget}.}
+\item{preRenderHook}{A function to be run on the widget, just prior to
+rendering. It accepts the entire widget object as input, and should return
+a modified widget object.}
 }
 \description{
-Creates an \code{htmlwidget} that provides \href{https://github.com/SortableJS/Sortable}{sortable.js}
-to use for drag-and-drop interactivity in Shiny apps and R Markdown.
+Creates an \code{htmlwidget} that provides
+\href{https://github.com/SortableJS/Sortable}{sortable.js} to use for
+drag-and-drop interactivity in Shiny apps and R Markdown.
 }
 \examples{
 ## -- example-sortable-js -------------------------------------------------

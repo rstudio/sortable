@@ -15,7 +15,7 @@ add_sortable_list <- function(text, labels = NULL,  input_id, ...){
     input_id,
     ...
   )
-  assert_that(is_input_id(input_id))
+  # assert_that(is_input_id(input_id))
   class(z) <- c("add_sortable_list", "list")
   z
 }
@@ -50,31 +50,27 @@ is.add_sortable_list <- function(x)inherits(x, "add_sortable_list")
 #'   shiny::runApp(app)
 #' }
 bucketable_list <- function(
-  header,
-  group_name,
+  header = NULL,
   ...,
+  group_name,
   group_put_max = rep(Inf, length(labels)),
   selector = NULL,
   options = sortable_options(),
   style = css_bucketable_list()
 ) {
-  # if (is.null(selector)) {
-  #   selector <- vapply(
-  #     seq_along(labels),
-  #     function(i) {
-  #       increment_bucketable_list()
-  #     },
-  #     FUN.VALUE = character(1)
-  #   )
-  # }
-  dots <- list(...)
-  assert_that(is_header(header))
-  for (n in dots) {assert_that(is.add_sortable_list(n))}
-  assert_that(is_sortable_options(options))
 
   # capture the dots
+  dots <- list(...)
+  # assert_that(is_header(header))
 
-  # modidy the dots by adding the group_name to the sortable options
+  for (n in dots) {assert_that(is.add_sortable_list(n))}
+  assert_that(is_sortable_options(options))
+  if (missing(group_name) || is.null(group_name)) {
+    group_name <- increment_bucketable_group()
+  }
+
+
+  # modify the dots by adding the group_name to the sortable options
   mod <- lapply(seq_along(dots), function(i){
     modifyList(
       dots[[i]],
@@ -92,7 +88,7 @@ bucketable_list <- function(
   z <- tagList(
     tags$div(
       class = "bucketable-list",
-      tags$p(header),
+      if(!is.null(header))tags$p(header) else NULL,
       tags$style(htmltools::HTML(style)),
       tags$div(
         class = "bucketable-list-container",

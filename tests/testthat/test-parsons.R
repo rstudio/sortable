@@ -9,8 +9,7 @@ test_that("Can create parsons", {
       "summarize(...)",
       "print()"
     ),
-    input_id = "parsons_input",
-    group_name = "parsons_test",
+    input_id = "parsons_input"
   )
 
 

@@ -6,7 +6,7 @@
 NULL
 
 
-#' Tutorial ranking question.
+#' Ranking question for learnr tutorials.
 #'
 #' Add interactive ranking tasks to your `learnr` tutorials.  The student can
 #' drag-and-drop the answer options into the desired order.
@@ -20,16 +20,7 @@ NULL
 #' @template options
 #' @inheritParams learnr::question
 #' @export
-#' @examples
-#' if (require(learnr, quietly = TRUE)) {
-#'   # to be used within a learnr tutorial...
-#'   question_rank(
-#'     "Sort the first 5 letters",
-#'     answer(letters[1:5], correct = TRUE),
-#'     allow_retry = TRUE,
-#'     options = sortable_options(animation = 150)
-#'   )
-#' }
+#' @example inst/examples/example_question_rank.R
 question_rank <- function(..., random_answer_order = TRUE, options = sortable_options()) {
   learnr::question(
     ...,
