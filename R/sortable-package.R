@@ -10,8 +10,6 @@
 #'
 #' * [bucket_list()] lets you add multiple `rank_list` objects in columns
 #'
-#' * [parsons()] sets up a Parson's problem, a useful question type when teaching code to students
-#'
 #' @section Custom question types for `learnr`:
 #'
 #' You can also use new question types in your `learnr` tutorials:

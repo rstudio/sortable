@@ -3,7 +3,6 @@
 #' These functions provide cascading style sheets (CSS) for:
 #' * `css_rank_list()` : [rank_list()]
 #' * `css_bucket_list()` : [bucket_list()]
-#' * `css_parsons()` : [parsons()]
 #'
 #' @rdname css
 #'
@@ -11,7 +10,7 @@
 #'
 #' @examples
 #' cat(
-#'   css_parsons()
+#'   css_bucket_list()
 #' )
 #'
 #'
@@ -78,37 +77,4 @@ css_bucket_list <- function(){
   }
   "
   paste(css, additional_css, sep = "\n")
-}
-
-
-
-#' @export
-#' @rdname css
-css_parsons <- function(){
-  css <- css_rank_list()
-
-  ## Insert a magrittr pipe after each list item entry, except the last, and
-  ## only in column 2
-
-  additional_css <- "
-  .rank-list-container .column_2 {
-    padding-bottom: 30px;
-  }
-
-  .rank-list-item {
-    font-family: monospace, sant-serif;
-  }
-  "
-
-  after_css <- "
-  .column_2 .rank-list-item:not(:last-child):after {
-    content: \" %>%\";
-  }
-
-  .column_2 .rank-list-item:not(:first-child) {
-    margin-left: 30px;
-  }
-  "
-
-  paste(css, additional_css, after_css, sep = "\n")
 }

@@ -3,14 +3,11 @@
 \name{css_rank_list}
 \alias{css_rank_list}
 \alias{css_bucket_list}
-\alias{css_parsons}
 \title{CSS stylesheets.}
 \usage{
 css_rank_list()
 
 css_bucket_list()
-
-css_parsons()
 }
 \value{
 Each of these functions return a character string with valid CSS.
@@ -20,12 +17,11 @@ These functions provide cascading style sheets (CSS) for:
 \itemize{
 \item \code{css_rank_list()} : \code{\link[=rank_list]{rank_list()}}
 \item \code{css_bucket_list()} : \code{\link[=bucket_list]{bucket_list()}}
-\item \code{css_parsons()} : \code{\link[=parsons]{parsons()}}
 }
 }
 \examples{
 cat(
-  css_parsons()
+  css_bucket_list()
 )
 
 

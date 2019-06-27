@@ -26,7 +26,6 @@ The important functions in this package are:
 \itemize{
 \item \code{\link[=rank_list]{rank_list()}} creates a drag-and-drop, rank list
 \item \code{\link[=bucket_list]{bucket_list()}} lets you add multiple \code{rank_list} objects in columns
-\item \code{\link[=parsons]{parsons()}} sets up a Parson's problem, a useful question type when teaching code to students
 }
 }
 
