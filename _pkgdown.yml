@@ -1,5 +1,9 @@
 destination: docs
 reference:
+- title: Learnr question types
+  desc: New question types for learnr tutorials
+  contents:
+  - starts_with("question")
 - title: Widgets
   desc: These functions create htmlwidgets with drag-and-drop behaviour
   contents:
@@ -16,10 +20,6 @@ reference:
   contents:
   - starts_with("sortable_js")
   - sortable_options
-- title: Learnr question types
-  desc: New question types for learnr tutorials
-  contents:
-  - starts_with("question")
 - title: Shiny functions
   desc: Using sortable functions inside a Shiny app
   contents:
