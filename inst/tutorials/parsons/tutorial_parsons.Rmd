@@ -12,6 +12,7 @@ library(magrittr)
 ```
 
 ## Example
+
 Try this programming problem:
 
 ```{r iris}
@@ -22,12 +23,25 @@ question_parsons(
     "summarize(...)",
     "print()"
   ),
-  answer(c(
-    "iris",
-    "mutate(...)",
-    "summarize(...)"
+  answer(
+    c(
+      "iris",
+      "mutate(...)",
+      "summarize(...)"
+    ),
+    correct = TRUE
   ),
-  correct = TRUE)
+  answer(
+    c(
+      "iris",
+      "mutate(...)",
+      "summarize(...)",
+      "print()"
+    ),
+    message = "You don't need print()"
+  )
 )
 ```
+
+
 
