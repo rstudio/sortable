@@ -7,7 +7,7 @@
 question_parsons(initial, ..., type = c("parsons_q"),
   correct = "Correct!", incorrect = "Incorrect",
   try_again = incorrect, message = NULL, post_message = NULL,
-  loading = c("Loading: "), submit_button = "Submit Answer",
+  loading = c("Loading: "), submit_button = "Give feedback",
   try_again_button = "Try Again", allow_retry = TRUE,
   random_answer_order = TRUE, options = sortable_options())
 }
@@ -15,17 +15,11 @@ question_parsons(initial, ..., type = c("parsons_q"),
 \item{initial}{Vector with initial values for problem (to appear in left
 column).  Note: this must be a super-set of all answers.}
 
-\item{...}{parameters passed onto \code{learnr::\link[learnr]{question}}.}
+\item{...}{One or more answers.  Passed to \code{\link[learnr:question]{learnr::question()}}.}
 
-\item{type}{Type of quiz question. Typically this can be automatically determined
-based on the provided answers. Pass \code{"radio"} to indicate that even though
-multiple correct answers are specified that inputs which include only one correct
-answer are still correct. Pass \code{"checkbox"} to force the use of checkboxes
-(as opposed to radio buttons) even though only once correct answer was provided.}
+\item{type}{Must be "parsons_q"}
 
-\item{correct}{For \code{question}, text to print for a correct answer (defaults
-to "Correct!"). For \code{answer}, a boolean indicating whether this answer is
-correct.}
+\item{correct}{Text to print for a correct answer (defaults to "Correct!")}
 
 \item{incorrect}{Text to print for an incorrect answer (defaults to "Incorrect")
 when \code{allow_retry} is \code{FALSE}.}
@@ -65,6 +59,8 @@ If the task also includes indentation of the statements, it's called a
 second-order Parsons problem. Note that second order problems have not yet
 been implemented.
 
+\if{html}{\figure{parsons_app_submit.png}{options: width="60\%" max-width="500px" alt="Figure: Parsons submit state"}}
+
 Features (design choices):
 \itemize{
 \item Items (except the last) in the right hand column will have a \code{\%>\%}
@@ -74,7 +70,7 @@ indented.
 \item The initial values are shuffled into random answer order.
 }
 
-Lmitations:
+Limitations:
 \itemize{
 \item It does not do any code evaluation
 \item It does not support indentation
