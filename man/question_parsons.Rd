@@ -12,6 +12,9 @@ question_parsons(initial, ..., type = c("parsons_q"),
   random_answer_order = TRUE, options = sortable_options())
 }
 \arguments{
+\item{initial}{Vector with initial values for problem (to appear in left
+column).  Note: this must be a super-set of all answers.}
+
 \item{...}{parameters passed onto \code{learnr::\link[learnr]{question}}.}
 
 \item{type}{Type of quiz question. Typically this can be automatically determined

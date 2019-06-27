@@ -73,6 +73,7 @@
 #' @param ... parameters passed onto \code{learnr::\link[learnr]{question}}.
 #' @template options
 #' @inheritParams learnr::question
+#' @inheritParams parsons
 #' @export
 #' @example inst/examples/example_question_parsons.R
 #' @examples
