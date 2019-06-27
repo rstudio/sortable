@@ -2,7 +2,7 @@
 % Please edit documentation in R/question_parsons.R
 \name{question_parsons}
 \alias{question_parsons}
-\title{Parsons problem question for learnr tutorials.}
+\title{Parsons problem question for learnr tutorials (experimental).}
 \usage{
 question_parsons(initial, ..., type = c("parsons_q"),
   correct = "Correct!", incorrect = "Incorrect",
@@ -12,8 +12,6 @@ question_parsons(initial, ..., type = c("parsons_q"),
   random_answer_order = TRUE, options = sortable_options())
 }
 \arguments{
-\item{initial}{Initial value for labels. Note: this must be a super-set of all answers.}
-
 \item{...}{parameters passed onto \code{learnr::\link[learnr]{question}}.}
 
 \item{type}{Type of quiz question. Typically this can be automatically determined
@@ -53,16 +51,72 @@ message alongside the \code{message} message value.}
 \item{options}{Options to be supplied to \link{sortable_js} object. See \link{sortable_options} for more details}
 }
 \description{
-Add Parsons Problem tasks to your \code{learnr} tutorials.  The student can
-drag-and-drop the answer options into the desired order.
-}
-\details{
-Each set of answer options must contain the same set of answer options. When
-the question is completed, the first correct answer will be displayed.
+Add Parsons Problem tasks to your \code{learnr} tutorials.  The
+student can drag-and-drop the answer options into the desired order.
 
-Note that, by default, the answer order is randomized.
+This is a highly experimental, initial attempt at making Parsons problems in
+\code{learnr} tutorials.  Parsons problems is a type of programming assignment
+where the student must order statements in the correct order.
+
+If the task also includes indentation of the statements, it's called a
+second-order Parsons problem. Note that second order problems have not yet
+been implemented.
+
+Features (design choices):
+\itemize{
+\item Items (except the last) in the right hand column will have a \code{\%>\%}
+appended.
+\item Items (except the first) in the right hand column will automatically be
+indented.
+\item The initial values are shuffled into random answer order.
 }
+
+Lmitations:
+\itemize{
+\item It does not do any code evaluation
+\item It does not support indentation
+\item It assumes code is from the \code{tidyverse} and only supports the \code{magrittr}
+pipe \code{\%>\%} operator
+}
+}
+\section{Creating a parsons question}{
+
+
+Use \code{question_parsons} inside a \code{learnr} tutorial chunk
+
+For example:\preformatted{```{r iris}
+question_parsons(
+ initial = c(
+  "iris",
+  "mutate(...)",
+  "summarize(...)",
+  "print()"
+ ),
+ answer(c(
+  "iris",
+   "mutate(...)",
+  "summarize(...)"
+  ), correct = TRUE)
+)
+```
+}
+
+On initialization, the initial values are randomized:
+
+\if{html}{\figure{parsons_app_initial.png}{options: width="60\%" max-width="500px" alt="Figure: Parsons initial state"}}
+
+As the student drags values to the right column, the \code{magrittr} gets
+appended, and items are automatically indented:
+
+\if{html}{\figure{parsons_app_submit.png}{options: width="60\%" max-width="500px" alt="Figure: Parsons submit state"}}
+}
+
 \examples{
+## Example of a shiny app
+if (interactive()) {
+  app <- system.file("shiny-examples/parsons_app.R", package = "sortable")
+  shiny::runApp(app)
+}
 if (require(learnr, quietly = TRUE)) {
   # to be used within a learnr tutorial...
   question_parsons(

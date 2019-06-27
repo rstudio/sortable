@@ -1,17 +1,26 @@
-#' Create a parsons problem.
+#' Create a parsons problem (experimental).
 #'
-#'
-#' @inheritParams rank_list
+#' This function implements the parsons problem, as exposed by
+#' [question_parsons()]. Most users will only use this function inside a
+#' `learnr` tutorial, so please see the documentation at [question_parsons()]
 #'
 #' @template options
 #'
+#' @inheritParams rank_list
 #' @inheritParams bucket_list
-#' @param initial Vector with initial values for problem (to appear in left column)
+#'
+#' @param initial Vector with initial values for problem (to appear in left
+#'   column).  Note: this must be a super-set of all answers.
 #' @param text Vector of headings for each column.
-#' @param input_id Character vector of `input_id` to pass (individually) to [rank_list()].
+#' @param input_id Character vector of `input_id` to pass (individually) to
+#'   [rank_list()].
+#' @param style A css stylesheet, provided as a character string. See also
+#'   [css_parsons()]
 #'
 #' @export
 #' @example inst/examples/example_parsons.R
+#'
+#' @references https://js-parsons.github.io/
 #' @examples
 #' ## Example of a shiny app
 #' if (interactive()) {
@@ -19,9 +28,9 @@
 #'   shiny::runApp(app)
 #' }
 parsons <- function(
-  header = NULL,
-  text = c("Drag from here", "Construct your solution here"),
   initial,
+  text = c("Drag from here", "Construct your solution here"),
+  header = NULL,
   input_id,
   group_name,
   options = sortable_options(),

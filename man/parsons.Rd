@@ -2,30 +2,35 @@
 % Please edit documentation in R/parsons.R
 \name{parsons}
 \alias{parsons}
-\title{Create a parsons problem.}
+\title{Create a parsons problem (experimental).}
 \usage{
-parsons(header = NULL, text = c("Drag from here",
-  "Construct your solution here"), initial, input_id, group_name,
+parsons(initial, text = c("Drag from here",
+  "Construct your solution here"), header = NULL, input_id, group_name,
   options = sortable_options(), style = css_parsons())
 }
 \arguments{
-\item{header}{Text that appears at the top of the bucket list.  (This is
-encoded as an HTML \code{<p>} tag, so not strictly speaking a header.)}
+\item{initial}{Vector with initial values for problem (to appear in left
+column).  Note: this must be a super-set of all answers.}
 
 \item{text}{Vector of headings for each column.}
 
-\item{initial}{Vector with initial values for problem (to appear in left column)}
+\item{header}{Text that appears at the top of the bucket list.  (This is
+encoded as an HTML \code{<p>} tag, so not strictly speaking a header.)}
 
-\item{input_id}{Character vector of \code{input_id} to pass (individually) to \code{\link[=rank_list]{rank_list()}}.}
+\item{input_id}{Character vector of \code{input_id} to pass (individually) to
+\code{\link[=rank_list]{rank_list()}}.}
 
 \item{group_name}{Passed to \code{sortable.js} as the group name}
 
 \item{options}{Options to be supplied to \link{sortable_js} object. See \link{sortable_options} for more details}
 
-\item{style}{A css stylesheet, provided as a character string.  See also \code{\link[=css_rank_list]{css_rank_list()}}.}
+\item{style}{A css stylesheet, provided as a character string. See also
+\code{\link[=css_parsons]{css_parsons()}}}
 }
 \description{
-Create a parsons problem.
+This function implements the parsons problem, as exposed by
+\code{\link[=question_parsons]{question_parsons()}}. Most users will only use this function inside a
+\code{learnr} tutorial, so please see the documentation at \code{\link[=question_parsons]{question_parsons()}}
 }
 \examples{
 ## Example of a shiny app
@@ -59,4 +64,7 @@ parsons(
   ),
   input_id = "input_parsons"
 )
+}
+\references{
+https://js-parsons.github.io/
 }
