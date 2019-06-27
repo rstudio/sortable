@@ -1,6 +1,19 @@
-#' CSS stylesheet for rank list.
+#' CSS stylesheets.
 #'
-#' This is the default CSS stylesheet for the [rank_list] function.
+#' These functions provide cascading style sheets (CSS) for:
+#' * `css_rank_list()` : [rank_list()]
+#' * `css_bucket_list()` : [bucket_list()]
+#' * `css_parsons()` : [parsons()]
+#'
+#' @rdname css
+#'
+#' @return Each of these functions return a character string with valid CSS.
+#'
+#' @examples
+#' cat(
+#'   css_parsons()
+#' )
+#'
 #'
 #' @export
 css_rank_list <- function(){
@@ -54,12 +67,8 @@ css_rank_list <- function(){
 
 
 
-#' CSS stylesheet for a bucket list.
-#'
-#' This is the default CSS stylesheet for the [bucket_list] function.
-#'
 #' @export
-#' @rdname css_bucket_list
+#' @rdname css
 css_bucket_list <- function(){
   css <- css_rank_list()
 
@@ -70,8 +79,11 @@ css_bucket_list <- function(){
   "
   paste(css, additional_css, sep = "\n")
 }
+
+
+
 #' @export
-#' @rdname css_bucket_list
+#' @rdname css
 css_parsons <- function(){
   css <- css_rank_list()
 
