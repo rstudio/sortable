@@ -1,3 +1,12 @@
+#' Check if object is sortable options.
+#'
+#' @param x Object to test
+#' @export
+is.sortable_options <- function(x) {
+  inherits(x, "sortable_options")
+}
+
+
 #' Define options to pass to a sortable object.
 #'
 #' Use this function to define the options for [sortable_js] and [rank_list], which will pass these in turn to the `sortable.js` JavaScript library.

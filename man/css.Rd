@@ -14,6 +14,8 @@ Each of these functions return a character string with valid CSS.
 }
 \description{
 These functions provide cascading style sheets (CSS) for:
+}
+\details{
 \itemize{
 \item \code{css_rank_list()} : \code{\link[=rank_list]{rank_list()}}
 \item \code{css_bucket_list()} : \code{\link[=bucket_list]{bucket_list()}}
@@ -23,6 +25,5 @@ These functions provide cascading style sheets (CSS) for:
 cat(
   css_bucket_list()
 )
-
 
 }

@@ -1,6 +1,7 @@
 #' CSS stylesheets.
 #'
 #' These functions provide cascading style sheets (CSS) for:
+#'
 #' * `css_rank_list()` : [rank_list()]
 #' * `css_bucket_list()` : [bucket_list()]
 #'
@@ -8,13 +9,13 @@
 #'
 #' @return Each of these functions return a character string with valid CSS.
 #'
+#' @export
+#'
 #' @examples
 #' cat(
 #'   css_bucket_list()
 #' )
 #'
-#'
-#' @export
 css_rank_list <- function(){
 "
 .bucket-list {
