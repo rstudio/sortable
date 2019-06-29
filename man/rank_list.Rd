@@ -52,5 +52,5 @@ rank_list(
 
 }
 \seealso{
-\link{sortable_js}, \link{bucket_list}, \link{parsons}
+\link{sortable_js}, \link{bucket_list}
 }

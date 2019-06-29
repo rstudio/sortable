@@ -49,7 +49,7 @@ sortable_js_capture_input <- function(input_id) {
 #' @param style A css stylesheet, provided as a character string.  See also [css_rank_list()].
 #' @template options
 #'
-#' @seealso [sortable_js], [bucket_list], [parsons]
+#' @seealso [sortable_js], [bucket_list]
 #'
 #' @export
 #' @importFrom utils modifyList
@@ -73,7 +73,7 @@ rank_list <- function(
   if (is.null(selector)) {
     selector <- increment_rank_list()
   }
-  assert_that(is_sortable_options(options))
+  assert_that(is.sortable_options(options))
   assert_that(is_input_id(input_id))
 
   z <- tagList(

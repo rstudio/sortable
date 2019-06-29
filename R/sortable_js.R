@@ -23,7 +23,7 @@ sortable_js <- function(
   preRenderHook = NULL
 ) {
 
-  assert_that(is_sortable_options(options))
+  assert_that(is.sortable_options(options))
 
   # forward options using x
   x <- list(

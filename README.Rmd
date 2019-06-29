@@ -82,27 +82,6 @@ knitr::read_chunk(
 </center>
 
 
-### Parsons problems
-
-A Parsons problem is a specific type of question, useful for teaching programming, where all the lines of code are given, but the student must provide the correct order.
-
-The `parsons()` function has experimental support for parsons problems.
-
-
-```{r echo=FALSE, cache=FALSE}
-knitr::read_chunk(
-  system.file("shiny-examples/parsons_app.R", package = "sortable")
-)
-```
-
-```{r parsons-app, eval=FALSE}
-```
-
-<center>
-<img src="man/figures/parsons_app.gif" style = 'width:600px;'></img>
-</center>
-
-
 ### Add drag-and-drop to any HTML element
 
 You can also use `sortable_js()` to drag and drop other widgets:

@@ -22,9 +22,7 @@ on_failure(is_header) <- function(call, env) {
 
 # -------------------------------------------------------------------------
 
-is_sortable_options <- function(x) {
-  inherits(x, "sortable_options")
-}
+
 
 on_failure(is_header) <- function(call, env) {
   paste0(deparse(call$x), " must be produced by `sortable_options()`")

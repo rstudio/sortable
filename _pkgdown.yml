@@ -9,7 +9,6 @@ reference:
   contents:
   - rank_list
   - bucket_list
-  - parsons
   - add_rank_list
 - title: Widget style sheets
   desc: Control the look-and-feel of your widgets
