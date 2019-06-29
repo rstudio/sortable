@@ -2,7 +2,7 @@
 #'
 #' @param x Object to test
 #' @export
-is.sortable_options <- function(x) {
+is_sortable_options <- function(x) {
   inherits(x, "sortable_options")
 }
 
