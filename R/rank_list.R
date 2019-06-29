@@ -73,7 +73,7 @@ rank_list <- function(
   if (is.null(selector)) {
     selector <- increment_rank_list()
   }
-  assert_that(is.sortable_options(options))
+  assert_that(is_sortable_options(options))
   assert_that(is_input_id(input_id))
 
   z <- tagList(
