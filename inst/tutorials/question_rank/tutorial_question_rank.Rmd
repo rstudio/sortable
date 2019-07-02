@@ -1,5 +1,5 @@
 ---
-title: "Rank and bucket questions"
+title: "Using ranking questions in learnr"
 author: Andrie de Vries
 date: "`r Sys.Date()`"
 output: learnr::tutorial
