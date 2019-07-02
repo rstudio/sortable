@@ -12,18 +12,76 @@ library(sortable)
 library(magrittr)
 ```
 
-## Ranking questions
+## Introduction
 
-### Sorting LETTERS
+The `sortable` package allows you to create custom HTML widgets with drag-and-drop capability.  As a motivating example, the package exports a function `question_rank()` that lets you design `learnr` quizzes with drag-and-drop questions.
 
-Sort the answers from A to E:
+### Example
 
-```{r letters}
+**Also try the reverse order!**
+
+```{r insects-demo, echo=FALSE}
+# Define the answer options
+insects <- c(
+    "ant", 
+    "bumble bea",
+    "cricket",
+    "dragonfly"
+  )
+
+# Initialize the question
 question_rank(
-  "Sort the first 5 letters",
-  answer(LETTERS[1:5], correct = TRUE),
-  answer(rev(LETTERS[1:5]), correct = FALSE, "Other direction!"),
-  random_answer_order = TRUE,
+  "Sort these insects in alpabetical order:",
+  answer(insects, correct = TRUE),
+  answer(rev(insects), correct = FALSE, message = "Other direction!"),
+  allow_retry = TRUE
+)
+```
+
+
+## Creating a ranking question
+
+To insert a ranking question into a `learnr` quiz, use `question_rank()`.  Note that, unlike standard `learnr` questions, ranking questions will by default randomize the order of the answer options.
+
+You must provide at least one correct answer, using the `learnr` `answer()` function:
+
+```{r insects-code}
+# Define the answer options
+insects <- c(
+    "ant", 
+    "bumble bea",
+    "cricket",
+    "dragonfly"
+  )
+
+# Initialize the question
+question_rank(
+  "Sort these insects in alpabetical order:",
+  answer(insects, correct = TRUE),
+  answer(rev(insects), correct = FALSE, message = "Other direction!"),
+  allow_retry = TRUE
+)
+```
+
+
+## Changing the 'sortable.js' options
+
+You can change the behaviour of the HTML widget by sending different options to the `sortable.js` library.  For example, to change the duration of animation, set `sortable_options(animation = ...)`:
+
+```{r insects-code-options}
+# Define the answer options
+insects <- c(
+    "ant", 
+    "bumble bea",
+    "cricket",
+    "dragonfly"
+  )
+
+# Initialize the question
+question_rank(
+  "Sort these insects in alpabetical order:",
+  answer(insects, correct = TRUE),
+  answer(rev(insects), correct = FALSE, message = "Other direction!"),
   allow_retry = TRUE,
   options = sortable_options(
     animation = 150
@@ -31,23 +89,3 @@ question_rank(
 )
 ```
 
-**Try E to A as well!**
-
-### Sorting NUMBERS
-
-Sort the numbers from 1 to 3:
-
-```{r numbers}
-question_rank(
-  "Sort the first 5 letters",
-  answer(as.character(1:3), correct = TRUE),
-  answer(rev(as.character(1:3)), correct = FALSE, "Other direction!"),
-  random_answer_order = TRUE,
-  allow_retry = TRUE,
-  options = sortable_options(
-    animation = 150
-  )
-)
-```
-
-**Also Try 3 to 1!**
