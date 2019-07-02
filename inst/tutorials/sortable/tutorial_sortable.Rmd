@@ -1,6 +1,7 @@
 ---
 title: "Rank and bucket questions"
-date: "June 6th, 2019"
+author: Andrie de Vries
+date: "`r Sys.Date()`"
 output: learnr::tutorial
 runtime: shiny_prerendered
 ---

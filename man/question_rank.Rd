@@ -25,13 +25,8 @@ the question is completed, the first correct answer will be displayed.
 Note that, by default, the answer order is randomized.
 }
 \examples{
-if (require(learnr, quietly = TRUE)) {
-  # to be used within a learnr tutorial...
-  question_rank(
-    "Sort the first 5 letters",
-    answer(letters[1:5], correct = TRUE),
-    allow_retry = TRUE,
-    options = sortable_options(animation = 150)
-  )
+## Example of rank problem inside a learnr tutorial
+if (interactive()) {
+  learnr::run_tutorial("sortable", package = "sortable")
 }
 }

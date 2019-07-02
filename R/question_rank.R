@@ -20,7 +20,11 @@ NULL
 #' @template options
 #' @inheritParams learnr::question
 #' @export
-#' @example inst/examples/example_question_rank.R
+#' @examples
+#' ## Example of rank problem inside a learnr tutorial
+#' if (interactive()) {
+#'   learnr::run_tutorial("sortable", package = "sortable")
+#' }
 question_rank <- function(..., random_answer_order = TRUE, options = sortable_options()) {
   learnr::question(
     ...,
