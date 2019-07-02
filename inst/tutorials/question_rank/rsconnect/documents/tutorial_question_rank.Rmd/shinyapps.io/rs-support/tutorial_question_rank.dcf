@@ -1,0 +1,13 @@
+name: tutorial_question_rank
+title: tutorial_question_rank
+username:
+account: rs-support
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 1008551
+bundleId: 2194512
+url: https://rs-support.shinyapps.io/tutorial_question_rank/
+when: 1562081758.43082
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: tutorial_question_rank.html
