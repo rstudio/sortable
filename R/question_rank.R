@@ -25,12 +25,31 @@ NULL
 #' if (interactive()) {
 #'   learnr::run_tutorial("sortable", package = "sortable")
 #' }
-question_rank <- function(..., random_answer_order = TRUE, options = sortable_options()) {
+question_rank <- function(
+  text,
+  ...,
+  correct = "Correct!",
+  incorrect = "Incorrect",
+  loading = c("**Loading:** ", text, "<br/><br/><br/>"),
+  submit_button = "Submit Answer",
+  try_again_button = "Try Again",
+  allow_retry = FALSE,
+  random_answer_order = TRUE,
+  options = sortable_options()
+) {
   learnr::question(
+    text = text,
     ...,
-    random_answer_order = random_answer_order,
     type = "rank",
-    options = options
+    correct = correct,
+    incorrect = incorrect,
+    loading  = loading,
+    submit_button = submit_button,
+    try_again_button = try_again_button,
+    allow_retry = allow_retry,
+    random_answer_order = random_answer_order ,
+    options = sortable_options()
+
   )
 }
 
@@ -92,6 +111,20 @@ question_completed_input.rank <- function(question, answer_input, ...) {
 }
 
 #' @export
+question_try_again_input.rank <- function(question, answer_input, ...) {
+  # TODO display correct values with X or √ compared to best match
+  # TODO DON'T display correct values (listen to an option?)
+  rank_list(
+    input_id = question$ids$answer,
+    labels = answer_input,
+    options = modifyList(
+      question$options,
+      sortable_options(disabled = TRUE)
+    )
+  )
+}
+
+#' @export
 question_is_valid.rank <- function(question, answer_input, ...) {
   !is.null(answer_input)
 }
@@ -107,5 +140,5 @@ question_is_correct.rank <- function(question, answer_input, ...) {
     }
   }
   # no match found. not correct
-  return(question_is_correct_value(FALSE, NULL))
+  question_is_correct_value(FALSE, NULL)
 }

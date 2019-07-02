@@ -4,11 +4,31 @@
 \alias{question_rank}
 \title{Ranking question for learnr tutorials.}
 \usage{
-question_rank(..., random_answer_order = TRUE,
+question_rank(text, ..., correct = "Correct!", incorrect = "Incorrect",
+  loading = c("**Loading:** ", text, "<br/><br/><br/>"),
+  submit_button = "Submit Answer", try_again_button = "Try Again",
+  allow_retry = FALSE, random_answer_order = TRUE,
   options = sortable_options())
 }
 \arguments{
+\item{text}{Question or option text}
+
 \item{...}{parameters passed onto \code{learnr::\link[learnr]{question}}.}
+
+\item{correct}{For \code{question}, text to print for a correct answer (defaults
+to "Correct!"). For \code{answer}, a boolean indicating whether this answer is
+correct.}
+
+\item{incorrect}{Text to print for an incorrect answer (defaults to "Incorrect")
+when \code{allow_retry} is \code{FALSE}.}
+
+\item{loading}{Loading text to display as a placeholder while the question is loaded}
+
+\item{submit_button}{Label for the submit button. Defaults to \code{"Submit Answer"}}
+
+\item{try_again_button}{Label for the try again button. Defaults to \code{"Submit Answer"}}
+
+\item{allow_retry}{Allow retry for incorrect answers. Defaults to \code{FALSE}.}
 
 \item{random_answer_order}{Display answers in a random order.}
 
