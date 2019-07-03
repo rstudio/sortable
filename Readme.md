@@ -53,36 +53,10 @@ You can create a drag-and-drop input object in Shiny, using the
 
 </center>
 
-``` r
-## Example shiny app with rank list
-
-library(shiny)
-library(sortable)
-
-ui <- fluidPage(
-  fluidRow(
-    column(
-      width = 12,
-      tags$h2("This is a rank list"),
-      rank_list(
-        text = "Drag the items in the correct order",
-        labels = sample(c("one", "two", "three", "four", "five")),
-        input_id = "rank_list_1"
-      ),
-      tags$p("You provided the answer"),
-      verbatimTextOutput("results")
-    )
-  )
-)
-
-server <- function(input, output) {
-  output$results <- renderPrint({
-    input$rank_list_1 # This matches the input_id of the rank list
-  })
-}
-
-shinyApp(ui, server)
-```
+    #> Warning in file(con, "r"): file("") only supports open = "w+" and open =
+    #> "w+b": using the former
+    #> Warning in knitr::read_chunk(system.file("shiny-examples/rank_list/
+    #> rank_list_app.R", : code is empty
 
 ### Bucket list
 
@@ -96,64 +70,10 @@ to classify objects into multiple categories.
 
 </center>
 
-``` r
-## Example shiny app with bucket list
-
-library(shiny)
-library(sortable)
-
-
-ui <- fluidPage(
-  fluidRow(
-    column(
-      width = 12,
-      tags$h2("This is a bucket list from the `sortable` package"),
-      bucket_list(
-        header = "Drag the items in any desired bucket",
-        group_name = "bucket_list",
-        add_rank_list(
-          text = "Drag from here",
-          labels = c("one", "two", "three", "four", "five"),
-          input_id = "rank_list_1"
-        ),
-        add_rank_list(
-          text = "to here",
-          labels = NULL,
-          input_id = "rank_list_2"
-        )
-      )
-    )
-  ),
-  fluidRow(
-    column(
-      width = 12,
-      tags$h2("You provided the answers"),
-      column(
-        width = 6,
-        verbatimTextOutput("results_1")
-      ),
-      column(
-        width = 6,
-        verbatimTextOutput("results_2")
-      )
-    )
-  )
-)
-
-server <- function(input,output) {
-  output$results_1 <-
-    renderPrint(
-      input$rank_list_1 # This matches the input_id of the rank list
-    )
-  output$results_2 <-
-    renderPrint(
-      input$rank_list_2 # This matches the input_id of the rank list
-    )
-}
-
-
-shinyApp(ui, server)
-```
+    #> Warning in file(con, "r"): file("") only supports open = "w+" and open =
+    #> "w+b": using the former
+    #> Warning in knitr::read_chunk(system.file("shiny-examples/bucket_list/
+    #> bucket_list_app.R", : code is empty
 
 ### Add drag-and-drop to any HTML element
 

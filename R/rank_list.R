@@ -1,10 +1,17 @@
-
 #' Create a ranking item list.
 #'
+#' @description
 #' Creates a ranking item list using the `sortable.js` framework, and generates
 #' an `htmlwidgets` element.  The elements of this list can be dragged and
-#' dropped in any order.  Typically you will embed a `rank_list` inside a
-#' Shiny app or any shiny runtime, e.g. a `learnr` tutorial.
+#' dropped in any order.
+#'
+#' You can embed a ranking question inside a `learnr` tutorial, using [question_rank()].
+#'
+#' To embed a `rank_list` inside a shiny app, see the Details section.
+#'
+#' @details
+#'
+#' You can embed a `rank_list` inside a Shiny app, to capure the preferred ranking order of your user.
 #'
 #' The widget automatically updates a Shiny output, with the matching `input_id`.
 #'
@@ -21,7 +28,7 @@
 #' @param style A css stylesheet, provided as a character string.  See also [css_rank_list()].
 #' @template options
 #'
-#' @seealso [sortable_js], [bucket_list]
+#' @seealso [sortable_js], [bucket_list] and [question_rank]
 #'
 #' @export
 #' @importFrom utils modifyList
@@ -33,6 +40,7 @@
 #'   app <- system.file("shiny-examples/rank_list_app.R", package = "sortable")
 #'   shiny::runApp(app)
 #' }
+#'
 rank_list <- function(
   text = "",
   labels,

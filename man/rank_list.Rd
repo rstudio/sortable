@@ -29,10 +29,15 @@ app. If NULL, the function generates a selector of the form
 \description{
 Creates a ranking item list using the \code{sortable.js} framework, and generates
 an \code{htmlwidgets} element.  The elements of this list can be dragged and
-dropped in any order.  Typically you will embed a \code{rank_list} inside a
-Shiny app or any shiny runtime, e.g. a \code{learnr} tutorial.
+dropped in any order.
+
+You can embed a ranking question inside a \code{learnr} tutorial, using \code{\link[=question_rank]{question_rank()}}.
+
+To embed a \code{rank_list} inside a shiny app, see the Details section.
 }
 \details{
+You can embed a \code{rank_list} inside a Shiny app, to capure the preferred ranking order of your user.
+
 The widget automatically updates a Shiny output, with the matching \code{input_id}.
 }
 \examples{
@@ -41,6 +46,7 @@ if (interactive()) {
   app <- system.file("shiny-examples/rank_list_app.R", package = "sortable")
   shiny::runApp(app)
 }
+
 ## - example-rank-list ------------------------------------------------
 
 rank_list(
@@ -52,5 +58,5 @@ rank_list(
 
 }
 \seealso{
-\link{sortable_js}, \link{bucket_list}
+\link{sortable_js}, \link{bucket_list} and \link{question_rank}
 }

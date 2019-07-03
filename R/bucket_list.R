@@ -46,7 +46,7 @@ is.add_rank_list <- function(x)inherits(x, "add_rank_list")
 #' @examples
 #' ## Example of a shiny app
 #' if (interactive()) {
-#'   app <- system.file("shiny-examples/bucket_list_app.R", package = "sortable")
+#'   app <- system.file("shiny-examples/bucket_list/bucket_list_app.R", package = "sortable")
 #'   shiny::runApp(app)
 #' }
 bucket_list <- function(
