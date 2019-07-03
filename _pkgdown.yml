@@ -1,5 +1,6 @@
 destination: docs
 url: https://rstudio.github.io/sortable
+
 reference:
 - title: Learnr question types
   desc: New question types for learnr tutorials
@@ -33,4 +34,18 @@ reference:
 tutorials:
 - name: tutorial_question_rank
   title: Using ranking questions in learnr
-  url: https://rs-support.shinyapps.io/tutorial_question_rank/
+  url: https://andrie-de-vries.shinyapps.io/sortable_tutorial_question_rank/
+
+articles:
+- title: Using sortable widgets in Shiny apps
+  desc: ~
+  contents:
+  - shiny_apps
+- title: Novel solutions using sortable in shiny apps
+  desc: ~
+  contents:
+  - novel_solutions
+- title: Understanding the interface to sortable.js
+  desc: ~
+  contents:
+  - understanding_sortable_js
