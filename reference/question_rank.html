@@ -73,7 +73,7 @@ drag-and-drop the answer options into the desired order." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">sortable</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.0.9002</span>
       </span>
     </div>
 
@@ -145,15 +145,49 @@ drag-and-drop the answer options into the desired order.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>question_rank</span>(<span class='no'>...</span>, <span class='kw'>random_answer_order</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+    <pre class="usage"><span class='fu'>question_rank</span>(<span class='no'>text</span>, <span class='no'>...</span>, <span class='kw'>correct</span> <span class='kw'>=</span> <span class='st'>"Correct!"</span>, <span class='kw'>incorrect</span> <span class='kw'>=</span> <span class='st'>"Incorrect"</span>,
+  <span class='kw'>loading</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"**Loading:** "</span>, <span class='no'>text</span>, <span class='st'>"&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;"</span>),
+  <span class='kw'>submit_button</span> <span class='kw'>=</span> <span class='st'>"Submit Answer"</span>, <span class='kw'>try_again_button</span> <span class='kw'>=</span> <span class='st'>"Try Again"</span>,
+  <span class='kw'>allow_retry</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>random_answer_order</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
   <span class='kw'>options</span> <span class='kw'>=</span> <span class='fu'><a href='sortable_options.html'>sortable_options</a></span>())</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
+      <th>text</th>
+      <td><p>Question or option text</p></td>
+    </tr>
+    <tr>
       <th>...</th>
       <td><p>parameters passed onto <code>learnr::<a href='https://www.rdocumentation.org/packages/learnr/topics/quiz'>question</a></code>.</p></td>
+    </tr>
+    <tr>
+      <th>correct</th>
+      <td><p>For <code>question</code>, text to print for a correct answer (defaults
+to "Correct!"). For <code>answer</code>, a boolean indicating whether this answer is
+correct.</p></td>
+    </tr>
+    <tr>
+      <th>incorrect</th>
+      <td><p>Text to print for an incorrect answer (defaults to "Incorrect")
+when <code>allow_retry</code> is <code>FALSE</code>.</p></td>
+    </tr>
+    <tr>
+      <th>loading</th>
+      <td><p>Loading text to display as a placeholder while the question is loaded</p></td>
+    </tr>
+    <tr>
+      <th>submit_button</th>
+      <td><p>Label for the submit button. Defaults to <code>"Submit Answer"</code></p></td>
+    </tr>
+    <tr>
+      <th>try_again_button</th>
+      <td><p>Label for the try again button. Defaults to <code>"Submit Answer"</code></p></td>
+    </tr>
+    <tr>
+      <th>allow_retry</th>
+      <td><p>Allow retry for incorrect answers. Defaults to <code>FALSE</code>.</p></td>
     </tr>
     <tr>
       <th>random_answer_order</th>
@@ -175,7 +209,7 @@ the question is completed, the first correct answer will be displayed.</p>
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'>## Example of rank problem inside a learnr tutorial</span>
 <span class='kw'>if</span> (<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/interactive'>interactive</a></span>()) {
-  <span class='kw pkg'>learnr</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/learnr/topics/run_tutorial'>run_tutorial</a></span>(<span class='st'>"sortable"</span>, <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"sortable"</span>)
+  <span class='kw pkg'>learnr</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/learnr/topics/run_tutorial'>run_tutorial</a></span>(<span class='st'>"question_rank"</span>, <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"sortable"</span>)
 }</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
