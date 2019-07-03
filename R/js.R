@@ -1,0 +1,54 @@
+#' Construct JavaScript method to capture Shiny inputs on change.
+#'
+#' This captures the inputs of a `sortable` list.  Typically you would use this
+#' with the `onSort` option of `sortable_js`. See [sortable_options()].
+#'
+#' @param input_id The output id.
+#'
+#' @seealso [sortable_js] and [rank_list].
+#'
+#' @export
+#' @examples
+#' # For an example, see the Shiny app at
+#' system.file("shiny-examples/drag_vars_to_plot.R", package = "sortable")
+sortable_js_capture_input <- function(input_id) {
+  inner_text <- "$.map(this.el.children, function(child){return child.innerText})"
+  js_text <- "function(evt){
+  if (typeof Shiny !== \"undefined\") {
+    Shiny.onInputChange(\"%s\", %s)
+  }
+}"
+
+  js <- sprintf(js_text, input_id, inner_text)
+
+  htmlwidgets::JS(js)
+}
+
+
+#' Chain multiple JavaScript events
+#'
+#' Sortable.js does not have an event based system.  To be able to call multiple JavaScript events under the same event execution, they need to be executed one after another.
+#'
+#' @param ... JavaScript functions defined by [htmlwidgets::JS]
+#' @return A single JavaScript function that will call all methods provided with the event
+chain_js_events <- function(...) {
+
+  fns <- list(...)
+  fns <- fns[!vapply(fns, is.null, logical(1))]
+  fns <- lapply(fns, as.character)
+
+  js_text <- paste0(
+    # do not provide arguments to avoid confusion
+    "function() {\n",
+    "  var self = this;\n",
+    # call fns with all arguments supplied to outer func
+    # some event methods have more than one argument (most have 1).
+    # paste0(rep("  Array.prototype.map.call(arguments, (%s));\n", length(fns)), collapse = ""),
+    paste0(rep("  (%s).apply(self, arguments);\n", length(fns)), collapse = ""),
+    "}"
+  )
+
+  js <- do.call(sprintf, c(js_text, fns))
+
+  htmlwidgets::JS(js)
+}

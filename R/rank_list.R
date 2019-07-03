@@ -1,31 +1,3 @@
-#' Construct JavaScript method to capture Shiny inputs on change.
-#'
-#' This captures the inputs of a `sortable` list.  Typically you would use this
-#' with the `onSort` option of `sortable_js`. See [sortable_options()].
-#'
-#' @param input_id The output id.
-#'
-#' @seealso [sortable_js] and [rank_list].
-#'
-#' @export
-#' @examples
-#' # For an example, see the Shiny app at
-#' system.file("shiny-examples/drag_vars_to_plot.R", package = "sortable")
-sortable_js_capture_input <- function(input_id) {
-  inner_text <- "
-    $.map(this.el.children, function(child){return child.innerText})
-  "
-  js_text <- "function(evt){{
-    if (typeof Shiny !== \"undefined\") {
-      Shiny.onInputChange(\"%s\", %s)
-    }
-  }}"
-
-  js <- sprintf(js_text, input_id, inner_text)
-
-  htmlwidgets::JS(js)
-}
-
 
 #' Create a ranking item list.
 #'
@@ -76,6 +48,11 @@ rank_list <- function(
   assert_that(is_sortable_options(options))
   assert_that(is_input_id(input_id))
 
+  options$onSort <- chain_js_events(
+    options$onSort,
+    sortable_js_capture_input(input_id)
+  )
+
   z <- tagList(
     tags$div(
       tags$style(htmltools::HTML(style)),
@@ -91,14 +68,10 @@ rank_list <- function(
     ),
     sortable_js(
       selector = selector,
-      options = modifyList(
-        sortable_options(onSort = sortable_js_capture_input(input_id)),
-        options
-      )
+      options = options
     )
   )
 
   as.rank_list(z)
 
 }
-
