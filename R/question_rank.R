@@ -123,10 +123,10 @@ question_try_again_input.rank <- function(question, answer_input, ...) {
   )
 }
 
-#' #' @export
-#' question_is_valid.rank <- function(question, answer_input, ...) {
-#'   !is.null(answer_input)
-#' }
+#' @export
+question_is_valid.rank <- function(question, answer_input, ...) {
+  !is.null(answer_input)
+}
 
 
 #' @export
