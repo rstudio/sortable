@@ -47,9 +47,14 @@ remotes::install_github("rstudio/sortable")
 You can create a drag-and-drop input object in Shiny, using the
 `rank_list()` function.
 
-``` r
-## Example shiny app with bucket list
+<center>
 
+<img src="man/figures/rank_list_shiny.gif" style = 'width:500px;'></img>
+
+</center>
+
+``` r
+## Example shiny app with rank list
 
 library(shiny)
 library(sortable)
@@ -63,11 +68,10 @@ ui <- fluidPage(
         text = "Drag the items in the correct order",
         labels = sample(c("one", "two", "three", "four", "five")),
         input_id = "rank_list_1"
-      )
+      ),
+      tags$p("You provided the answer"),
+      verbatimTextOutput("results")
     )
-  ),
-  fluidRow(
-    verbatimTextOutput("results")
   )
 )
 
@@ -77,15 +81,8 @@ server <- function(input, output) {
   })
 }
 
-
 shinyApp(ui, server)
 ```
-
-<center>
-
-<img src="man/figures/rank_list_shiny.gif" style = 'width:400px;'></img>
-
-</center>
 
 ### Bucket list
 
@@ -99,9 +96,74 @@ to classify objects into multiple categories.
 
 </center>
 
+``` r
+## Example shiny app with bucket list
+
+library(shiny)
+library(sortable)
+
+
+ui <- fluidPage(
+  fluidRow(
+    column(
+      width = 12,
+      tags$h2("This is a bucket list from the `sortable` package"),
+      bucket_list(
+        header = "Drag the items in any desired bucket",
+        group_name = "bucket_list",
+        add_rank_list(
+          text = "Drag from here",
+          labels = c("one", "two", "three", "four", "five"),
+          input_id = "rank_list_1"
+        ),
+        add_rank_list(
+          text = "to here",
+          labels = NULL,
+          input_id = "rank_list_2"
+        )
+      )
+    )
+  ),
+  fluidRow(
+    column(
+      width = 12,
+      tags$h2("You provided the answers"),
+      column(
+        width = 6,
+        verbatimTextOutput("results_1")
+      ),
+      column(
+        width = 6,
+        verbatimTextOutput("results_2")
+      )
+    )
+  )
+)
+
+server <- function(input,output) {
+  output$results_1 <-
+    renderPrint(
+      input$rank_list_1 # This matches the input_id of the rank list
+    )
+  output$results_2 <-
+    renderPrint(
+      input$rank_list_2 # This matches the input_id of the rank list
+    )
+}
+
+
+shinyApp(ui, server)
+```
+
 ### Add drag-and-drop to any HTML element
 
 You can also use `sortable_js()` to drag and drop other widgets:
+
+<center>
+
+![](man/figures/diagrammer.gif)
+
+</center>
 
 ``` r
 library(DiagrammeR)
@@ -123,9 +185,3 @@ html_print(tagList(
   sortable_js("aUniqueId") # again, the CSS id must match the selector
 ))
 ```
-
-<center>
-
-![](man/figures/diagrammer.gif)
-
-</center>

@@ -1,4 +1,4 @@
-## ---- shiny-bucket-list ---------------------------------------------
+## ---- bucket-list-app -----------------------------------------------
 ## Example shiny app with bucket list
 
 library(shiny)
@@ -9,7 +9,7 @@ ui <- fluidPage(
   fluidRow(
     column(
       width = 12,
-      tags$h2("This is a bucket list"),
+      tags$h2("This is a bucket list from the `sortable` package"),
       bucket_list(
         header = "Drag the items in any desired bucket",
         group_name = "bucket_list",
@@ -29,7 +29,7 @@ ui <- fluidPage(
   fluidRow(
     column(
       width = 12,
-      tags$h2("You can capture the contents of the lists"),
+      tags$h2("You provided the answers"),
       column(
         width = 6,
         verbatimTextOutput("results_1")

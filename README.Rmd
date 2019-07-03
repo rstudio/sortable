@@ -49,6 +49,9 @@ remotes::install_github("rstudio/sortable")
 
 You can create a drag-and-drop input object in Shiny, using the `rank_list()` function.
 
+<center>
+<img src="man/figures/rank_list_shiny.gif" style = 'width:500px;'></img>
+</center>
 
 ```{r echo=FALSE, cache=FALSE}
 knitr::read_chunk(
@@ -59,14 +62,16 @@ knitr::read_chunk(
 ```{r rank-list-app, eval=FALSE}
 ```
 
-<center>
-<img src="man/figures/rank_list_shiny.gif" style = 'width:400px;'></img>
-</center>
 
 
 ### Bucket list
 
 Witha a bucket list you can have more than one rank lists in a single object.  This can be useful for bucketing task, e.g. asking your students to classify objects into multiple categories.
+
+<center>
+<img src="man/figures/bucket_list_shiny.gif" style = 'width:500px;'></img>
+</center>
+
 
 ```{r echo=FALSE, cache=FALSE}
 knitr::read_chunk(
@@ -77,14 +82,15 @@ knitr::read_chunk(
 ```{r bucket-list-app, eval=FALSE}
 ```
 
-<center>
-<img src="man/figures/bucket_list_shiny.gif" style = 'width:500px;'></img>
-</center>
 
 
 ### Add drag-and-drop to any HTML element
 
 You can also use `sortable_js()` to drag and drop other widgets:
+
+<center>
+![](man/figures/diagrammer.gif)
+</center>
 
 ```{r, eval=FALSE}
 library(DiagrammeR)
@@ -107,8 +113,5 @@ html_print(tagList(
 ))
 ```
 
-<center>
-![](man/figures/diagrammer.gif)
-</center>
 
 

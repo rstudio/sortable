@@ -1,6 +1,5 @@
 ## ---- rank-list-app -------------------------------------------------
-## Example shiny app with bucket list
-
+## Example shiny app with rank list
 
 library(shiny)
 library(sortable)
@@ -14,11 +13,10 @@ ui <- fluidPage(
         text = "Drag the items in the correct order",
         labels = sample(c("one", "two", "three", "four", "five")),
         input_id = "rank_list_1"
-      )
+      ),
+      tags$p("You provided the answer"),
+      verbatimTextOutput("results")
     )
-  ),
-  fluidRow(
-    verbatimTextOutput("results")
   )
 )
 
@@ -27,6 +25,5 @@ server <- function(input, output) {
     input$rank_list_1 # This matches the input_id of the rank list
   })
 }
-
 
 shinyApp(ui, server)
