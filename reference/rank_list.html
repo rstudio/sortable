@@ -41,8 +41,9 @@
 
 <meta property="og:description" content="Creates a ranking item list using the sortable.js framework, and generates
 an htmlwidgets element.  The elements of this list can be dragged and
-dropped in any order.  Typically you will embed a rank_list inside a
-Shiny app or any shiny runtime, e.g. a learnr tutorial." />
+dropped in any order.
+You can embed a ranking question inside a learnr tutorial, using question_rank().
+To embed a rank_list inside a shiny app, see the Details section." />
 
 <meta property="og:image" content="https://rstudio.github.io/sortable/logo.png" />
 <meta name="twitter:card" content="summary" />
@@ -75,7 +76,7 @@ Shiny app or any shiny runtime, e.g. a learnr tutorial." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">sortable</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.0.9002</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.0.9003</span>
       </span>
     </div>
 
@@ -97,6 +98,12 @@ Shiny app or any shiny runtime, e.g. a learnr tutorial." />
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="../articles/novel_solutions.html">Novel solutions using sortable in shiny apps</a>
+    </li>
+    <li>
+      <a href="../articles/shiny_apps.html">Using sortable widgets in Shiny apps</a>
+    </li>
     <li>
       <a href="../articles/understanding_sortable_js.html">Understanding the interface to sortable.js</a>
     </li>
@@ -144,8 +151,9 @@ Shiny app or any shiny runtime, e.g. a learnr tutorial." />
     
     <p>Creates a ranking item list using the <code>sortable.js</code> framework, and generates
 an <code>htmlwidgets</code> element.  The elements of this list can be dragged and
-dropped in any order.  Typically you will embed a <code>rank_list</code> inside a
-Shiny app or any shiny runtime, e.g. a <code>learnr</code> tutorial.</p>
+dropped in any order.</p>
+<p>You can embed a ranking question inside a <code>learnr</code> tutorial, using <code><a href='question_rank.html'>question_rank()</a></code>.</p>
+<p>To embed a <code>rank_list</code> inside a shiny app, see the Details section.</p>
     
     </div>
 
@@ -191,11 +199,12 @@ app. If NULL, the function generates a selector of the form
     
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>The widget automatically updates a Shiny output, with the matching <code>input_id</code>.</p>
+    <p>You can embed a <code>rank_list</code> inside a Shiny app, to capure the preferred ranking order of your user.</p>
+<p>The widget automatically updates a Shiny output, with the matching <code>input_id</code>.</p>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><a href='sortable_js.html'>sortable_js</a>, <a href='bucket_list.html'>bucket_list</a></p></div>
+    <div class='dont-index'><p><a href='sortable_js.html'>sortable_js</a>, <a href='bucket_list.html'>bucket_list</a> and <a href='question_rank.html'>question_rank</a></p></div>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
@@ -204,6 +213,7 @@ app. If NULL, the function generates a selector of the form
   <span class='no'>app</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/system.file'>system.file</a></span>(<span class='st'>"shiny-examples/rank_list_app.R"</span>, <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"sortable"</span>)
   <span class='kw pkg'>shiny</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/shiny/topics/runApp'>runApp</a></span>(<span class='no'>app</span>)
 }
+
 <span class='co'>## - example-rank-list ------------------------------------------------</span>
 
 <span class='fu'>rank_list</span>(
