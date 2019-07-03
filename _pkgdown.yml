@@ -1,4 +1,5 @@
 destination: docs
+url: https://rstudio.github.io/sortable
 reference:
 - title: Learnr question types
   desc: New question types for learnr tutorials
@@ -28,3 +29,8 @@ reference:
   desc: ~
   contents:
   - sortable
+
+tutorials:
+- name: tutorial_question_rank
+  title: Using ranking questions in learnr
+  url: https://rs-support.shinyapps.io/tutorial_question_rank/

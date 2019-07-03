@@ -25,6 +25,15 @@ test_that( "init display validates", {
     "answers MUST have the same set"
   )
 
+  expect_silent(
+    question_try_again_input(question, rev(LETTERS[1:5]))
+  )
+
+  expect_is(
+    question_try_again_input(question, rev(LETTERS[1:5])),
+    "rank_list"
+  )
+
 
   expect_silent({
     question_completed_input(question, LETTERS[5:1])
@@ -41,6 +50,7 @@ test_that( "init display validates", {
     question_is_correct(question, LETTERS[1:5]),
     learnr::question_is_correct_value(TRUE, NULL)
   )
+
   tmp_answer <- learnr::answer("ignored", FALSE, "Other direction!")
   expect_identical(
     question_is_correct(question, LETTERS[5:1]),

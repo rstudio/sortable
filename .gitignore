@@ -5,3 +5,8 @@ docs/
 Meta
 README.html
 doc
+inst/doc
+inst/tutorials/*.html
+vignettes/*.html
+vignettes/*.R
+inst/tutorials/*/rsconnect/*
