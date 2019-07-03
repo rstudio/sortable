@@ -1,5 +1,6 @@
 #' @importFrom learnr question_initialize_input
 #' @importFrom learnr question_completed_input
+#' @importFrom learnr question_try_again_input
 #' @importFrom learnr question_is_valid
 #' @importFrom learnr question_is_correct
 #' @importFrom learnr question_is_correct_value
@@ -23,7 +24,7 @@ NULL
 #' @examples
 #' ## Example of rank problem inside a learnr tutorial
 #' if (interactive()) {
-#'   learnr::run_tutorial("sortable", package = "sortable")
+#'   learnr::run_tutorial("question_rank", package = "sortable")
 #' }
 question_rank <- function(
   text,
@@ -112,8 +113,6 @@ question_completed_input.rank <- function(question, answer_input, ...) {
 
 #' @export
 question_try_again_input.rank <- function(question, answer_input, ...) {
-  # TODO display correct values with X or √ compared to best match
-  # TODO DON'T display correct values (listen to an option?)
   rank_list(
     input_id = question$ids$answer,
     labels = answer_input,
@@ -124,10 +123,10 @@ question_try_again_input.rank <- function(question, answer_input, ...) {
   )
 }
 
-#' @export
-question_is_valid.rank <- function(question, answer_input, ...) {
-  !is.null(answer_input)
-}
+#' #' @export
+#' question_is_valid.rank <- function(question, answer_input, ...) {
+#'   !is.null(answer_input)
+#' }
 
 
 #' @export

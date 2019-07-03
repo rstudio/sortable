@@ -47,6 +47,6 @@ Note that, by default, the answer order is randomized.
 \examples{
 ## Example of rank problem inside a learnr tutorial
 if (interactive()) {
-  learnr::run_tutorial("sortable", package = "sortable")
+  learnr::run_tutorial("question_rank", package = "sortable")
 }
 }
