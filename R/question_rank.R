@@ -49,8 +49,7 @@ question_rank <- function(
     try_again_button = try_again_button,
     allow_retry = allow_retry,
     random_answer_order = random_answer_order ,
-    options = sortable_options()
-
+    options = options
   )
 }
 
@@ -91,6 +90,7 @@ question_initialize_input.rank <- function(question, answer_input, ...) {
 
   # return the rank_list htmlwidget
   rank_list(
+    text = question$question,
     input_id = question$ids$answer,
     labels = labels,
     options = question$options
@@ -102,6 +102,7 @@ question_completed_input.rank <- function(question, answer_input, ...) {
   # TODO display correct values with X or √ compared to best match
   # TODO DON'T display correct values (listen to an option?)
   rank_list(
+    text = question$question,
     input_id = question$ids$answer,
     labels = answer_input,
     options = modifyList(
@@ -114,6 +115,7 @@ question_completed_input.rank <- function(question, answer_input, ...) {
 #' @export
 question_try_again_input.rank <- function(question, answer_input, ...) {
   rank_list(
+    text = question$question,
     input_id = question$ids$answer,
     labels = answer_input,
     options = modifyList(

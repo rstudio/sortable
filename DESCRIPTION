@@ -30,7 +30,8 @@ Suggests:
     base64,
     knitr,
     testthat (>= 2.1.0),
-    withr
+    withr,
+    rmarkdown
 Remotes: 
     rstudio/learnr@andrie_docs
 VignetteBuilder: knitr

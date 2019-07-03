@@ -1,38 +1,17 @@
-#' Construct JavaScript method to capture Shiny inputs on change.
-#'
-#' This captures the inputs of a `sortable` list.  Typically you would use this
-#' with the `onSort` option of `sortable_js`. See [sortable_options()].
-#'
-#' @param input_id The output id.
-#'
-#' @seealso [sortable_js] and [rank_list].
-#'
-#' @export
-#' @examples
-#' # For an example, see the Shiny app at
-#' system.file("shiny-examples/drag_vars_to_plot.R", package = "sortable")
-sortable_js_capture_input <- function(input_id) {
-  inner_text <- "
-    $.map(this.el.children, function(child){return child.innerText})
-  "
-  js_text <- "function(evt){{
-    if (typeof Shiny !== \"undefined\") {
-      Shiny.onInputChange(\"%s\", %s)
-    }
-  }}"
-
-  js <- sprintf(js_text, input_id, inner_text)
-
-  htmlwidgets::JS(js)
-}
-
-
 #' Create a ranking item list.
 #'
+#' @description
 #' Creates a ranking item list using the `sortable.js` framework, and generates
 #' an `htmlwidgets` element.  The elements of this list can be dragged and
-#' dropped in any order.  Typically you will embed a `rank_list` inside a
-#' Shiny app or any shiny runtime, e.g. a `learnr` tutorial.
+#' dropped in any order.
+#'
+#' You can embed a ranking question inside a `learnr` tutorial, using [question_rank()].
+#'
+#' To embed a `rank_list` inside a shiny app, see the Details section.
+#'
+#' @details
+#'
+#' You can embed a `rank_list` inside a Shiny app, to capure the preferred ranking order of your user.
 #'
 #' The widget automatically updates a Shiny output, with the matching `input_id`.
 #'
@@ -49,7 +28,7 @@ sortable_js_capture_input <- function(input_id) {
 #' @param style A css stylesheet, provided as a character string.  See also [css_rank_list()].
 #' @template options
 #'
-#' @seealso [sortable_js], [bucket_list]
+#' @seealso [sortable_js], [bucket_list] and [question_rank]
 #'
 #' @export
 #' @importFrom utils modifyList
@@ -61,6 +40,7 @@ sortable_js_capture_input <- function(input_id) {
 #'   app <- system.file("shiny-examples/rank_list_app.R", package = "sortable")
 #'   shiny::runApp(app)
 #' }
+#'
 rank_list <- function(
   text = "",
   labels,

@@ -55,7 +55,7 @@ You can create a drag-and-drop input object in Shiny, using the `rank_list()` fu
 
 ```{r echo=FALSE, cache=FALSE}
 knitr::read_chunk(
-  system.file("shiny-examples/rank_list_app.R", package = "sortable")
+  system.file("shiny-examples/rank_list/rank_list_app.R", package = "sortable")
 )
 ```
 
@@ -75,7 +75,7 @@ Witha a bucket list you can have more than one rank lists in a single object.  T
 
 ```{r echo=FALSE, cache=FALSE}
 knitr::read_chunk(
-  system.file("shiny-examples/bucket_list_app.R", package = "sortable")
+  system.file("shiny-examples/bucket_list/bucket_list_app.R", package = "sortable")
 )
 ```
 

@@ -33,7 +33,9 @@ insects <- c(
 question_rank(
   "Sort these insects in alpabetical order:",
   answer(insects, correct = TRUE),
-  answer(rev(insects), correct = FALSE, message = "Other direction!"),
+  answer(rev(insects), correct = FALSE, 
+         message = "You sorted in reverse order!"
+         ),
   allow_retry = TRUE
 )
 ```
