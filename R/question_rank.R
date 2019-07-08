@@ -1,6 +1,6 @@
-#' @importFrom learnr question_initialize_input
-#' @importFrom learnr question_completed_input
-#' @importFrom learnr question_try_again_input
+#' @importFrom learnr question_initialize_ui
+#' @importFrom learnr question_completed_ui
+#' @importFrom learnr question_try_again_ui
 #' @importFrom learnr question_is_valid
 #' @importFrom learnr question_is_correct
 #' @importFrom learnr question_is_correct_value
@@ -55,7 +55,7 @@ question_rank <- function(
 
 
 #' @export
-question_initialize_input.rank <- function(question, answer_input, ...) {
+question_initialize_ui.rank <- function(question, answer_input, ...) {
 
   # quickly validate the all possible answers are possible
   answer <- question$answers[[1]]
@@ -98,7 +98,7 @@ question_initialize_input.rank <- function(question, answer_input, ...) {
 }
 
 #' @export
-question_completed_input.rank <- function(question, answer_input, ...) {
+question_completed_ui.rank <- function(question, answer_input, ...) {
   # TODO display correct values with X or √ compared to best match
   # TODO DON'T display correct values (listen to an option?)
   rank_list(
@@ -113,7 +113,7 @@ question_completed_input.rank <- function(question, answer_input, ...) {
 }
 
 #' @export
-question_try_again_input.rank <- function(question, answer_input, ...) {
+question_try_again_ui.rank <- function(question, answer_input, ...) {
   rank_list(
     text = question$question,
     input_id = question$ids$answer,

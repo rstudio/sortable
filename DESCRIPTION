@@ -34,7 +34,7 @@ Suggests:
     rmarkdown,
     magrittr
 Remotes: 
-    rstudio/learnr@andrie_docs
+    rstudio/learnr@question_api_change
 VignetteBuilder: knitr
 RoxygenNote: 6.1.1
 Roxygen: list(markdown = TRUE)

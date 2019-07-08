@@ -10,11 +10,11 @@ test_that( "init display validates", {
   expect_s3_class(question, "rank")
 
   expect_silent({
-    question_initialize_input(question, "ignored")
+    question_initialize_ui(question, "ignored")
   })
 
   expect_error(
-    question_initialize_input(
+    question_initialize_ui(
       question_rank(
         "Sort the first 5 letters",
         learnr::answer(LETTERS[1:5], correct = TRUE),
@@ -26,17 +26,17 @@ test_that( "init display validates", {
   )
 
   expect_silent(
-    question_try_again_input(question, rev(LETTERS[1:5]))
+    question_try_again_ui(question, rev(LETTERS[1:5]))
   )
 
   expect_is(
-    question_try_again_input(question, rev(LETTERS[1:5])),
+    question_try_again_ui(question, rev(LETTERS[1:5])),
     "rank_list"
   )
 
 
   expect_silent({
-    question_completed_input(question, LETTERS[5:1])
+    question_completed_ui(question, LETTERS[5:1])
   })
 
   expect_true(
