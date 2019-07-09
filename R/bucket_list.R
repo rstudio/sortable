@@ -56,7 +56,7 @@ bucket_list <- function(
   group_put_max = rep(Inf, length(labels)),
   selector = NULL,
   options = sortable_options(),
-  style = css_bucket_list()
+  class = "default-sortable"
 ) {
 
   # capture the dots
@@ -69,6 +69,7 @@ bucket_list <- function(
     group_name <- increment_bucket_group()
   }
 
+  class <- paste(class, collapse = " ")
 
   # modify the dots by adding the group_name to the sortable options
   mod <- lapply(seq_along(dots), function(i){
@@ -76,8 +77,7 @@ bucket_list <- function(
       dots[[i]],
       val = list(
         options = sortable_options(group = group_name),
-        style = "",
-        additional_class = paste0("column_", i)
+        class = paste(class, paste0("column_", i))
       )
     )
   })
@@ -87,17 +87,16 @@ bucket_list <- function(
 
   z <- tagList(
     tags$div(
-      class = "bucket-list",
+      class = paste("bucket-list-container", class),
       if(!is.null(header))tags$p(header) else NULL,
-      tags$style(htmltools::HTML(style)),
       tags$div(
-        class = "bucket-list-container",
+        class = paste(class, "bucket-list"),
         sortables
       )
-    )
+    ),
+    bucket_list_dependencies()
   )
 
 
   as.bucket_list(z)
 }
-

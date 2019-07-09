@@ -6,7 +6,7 @@
 \usage{
 bucket_list(header = NULL, ..., group_name, group_put_max = rep(Inf,
   length(labels)), selector = NULL, options = sortable_options(),
-  style = css_bucket_list())
+  class = "default-sortable-theme")
 }
 \arguments{
 \item{header}{Text that appears at the top of the bucket list.  (This is
@@ -26,7 +26,7 @@ app. If NULL, the function generates a selector of the form
 
 \item{options}{Options to be supplied to \link{sortable_js} object. See \link{sortable_options} for more details}
 
-\item{style}{A css stylesheet, provided as a character string.  See also \code{\link[=css_rank_list]{css_rank_list()}}.}
+\item{class}{A css class applied to the rank list.  This can be used to define custom styling}
 }
 \description{
 A bucket list can contain more than one \link{rank_list} and allows

@@ -1,0 +1,33 @@
+.default-sortable.rank-list-container {
+  flex: 30%;
+  background-color: #ddd;
+  padding: 10px;
+  margin: 5px;
+}
+
+.default-sortable .rank-list {
+  display: flex;
+  flex-direction: column;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  background-color: #aaa;
+  padding-bottom: 5px;
+  margin: 5px;
+}
+
+.default-sortable .rank-list-item {
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  position: relative;
+  display: block;
+  padding: 10px 15px;
+  margin: 5px 3px -1px 3px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  overflow: hidden;
+  width: fit-content;
+}
+
+.default-sortable .rank-list:empty {
+  padding-bottom: 30px;
+}
