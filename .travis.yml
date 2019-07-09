@@ -36,6 +36,7 @@ matrix:
     - rsconnect
     - here
     - glue
+    - remotes
     script:
     - R -f scripts/deploy_tutorial.R
 

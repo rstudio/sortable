@@ -31,4 +31,4 @@ deploy_tutorial <- function(
 }
 
 
-deploy_tutorial("inst/tutorials/question_parsons/")
+deploy_tutorial("inst/tutorials/question_rank/")
