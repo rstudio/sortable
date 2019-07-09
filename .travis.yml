@@ -32,6 +32,10 @@ matrix:
   - name: "Deploy tutorial"
     r: release
     warnings_are_errors: false
+    r_binary_packages:
+    - rsconnect
+    - here
+    - glue
     script:
     - R -f scripts/deploy_tutorial.R
 
