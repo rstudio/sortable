@@ -29,3 +29,11 @@ matrix:
     - name: "Devel"
       r: devel
 
+  allow_failures:
+    - name: "Deploy tutorial"
+      r: release
+      warnings_are_errors: false
+      script:
+      - R -f scripts/deploy_tutorial.R
+
+
