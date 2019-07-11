@@ -29,14 +29,14 @@ matrix:
 
 
   - name: "Deploy tutorials"
-    if: branch IN (master, travis) AND repo = rstudio/sortable
+    if: branch IN (master, travis) AND repo = rstudio/sortable AND type = push
     r: release
     warnings_are_errors: false
     script:
     - R -f scripts/deploy_tutorial.R
 
   - name: "Deploy gh-pages"
-    if: branch IN (master, travis) AND repo = rstudio/sortable
+    if: branch IN (master, travis) AND repo = rstudio/sortable AND type = push
     r: release
     before_cache:
     - Rscript -e 'remotes::install_cran("pkgdown")'
