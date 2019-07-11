@@ -1,33 +1,78 @@
 .default-sortable.rank-list-container {
   flex: 30%;
-  background-color: #ddd;
+  background-color: transparent;
+  border: 1px solid #ddd;
   padding: 10px;
   margin: 5px;
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.default-sortable .rank-list-title {
+  flex: 0 0 auto;
 }
 
 .default-sortable .rank-list {
-  display: flex;
-  flex-direction: column;
-  -webkit-border-radius: 5px;
+  flex: 1;
+  -webkit-border-radius: 3px;
   border-radius: 5px;
-  background-color: #aaa;
-  padding-bottom: 5px;
+  background-color: white;
   margin: 5px;
-}
-
-.default-sortable .rank-list-item {
-  -webkit-border-radius: 10px;
-  border-radius: 10px;
-  position: relative;
-  display: block;
-  padding: 10px 15px;
-  margin: 5px 3px -1px 3px;
-  background-color: #fff;
-  border: 1px solid #ddd;
-  overflow: hidden;
-  width: fit-content;
 }
 
 .default-sortable .rank-list:empty {
   padding-bottom: 30px;
 }
+
+.default-sortable .rank-list-item {
+  border-radius: 3px;
+  position: relative;
+  display: block;
+  padding: 10px 15px;
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  overflow: hidden;
+  width: 100%;
+}
+
+.default-sortable .rank-list-item:hover {
+  background-color: #dcdcdc;
+  cursor: grab;
+}
+
+.default-sortable .rank-list-item.sortable-ghost {
+  color: transparent;
+}
+
+.default-sortable .rank-list-item.sortable-ghost:hover {
+  cursor: grabbing;
+}
+
+.default-sortable .rank-list-item.sortable-chosen {
+  color: white;
+  background-color: #75aadb;
+  border: 1px solid #4d91d0;
+}
+
+.default-sortable .rank-list-item.sortable-chosen:hover {
+  cursor: grabbing;
+}
+
+.default-sortable .rank-list-item.sortable-ghost.sortable-chosen {
+  color: transparent;
+}
+
+.default-sortable .rank-list-item.sortable-ghost.sortable-chosen:hover {
+  cursor: grabbing;
+}
+
+.default-sortable .rank-list-item.sortable-drag {
+  color: white;
+  background-color: #75aadb;
+  border: 1px solid #4d91d0;
+}
+
+.default-sortable .rank-list-item.sortable-drag:hover {
+  cursor: grabbing;
+}
+
