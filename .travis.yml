@@ -11,6 +11,9 @@ notifications:
 matrix:
   include:
 
+  - name: "Check oldrelease"
+    r: oldrel
+
   - name: "Check release"
     r: release
     before_cache:
@@ -20,9 +23,6 @@ matrix:
     - find . -name testthat.Rout | xargs cat
     after_failure:
     - find . -name testthat.Rout | xargs cat
-
-  - name: "Check oldrelease"
-    r: oldrel
 
   - name: "Check devel"
     r: devel
