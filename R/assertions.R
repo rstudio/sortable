@@ -27,4 +27,3 @@ on_failure(is_header) <- function(call, env) {
 on_failure(is_header) <- function(call, env) {
   paste0(deparse(call$x), " must be produced by `sortable_options()`")
 }
-

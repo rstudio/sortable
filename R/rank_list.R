@@ -81,4 +81,3 @@ rank_list <- function(
   as.rank_list(z)
 
 }
-
