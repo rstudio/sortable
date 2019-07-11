@@ -1,12 +1,15 @@
 # Deploy tutorial to ShinyApps.io
 
-library(rsconnect)
-library(glue)
+
+remotes::install_cran("rsconnect")
+remotes::install_cran("glue")
+
+# must install from github for deploy to work
 remotes::install_github("rstudio/sortable", dependencies = NA)
 
 
 # Set the account info for deployment.
-setAccountInfo(
+rsconnect::setAccountInfo(
   name   = Sys.getenv("shinyapps_name"),
   token  = Sys.getenv("shinyapps_token"),
   secret = Sys.getenv("shinyapps_secret")
@@ -16,10 +19,9 @@ setAccountInfo(
 
 deploy_tutorial <- function(
   app_dir,
-  doc = glue::glue("tutorial_{basename(app_dir)}.Rmd"),
+  doc = dir(app_dir, pattern = "\\.Rmd$")[1],
   name = glue::glue("sortable_tutorial_{basename(app_dir)}")
 ) {
-  # browser()
   rsconnect::deployApp(
     appDir = app_dir,
     appPrimaryDoc = doc,
@@ -31,4 +33,12 @@ deploy_tutorial <- function(
 }
 
 
-deploy_tutorial("inst/tutorials/question_rank/")
+# deploy all leanr tutorials
+lapply(
+  dir("inst/tutorials", full.names = TRUE),
+  function(path) {
+    if (dir.exists(path)) {
+      deploy_tutorial(path)
+    }
+  }
+)

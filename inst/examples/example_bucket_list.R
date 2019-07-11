@@ -34,5 +34,3 @@ bucket_list(
     input_id = NULL
   )
 )
-
-
