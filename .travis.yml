@@ -10,22 +10,37 @@ notifications:
 
 matrix:
   include:
-    - name: "Release"
-      r: release
-      after_success:
-      - Rscript -e 'covr::codecov()'
-      - find . -name testthat.Rout | xargs cat
-      after_failure:
-      - find . -name testthat.Rout | xargs cat
-      before_cache: Rscript -e 'remotes::install_cran("pkgdown")'
-      deploy:
-        provider: script
-        script: Rscript -e 'pkgdown::deploy_site_github()'
-        skip_cleanup: true
 
-    - name: "Old Release"
-      r: oldrel
+  - name: "Check oldrelease"
+    r: oldrel
 
-    - name: "Devel"
-      r: devel
+  - name: "Check release"
+    r: release
+    before_cache:
+    - Rscript -e 'remotes::install_cran("covr")'
+    after_success:
+    - Rscript -e 'covr::codecov()'
+    - find . -name testthat.Rout | xargs cat
+    after_failure:
+    - find . -name testthat.Rout | xargs cat
 
+  - name: "Check devel"
+    r: devel
+
+
+  - name: "Deploy tutorials"
+    if: branch IN (master, travis) AND repo = rstudio/sortable
+    r: release
+    warnings_are_errors: false
+    script:
+    - R -f scripts/deploy_tutorial.R
+
+  - name: "Deploy gh-pages"
+    if: branch IN (master, travis) AND repo = rstudio/sortable
+    r: release
+    before_cache:
+    - Rscript -e 'remotes::install_cran("pkgdown")'
+    deploy:
+      provider: script
+      script: Rscript -e 'pkgdown::deploy_site_github()'
+      skip_cleanup: true

@@ -19,8 +19,8 @@ sortable_js <- function(
   options = sortable_options(),
   width = 0,
   height = 0,
-  elementId = NULL,
-  preRenderHook = NULL
+  elementId = NULL, # nolint
+  preRenderHook = NULL # nolint
 ) {
 
   assert_that(is_sortable_options(options))
@@ -42,8 +42,8 @@ sortable_js <- function(
     width = width,
     height = height,
     package = "sortable",
-    elementId = elementId,
-    preRenderHook = preRenderHook
+    elementId = elementId, # nolint
+    preRenderHook = preRenderHook # nolint
   )
 }
 

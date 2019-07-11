@@ -19,7 +19,21 @@ test_that( "sortable_js height and width", {
 test_that( "selector and options passed as expected", {
   expect_identical( sortable_js( "an_id" )$x$selector, "an_id" )
   expect_identical(
-    sortable_js( "an_id", options = sortable_options( group = "name", sort = FALSE, disabled = FALSE ) )$x,
-    list( selector = "an_id", options = sortable_options( group = "name", sort = FALSE, disabled = FALSE ))
+    sortable_js(
+      "an_id",
+      options = sortable_options(
+        group = "name",
+        sort = FALSE,
+        disabled = FALSE
+      )
+    )$x,
+    list(
+      selector = "an_id",
+      options = sortable_options(
+        group = "name",
+        sort = FALSE,
+        disabled = FALSE
+      )
+    )
   )
 })

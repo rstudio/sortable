@@ -48,7 +48,7 @@ question_rank <- function(
     submit_button = submit_button,
     try_again_button = try_again_button,
     allow_retry = allow_retry,
-    random_answer_order = random_answer_order ,
+    random_answer_order = random_answer_order,
     options = options
   )
 }
