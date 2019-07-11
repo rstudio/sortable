@@ -98,5 +98,5 @@ bucket_list <- function(
   )
 
 
-  as.bucket_list(z)
+  as_bucket_list(z)
 }

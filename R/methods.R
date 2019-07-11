@@ -1,5 +1,5 @@
 
-as.rank_list <- function(x){
+as_rank_list <- function(x){
   class(x) <- c("rank_list", class(x))
   x
 }
@@ -10,7 +10,7 @@ print.rank_list <- function(x, ...){
 }
 
 
-as.bucket_list <- function(x){
+as_bucket_list <- function(x){
   class(x) <- c("bucket_list", class(x))
   x
 }
@@ -19,4 +19,3 @@ as.bucket_list <- function(x){
 print.bucket_list <- function(x, ...){
   htmltools::html_print(x)
 }
-

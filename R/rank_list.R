@@ -77,6 +77,6 @@ rank_list <- function(
     rank_list_dependencies()
   )
 
-  as.rank_list(z)
+  as_rank_list(z)
 
 }
