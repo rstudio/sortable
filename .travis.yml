@@ -11,7 +11,7 @@ notifications:
 matrix:
   include:
 
-  - name: "Release"
+  - name: "Check release"
     r: release
     before_cache:
     - Rscript -e 'remotes::install_cran("covr")'
@@ -21,33 +21,25 @@ matrix:
     after_failure:
     - find . -name testthat.Rout | xargs cat
 
-  - name: "Old Release"
+  - name: "Check oldrelease"
     r: oldrel
 
-  - name: "Devel"
+  - name: "Check devel"
     r: devel
 
 
-  - stage: "Deploy"
+  - name: "Deploy tutorials"
     if: branch IN (master, travis) AND repo = rstudio/sortable
-    name: "Tutorials"
     r: release
     warnings_are_errors: false
-    before_cache:
-    - Rscript -e 'remotes::install_cran("rsconnect")'
-    - Rscript -e 'remotes::install_cran("here")'
-    - Rscript -e 'remotes::install_cran("glue")'
-    - Rscript -e 'remotes::install_cran("remotes")'
     script:
     - R -f scripts/deploy_tutorial.R
 
-  - name: "gh-pages"
+  - name: "Deploy gh-pages"
+    if: branch IN (master, travis) AND repo = rstudio/sortable
+    r: release
     before_cache:
     - Rscript -e 'remotes::install_cran("pkgdown")'
-    - Rscript -e 'remotes::install_cran("pkgbuild")'
-    script:
-    - Rscript -e "remotes::install_local()"
-    - Rscript -e "pkgbuild::build()"
     deploy:
       provider: script
       script: Rscript -e 'pkgdown::deploy_site_github()'

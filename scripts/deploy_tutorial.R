@@ -1,8 +1,10 @@
 # Deploy tutorial to ShinyApps.io
 
-library(rsconnect)
-library(glue)
-remotes::install_github("rstudio/sortable", dependencies = NA)
+
+remotes::install_cran("rsconnect")
+remotes::install_cran("glue")
+
+remotes::install_local(dependencies = NA)
 
 
 # Set the account info for deployment.
@@ -29,6 +31,5 @@ deploy_tutorial <- function(
     forceUpdate = TRUE
   )
 }
-
 
 deploy_tutorial("inst/tutorials/question_rank/")
