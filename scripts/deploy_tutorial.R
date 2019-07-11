@@ -18,7 +18,7 @@ rsconnect::setAccountInfo(
 
 deploy_tutorial <- function(
   app_dir,
-  doc = glue::glue("tutorial_{basename(app_dir)}.Rmd"),
+  doc = dir(app_dir, pattern = "\\.Rmd$")[1],
   name = glue::glue("sortable_tutorial_{basename(app_dir)}")
 ) {
   rsconnect::deployApp(
@@ -34,8 +34,10 @@ deploy_tutorial <- function(
 
 # deploy all leanr tutorials
 lapply(
-  list.dirs("inst/tutorials"),
+  dir("inst/tutorials", full.names = TRUE),
   function(path) {
-    deploy_tutorial(path)
+    if (dir.exists(path)) {
+      deploy_tutorial(path)
+    }
   }
 )

@@ -23,4 +23,4 @@
 
 ^inst/tutorials/.*/rsconnect/*
 ^inst/shiny-examples/.*/rsconnect/*
-
+^inst/tutorials/.*\\.html$
