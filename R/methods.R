@@ -19,4 +19,3 @@ as.bucket_list <- function(x){
 print.bucket_list <- function(x, ...){
   htmltools::html_print(x)
 }
-

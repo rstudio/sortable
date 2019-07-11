@@ -41,7 +41,7 @@ Use \link{bucket_list_tag} for finer control over the \link{sortable_js} objects
 \examples{
 ## Example of a shiny app
 if (interactive()) {
-  app <- system.file("shiny-examples/bucket_list_app.R", package = "sortable")
+  app <- system.file("shiny-examples/bucket_list/bucket_list_app.R", package = "sortable")
   shiny::runApp(app)
 }
 ## -- example-bucket-list ---------------------------------------------

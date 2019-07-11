@@ -5,5 +5,3 @@ rank_list(
   labels = c("one", "two", "three", "four", "five"),
   input_id = "example_2"
 )
-
-

@@ -102,6 +102,3 @@ sortable_options <- function(
   class(ret) <- "sortable_options"
   ret
 }
-
-
-

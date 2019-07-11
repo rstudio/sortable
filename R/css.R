@@ -31,7 +31,7 @@ css_rank_list <- function(){
 
 .rank-list-container {
   flex: 30%;
-  background-color: #ccc;
+  background-color: #ddd;
   padding: 10px;
   margin: 5px;
 }

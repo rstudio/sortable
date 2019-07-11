@@ -2,7 +2,9 @@
 ## Example shiny app to create a plot from sortable inputs
 
 library(shiny)
+library(htmlwidgets)
 library(sortable)
+library(magrittr)
 
 ui <- fluidPage(
   fluidRow(
@@ -123,7 +125,7 @@ server <- function(input, output) {
 
   x <- reactive({
     x <- input$sort_x
-    if (is.character(x)) trimws(x)
+    if (is.character(x)) x %>% trimws()
   })
 
   y <- reactive({

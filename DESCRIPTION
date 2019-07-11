@@ -1,7 +1,7 @@
 Package: sortable
 Type: Package
 Title: Create Drag-and-Drop Elements Using the JavaScript 'sortable.js' Library
-Version: 0.3.0.9002
+Version: 0.3.0.9003
 Date: 2019-07-03
 Authors@R: c(
     person("Andrie", "de Vries", role = c("cre", "aut"), email = "apdevries@gmail.com"),
@@ -30,7 +30,9 @@ Suggests:
     base64,
     knitr,
     testthat (>= 2.1.0),
-    withr
+    withr,
+    rmarkdown,
+    magrittr
 Remotes: 
     rstudio/learnr@andrie_docs
 VignetteBuilder: knitr

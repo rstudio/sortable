@@ -1,0 +1,38 @@
+---
+title: "Novel solutions using sortable in shiny apps"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Novel solutions using sortable in shiny apps}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+  ```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(sortable)
+```
+
+## Creating an app 
+
+This example demonstrates how to use custom sortable widgets with any shiny object.
+
+
+```{r, echo=FALSE}
+library(htmltools)
+tags$div(
+  class = "shiny-app-frame",
+  tags$iframe(
+    src = "https://andrie-de-vries.shinyapps.io/sortable_drag_vars_to_plot_app/",
+    width = 800,
+    height = 700
+  )
+)
+```
+
+
