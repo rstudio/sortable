@@ -104,4 +104,8 @@ sortable_options <- function(
 }
 
 
-
+default_sortable_options <- function() {
+  sortable_options(
+    animation = 150
+  )
+}
