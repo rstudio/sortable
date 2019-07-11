@@ -4,7 +4,8 @@
 remotes::install_cran("rsconnect")
 remotes::install_cran("glue")
 
-remotes::install_local(dependencies = NA)
+# must install from github for deploy to work
+remotes::install_github("rstudio/sortable", dependencies = NA)
 
 
 # Set the account info for deployment.
