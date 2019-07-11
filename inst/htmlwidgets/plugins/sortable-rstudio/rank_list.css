@@ -20,10 +20,6 @@
   margin: 5px;
 }
 
-.default-sortable .rank-list:empty {
-  padding-bottom: 30px;
-}
-
 .default-sortable .rank-list-item {
   border-radius: 3px;
   position: relative;

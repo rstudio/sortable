@@ -14,8 +14,3 @@
   flex-basis: 150px;
 }
 
-.default-sortable .rank-list {
-  /* overwrite bottom padding */
-  padding-bottom: 15px;
-}
-

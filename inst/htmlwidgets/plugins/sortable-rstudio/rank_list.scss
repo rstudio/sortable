@@ -21,12 +21,7 @@
     -webkit-border-radius: 3px;
     border-radius: 5px;
     background-color: $item-color;
-    padding-bottom: 5px;
     margin: 5px;
-
-    &:empty {
-      padding-bottom: 30px;
-    }
   }
 
   $border-radius: 3px;
