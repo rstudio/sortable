@@ -42,10 +42,12 @@ matrix:
     - R -f scripts/deploy_tutorial.R
 
   - name: "gh-pages"
-    r_binary_packages:
-    - pkgdown
+    before_cache:
+    - Rscript -e 'remotes::install_cran("pkgdown")'
+    - Rscript -e 'remotes::install_cran("pkgbuild")'
     script:
     - Rscript -e "remotes::install_local()"
+    - Rscript -e "pkgbuild::build()"
     deploy:
       provider: script
       script: Rscript -e 'pkgdown::deploy_site_github()'
