@@ -55,10 +55,19 @@ rank_list <- function(
   assert_that(is_sortable_options(options))
   assert_that(is_input_id(input_id))
 
+  title_tag <- if (!is.null(text) && nchar(text) > 0) {
+    tags$p(
+      class = "rank-list-title",
+      text
+    )
+  } else {
+    NULL
+  }
+
   z <- tagList(
     tags$div(
       class = paste("rank-list-container", paste(class, collapse = " ")),
-      tags$p(text),
+      title_tag,
       tags$div(
         class = "rank-list",
         id = selector,
