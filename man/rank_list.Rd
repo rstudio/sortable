@@ -54,8 +54,6 @@ rank_list(
   labels = c("one", "two", "three", "four", "five"),
   input_id = "example_2"
 )
-
-
 }
 \seealso{
 \link{sortable_js}, \link{bucket_list} and \link{question_rank}
