@@ -54,7 +54,6 @@ if (require(htmltools)) {
     )
   )
 }
-
 }
 \seealso{
 \code{\link[=sortable_options]{sortable_options()}}

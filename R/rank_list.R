@@ -24,8 +24,7 @@
 #'   app. If NULL, the function generates a selector of the form
 #'   `rank_list_id_1`, and will automatically increment for every
 #'   `rank_list`.
-#' @param additional_class Additional css class name to use. This gets appended to the `rank-list` class, and is used by the [bucket_list()] function.
-#' @param class A css class applied to the rank list.  This can be used to define custom styling
+#' @param class A css class applied to the rank list.  This can be used to define custom styling.
 #' @template options
 #'
 #' @seealso [sortable_js], [bucket_list] and [question_rank]

@@ -21,9 +21,7 @@ app. If NULL, the function generates a selector of the form
 
 \item{options}{Options to be supplied to \link{sortable_js} object. See \link{sortable_options} for more details}
 
-\item{class}{A css class applied to the rank list.  This can be used to define custom styling}
-
-\item{additional_class}{Additional css class name to use. This gets appended to the \code{rank-list} class, and is used by the \code{\link[=bucket_list]{bucket_list()}} function.}
+\item{class}{A css class applied to the rank list.  This can be used to define custom styling.}
 }
 \description{
 Creates a ranking item list using the \code{sortable.js} framework, and generates
@@ -53,8 +51,6 @@ rank_list(
   labels = c("one", "two", "three", "four", "five"),
   input_id = "example_2"
 )
-
-
 }
 \seealso{
 \link{sortable_js}, \link{bucket_list} and \link{question_rank}

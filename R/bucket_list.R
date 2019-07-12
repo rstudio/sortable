@@ -37,6 +37,7 @@ is.add_rank_list <- function(x)inherits(x, "add_rank_list")
 #'   encoded as an HTML `<p>` tag, so not strictly speaking a header.)
 #' @param ... One or more specifications for a rank list, and must be
 #'   defined by [add_rank_list].
+#' @param class A css class applied to the bucket list and rank lists.  This can be used to define custom styling.
 #'
 #' @param group_name Passed to `sortable.js` as the group name
 #' @param group_put_max Not yet implemented
@@ -87,10 +88,17 @@ bucket_list <- function(
   # construct list rank_list objects
   sortables <- lapply(seq_along(mod), function(i) do.call(rank_list, mod[[i]]) )
 
+  title_tag <-
+    if (!is.null(header)) {
+      tags$p(header)
+    } else {
+      NULL
+    }
+
   z <- tagList(
     tags$div(
       class = paste("bucket-list-container", class),
-      if(!is.null(header))tags$p(header) else NULL,
+      title_tag,
       tags$div(
         class = paste(class, "bucket-list"),
         sortables
