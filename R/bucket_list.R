@@ -28,6 +28,7 @@ is.add_rank_list <- function(x)inherits(x, "add_rank_list")
 #' A bucket list can contain more than one [rank_list] and allows
 #' drag-and-drop of items between the different lists.
 #'
+#' Use [bucket_list_tag] for finer control over the [sortable_js] objects being used.
 #'
 #' @inheritParams rank_list
 #'
@@ -39,9 +40,11 @@ is.add_rank_list <- function(x)inherits(x, "add_rank_list")
 #'   defined by [add_rank_list].
 #'
 #' @param group_name Passed to `sortable.js` as the group name
-#' @param group_put_max Not yet implemented
+# ' @param group_put_max Not yet implemented
+#' @param sortables A list of [sortable_js] objects
 #'
 #' @export
+#' @rdname bucket_list
 #' @example inst/examples/example_bucket_list.R
 #' @examples
 #' ## Example of a shiny app
@@ -53,7 +56,7 @@ bucket_list <- function(
   header = NULL,
   ...,
   group_name,
-  group_put_max = rep(Inf, length(labels)),
+  # group_put_max = rep(Inf, length(labels)),
   selector = NULL,
   options = sortable_options(),
   style = css_bucket_list()
@@ -87,18 +90,30 @@ bucket_list <- function(
   # construct list rank_list objects
   sortables <- lapply(seq_along(mod), function(i) do.call(rank_list, mod[[i]]) )
 
-  z <- tagList(
+  bucket_list_tag(
+    header = header,
+    sortables = sortables,
+    style = style
+  )
+}
+
+
+#' @export
+#' @rdname bucket_list
+bucket_list_tag <- function(
+  header = NULL,
+  sortables = list(),
+  style = css_bucket_list()
+) {
+  ret <- tags$div(
+    class = "bucket-list",
+    if(!is.null(header))tags$p(header) else NULL,
+    tags$style(htmltools::HTML(style)),
     tags$div(
-      class = "bucket-list",
-      if (!is.null(header))tags$p(header) else NULL,
-      tags$style(htmltools::HTML(style)),
-      tags$div(
-        class = "bucket-list-container",
-        sortables
-      )
+      class = "bucket-list-container",
+      sortables
     )
   )
 
-
-  as.bucket_list(z)
+  as.bucket_list(ret)
 }
