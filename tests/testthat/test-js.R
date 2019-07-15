@@ -21,7 +21,25 @@ test_that( "js events can be chained ", {
 
   expect_equal(
     js,
-    htmlwidgets::JS("function() {\n  var self = this;\n  (function(a) { a  + 1 }).apply(self, arguments);\n  (function(b) { b  + 3 }).apply(self, arguments);\n  (function(c) { c  + 5 }).apply(self, arguments);\n}") # nolint
+    htmlwidgets::JS("function() {
+  try {
+    (function(a) { a  + 1 }).apply(this, arguments);
+  } catch(e) {
+    console.error(e);
+  }
+
+  try {
+    (function(b) { b  + 3 }).apply(this, arguments);
+  } catch(e) {
+    console.error(e);
+  }
+
+  try {
+    (function(c) { c  + 5 }).apply(this, arguments);
+  } catch(e) {
+    console.error(e);
+  }
+}")
   )
 
 })

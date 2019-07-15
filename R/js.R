@@ -37,18 +37,28 @@ chain_js_events <- function(...) {
   fns <- fns[!vapply(fns, is.null, logical(1))]
   fns <- lapply(fns, as.character)
 
-  js_text <- paste0(
+  js_text <- collapse(
     # do not provide arguments to avoid confusion
-    "function() {\n",
-    "  var self = this;\n",
+    "function() {",
     # call fns with all arguments supplied to outer func
     # some event methods have more than one argument (most have 1).
-    # paste0(rep("  Array.prototype.map.call(arguments, (%s));\n", length(fns)), collapse = ""),
-    paste0(rep("  (%s).apply(self, arguments);\n", length(fns)), collapse = ""),
+    collapse(
+      "  try {",
+      rep("    (%s).apply(this, arguments);", length(fns)),
+      "  } catch(e) {",
+      "    console.error(e);",
+      "  }",
+      collapse = "\n\n"
+    ),
     "}"
   )
 
   js <- do.call(sprintf, c(js_text, fns))
 
   htmlwidgets::JS(js)
+}
+
+
+collapse <- function(..., sep = "\n", collapse = "\n") {
+  paste(..., sep = sep, collapse = collapse)
 }
