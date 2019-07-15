@@ -56,8 +56,8 @@ rank_list <- function(
   assert_that(is_sortable_options(options))
   assert_that(is_input_id(input_id))
 
-  options$onSort <- chain_js_events(
-    options$onSort,
+  options$onSort <- chain_js_events( # nolint
+    options$onSort, # nolint
     sortable_js_capture_input(input_id)
   )
 
