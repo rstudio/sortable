@@ -2,7 +2,8 @@ css_dependency <- function(name, files) {
   htmltools::htmlDependency(
     name,
     utils::packageVersion("sortable"),
-    system.file("htmlwidgets/plugins/sortable-rstudio", package = "sortable"),
+    "htmlwidgets/plugins/sortable-rstudio",
+    package = "sortable",
     stylesheet = files
   )
 }
