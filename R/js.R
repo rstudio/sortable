@@ -37,6 +37,10 @@ chain_js_events <- function(...) {
   fns <- fns[!vapply(fns, is.null, logical(1))]
   fns <- lapply(fns, as.character)
 
+  if (length(fns) == 1) {
+    return(htmlwidgets::JS(fns[[1]]))
+  }
+
   js_text <- collapse(
     # do not provide arguments to avoid confusion
     "function() {",
@@ -46,7 +50,7 @@ chain_js_events <- function(...) {
       "  try {",
       rep("    (%s).apply(this, arguments);", length(fns)),
       "  } catch(e) {",
-      "    console.error(e);",
+      "    if (window.console && window.console.error) window.console.error(e);",
       "  }",
       collapse = "\n\n"
     ),

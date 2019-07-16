@@ -25,21 +25,31 @@ test_that( "js events can be chained ", {
   try {
     (function(a) { a  + 1 }).apply(this, arguments);
   } catch(e) {
-    console.error(e);
+    if (window.console && window.console.error) window.console.error(e);
   }
 
   try {
     (function(b) { b  + 3 }).apply(this, arguments);
   } catch(e) {
-    console.error(e);
+    if (window.console && window.console.error) window.console.error(e);
   }
 
   try {
     (function(c) { c  + 5 }).apply(this, arguments);
   } catch(e) {
-    console.error(e);
+    if (window.console && window.console.error) window.console.error(e);
   }
 }")
+  )
+
+
+  js <- chain_js_events(
+    NULL,
+    fns$a,
+    NULL
+  )
+  expect_equal(
+    js, fns$a
   )
 
 })
