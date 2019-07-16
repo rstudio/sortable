@@ -54,6 +54,7 @@ is_sortable_options <- function(x) {
 #' @param onRemove JS function called when an element is removed from the list into another list
 #' @param onFilter JS function called when an attempt is made to drag a filtered element
 #' @param onMove JS function called when an item is moved in a list or between lists
+#' @param onLoad JS function dispatched on the "next tick" after SortableJS has initialized
 # ' @param onClone JS function that is called when creating a clone of an element
 # ' @param onChange JS function that is called when a dragging element changes position
 #' @param ... other params passed onto Sortable.js
@@ -83,6 +84,7 @@ sortable_options <- function(
   onRemove = NULL,
   onFilter = NULL,
   onMove = NULL,
+  onLoad = NULL,
   # nolint end
   ...
 ) {

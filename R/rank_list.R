@@ -60,6 +60,10 @@ rank_list <- function(
     options$onSort, # nolint
     sortable_js_capture_input(input_id)
   )
+  options$onLoad <- chain_js_events( # nolint
+    options$onLoad, # nolint
+    sortable_js_capture_input(input_id)
+  )
 
   z <- tagList(
     tags$div(
