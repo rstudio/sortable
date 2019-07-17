@@ -13,37 +13,3 @@ rsconnect::setAccountInfo(
 
 # deploy all apps
 source("scrtips/deploy_apps.R")
-
-
-# must install from github for deploy to work
-remotes::install_github("rstudio/sortable", dependencies = NA)
-
-
-
-# Deploy the application.
-
-deploy_tutorial <- function(
-  app_dir,
-  doc = dir(app_dir, pattern = "\\.Rmd$")[1],
-  name = glue::glue("sortable_tutorial_{basename(app_dir)}")
-) {
-  rsconnect::deployApp(
-    appDir = app_dir,
-    appPrimaryDoc = doc,
-    appName = name,
-    server = "shinyapps.io",
-    account = "andrie-de-vries",
-    forceUpdate = TRUE
-  )
-}
-
-
-# deploy all leanr tutorials
-lapply(
-  dir("inst/tutorials", full.names = TRUE),
-  function(path) {
-    if (dir.exists(path)) {
-      deploy_tutorial(path)
-    }
-  }
-)
