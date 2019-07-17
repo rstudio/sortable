@@ -1,8 +1,7 @@
-# Deploy tutorial to ShinyApps.io
 
 
+if (!requireNamespace("remotes")) install.packages("remotes")
 remotes::install_cran("rsconnect")
-remotes::install_cran("glue")
 
 # Set the account info for deployment.
 rsconnect::setAccountInfo(

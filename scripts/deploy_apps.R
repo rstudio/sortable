@@ -1,4 +1,14 @@
-devtools::install_github("rstudio/sortable", upgrade = "always")
+
+if (!requireNamespace("remotes")) install.packages("remotes")
+
+# install rsconnect and glue
+remotes::install_cran("rsconnect")
+remotes::install_cran("glue")
+
+# install the latest
+remotes::install_github("rstudio/sortable", upgrade = "always")
+
+
 
 deploy_app <- function(
   app_dir,
