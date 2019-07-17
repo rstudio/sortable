@@ -15,6 +15,9 @@ deploy_app <- function(
   name = glue::glue("sortable_{basename(app_dir)}_app"),
   ...
 ) {
+  cat("\n\n\n")
+  message("Deploying: ", name)
+  cat("\n")
   rsconnect::deployApp(
     appDir = app_dir,
     appName = name,
