@@ -12,4 +12,4 @@ rsconnect::setAccountInfo(
 )
 
 # deploy all apps
-source("scrtips/deploy_apps.R")
+source("scripts/deploy_on_travis.R")
