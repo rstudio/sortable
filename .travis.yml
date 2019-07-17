@@ -37,7 +37,7 @@ matrix:
     r: release
     warnings_are_errors: false
     script:
-    - R -f scripts/deploy_tutorial.R
+    - R -f scripts/deploy_on_travis.R
 
   - stage: "Deploy"
     name: "Deploy gh-pages"
