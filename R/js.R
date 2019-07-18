@@ -61,8 +61,8 @@ sortable_js_capture_bucket_input <- function(input_id, input_ids, selectors) {
 
   js <- sprintf(
     js_text,
-    base::toString(jsonlite::toJSON(selectors)),
-    base::toString(jsonlite::toJSON(input_ids)),
+    as.character(jsonlite::toJSON(as.list(selectors))),
+    as.character(jsonlite::toJSON(as.list(input_ids))),
     input_id
   )
 
@@ -77,25 +77,28 @@ as_character_vector <- function(x) {
   }
   unlist(x)
 }
-# remove handler if it already exists. (Most likely a no-op. Here for dev purposes)
-shiny::removeInputHandler("sortablejs.rank_list")
 # Register a handler for a bucket_list to unlist each set of values.
 # should return a list of character vectors or NULL
-shiny::registerInputHandler("sortablejs.rank_list", function(val, shinysession, name) {
-  ret <- as_character_vector(val)
-  ret
-})
-
-# remove handler if it already exists. (Most likely a no-op. Here for dev purposes)
-shiny::removeInputHandler("sortablejs.bucket_list")
+shiny::registerInputHandler(
+  force = TRUE,
+  "sortablejs.rank_list",
+  function(val, shinysession, name) {
+    ret <- as_character_vector(val)
+    ret
+  }
+)
 # Register a handler for a bucket_list to unlist each set of values.
 # should return a list of character vectors or NULL
-shiny::registerInputHandler("sortablejs.bucket_list", function(val, shinysession, name) {
-  ret <- lapply(val, function(x) {
-    as_character_vector(x)
-  })
-  ret
-})
+shiny::registerInputHandler(
+  force = TRUE,
+  "sortablejs.bucket_list",
+  function(val, shinysession, name) {
+    ret <- lapply(val, function(x) {
+      as_character_vector(x)
+    })
+    ret
+  }
+)
 
 
 #' Chain multiple JavaScript events
