@@ -9,14 +9,13 @@ All script should be run from the root directory, such as `source("scripts/compi
 * `compile_css.R`
   * Compiles all Sass code into css
 
-* `deploy_shiny_apps.R`
+* `deploy_apps.R`
   * Deploys all shiny application examples to shinyapps.io
-  * Called within Travis-CI.
+  * Deploys all learnr tutorials to shinyapps.io
 
-* `deploy_tutorial.R`
-  * Deploys all `learnr` tutorials to shinyapps.io
+* `deploy_apps.R`
+  * Calls `deploy_apps.R`
   * Called within Travis-CI.
-
 
 * `download_sortablejs.R`
   * Downloads a `sortable.js` file and updates the appropriate versions
