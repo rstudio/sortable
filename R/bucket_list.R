@@ -20,7 +20,7 @@ add_rank_list <- function(text, labels, input_id, ...) {
   z
 }
 
-is.add_rank_list <- function(x)inherits(x, "add_rank_list")
+is_add_rank_list <- function(x)inherits(x, "add_rank_list")
 
 
 #' Create a bucket list.
@@ -38,7 +38,7 @@ is.add_rank_list <- function(x)inherits(x, "add_rank_list")
 #' @param ... One or more specifications for a rank list, and must be
 #'   defined by [add_rank_list].
 #'
-#' @param group_name Passed to `sortable.js` as the group name
+#' @param group_name Passed to `SortableJS` as the group name. Also the input value set in Shiny. (`input[[group_name]]`)
 #' @param group_put_max Not yet implemented
 #'
 #' @export
@@ -54,28 +54,30 @@ bucket_list <- function(
   ...,
   group_name,
   group_put_max = rep(Inf, length(labels)),
-  selector = NULL,
   options = sortable_options(),
   style = css_bucket_list()
 ) {
 
-  # capture the dots
-  dots <- list(...)
   # assert_that(is_header(header))
 
-  for (dot in dots) {
-    assert_that(is.add_rank_list(dot))
-  }
   assert_that(is_sortable_options(options))
   if (missing(group_name) || is.null(group_name)) {
     group_name <- increment_bucket_group()
   }
 
 
+  # capture the dots
+  dot_vals <- list(...)
   # modify the dots by adding the group_name to the sortable options
-  mod <- lapply(seq_along(dots), function(i){
+  dots <- lapply(seq_along(dot_vals), function(i) {
+    dot <- dot_vals[[i]]
+    assert_that(is_add_rank_list(dot))
+
+    if (is.null(dot$selector)) {
+      dot$selector <- increment_rank_list()
+    }
     modifyList(
-      dots[[i]],
+      dot,
       val = list(
         options = sortable_options(group = group_name),
         style = "",
@@ -84,8 +86,20 @@ bucket_list <- function(
     )
   })
 
+  selectors <- vapply(dots, function(dot) dot$selector, character(1))
+  input_ids <- vapply(dots, function(dot) dot$input_id, character(1))
+
+  set_bucket <- sortable_js_capture_bucket_input(group_name, input_ids, selectors)
+
+  dots <- lapply(dots, function(dot) {
+    opts <- dot$options
+    dot$options$onLoad <- chain_js_events(set_bucket, dot$options$onLoad)
+    dot$options$onSort <- chain_js_events(set_bucket, dot$options$onSort)
+    dot
+  })
+
   # construct list rank_list objects
-  sortables <- lapply(seq_along(mod), function(i) do.call(rank_list, mod[[i]]) )
+  sortables <- lapply(dots, function(dot) do.call(rank_list, dot) )
 
   z <- tagList(
     tags$div(
