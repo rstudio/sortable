@@ -12,9 +12,9 @@ Authors@R: c(
         comment = "'Sortable.js' library,
         http://sortablejs.github.io/Sortable/")
     )
-Description: Add drag-and-drop behavior to Shiny Apps and gadgets.  
-    Add ranking, sorting and bucketing question types to `learnr` tutorials. 
-    The package creates an 'htmlwidget' by wrapping the 'sortable.js' 
+Description: Add drag-and-drop behavior to Shiny Apps and gadgets.
+    Add ranking, sorting and bucketing question types to `learnr` tutorials.
+    The package creates an 'htmlwidget' by wrapping the 'sortable.js'
     JavaScript library.
 URL: https://github.com/rstudio/sortable
 BugReports: https://github.com/rstudio/sortable/issues
@@ -34,8 +34,8 @@ Suggests:
     withr,
     rmarkdown,
     magrittr
-Remotes: 
-    rstudio/learnr@andrie_docs
+Remotes:
+    rstudio/learnr@docs
 VignetteBuilder: knitr
 RoxygenNote: 6.1.1
 Roxygen: list(markdown = TRUE)
