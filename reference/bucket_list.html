@@ -153,7 +153,7 @@ drag-and-drop of items between the different lists.</p>
 
     <pre class="usage"><span class='fu'>bucket_list</span>(<span class='kw'>header</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>, <span class='no'>group_name</span>, <span class='kw'>group_put_max</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/rep'>rep</a></span>(<span class='fl'>Inf</span>,
   <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/length'>length</a></span>(<span class='no'>labels</span>)), <span class='kw'>selector</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>options</span> <span class='kw'>=</span> <span class='fu'><a href='sortable_options.html'>sortable_options</a></span>(),
-  <span class='kw'>style</span> <span class='kw'>=</span> <span class='fu'><a href='css.html'>css_bucket_list</a></span>())</pre>
+  <span class='kw'>class</span> <span class='kw'>=</span> <span class='st'>"default-sortable"</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -188,8 +188,8 @@ app. If NULL, the function generates a selector of the form
       <td><p>Options to be supplied to <a href='sortable_js.html'>sortable_js</a> object. See <a href='sortable_options.html'>sortable_options</a> for more details</p></td>
     </tr>
     <tr>
-      <th>style</th>
-      <td><p>A css stylesheet, provided as a character string.  See also <code><a href='css.html'>css_rank_list()</a></code>.</p></td>
+      <th>class</th>
+      <td><p>A css class applied to the bucket list and rank lists.  This can be used to define custom styling.</p></td>
     </tr>
     </table>
     
