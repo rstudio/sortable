@@ -8,7 +8,10 @@
 #' @param ... Other arguments passed to `rank_list`
 #'
 #' @export
-add_rank_list <- function(text, labels, input_id, ...) {
+add_rank_list <- function(text, labels = NULL, input_id = NULL, ...) {
+  if (is.null(input_id)) {
+    input_id <- increment_rank_list_input_id()
+  }
   z <- list(
     text = text,
     labels = labels,
@@ -20,7 +23,9 @@ add_rank_list <- function(text, labels, input_id, ...) {
   z
 }
 
-is_add_rank_list <- function(x)inherits(x, "add_rank_list")
+is_add_rank_list <- function(x) {
+  inherits(x, "add_rank_list")
+}
 
 
 #' Create a bucket list.
@@ -92,9 +97,8 @@ bucket_list <- function(
   set_bucket <- sortable_js_capture_bucket_input(group_name, input_ids, selectors)
 
   dots <- lapply(dots, function(dot) {
-    opts <- dot$options
-    dot$options$onLoad <- chain_js_events(set_bucket, dot$options$onLoad)
-    dot$options$onSort <- chain_js_events(set_bucket, dot$options$onSort)
+    dot$options$onLoad <- chain_js_events(set_bucket, dot$options$onLoad) # nolint
+    dot$options$onSort <- chain_js_events(set_bucket, dot$options$onSort) # nolint
     dot
   })
 

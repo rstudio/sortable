@@ -4,7 +4,6 @@
 #' with the `onSort` option of `sortable_js`. See [sortable_options()].
 #'
 #' @param input_id Shiny input name to set
-#' @param selectors Set of SortableJS selector values to help retrieve all to set as an object
 #'
 #' @seealso [sortable_js] and [rank_list].
 #'
@@ -29,6 +28,8 @@ sortable_js_capture_input <- function(input_id) {
 
 
 #' @rdname sortable_js_capture_input
+#' @param input_ids Set of Shiny input ids to set corresponding to the provided `selectors`
+#' @param selectors Set of SortableJS selector values to help retrieve all to set as an object
 #' @export
 sortable_js_capture_bucket_input <- function(input_id, input_ids, selectors) {
   assert_that(length(input_ids) > 0)

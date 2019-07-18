@@ -12,6 +12,8 @@ sortable_js_capture_bucket_input(input_id, input_ids, selectors)
 \arguments{
 \item{input_id}{Shiny input name to set}
 
+\item{input_ids}{Set of Shiny input ids to set corresponding to the provided \code{selectors}}
+
 \item{selectors}{Set of SortableJS selector values to help retrieve all to set as an object}
 }
 \description{
