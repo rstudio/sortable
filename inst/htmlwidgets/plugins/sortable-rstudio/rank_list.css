@@ -1,5 +1,5 @@
 .default-sortable.rank-list-container {
-  flex: 30% 0 auto;
+  flex: 1 0 150px;
   background-color: transparent;
   border: 1px solid #ddd;
   padding: 10px;
