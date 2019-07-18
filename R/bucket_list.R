@@ -8,11 +8,11 @@
 #' @param ... Other arguments passed to `rank_list`
 #'
 #' @export
-add_rank_list <- function(text, labels = NULL,  input_id, ...){
+add_rank_list <- function(text, labels, input_id, ...) {
   z <- list(
     text = text,
     labels = labels,
-    input_id,
+    input_id = input_id,
     ...
   )
   # assert_that(is_input_id(input_id))
