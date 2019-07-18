@@ -29,10 +29,13 @@ test_that( "selector and options passed as expected", {
     )$x,
     list(
       selector = "an_id",
-      options = sortable_options(
-        group = "name",
-        sort = FALSE,
-        disabled = FALSE
+      options = modifyList(
+        default_sortable_options(),
+        sortable_options(
+          group = "name",
+          sort = FALSE,
+          disabled = FALSE
+        )
       )
     )
   )

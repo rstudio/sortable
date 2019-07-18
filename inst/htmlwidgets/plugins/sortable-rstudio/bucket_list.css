@@ -1,0 +1,16 @@
+.default-sortable.bucket-list-container {
+  background-color: transparent;
+  padding: 10px;
+  margin: 5px;
+}
+
+.default-sortable .bucket-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.default-sortable .bucket-list .rank-list-container {
+  flex-basis: 150px;
+}
+

@@ -1,0 +1,76 @@
+@import "colors";
+
+.default-sortable {
+
+  &.rank-list-container {
+    flex: 30% 0 auto;
+    background-color: $rank-background-color;
+    border: 1px solid $border-color;
+    padding: 10px;
+    margin: 5px;
+    display: flex;
+    flex-flow: column nowrap;
+  }
+
+  .rank-list-title {
+    flex: 0 0 auto;
+  }
+
+  .rank-list {
+    flex: 1 0 auto;
+    -webkit-border-radius: 3px;
+    border-radius: 5px;
+    background-color: $item-color;
+    margin: 5px;
+  }
+
+  $border-radius: 3px;
+  .rank-list-item {
+    border-radius: $border-radius;
+    // position: relative;
+    display: block;
+    padding: 10px 15px;
+    background-color: #f5f5f5;
+    border: 1px solid $border-color;
+    overflow: hidden;
+    width: 100%;
+
+
+    &:hover {
+      background-color: $item-hover-color;
+      cursor: grab;
+    }
+
+    // Class name for the drop placeholder
+    &.sortable-ghost {
+      color: transparent;
+      &:hover {
+        cursor: grabbing;
+      }
+    }
+    // Class name for the chosen item
+    &.sortable-chosen {
+      color: white;
+      background-color: $item-dragging-color;
+      border: 1px solid darken($item-dragging-color, 10%);
+      &:hover {
+        cursor: grabbing;
+      }
+    }
+    &.sortable-ghost.sortable-chosen {
+      color: transparent;
+      &:hover {
+        cursor: grabbing;
+      }
+    }
+    // Class name for the dragging item
+    &.sortable-drag {
+      color: white;
+      background-color: $item-dragging-color;
+      border: 1px solid darken($item-dragging-color, 10%);
+      &:hover {
+        cursor: grabbing;
+      }
+    }
+  }
+}

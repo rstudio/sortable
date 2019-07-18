@@ -28,7 +28,11 @@ sortable_js <- function(
   # forward options using x
   x <- list(
     selector = selector,
-    options = options
+    options = modifyList(
+      # set default options to be overwritten by supplied options
+      default_sortable_options(),
+      options
+    )
   )
 
   # create widget

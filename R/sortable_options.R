@@ -102,3 +102,10 @@ sortable_options <- function(
   class(ret) <- "sortable_options"
   ret
 }
+
+
+default_sortable_options <- function() {
+  sortable_options(
+    animation = 150
+  )
+}

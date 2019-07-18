@@ -37,6 +37,7 @@ is.add_rank_list <- function(x)inherits(x, "add_rank_list")
 #'   encoded as an HTML `<p>` tag, so not strictly speaking a header.)
 #' @param ... One or more specifications for a rank list, and must be
 #'   defined by [add_rank_list].
+#' @param class A css class applied to the bucket list and rank lists.  This can be used to define custom styling.
 #'
 #' @param group_name Passed to `sortable.js` as the group name
 #' @param group_put_max Not yet implemented
@@ -56,7 +57,7 @@ bucket_list <- function(
   group_put_max = rep(Inf, length(labels)),
   selector = NULL,
   options = sortable_options(),
-  style = css_bucket_list()
+  class = "default-sortable"
 ) {
 
   # capture the dots
@@ -71,6 +72,7 @@ bucket_list <- function(
     group_name <- increment_bucket_group()
   }
 
+  class <- paste(class, collapse = " ")
 
   # modify the dots by adding the group_name to the sortable options
   mod <- lapply(seq_along(dots), function(i){
@@ -78,8 +80,7 @@ bucket_list <- function(
       dots[[i]],
       val = list(
         options = sortable_options(group = group_name),
-        style = "",
-        additional_class = paste0("column_", i)
+        class = paste(class, paste0("column_", i))
       )
     )
   })
@@ -87,18 +88,25 @@ bucket_list <- function(
   # construct list rank_list objects
   sortables <- lapply(seq_along(mod), function(i) do.call(rank_list, mod[[i]]) )
 
+  title_tag <-
+    if (!is.null(header)) {
+      tags$p(header)
+    } else {
+      NULL
+    }
+
   z <- tagList(
     tags$div(
-      class = "bucket-list",
-      if (!is.null(header))tags$p(header) else NULL,
-      tags$style(htmltools::HTML(style)),
+      class = paste("bucket-list-container", class),
+      title_tag,
       tags$div(
-        class = "bucket-list-container",
+        class = paste(class, "bucket-list"),
         sortables
       )
-    )
+    ),
+    bucket_list_dependencies()
   )
 
 
-  as.bucket_list(z)
+  as_bucket_list(z)
 }
