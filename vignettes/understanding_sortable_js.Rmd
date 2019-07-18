@@ -1,10 +1,10 @@
 ---
-title: "Understanding the interface to sortable.js"
+title: "Understanding the interface to SortableJS"
 author: "Andrie de Vries and Kenton Russell"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Understanding the interface to sortable.js}
+  %\VignetteIndexEntry{Understanding the interface to SortableJS}
   %\VignetteEngine{knitr::rmarkdown}
   %\usepackage[utf8]{inputenc}
 ---
@@ -22,7 +22,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-With `sortable` [`htmlwidget`](https://htmlwidgets.org) you can use powerful, dependency-free interactivity from [`Sortable.js`](https://sortablejs.github.io/Sortable/) in the browser, RStudio Viewer, or RStudio Shiny.
+With `sortable` [`htmlwidget`](https://htmlwidgets.org) you can use powerful, dependency-free interactivity from [`SortableJS`](https://sortablejs.github.io/Sortable/) in the browser, RStudio Viewer, or RStudio Shiny.
 
 ```{r}
 library(sortable)
@@ -30,7 +30,7 @@ library(sortable)
 
 ## The central idea
 
-The key idea to understand about `sortable`, and `sortable.js` in particular, is that the JavaScript will manipulate an HTML object based on it's CSS `id`.
+The key idea to understand about `sortable`, and `SortableJS` in particular, is that the JavaScript will manipulate an HTML object based on it's CSS `id`.
 
 Using `sortable` in markdown is a little tricky since markdown does not provide an easy way to provide an `id` that we'll need.  We can overcome this by using bare `HTML` or using `htmltools::tags`.  Let's make a simple `ul` list.  Note, however, that `sortable` works with nearly any `HTML` element, such as `div`.
 
@@ -79,7 +79,7 @@ sortable_js(selector = "example01")
 
 You can use the functions `tags()` and `tagList()`, both from the `htmltools` package, to create HTML.
 
-This means you can construct the 
+This means you can construct the
 
 ```{r}
 library(htmltools)
@@ -97,7 +97,7 @@ tagList(
 
 ### Little Harder but Better Example
 
-The `sortable.js` functionality works with any HTML object, not just lists.
+The `SortableJS` functionality works with any HTML object, not just lists.
 
 In this next example, you can see how to drag and drop images (`<img>`).  To embed the plots on the page, you can use the `base64::img()` function to encode the png images into a format that HTML understands.
 
@@ -135,7 +135,7 @@ tagList(
 
 ## The power of groups
 
-Looking at the [`Sortable.js`](https://github.com/SortableJS/Sortable#options) excites me about the potential to use `sortable` as an important UI element in both a Shiny and non-Shiny context.  We could potentially demo a plot builder with something like this example.  You'll notice that it doesn't really do anything, but I hope the intent and direction is clear.
+Looking at the [`SortableJS`](https://github.com/SortableJS/Sortable#options) excites me about the potential to use `sortable` as an important UI element in both a Shiny and non-Shiny context.  We could potentially demo a plot builder with something like this example.  You'll notice that it doesn't really do anything, but I hope the intent and direction is clear.
 
 
 

@@ -2,15 +2,20 @@
 % Please edit documentation in R/js.R
 \name{sortable_js_capture_input}
 \alias{sortable_js_capture_input}
+\alias{sortable_js_capture_bucket_input}
 \title{Construct JavaScript method to capture Shiny inputs on change.}
 \usage{
 sortable_js_capture_input(input_id)
+
+sortable_js_capture_bucket_input(input_id, input_ids, selectors)
 }
 \arguments{
-\item{input_id}{The output id.}
+\item{input_id}{Shiny input name to set}
+
+\item{selectors}{Set of SortableJS selector values to help retrieve all to set as an object}
 }
 \description{
-This captures the inputs of a \code{sortable} list.  Typically you would use this
+This captures the state of a \code{sortable} list.  Typically you would use this
 with the \code{onSort} option of \code{sortable_js}. See \code{\link[=sortable_options]{sortable_options()}}.
 }
 \examples{

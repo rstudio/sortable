@@ -1,7 +1,7 @@
 #' Create a ranking item list.
 #'
 #' @description
-#' Creates a ranking item list using the `sortable.js` framework, and generates
+#' Creates a ranking item list using the `SortableJS` framework, and generates
 #' an `htmlwidgets` element.  The elements of this list can be dragged and
 #' dropped in any order.
 #'

@@ -5,17 +5,17 @@
 \alias{sortable}
 \alias{_PACKAGE}
 \alias{sortable-package}
-\title{sortable: Create Drag-and-Drop Elements Using the JavaScript 'sortable.js' Library}
+\title{sortable: Create Drag-and-Drop Elements Using the JavaScript 'SortableJS' Library}
 \description{
-Add drag-and-drop behavior to Shiny Apps and gadgets.  
-    Add ranking, sorting and bucketing question types to `learnr` tutorials. 
-    The package creates an 'htmlwidget' by wrapping the 'sortable.js' 
+Add drag-and-drop behavior to Shiny Apps and gadgets.
+    Add ranking, sorting and bucketing question types to `learnr` tutorials.
+    The package creates an 'htmlwidget' by wrapping the 'SortableJS'
     JavaScript library.
 }
 \section{A new html widget}{
 
 \itemize{
-\item \code{\link[=sortable_js]{sortable_js()}} is a low-level function that adds the \code{sortable.js} to your widgets.
+\item \code{\link[=sortable_js]{sortable_js()}} is a low-level function that adds the \code{SortableJS} to your widgets.
 }
 }
 
@@ -57,7 +57,7 @@ Authors:
 
 Other contributors:
 \itemize{
-  \item Lebedev Konstantin ('Sortable.js' library,
+  \item Lebedev Konstantin ('SortableJS' library,
         http://sortablejs.github.io/Sortable/) [copyright holder]
 }
 

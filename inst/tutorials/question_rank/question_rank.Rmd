@@ -23,7 +23,7 @@ The `sortable` package allows you to create custom HTML widgets with drag-and-dr
 ```{r insects-demo, echo=FALSE}
 # Define the answer options
 insects <- c(
-    "ant", 
+    "ant",
     "bumble bea",
     "cricket",
     "dragonfly"
@@ -33,7 +33,7 @@ insects <- c(
 question_rank(
   "Sort these insects in alpabetical order:",
   answer(insects, correct = TRUE),
-  answer(rev(insects), correct = FALSE, 
+  answer(rev(insects), correct = FALSE,
          message = "You sorted in reverse order!"
          ),
   allow_retry = TRUE
@@ -50,7 +50,7 @@ You must provide at least one correct answer, using the `learnr` `answer()` func
 ```{r insects-code}
 # Define the answer options
 insects <- c(
-    "ant", 
+    "ant",
     "bumble bea",
     "cricket",
     "dragonfly"
@@ -66,14 +66,14 @@ question_rank(
 ```
 
 
-## Changing the 'sortable.js' options
+## Changing the 'SortableJS' options
 
-You can change the behaviour of the HTML widget by sending different options to the `sortable.js` library.  For example, to change the duration of animation, set `sortable_options(animation = ...)`:
+You can change the behaviour of the HTML widget by sending different options to the `SortableJS` library.  For example, to change the duration of animation, set `sortable_options(animation = ...)`:
 
 ```{r insects-code-options}
 # Define the answer options
 insects <- c(
-    "ant", 
+    "ant",
     "bumble bea",
     "cricket",
     "dragonfly"
@@ -90,4 +90,3 @@ question_rank(
   )
 )
 ```
-

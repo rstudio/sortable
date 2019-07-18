@@ -1,6 +1,6 @@
 #' @section A new html widget:
 #'
-#' * [sortable_js()] is a low-level function that adds the `sortable.js` to your widgets.
+#' * [sortable_js()] is a low-level function that adds the `SortableJS` to your widgets.
 #'
 #' @section Important functions:
 #'

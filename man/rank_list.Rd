@@ -27,7 +27,7 @@ app. If NULL, the function generates a selector of the form
 \item{style}{A css stylesheet, provided as a character string.  See also \code{\link[=css_rank_list]{css_rank_list()}}.}
 }
 \description{
-Creates a ranking item list using the \code{sortable.js} framework, and generates
+Creates a ranking item list using the \code{SortableJS} framework, and generates
 an \code{htmlwidgets} element.  The elements of this list can be dragged and
 dropped in any order.
 

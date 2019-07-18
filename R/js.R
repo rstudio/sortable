@@ -27,7 +27,7 @@ sortable_js_capture_input <- function(input_id) {
 
 #' Chain multiple JavaScript events
 #'
-#' Sortable.js does not have an event based system.  To be able to call multiple JavaScript events under the same event execution, they need to be executed one after another.
+#' SortableJS does not have an event based system.  To be able to call multiple JavaScript events under the same event execution, they need to be executed one after another.
 #'
 #' @param ... JavaScript functions defined by [htmlwidgets::JS]
 #' @return A single JavaScript function that will call all methods provided with the event

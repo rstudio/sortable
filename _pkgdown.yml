@@ -16,8 +16,8 @@ reference:
   desc: Control the look-and-feel of your widgets
   contents:
   - starts_with("css")
-- title: Access the sortable.js library
-  desc: Lower level access to the sortable.js library
+- title: Access the SortableJS library
+  desc: Lower level access to the SortableJS library
   contents:
   - starts_with("sortable_js")
   - sortable_options
@@ -45,7 +45,7 @@ articles:
   desc: ~
   contents:
   - novel_solutions
-- title: Understanding the interface to sortable.js
+- title: Understanding the interface to SortableJS
   desc: ~
   contents:
   - understanding_sortable_js

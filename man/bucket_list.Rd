@@ -5,7 +5,7 @@
 \title{Create a bucket list.}
 \usage{
 bucket_list(header = NULL, ..., group_name, group_put_max = rep(Inf,
-  length(labels)), selector = NULL, options = sortable_options(),
+  length(labels)), options = sortable_options(),
   style = css_bucket_list())
 }
 \arguments{
@@ -15,14 +15,9 @@ encoded as an HTML \code{<p>} tag, so not strictly speaking a header.)}
 \item{...}{One or more specifications for a rank list, and must be
 defined by \link{add_rank_list}.}
 
-\item{group_name}{Passed to \code{sortable.js} as the group name}
+\item{group_name}{Passed to \code{SortableJS} as the group name. Also the input value set in Shiny. (\code{input[[group_name]]})}
 
 \item{group_put_max}{Not yet implemented}
-
-\item{selector}{This is the css id to use, and must be unique in your shiny
-app. If NULL, the function generates a selector of the form
-\code{rank_list_id_1}, and will automatically increment for every
-\code{rank_list}.}
 
 \item{options}{Options to be supplied to \link{sortable_js} object. See \link{sortable_options} for more details}
 
