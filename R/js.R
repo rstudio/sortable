@@ -17,7 +17,7 @@ sortable_js_capture_input <- function(input_id) {
   inner_text <- "$.map(this.el.children, function(child){return child.innerText})"
   js_text <- "function(evt) {
   if (typeof Shiny !== \"undefined\") {
-    Shiny.setInput(\"%s:sortablejs.rank_list\", %s)
+    Shiny.setInputValue(\"%s:sortablejs.rank_list\", %s)
   }
 }"
 
@@ -56,7 +56,7 @@ sortable_js_capture_bucket_input <- function(input_id, input_ids, selectors) {
       ret[input_id] = undefined;
     }
   });
-  Shiny.setInput(\"%s:sortablejs.bucket_list\", ret)
+  Shiny.setInputValue(\"%s:sortablejs.bucket_list\", ret)
 }"
 
   js <- sprintf(
