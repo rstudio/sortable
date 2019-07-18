@@ -82,7 +82,6 @@ shiny::removeInputHandler("sortablejs.rank_list")
 # should return a list of character vectors or NULL
 shiny::registerInputHandler("sortablejs.rank_list", function(val, shinysession, name) {
   ret <- as_character_vector(val)
-  str(ret)
   ret
 })
 
