@@ -12,20 +12,21 @@
 #' @examples
 #' # For an example, see the Shiny app at
 #' system.file("shiny-examples/drag_vars_to_plot/drag_vars_to_plot_app.R", package = "sortable")
-sortable_js_capture_input <- function(input_id) {
+sortable_js_capture_input <- function(input_id, child_callback = "function(child){return child.innerText}") {
   # can call jquery as shiny will always have jquery
-  inner_text <- "$.map(this.el.children, function(child){return child.innerText})"
-  js_text <- "function(evt) {
-  if (typeof Shiny !== \"undefined\") {
-    Shiny.setInputValue(\"%s:sortablejs.rank_list\", %s)
-  }
-}"
+  inner_text <- sprintf("
+    $.map(this.el.children, %s)
+  ", child_callback)
+  js_text <- "function(evt){{
+    if (typeof Shiny !== \"undefined\") {
+      Shiny.setInputValue(\"%s:sortablejs.rank_list\", %s)
+    }
+  }}"
 
   js <- sprintf(js_text, input_id, inner_text)
 
   htmlwidgets::JS(js)
 }
-
 
 #' @rdname sortable_js_capture_input
 #' @param input_ids Set of Shiny input ids to set corresponding to the provided `selectors`
