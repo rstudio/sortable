@@ -1,9 +1,9 @@
-#' @importFrom learnr question_initialize_ui
-#' @importFrom learnr question_completed_ui
-#' @importFrom learnr question_try_again_ui
+#' @importFrom learnr question_ui_initialize
+#' @importFrom learnr question_ui_completed
+#' @importFrom learnr question_ui_try_again
 #' @importFrom learnr question_is_valid
 #' @importFrom learnr question_is_correct
-#' @importFrom learnr question_is_correct_value
+#' @importFrom learnr mark_as
 NULL
 
 
@@ -41,7 +41,7 @@ question_rank <- function(
   learnr::question(
     text = text,
     ...,
-    type = "rank",
+    type = "sortable_rank",
     correct = correct,
     incorrect = incorrect,
     loading  = loading,
@@ -55,7 +55,7 @@ question_rank <- function(
 
 
 #' @export
-question_initialize_ui.rank <- function(question, answer_input, ...) {
+question_ui_initialize.sortable_rank <- function(question, answer_input, ...) {
 
   # quickly validate the all possible answers are possible
   answer <- question$answers[[1]]
@@ -98,7 +98,7 @@ question_initialize_ui.rank <- function(question, answer_input, ...) {
 }
 
 #' @export
-question_completed_ui.rank <- function(question, answer_input, ...) {
+question_ui_completed.sortable_rank <- function(question, answer_input, ...) {
   # TODO display correct values with X or √ compared to best match
   # TODO DON'T display correct values (listen to an option?)
   rank_list(
@@ -113,7 +113,7 @@ question_completed_ui.rank <- function(question, answer_input, ...) {
 }
 
 #' @export
-question_try_again_ui.rank <- function(question, answer_input, ...) {
+question_ui_try_again.sortable_rank <- function(question, answer_input, ...) {
   rank_list(
     text = question$question,
     input_id = question$ids$answer,
@@ -125,21 +125,16 @@ question_try_again_ui.rank <- function(question, answer_input, ...) {
   )
 }
 
-#' @export
-question_is_valid.rank <- function(question, answer_input, ...) {
-  !is.null(answer_input)
-}
-
 
 #' @export
-question_is_correct.rank <- function(question, answer_input, ...) {
+question_is_correct.sortable_rank <- function(question, answer_input, ...) {
   # for each possible answer, check if it matches
   for (answer in question$answers) {
     if (identical(answer$option, answer_input)) {
       # if it matches, return the correct-ness and its message
-      return(question_is_correct_value(answer$is_correct, answer$message))
+      return(mark_as(answer$correct, answer$message))
     }
   }
   # no match found. not correct
-  question_is_correct_value(FALSE, NULL)
+  mark_as(FALSE, NULL)
 }
