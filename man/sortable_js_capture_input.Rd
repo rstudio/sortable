@@ -5,12 +5,15 @@
 \alias{sortable_js_capture_bucket_input}
 \title{Construct JavaScript method to capture Shiny inputs on change.}
 \usage{
-sortable_js_capture_input(input_id)
+sortable_js_capture_input(input_id,
+  child_callback = "function(child){return child.innerText}")
 
 sortable_js_capture_bucket_input(input_id, input_ids, selectors)
 }
 \arguments{
 \item{input_id}{Shiny input name to set}
+
+\item{child_callback}{optional. A JavaScript callback function that executes on each item within the sortable. The default function returns item.innerText.}
 
 \item{input_ids}{Set of Shiny input ids to set corresponding to the provided \code{selectors}}
 
