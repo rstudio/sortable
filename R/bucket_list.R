@@ -74,6 +74,7 @@ bucket_list <- function(
   class <- paste(class, collapse = " ")
 
   # capture the dots
+  ellipsis::check_dots_unnamed()
   dot_vals <- list(...)
   # modify the dots by adding the group_name to the sortable options
   dots <- lapply(seq_along(dot_vals), function(i) {
