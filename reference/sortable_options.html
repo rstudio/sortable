@@ -39,7 +39,7 @@
 
 <meta property="og:title" content="Define options to pass to a sortable object. — sortable_options" />
 
-<meta property="og:description" content="Use this function to define the options for sortable_js and rank_list, which will pass these in turn to the sortable.js JavaScript library." />
+<meta property="og:description" content="Use this function to define the options for sortable_js and rank_list, which will pass these in turn to the SortableJS JavaScript library." />
 
 <meta property="og:image" content="https://rstudio.github.io/sortable/logo.png" />
 <meta name="twitter:card" content="summary" />
@@ -101,7 +101,7 @@
       <a href="../articles/shiny_apps.html">Using sortable widgets in Shiny apps</a>
     </li>
     <li>
-      <a href="../articles/understanding_sortable_js.html">Understanding the interface to sortable.js</a>
+      <a href="../articles/understanding_sortable_js.html">Understanding the interface to SortableJS</a>
     </li>
   </ul>
 </li>
@@ -145,7 +145,7 @@
 
     <div class="ref-description">
     
-    <p>Use this function to define the options for <a href='sortable_js.html'>sortable_js</a> and <a href='rank_list.html'>rank_list</a>, which will pass these in turn to the <code>sortable.js</code> JavaScript library.</p>
+    <p>Use this function to define the options for <a href='sortable_js.html'>sortable_js</a> and <a href='rank_list.html'>rank_list</a>, which will pass these in turn to the <code>SortableJS</code> JavaScript library.</p>
     
     </div>
 
@@ -155,7 +155,7 @@
   <span class='kw'>direction</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>scrollSensitivity</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>scrollSpeed</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
   <span class='kw'>onStart</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>onEnd</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>onAdd</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>onUpdate</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
   <span class='kw'>onSort</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>onRemove</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>onFilter</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>onMove</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='no'>...</span>)</pre>
+  <span class='kw'>onLoad</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -241,14 +241,18 @@
       <td><p>JS function called when an item is moved in a list or between lists</p></td>
     </tr>
     <tr>
+      <th>onLoad</th>
+      <td><p>JS function dispatched on the "next tick" after SortableJS has initialized</p></td>
+    </tr>
+    <tr>
       <th>...</th>
-      <td><p>other params passed onto Sortable.js</p></td>
+      <td><p>other params passed onto SortableJS</p></td>
     </tr>
     </table>
     
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>Many of the <code>sortable.js</code> options will accept a JavaScript function. You can do this using the <code><a href='https://www.rdocumentation.org/packages/htmlwidgets/topics/JS'>htmlwidgets::JS</a></code> function.</p>
+    <p>Many of the <code>SortableJS</code> options will accept a JavaScript function. You can do this using the <code><a href='https://www.rdocumentation.org/packages/htmlwidgets/topics/JS'>htmlwidgets::JS</a></code> function.</p>
     
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 

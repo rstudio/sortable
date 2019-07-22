@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Widget output function for use in Shiny. — sortable_output • sortable</title>
+<title>Chain multiple JavaScript events — chain_js_events • sortable</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -37,9 +37,9 @@
 
 
 
-<meta property="og:title" content="Widget output function for use in Shiny. — sortable_output" />
+<meta property="og:title" content="Chain multiple JavaScript events — chain_js_events" />
 
-<meta property="og:description" content="Widget output function for use in Shiny." />
+<meta property="og:description" content="SortableJS does not have an event based system.  To be able to call multiple JavaScript events under the same event execution, they need to be executed one after another." />
 
 <meta property="og:image" content="https://rstudio.github.io/sortable/logo.png" />
 <meta name="twitter:card" content="summary" />
@@ -138,39 +138,31 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Widget output function for use in Shiny.</h1>
-    <small class="dont-index">Source: <a href='https://github.com/rstudio/sortable/blob/master/R/sortable_js.R'><code>R/sortable_js.R</code></a></small>
-    <div class="hidden name"><code>sortable_output.Rd</code></div>
+    <h1>Chain multiple JavaScript events</h1>
+    <small class="dont-index">Source: <a href='https://github.com/rstudio/sortable/blob/master/R/js.R'><code>R/js.R</code></a></small>
+    <div class="hidden name"><code>chain_js_events.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Widget output function for use in Shiny.</p>
+    <p>SortableJS does not have an event based system.  To be able to call multiple JavaScript events under the same event execution, they need to be executed one after another.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>sortable_output</span>(<span class='no'>input_id</span>, <span class='kw'>width</span> <span class='kw'>=</span> <span class='st'>"0px"</span>, <span class='kw'>height</span> <span class='kw'>=</span> <span class='st'>"0px"</span>)</pre>
+    <pre class="usage"><span class='fu'>chain_js_events</span>(<span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>input_id</th>
-      <td><p>output variable to use for the sortable object</p></td>
-    </tr>
-    <tr>
-      <th>width</th>
-      <td><p>Fixed width for widget (in css units). The default is
-<code>NULL</code>, which results in intelligent automatic sizing based on the
-widget's container.</p></td>
-    </tr>
-    <tr>
-      <th>height</th>
-      <td><p>Fixed height for widget (in css units). The default is
-<code>NULL</code>, which results in intelligent automatic sizing based on the
-widget's container.</p></td>
+      <th>...</th>
+      <td><p>JavaScript functions defined by <a href='https://www.rdocumentation.org/packages/htmlwidgets/topics/JS'>htmlwidgets::JS</a></p></td>
     </tr>
     </table>
+    
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>A single JavaScript function that will call all methods provided with the event</p>
     
 
   </div>
@@ -178,7 +170,9 @@ widget's container.</p></td>
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-                </ul>
+      
+      <li><a href="#value">Value</a></li>
+          </ul>
 
   </div>
 </div>

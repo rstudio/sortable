@@ -102,7 +102,7 @@ drag-and-drop of items between the different lists." />
       <a href="../articles/shiny_apps.html">Using sortable widgets in Shiny apps</a>
     </li>
     <li>
-      <a href="../articles/understanding_sortable_js.html">Understanding the interface to sortable.js</a>
+      <a href="../articles/understanding_sortable_js.html">Understanding the interface to SortableJS</a>
     </li>
   </ul>
 </li>
@@ -152,7 +152,7 @@ drag-and-drop of items between the different lists.</p>
     </div>
 
     <pre class="usage"><span class='fu'>bucket_list</span>(<span class='kw'>header</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>, <span class='no'>group_name</span>, <span class='kw'>group_put_max</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/rep'>rep</a></span>(<span class='fl'>Inf</span>,
-  <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/length'>length</a></span>(<span class='no'>labels</span>)), <span class='kw'>selector</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>options</span> <span class='kw'>=</span> <span class='fu'><a href='sortable_options.html'>sortable_options</a></span>(),
+  <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/length'>length</a></span>(<span class='no'>labels</span>)), <span class='kw'>options</span> <span class='kw'>=</span> <span class='fu'><a href='sortable_options.html'>sortable_options</a></span>(),
   <span class='kw'>class</span> <span class='kw'>=</span> <span class='st'>"default-sortable"</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -170,18 +170,11 @@ defined by <a href='add_rank_list.html'>add_rank_list</a>.</p></td>
     </tr>
     <tr>
       <th>group_name</th>
-      <td><p>Passed to <code>sortable.js</code> as the group name</p></td>
+      <td><p>Passed to <code>SortableJS</code> as the group name. Also the input value set in Shiny. (<code>input[[group_name]]</code>)</p></td>
     </tr>
     <tr>
       <th>group_put_max</th>
       <td><p>Not yet implemented</p></td>
-    </tr>
-    <tr>
-      <th>selector</th>
-      <td><p>This is the css id to use, and must be unique in your shiny
-app. If NULL, the function generates a selector of the form
-<code>rank_list_id_1</code>, and will automatically increment for every
-<code>rank_list</code>.</p></td>
     </tr>
     <tr>
       <th>options</th>
@@ -208,13 +201,11 @@ app. If NULL, the function generates a selector of the form
   <span class='kw'>header</span> <span class='kw'>=</span> <span class='st'>"This is a bucket list. You can drag items between the lists."</span>,
   <span class='fu'><a href='add_rank_list.html'>add_rank_list</a></span>(
     <span class='kw'>text</span> <span class='kw'>=</span> <span class='st'>"Drag from here"</span>,
-    <span class='kw'>labels</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"a"</span>, <span class='st'>"bb"</span>, <span class='st'>"ccc"</span>),
-    <span class='kw'>input_id</span> <span class='kw'>=</span> <span class='kw'>NULL</span>
+    <span class='kw'>labels</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"a"</span>, <span class='st'>"bb"</span>, <span class='st'>"ccc"</span>)
   ),
   <span class='fu'><a href='add_rank_list.html'>add_rank_list</a></span>(
     <span class='kw'>text</span> <span class='kw'>=</span> <span class='st'>"to here"</span>,
-    <span class='kw'>labels</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-    <span class='kw'>input_id</span> <span class='kw'>=</span> <span class='kw'>NULL</span>
+    <span class='kw'>labels</span> <span class='kw'>=</span> <span class='kw'>NULL</span>
   )
 )
 
@@ -224,16 +215,13 @@ app. If NULL, the function generates a selector of the form
   <span class='kw'>header</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"Sort these items into Letters and Numbers"</span>),
   <span class='fu'><a href='add_rank_list.html'>add_rank_list</a></span>(
     <span class='kw'>text</span> <span class='kw'>=</span> <span class='st'>"Drag from here"</span>,
-    <span class='kw'>labels</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/sample'>sample</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>1</span>:<span class='fl'>3</span>, <span class='no'>letters</span>[<span class='fl'>1</span>:<span class='fl'>2</span>])),
-    <span class='kw'>input_id</span> <span class='kw'>=</span> <span class='kw'>NULL</span>
+    <span class='kw'>labels</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/sample'>sample</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>1</span>:<span class='fl'>3</span>, <span class='no'>letters</span>[<span class='fl'>1</span>:<span class='fl'>2</span>]))
   ),
   <span class='fu'><a href='add_rank_list.html'>add_rank_list</a></span>(
-    <span class='kw'>text</span> <span class='kw'>=</span> <span class='st'>"Letters"</span>,
-    <span class='kw'>input_id</span> <span class='kw'>=</span> <span class='kw'>NULL</span>
+    <span class='kw'>text</span> <span class='kw'>=</span> <span class='st'>"Letters"</span>
   ),
   <span class='fu'><a href='add_rank_list.html'>add_rank_list</a></span>(
-    <span class='kw'>text</span> <span class='kw'>=</span> <span class='st'>"Numbers"</span>,
-    <span class='kw'>input_id</span> <span class='kw'>=</span> <span class='kw'>NULL</span>
+    <span class='kw'>text</span> <span class='kw'>=</span> <span class='st'>"Numbers"</span>
   )
 )</div></pre>
   </div>

@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Create Drag-and-Drop Elements Using the JavaScript 'sortable.js' Library • sortable</title>
+<title>Create Drag-and-Drop Elements Using the JavaScript 'SortableJS' Library • sortable</title>
 <!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
 <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="apple-touch-icon.png">
@@ -15,10 +15,10 @@
 <!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- sticky kit --><script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
-<script src="pkgdown.js"></script><meta property="og:title" content="Create Drag-and-Drop Elements Using the JavaScript 'sortable.js' Library">
+<script src="pkgdown.js"></script><meta property="og:title" content="Create Drag-and-Drop Elements Using the JavaScript 'SortableJS' Library">
 <meta property="og:description" content="Add drag-and-drop behavior to Shiny Apps and gadgets.
     Add ranking, sorting and bucketing question types to `learnr` tutorials.
-    The package creates an 'htmlwidget' by wrapping the 'sortable.js'
+    The package creates an 'htmlwidget' by wrapping the 'SortableJS'
     JavaScript library.">
 <meta property="og:image" content="https://rstudio.github.io/sortable/logo.png">
 <meta name="twitter:card" content="summary">
@@ -69,7 +69,7 @@
       <a href="articles/shiny_apps.html">Using sortable widgets in Shiny apps</a>
     </li>
     <li>
-      <a href="articles/understanding_sortable_js.html">Understanding the interface to sortable.js</a>
+      <a href="articles/understanding_sortable_js.html">Understanding the interface to SortableJS</a>
     </li>
   </ul>
 </li>
@@ -115,7 +115,7 @@
 </h1></div>
 <!-- badges: start -->
 
-<p>The <code>sortable</code> package enables drag-and-drop behaviour in your Shiny apps. It does this by exposing the functionality of the <a href="https://sortablejs.github.io/Sortable/">sortable.js</a> JavaScript library as an <a href="https://htmlwidgets.org">htmlwidget</a> in R, so you can use this in Shiny apps and widgets, <code>learnr</code> tutorials as well as R Markdown.</p>
+<p>The <code>sortable</code> package enables drag-and-drop behaviour in your Shiny apps. It does this by exposing the functionality of the <a href="https://sortablejs.github.io/Sortable/">SortableJS</a> JavaScript library as an <a href="https://htmlwidgets.org">htmlwidget</a> in R, so you can use this in Shiny apps and widgets, <code>learnr</code> tutorials as well as R Markdown.</p>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
@@ -168,7 +168,7 @@
 <a class="sourceLine" id="cb5-7" data-line-number="7">    <span class="dt">id =</span> <span class="st">"aUniqueId"</span>,</a>
 <a class="sourceLine" id="cb5-8" data-line-number="8">    tags<span class="op">$</span><span class="kw"><a href="https://www.rdocumentation.org/packages/htmltools/topics/builder">div</a></span>(</a>
 <a class="sourceLine" id="cb5-9" data-line-number="9">      <span class="dt">style =</span> <span class="st">"border: solid 0.2em gray; float:left; margin: 5px"</span>,</a>
-<a class="sourceLine" id="cb5-10" data-line-number="10">      <span class="kw">mermaid</span>(<span class="st">"graph LR; S[Sortable.js] --&gt;|sortable| R "</span>, <span class="dt">height =</span> <span class="dv">250</span>, <span class="dt">width =</span> <span class="dv">300</span>)</a>
+<a class="sourceLine" id="cb5-10" data-line-number="10">      <span class="kw">mermaid</span>(<span class="st">"graph LR; S[SortableJS] --&gt;|sortable| R "</span>, <span class="dt">height =</span> <span class="dv">250</span>, <span class="dt">width =</span> <span class="dv">300</span>)</a>
 <a class="sourceLine" id="cb5-11" data-line-number="11">    ),</a>
 <a class="sourceLine" id="cb5-12" data-line-number="12">    tags<span class="op">$</span><span class="kw"><a href="https://www.rdocumentation.org/packages/htmltools/topics/builder">div</a></span>(</a>
 <a class="sourceLine" id="cb5-13" data-line-number="13">      <span class="dt">style =</span> <span class="st">"border: solid 0.2em gray; float:left; margin: 5px"</span>,</a>

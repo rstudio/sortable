@@ -39,7 +39,7 @@
 
 <meta property="og:title" content="Construct JavaScript method to capture Shiny inputs on change. — sortable_js_capture_input" />
 
-<meta property="og:description" content="This captures the inputs of a sortable list.  Typically you would use this
+<meta property="og:description" content="This captures the state of a sortable list.  Typically you would use this
 with the onSort option of sortable_js. See sortable_options()." />
 
 <meta property="og:image" content="https://rstudio.github.io/sortable/logo.png" />
@@ -102,7 +102,7 @@ with the onSort option of sortable_js. See sortable_options()." />
       <a href="../articles/shiny_apps.html">Using sortable widgets in Shiny apps</a>
     </li>
     <li>
-      <a href="../articles/understanding_sortable_js.html">Understanding the interface to sortable.js</a>
+      <a href="../articles/understanding_sortable_js.html">Understanding the interface to SortableJS</a>
     </li>
   </ul>
 </li>
@@ -140,25 +140,35 @@ with the onSort option of sortable_js. See sortable_options()." />
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Construct JavaScript method to capture Shiny inputs on change.</h1>
-    <small class="dont-index">Source: <a href='https://github.com/rstudio/sortable/blob/master/R/sortable_js_capture_input.R'><code>R/sortable_js_capture_input.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/rstudio/sortable/blob/master/R/js.R'><code>R/js.R</code></a></small>
     <div class="hidden name"><code>sortable_js_capture_input.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>This captures the inputs of a <code>sortable</code> list.  Typically you would use this
+    <p>This captures the state of a <code>sortable</code> list.  Typically you would use this
 with the <code>onSort</code> option of <code>sortable_js</code>. See <code><a href='sortable_options.html'>sortable_options()</a></code>.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>sortable_js_capture_input</span>(<span class='no'>input_id</span>)</pre>
+    <pre class="usage"><span class='fu'>sortable_js_capture_input</span>(<span class='no'>input_id</span>)
+
+<span class='fu'>sortable_js_capture_bucket_input</span>(<span class='no'>input_id</span>, <span class='no'>input_ids</span>, <span class='no'>selectors</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>input_id</th>
-      <td><p>The output id.</p></td>
+      <td><p>Shiny input name to set</p></td>
+    </tr>
+    <tr>
+      <th>input_ids</th>
+      <td><p>Set of Shiny input ids to set corresponding to the provided <code>selectors</code></p></td>
+    </tr>
+    <tr>
+      <th>selectors</th>
+      <td><p>Set of SortableJS selector values to help retrieve all to set as an object</p></td>
     </tr>
     </table>
     
