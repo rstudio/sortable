@@ -27,7 +27,8 @@ Imports:
     shiny,
     assertthat,
     jsonlite,
-    utils
+    utils,
+    ellipsis
 Suggests:
     base64,
     knitr,
