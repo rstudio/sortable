@@ -8,11 +8,14 @@
 #' @param ... Other arguments passed to `rank_list`
 #'
 #' @export
-add_rank_list <- function(text, labels = NULL,  input_id, ...){
+add_rank_list <- function(text, labels = NULL, input_id = NULL, ...) {
+  if (is.null(input_id)) {
+    input_id <- increment_rank_list_input_id()
+  }
   z <- list(
     text = text,
     labels = labels,
-    input_id,
+    input_id = input_id,
     ...
   )
   # assert_that(is_input_id(input_id))
@@ -20,7 +23,9 @@ add_rank_list <- function(text, labels = NULL,  input_id, ...){
   z
 }
 
-is.add_rank_list <- function(x)inherits(x, "add_rank_list")
+is_add_rank_list <- function(x) {
+  inherits(x, "add_rank_list")
+}
 
 
 #' Create a bucket list.
@@ -37,8 +42,9 @@ is.add_rank_list <- function(x)inherits(x, "add_rank_list")
 #'   encoded as an HTML `<p>` tag, so not strictly speaking a header.)
 #' @param ... One or more specifications for a rank list, and must be
 #'   defined by [add_rank_list].
+#' @param class A css class applied to the bucket list and rank lists.  This can be used to define custom styling.
 #'
-#' @param group_name Passed to `sortable.js` as the group name
+#' @param group_name Passed to `SortableJS` as the group name. Also the input value set in Shiny. (`input[[group_name]]`)
 #' @param group_put_max Not yet implemented
 #'
 #' @export
@@ -54,50 +60,71 @@ bucket_list <- function(
   ...,
   group_name,
   group_put_max = rep(Inf, length(labels)),
-  selector = NULL,
   options = sortable_options(),
-  style = css_bucket_list()
+  class = "default-sortable"
 ) {
 
-  # capture the dots
-  dots <- list(...)
   # assert_that(is_header(header))
 
-  for (n in dots) {assert_that(is.add_rank_list(n))}
   assert_that(is_sortable_options(options))
   if (missing(group_name) || is.null(group_name)) {
     group_name <- increment_bucket_group()
   }
 
+  class <- paste(class, collapse = " ")
 
+  # capture the dots
+  dot_vals <- list(...)
   # modify the dots by adding the group_name to the sortable options
-  mod <- lapply(seq_along(dots), function(i){
+  dots <- lapply(seq_along(dot_vals), function(i) {
+    dot <- dot_vals[[i]]
+    assert_that(is_add_rank_list(dot))
+
+    if (is.null(dot$selector)) {
+      dot$selector <- increment_rank_list()
+    }
     modifyList(
-      dots[[i]],
+      dot,
       val = list(
         options = sortable_options(group = group_name),
-        style = "",
-        additional_class = paste0("column_", i)
+        class = paste(class, paste0("column_", i))
       )
     )
   })
 
+  selectors <- vapply(dots, function(dot) dot$selector, character(1))
+  input_ids <- vapply(dots, function(dot) dot$input_id, character(1))
+
+  set_bucket <- sortable_js_capture_bucket_input(group_name, input_ids, selectors)
+
+  dots <- lapply(dots, function(dot) {
+    dot$options$onLoad <- chain_js_events(set_bucket, dot$options$onLoad) # nolint
+    dot$options$onSort <- chain_js_events(set_bucket, dot$options$onSort) # nolint
+    dot
+  })
+
   # construct list rank_list objects
-  sortables <- lapply(seq_along(mod), function(i) do.call(rank_list, mod[[i]]) )
+  sortables <- lapply(dots, function(dot) do.call(rank_list, dot) )
+
+  title_tag <-
+    if (!is.null(header)) {
+      tags$p(header)
+    } else {
+      NULL
+    }
 
   z <- tagList(
     tags$div(
-      class = "bucket-list",
-      if(!is.null(header))tags$p(header) else NULL,
-      tags$style(htmltools::HTML(style)),
+      class = paste("bucket-list-container", class),
+      title_tag,
       tags$div(
-        class = "bucket-list-container",
+        class = paste(class, "bucket-list"),
         sortables
       )
-    )
+    ),
+    bucket_list_dependencies()
   )
 
 
-  as.bucket_list(z)
+  as_bucket_list(z)
 }
-

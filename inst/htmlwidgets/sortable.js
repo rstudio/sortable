@@ -25,6 +25,17 @@ HTMLWidgets.widget({
       x.options
     )
 
+    if (instance.sortable.options.onLoad instanceof Function) {
+      // init the sortable
+      setTimeout(
+        function() {
+          var evt = document.createEvent('Event');
+          evt.initEvent("onLoad", true, true);
+          instance.sortable.options.onLoad.apply(instance.sortable, [evt]);
+        },
+        0
+      )
+    }
   },
 
   resize: function(el, width, height, instance) {

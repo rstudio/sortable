@@ -1,0 +1,16 @@
+@import "colors";
+
+.default-sortable {
+  &.bucket-list-container {
+    background-color: $rank-background-color;
+    padding: 10px;
+    margin: 5px;
+  }
+
+  .bucket-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+}

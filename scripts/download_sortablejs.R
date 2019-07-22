@@ -1,6 +1,6 @@
 
 
-sortable_version <- "1.10.0-rc2"
+sortable_version <- "1.10.0-rc3"
 yaml_version <- "1.10.0"
 
 

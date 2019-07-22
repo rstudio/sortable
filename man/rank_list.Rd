@@ -5,8 +5,7 @@
 \title{Create a ranking item list.}
 \usage{
 rank_list(text = "", labels, input_id, selector = NULL,
-  options = sortable_options(), additional_class = "",
-  style = css_rank_list())
+  options = sortable_options(), class = "default-sortable")
 }
 \arguments{
 \item{text}{Text to appear at top of list.}
@@ -22,12 +21,10 @@ app. If NULL, the function generates a selector of the form
 
 \item{options}{Options to be supplied to \link{sortable_js} object. See \link{sortable_options} for more details}
 
-\item{additional_class}{Additional css class name to use. This gets appended to the \code{rank-list} class, and is used by the \code{\link[=bucket_list]{bucket_list()}} function.}
-
-\item{style}{A css stylesheet, provided as a character string.  See also \code{\link[=css_rank_list]{css_rank_list()}}.}
+\item{class}{A css class applied to the rank list.  This can be used to define custom styling.}
 }
 \description{
-Creates a ranking item list using the \code{sortable.js} framework, and generates
+Creates a ranking item list using the \code{SortableJS} framework, and generates
 an \code{htmlwidgets} element.  The elements of this list can be dragged and
 dropped in any order.
 
@@ -43,7 +40,7 @@ The widget automatically updates a Shiny output, with the matching \code{input_i
 \examples{
 ## Example of a shiny app
 if (interactive()) {
-  app <- system.file("shiny-examples/rank_list_app.R", package = "sortable")
+  app <- system.file("shiny-examples/rank_list/rank_list_app.R", package = "sortable")
   shiny::runApp(app)
 }
 
@@ -54,8 +51,6 @@ rank_list(
   labels = c("one", "two", "three", "four", "five"),
   input_id = "example_2"
 )
-
-
 }
 \seealso{
 \link{sortable_js}, \link{bucket_list} and \link{question_rank}

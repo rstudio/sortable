@@ -19,7 +19,7 @@ experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](h
 
 The `sortable` package enables drag-and-drop behaviour in your Shiny
 apps. It does this by exposing the functionality of the
-[sortable.js](https://sortablejs.github.io/Sortable/) JavaScript library
+[SortableJS](https://sortablejs.github.io/Sortable/) JavaScript library
 as an [htmlwidget](https://htmlwidgets.org) in R, so you can use this in
 Shiny apps and widgets, `learnr` tutorials as well as R Markdown.
 
@@ -95,7 +95,7 @@ html_print(tagList(
     id = "aUniqueId",
     tags$div(
       style = "border: solid 0.2em gray; float:left; margin: 5px",
-      mermaid("graph LR; S[Sortable.js] -->|sortable| R ", height = 250, width = 300)
+      mermaid("graph LR; S[SortableJS] -->|sortable| R ", height = 250, width = 300)
     ),
     tags$div(
       style = "border: solid 0.2em gray; float:left; margin: 5px",

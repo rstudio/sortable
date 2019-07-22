@@ -1,10 +1,10 @@
-#' Creates an htmlwidget with embedded 'sortable.js' library.
+#' Creates an htmlwidget with embedded 'SortableJS' library.
 #'
 #' Creates an `htmlwidget` that provides
-#' [sortable.js](https://github.com/SortableJS/Sortable) to use for
+#' [SortableJS](https://github.com/SortableJS/Sortable) to use for
 #' drag-and-drop interactivity in Shiny apps and R Markdown.
 #'
-#' @param selector `String` selector id on which to apply `sortable.js`.  Note,
+#' @param selector `String` selector id on which to apply `SortableJS`.  Note,
 #'   `sortable_js` works with any html element, not just `ul/li`.
 #' @template options
 #' @inheritParams htmlwidgets::createWidget
@@ -19,8 +19,8 @@ sortable_js <- function(
   options = sortable_options(),
   width = 0,
   height = 0,
-  elementId = NULL,
-  preRenderHook = NULL
+  elementId = NULL, # nolint
+  preRenderHook = NULL # nolint
 ) {
 
   assert_that(is_sortable_options(options))
@@ -28,7 +28,11 @@ sortable_js <- function(
   # forward options using x
   x <- list(
     selector = selector,
-    options = options
+    options = modifyList(
+      # set default options to be overwritten by supplied options
+      default_sortable_options(),
+      options
+    )
   )
 
   # create widget
@@ -38,8 +42,8 @@ sortable_js <- function(
     width = width,
     height = height,
     package = "sortable",
-    elementId = elementId,
-    preRenderHook = preRenderHook
+    elementId = elementId, # nolint
+    preRenderHook = preRenderHook # nolint
   )
 }
 

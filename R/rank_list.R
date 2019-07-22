@@ -1,7 +1,7 @@
 #' Create a ranking item list.
 #'
 #' @description
-#' Creates a ranking item list using the `sortable.js` framework, and generates
+#' Creates a ranking item list using the `SortableJS` framework, and generates
 #' an `htmlwidgets` element.  The elements of this list can be dragged and
 #' dropped in any order.
 #'
@@ -24,8 +24,7 @@
 #'   app. If NULL, the function generates a selector of the form
 #'   `rank_list_id_1`, and will automatically increment for every
 #'   `rank_list`.
-#' @param additional_class Additional css class name to use. This gets appended to the `rank-list` class, and is used by the [bucket_list()] function.
-#' @param style A css stylesheet, provided as a character string.  See also [css_rank_list()].
+#' @param class A css class applied to the rank list.  This can be used to define custom styling.
 #' @template options
 #'
 #' @seealso [sortable_js], [bucket_list] and [question_rank]
@@ -37,7 +36,7 @@
 #' @examples
 #' ## Example of a shiny app
 #' if (interactive()) {
-#'   app <- system.file("shiny-examples/rank_list_app.R", package = "sortable")
+#'   app <- system.file("shiny-examples/rank_list/rank_list_app.R", package = "sortable")
 #'   shiny::runApp(app)
 #' }
 #'
@@ -47,8 +46,7 @@ rank_list <- function(
   input_id,
   selector = NULL,
   options = sortable_options(),
-  additional_class = "",
-  style = css_rank_list()
+  class = "default-sortable"
 ) {
   if (is.null(selector)) {
     selector <- increment_rank_list()
@@ -56,13 +54,30 @@ rank_list <- function(
   assert_that(is_sortable_options(options))
   assert_that(is_input_id(input_id))
 
+  options$onSort <- chain_js_events( # nolint
+    options$onSort, # nolint
+    sortable_js_capture_input(input_id)
+  )
+  options$onLoad <- chain_js_events( # nolint
+    options$onLoad, # nolint
+    sortable_js_capture_input(input_id)
+  )
+
+  title_tag <- if (!is.null(text) && nchar(text) > 0) {
+    tags$p(
+      class = "rank-list-title",
+      text
+    )
+  } else {
+    NULL
+  }
+
   z <- tagList(
     tags$div(
-      tags$style(htmltools::HTML(style)),
-      class = paste("rank-list-container", additional_class),
-      tags$p(text),
+      class = paste("rank-list-container", paste(class, collapse = " ")),
+      title_tag,
       tags$div(
-        class = paste("rank-list", additional_class),
+        class = "rank-list",
         id = selector,
         lapply(labels, function(x) {
           tags$div(class = "rank-list-item", x )
@@ -71,14 +86,11 @@ rank_list <- function(
     ),
     sortable_js(
       selector = selector,
-      options = modifyList(
-        sortable_options(onSort = sortable_js_capture_input(input_id)),
-        options
-      )
-    )
+      options = options
+    ),
+    rank_list_dependencies()
   )
 
-  as.rank_list(z)
+  as_rank_list(z)
 
 }
-
