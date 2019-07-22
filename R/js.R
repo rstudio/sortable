@@ -4,6 +4,7 @@
 #' with the `onSort` option of `sortable_js`. See [sortable_options()].
 #'
 #' @param input_id Shiny input name to set
+#' @param child_callback optional. A JavaScript callback function that executes on each item within the sortable. The default function returns item.innerText.
 #'
 #' @seealso [sortable_js] and [rank_list].
 #'
