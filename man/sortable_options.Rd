@@ -10,7 +10,7 @@ sortable_options(group = NULL, sort = NULL, delay = NULL,
   direction = NULL, scrollSensitivity = NULL, scrollSpeed = NULL,
   onStart = NULL, onEnd = NULL, onAdd = NULL, onUpdate = NULL,
   onSort = NULL, onRemove = NULL, onFilter = NULL, onMove = NULL,
-  ...)
+  onLoad = NULL, ...)
 }
 \arguments{
 \item{group}{To drag elements from one list into another, both lists must have the same group value. See \href{https://github.com/sortablejs/Sortable/#group-option}{Sortable#group-option} for more details. [\code{"name"}]}
@@ -53,13 +53,15 @@ sortable_options(group = NULL, sort = NULL, delay = NULL,
 
 \item{onMove}{JS function called when an item is moved in a list or between lists}
 
-\item{...}{other params passed onto Sortable.js}
+\item{onLoad}{JS function dispatched on the "next tick" after SortableJS has initialized}
+
+\item{...}{other params passed onto SortableJS}
 }
 \description{
-Use this function to define the options for \link{sortable_js} and \link{rank_list}, which will pass these in turn to the \code{sortable.js} JavaScript library.
+Use this function to define the options for \link{sortable_js} and \link{rank_list}, which will pass these in turn to the \code{SortableJS} JavaScript library.
 }
 \details{
-Many of the \code{sortable.js} options will accept a JavaScript function. You can do this using the \code{htmlwidgets::JS} function.
+Many of the \code{SortableJS} options will accept a JavaScript function. You can do this using the \code{htmlwidgets::JS} function.
 }
 \references{
 \url{https://github.com/sortablejs/Sortable/}

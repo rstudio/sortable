@@ -1,6 +1,6 @@
 Package: sortable
 Type: Package
-Title: Create Drag-and-Drop Elements Using the JavaScript 'sortable.js' Library
+Title: Create Drag-and-Drop Elements Using the JavaScript 'SortableJS' Library
 Version: 0.3.0.9003
 Date: 2019-07-03
 Authors@R: c(
@@ -9,12 +9,12 @@ Authors@R: c(
     person("Kenton", "Russell", role = c("aut", "ccp"),
         comment = "Original author", email = "kent.russell@timelyportfolio.com"),
     person("Lebedev", "Konstantin", role = "cph",
-        comment = "'Sortable.js' library,
+        comment = "'SortableJS' library,
         http://sortablejs.github.io/Sortable/")
     )
 Description: Add drag-and-drop behavior to Shiny Apps and gadgets.
     Add ranking, sorting and bucketing question types to `learnr` tutorials.
-    The package creates an 'htmlwidget' by wrapping the 'sortable.js'
+    The package creates an 'htmlwidget' by wrapping the 'SortableJS'
     JavaScript library.
 URL: https://github.com/rstudio/sortable
 BugReports: https://github.com/rstudio/sortable/issues
@@ -26,6 +26,7 @@ Imports:
     learnr (>= 0.9.2),
     shiny,
     assertthat,
+    jsonlite,
     utils
 Suggests:
     base64,

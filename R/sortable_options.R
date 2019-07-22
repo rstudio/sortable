@@ -9,9 +9,9 @@ is_sortable_options <- function(x) {
 
 #' Define options to pass to a sortable object.
 #'
-#' Use this function to define the options for [sortable_js] and [rank_list], which will pass these in turn to the `sortable.js` JavaScript library.
+#' Use this function to define the options for [sortable_js] and [rank_list], which will pass these in turn to the `SortableJS` JavaScript library.
 #'
-#' Many of the `sortable.js` options will accept a JavaScript function. You can do this using the `htmlwidgets::JS` function.
+#' Many of the `SortableJS` options will accept a JavaScript function. You can do this using the `htmlwidgets::JS` function.
 #'
 #'
 #' @param group To drag elements from one list into another, both lists must have the same group value. See [Sortable#group-option](https://github.com/sortablejs/Sortable/#group-option) for more details. \[`"name"`\]
@@ -54,9 +54,10 @@ is_sortable_options <- function(x) {
 #' @param onRemove JS function called when an element is removed from the list into another list
 #' @param onFilter JS function called when an attempt is made to drag a filtered element
 #' @param onMove JS function called when an item is moved in a list or between lists
+#' @param onLoad JS function dispatched on the "next tick" after SortableJS has initialized
 # ' @param onClone JS function that is called when creating a clone of an element
 # ' @param onChange JS function that is called when a dragging element changes position
-#' @param ... other params passed onto Sortable.js
+#' @param ... other params passed onto SortableJS
 #' @references  [https://github.com/sortablejs/Sortable/](https://github.com/sortablejs/Sortable/)
 #' @seealso [sortable_js]
 #' @export
@@ -83,6 +84,7 @@ sortable_options <- function(
   onRemove = NULL,
   onFilter = NULL,
   onMove = NULL,
+  onLoad = NULL,
   # nolint end
   ...
 ) {

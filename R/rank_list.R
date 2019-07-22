@@ -1,7 +1,7 @@
 #' Create a ranking item list.
 #'
 #' @description
-#' Creates a ranking item list using the `sortable.js` framework, and generates
+#' Creates a ranking item list using the `SortableJS` framework, and generates
 #' an `htmlwidgets` element.  The elements of this list can be dragged and
 #' dropped in any order.
 #'
@@ -54,6 +54,15 @@ rank_list <- function(
   assert_that(is_sortable_options(options))
   assert_that(is_input_id(input_id))
 
+  options$onSort <- chain_js_events( # nolint
+    options$onSort, # nolint
+    sortable_js_capture_input(input_id)
+  )
+  options$onLoad <- chain_js_events( # nolint
+    options$onLoad, # nolint
+    sortable_js_capture_input(input_id)
+  )
+
   title_tag <- if (!is.null(text) && nchar(text) > 0) {
     tags$p(
       class = "rank-list-title",
@@ -77,10 +86,7 @@ rank_list <- function(
     ),
     sortable_js(
       selector = selector,
-      options = modifyList(
-        sortable_options(onSort = sortable_js_capture_input(input_id)),
-        options
-      )
+      options = options
     ),
     rank_list_dependencies()
   )

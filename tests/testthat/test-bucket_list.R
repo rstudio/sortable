@@ -11,8 +11,7 @@ test_that("Can create bucket_list", {
     header = "This is a bucket list. You can drag items between the lists.",
     add_rank_list(
       text = "Drag from here",
-      labels = c("a", "bb", "ccc"),
-      input_id = NULL
+      labels = c("a", "bb", "ccc")
     ),
     add_rank_list(
       text = "to here",

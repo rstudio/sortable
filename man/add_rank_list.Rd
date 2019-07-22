@@ -4,7 +4,7 @@
 \alias{add_rank_list}
 \title{Add a rank list inside bucket list.}
 \usage{
-add_rank_list(text, labels = NULL, input_id, ...)
+add_rank_list(text, labels = NULL, input_id = NULL, ...)
 }
 \arguments{
 \item{text}{Text to appear at top of list.}

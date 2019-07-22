@@ -1,10 +1,10 @@
-#' Creates an htmlwidget with embedded 'sortable.js' library.
+#' Creates an htmlwidget with embedded 'SortableJS' library.
 #'
 #' Creates an `htmlwidget` that provides
-#' [sortable.js](https://github.com/SortableJS/Sortable) to use for
+#' [SortableJS](https://github.com/SortableJS/Sortable) to use for
 #' drag-and-drop interactivity in Shiny apps and R Markdown.
 #'
-#' @param selector `String` selector id on which to apply `sortable.js`.  Note,
+#' @param selector `String` selector id on which to apply `SortableJS`.  Note,
 #'   `sortable_js` works with any html element, not just `ul/li`.
 #' @template options
 #' @inheritParams htmlwidgets::createWidget

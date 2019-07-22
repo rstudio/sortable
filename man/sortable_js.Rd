@@ -2,13 +2,13 @@
 % Please edit documentation in R/sortable_js.R
 \name{sortable_js}
 \alias{sortable_js}
-\title{Creates an htmlwidget with embedded 'sortable.js' library.}
+\title{Creates an htmlwidget with embedded 'SortableJS' library.}
 \usage{
 sortable_js(selector, options = sortable_options(), width = 0,
   height = 0, elementId = NULL, preRenderHook = NULL)
 }
 \arguments{
-\item{selector}{\code{String} selector id on which to apply \code{sortable.js}.  Note,
+\item{selector}{\code{String} selector id on which to apply \code{SortableJS}.  Note,
 \code{sortable_js} works with any html element, not just \code{ul/li}.}
 
 \item{options}{Options to be supplied to \link{sortable_js} object. See \link{sortable_options} for more details}
@@ -31,7 +31,7 @@ a modified widget object.}
 }
 \description{
 Creates an \code{htmlwidget} that provides
-\href{https://github.com/SortableJS/Sortable}{sortable.js} to use for
+\href{https://github.com/SortableJS/Sortable}{SortableJS} to use for
 drag-and-drop interactivity in Shiny apps and R Markdown.
 }
 \examples{
