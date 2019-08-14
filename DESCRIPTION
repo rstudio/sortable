@@ -2,7 +2,7 @@ Package: sortable
 Type: Package
 Title: Create Drag-and-Drop Elements Using the JavaScript 'SortableJS' Library
 Version: 0.3.0.9003
-Date: 2019-07-03
+Date: 2019-08-14
 Authors@R: c(
     person("Andrie", "de Vries", role = c("cre", "aut"), email = "apdevries@gmail.com"),
     person("Barret", "Schloerke", role = "aut", email = "barret@rstudio.com"),
