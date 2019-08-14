@@ -8,13 +8,13 @@ ui <- fluidPage(
   fluidRow(
     column(
       width = 12,
-      tags$h2("This is a rank list"),
+      tags$b("Exercise"),
       rank_list(
         text = "Drag the items in the correct order",
         labels = sample(c("one", "two", "three", "four", "five")),
         input_id = "rank_list_1"
       ),
-      tags$p("You provided the answer"),
+      tags$b("Result"),
       verbatimTextOutput("results")
     )
   )
