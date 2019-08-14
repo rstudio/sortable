@@ -4,15 +4,16 @@ as_rank_list <- function(x){
   x
 }
 
-#' @export
-print.rank_list <- function(x, ...){
-  htmltools::html_print(x)
-}
-
 
 as_bucket_list <- function(x){
   class(x) <- c("bucket_list", class(x))
   x
+}
+
+
+#' @export
+print.rank_list <- function(x, ...){
+  htmltools::html_print(x)
 }
 
 #' @export

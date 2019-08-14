@@ -8,5 +8,4 @@ test_that("Can create rank_list", {
   )
 
   expect_is(z, "rank_list")
-
 })

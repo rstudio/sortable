@@ -17,4 +17,14 @@ test_that( "works with tags ", {
     )
   )
   expect_is(z, "character")
+
+})
+
+test_that("htmlwidget produces correct output", {
+  z <- sortable_output("test")
+  expect_is(z, "list")
+  expect_is(z, "shiny.tag.list")
+
+  zr <- render_sortable(z)
+  expect_is(zr, "shiny.render.function")
 })

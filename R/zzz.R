@@ -1,4 +1,4 @@
-
+# nocov start
 
 .onLoad <- function(...) {
 
@@ -35,3 +35,5 @@
   )
 
 }
+
+# nocov end
