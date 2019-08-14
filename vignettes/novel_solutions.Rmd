@@ -35,4 +35,14 @@ tags$div(
 )
 ```
 
+## Source code
+
+```{r echo=FALSE, cache=FALSE}
+knitr::read_chunk(
+  system.file("shiny-examples/drag_vars_to_plot/app.R", package = "sortable")
+)
+```
+
+```{r shiny-drag-vars-to-plot, eval=FALSE}
+```
 
