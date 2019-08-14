@@ -29,7 +29,7 @@ tags$div(
   class = "shiny-app-frame",
   tags$iframe(
     src = "https://andrie-de-vries.shinyapps.io/sortable_rank_list_app/",
-    width = 700,
+    width = "100%",
     height = 450
     )
 )
@@ -47,7 +47,7 @@ tags$div(
   class = "shiny-app-frame",
   tags$iframe(
     src = "https://andrie-de-vries.shinyapps.io/sortable_bucket_list_app/",
-    width = 700,
+    width = "100%",
     height = 650
     )
 )
