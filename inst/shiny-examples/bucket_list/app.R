@@ -8,8 +8,8 @@ library(sortable)
 ui <- fluidPage(
   fluidRow(
     column(
+      tags$b("Exercise"),
       width = 12,
-      tags$h2("This is a bucket list from the `sortable` package"),
       bucket_list(
         header = "Drag the items in any desired bucket",
         group_name = "bucket_list_group",
@@ -28,16 +28,20 @@ ui <- fluidPage(
   ),
   fluidRow(
     column(
+      tags$b("Result"),
+      width = 12
+    )),
+  fluidRow(
+    column(
       width = 12,
-      tags$h2("Shiny input values"),
       column(
         width = 6,
-        tags$h4("input$rank_list_1"),
+        tags$p("input$rank_list_1"),
         verbatimTextOutput("results_1")
       ),
       column(
         width = 6,
-        tags$h4("input$rank_list_2"),
+        tags$p("input$rank_list_2"),
         verbatimTextOutput("results_2")
       )
     )
@@ -47,7 +51,7 @@ ui <- fluidPage(
       width = 12,
       column(
         width = 12,
-        tags$h4("input$bucket_list_group"),
+        tags$p("input$bucket_list_group"),
         verbatimTextOutput("results_3")
       )
     )
@@ -65,7 +69,7 @@ server <- function(input,output) {
     )
   output$results_3 <-
     renderPrint(
-      input$bucket_list_group # This matches the group_name of the bucket list
+      input$bucket_list_group # Matches the group_name of the bucket list
     )
 }
 
