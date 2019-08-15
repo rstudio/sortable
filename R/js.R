@@ -1,7 +1,28 @@
+get_child_id_or_text_js_fn <- function() {
+  paste0(collapse = "\n",
+    "function(child) {",
+    # make child a jquery element
+    "  var child_ = $(child);",
+    "  var children = child_.children();",
+    #  if there are children elements
+    "  if (children.length > 0) {",
+    #    get the first child and check it's id
+    "    var id = $(children.get(0)).attr('id');",
+    #    if there is an id, return it
+    "    if (id) return(id);",
+    "  }",
+    #  otherwise return the inner text of the element
+    "  return $.trim(child_.text());",
+    "}"
+  )
+}
+
+
 #' Construct JavaScript method to capture Shiny inputs on change.
 #'
-#' This captures the state of a `sortable` list.  Typically you would use this
-#' with the `onSort` option of `sortable_js`. See [sortable_options()].
+#' This captures the state of a `sortable` list.  It will look for an `id` attribute of the first child for each element.  If not attribute exists for that particular item's first child, the inner text will be used as an identifier.
+#'
+#' This method is used with the `onSort` option of `sortable_js`. See [sortable_options()].
 #'
 #' @param input_id Shiny input name to set
 #'
@@ -15,20 +36,10 @@
 sortable_js_capture_input <- function(input_id) {
   # can call jquery as shiny will always have jquery
   inner_text <- paste0(
-    "$.map(this.el.children, function(child) {",
-    # make child a jquery element
-    "  var child_ = $(child);",
-    "  var children = child_.children();",
-    #  if there are children elements
-    "  if (children.length > 0) {",
-    #    get the first child and check it's id
-    "    var id = $(children.get(0)).attr('id');",
-    #    if there is an id, return it
-    "    if (id) return(id);",
-    "  }",
-    #  otherwise return the inner text of the element
-    "  return $.trim(child_.text());",
-    "})",
+    "$.map(",
+    "  this.el.children, ",
+    get_child_id_or_text_js_fn(),
+    ")",
     collapse = "\n"
   )
   js_text <- "function(evt) {
@@ -57,6 +68,8 @@ sortable_js_capture_bucket_input <- function(input_id, input_ids, selectors) {
     return;
   }
 
+  var child_id_or_text_fn = %s;
+
   var ret = {}, i;
   var selectors = %s;
   var input_ids = %s;
@@ -65,9 +78,7 @@ sortable_js_capture_bucket_input <- function(input_id, input_ids, selectors) {
     var input_id = input_ids[i];
     var item = $('#' + selector).get(0);
     if (item && item.children) {
-      ret[input_id] = $.map(item.children, function(child) {
-        return child.innerText;
-      });
+      ret[input_id] = $.map(item.children, child_id_or_text_fn);
     } else {
       ret[input_id] = undefined;
     }
@@ -77,6 +88,7 @@ sortable_js_capture_bucket_input <- function(input_id, input_ids, selectors) {
 
   js <- sprintf(
     js_text,
+    get_child_id_or_text_js_fn(),
     as.character(jsonlite::toJSON(as.list(selectors))),
     as.character(jsonlite::toJSON(as.list(input_ids))),
     input_id
