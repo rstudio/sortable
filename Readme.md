@@ -53,16 +53,42 @@ You can create a drag-and-drop input object in Shiny, using the
 
 </center>
 
-    #> Warning in file(con, "r"): file("") only supports open = "w+" and open =
-    #> "w+b": using the former
-    #> Warning in knitr::read_chunk(system.file("shiny-examples/rank_list/
-    #> rank_list_app.R", : code is empty
+``` r
+## Example shiny app with rank list
+
+library(shiny)
+library(sortable)
+
+ui <- fluidPage(
+  fluidRow(
+    column(
+      width = 12,
+      tags$h2("This is a rank list"),
+      rank_list(
+        text = "Drag the items in the correct order",
+        labels = sample(c("one", "two", "three", "four", "five")),
+        input_id = "rank_list_1"
+      ),
+      tags$p("You provided the answer"),
+      verbatimTextOutput("results")
+    )
+  )
+)
+
+server <- function(input, output) {
+  output$results <- renderPrint({
+    input$rank_list_1 # This matches the input_id of the rank list
+  })
+}
+
+shinyApp(ui, server)
+```
 
 ### Bucket list
 
-Witha a bucket list you can have more than one rank lists in a single
-object. This can be useful for bucketing task, e.g. asking your students
-to classify objects into multiple categories.
+With a bucket list you can have more than one rank lists in a single
+object. This can be useful for bucketing tasks, e.g. asking your
+students to classify objects into multiple categories.
 
 <center>
 
@@ -70,10 +96,84 @@ to classify objects into multiple categories.
 
 </center>
 
-    #> Warning in file(con, "r"): file("") only supports open = "w+" and open =
-    #> "w+b": using the former
-    #> Warning in knitr::read_chunk(system.file("shiny-examples/bucket_list/
-    #> bucket_list_app.R", : code is empty
+``` r
+## Example shiny app with bucket list
+
+library(shiny)
+library(sortable)
+
+
+ui <- fluidPage(
+  fluidRow(
+    column(
+      tags$b("Exercise"),
+      width = 12,
+      bucket_list(
+        header = "Drag the items in any desired bucket",
+        group_name = "bucket_list_group",
+        add_rank_list(
+          text = "Drag from here",
+          labels = c("one", "two", "three", "four", "five"),
+          input_id = "rank_list_1"
+        ),
+        add_rank_list(
+          text = "to here",
+          labels = NULL,
+          input_id = "rank_list_2"
+        )
+      )
+    )
+  ),
+  fluidRow(
+    column(
+      tags$b("Result"),
+      width = 12
+    )),
+  fluidRow(
+    column(
+      width = 12,
+      column(
+        width = 6,
+        tags$p("input$rank_list_1"),
+        verbatimTextOutput("results_1")
+      ),
+      column(
+        width = 6,
+        tags$p("input$rank_list_2"),
+        verbatimTextOutput("results_2")
+      )
+    )
+  ),
+  fluidRow(
+    column(
+      width = 12,
+      column(
+        width = 12,
+        tags$p("input$bucket_list_group"),
+        verbatimTextOutput("results_3")
+      )
+    )
+  )
+)
+
+server <- function(input,output) {
+  output$results_1 <-
+    renderPrint(
+      input$rank_list_1 # This matches the input_id of the rank list
+    )
+  output$results_2 <-
+    renderPrint(
+      input$rank_list_2 # This matches the input_id of the rank list
+    )
+  output$results_3 <-
+    renderPrint(
+      input$bucket_list_group # Matches the group_name of the bucket list
+    )
+}
+
+
+shinyApp(ui, server)
+```
 
 ### Add drag-and-drop to any HTML element
 
@@ -95,13 +195,27 @@ html_print(tagList(
     id = "aUniqueId",
     tags$div(
       style = "border: solid 0.2em gray; float:left; margin: 5px",
-      mermaid("graph LR; S[SortableJS] -->|sortable| R ", height = 250, width = 300)
+      mermaid("graph LR; S[SortableJS] -->|sortable| R ",
+              height = 250, width = 300)
     ),
     tags$div(
       style = "border: solid 0.2em gray; float:left; margin: 5px",
-      mermaid("graph TD; JavaScript -->|htmlwidgets| R ", height = 250, width = 150)
+      mermaid("graph TD; JavaScript -->|htmlwidgets| R ", 
+              height = 250, width = 150)
     )
   ),
   sortable_js("aUniqueId") # again, the CSS id must match the selector
 ))
 ```
+
+## Related work
+
+The [`esquisse` package](https://github.com/dreamRs/esquisse) lets ‘you
+explore your data quickly to extract the information they hold. You can
+only create simple plots, you won’t be able to use custom scales and all
+the power of ggplot2. This is just the start\!’
+
+There is also the [`shinyjqui`
+package](https://yang-tang.github.io/shinyjqui/), an ‘R wrapper for
+jQuery UI javascript library. It allows user to easily add interactions
+and animation effects to a shiny app’.

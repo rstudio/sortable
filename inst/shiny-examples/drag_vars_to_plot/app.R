@@ -8,10 +8,10 @@ library(magrittr)
 
 ui <- fluidPage(
   fluidRow(
-    class = "panel panel-success",
-    tags$div(
+    class = "panel panel-heading",
+    div(
       class = "panel-heading",
-      tags$h3("Dragging variables to define a plot")
+      h3("Dragging variables to define a plot")
     ),
     fluidRow(
       class = "panel-body",

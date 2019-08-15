@@ -4,6 +4,7 @@
 #' @importFrom learnr question_is_valid
 #' @importFrom learnr question_is_correct
 #' @importFrom learnr mark_as
+#' @importFrom learnr disable_all_tags
 NULL
 
 

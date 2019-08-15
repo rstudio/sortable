@@ -21,6 +21,8 @@ reference:
   contents:
   - starts_with("sortable_js")
   - sortable_options
+  - is_sortable_options
+  - chain_js_events
 - title: Shiny functions
   desc: Using sortable functions inside a Shiny app
   contents:

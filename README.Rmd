@@ -55,7 +55,7 @@ You can create a drag-and-drop input object in Shiny, using the `rank_list()` fu
 
 ```{r echo=FALSE, cache=FALSE}
 knitr::read_chunk(
-  system.file("shiny-examples/rank_list/rank_list_app.R", package = "sortable")
+  system.file("shiny-examples/rank_list/app.R", package = "sortable")
 )
 ```
 
@@ -66,7 +66,7 @@ knitr::read_chunk(
 
 ### Bucket list
 
-Witha a bucket list you can have more than one rank lists in a single object.  This can be useful for bucketing task, e.g. asking your students to classify objects into multiple categories.
+With a bucket list you can have more than one rank lists in a single object.  This can be useful for bucketing tasks, e.g. asking your students to classify objects into multiple categories.
 
 <center>
 <img src="man/figures/bucket_list_shiny.gif" style = 'width:500px;'></img>
@@ -75,7 +75,7 @@ Witha a bucket list you can have more than one rank lists in a single object.  T
 
 ```{r echo=FALSE, cache=FALSE}
 knitr::read_chunk(
-  system.file("shiny-examples/bucket_list/bucket_list_app.R", package = "sortable")
+  system.file("shiny-examples/bucket_list/app.R", package = "sortable")
 )
 ```
 
@@ -102,13 +102,23 @@ html_print(tagList(
     id = "aUniqueId",
     tags$div(
       style = "border: solid 0.2em gray; float:left; margin: 5px",
-      mermaid("graph LR; S[SortableJS] -->|sortable| R ", height = 250, width = 300)
+      mermaid("graph LR; S[SortableJS] -->|sortable| R ",
+              height = 250, width = 300)
     ),
     tags$div(
       style = "border: solid 0.2em gray; float:left; margin: 5px",
-      mermaid("graph TD; JavaScript -->|htmlwidgets| R ", height = 250, width = 150)
+      mermaid("graph TD; JavaScript -->|htmlwidgets| R ", 
+              height = 250, width = 150)
     )
   ),
   sortable_js("aUniqueId") # again, the CSS id must match the selector
 ))
 ```
+
+
+## Related work
+
+The [`esquisse` package](https://github.com/dreamRs/esquisse) lets 'you explore your data quickly to extract the information they hold. You can only create simple plots, you won’t be able to use custom scales and all the power of ggplot2. This is just the start!'
+
+There is also the [`shinyjqui` package](https://yang-tang.github.io/shinyjqui/), an 'R wrapper for jQuery UI javascript library. It allows user to easily add interactions and animation effects to a shiny app
+'.
