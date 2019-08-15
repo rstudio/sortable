@@ -63,13 +63,31 @@ ui <- fluidPage(
   fluidRow(
     column(
       width = 12,
-      tags$h2("This is a rank list"),
+      tags$b("Exercise"),
       rank_list(
         text = "Drag the items in the correct order",
-        labels = sample(c("one", "two", "three", "four", "five")),
+        labels = list(
+          "one",
+          "two",
+          "three",
+          htmltools::tags$div(
+            htmltools::tags$div(
+              id = "inner_element_4",
+              "Complex html tag(s) with no 'id' attribute in outer element."
+            )
+          ),
+          htmltools::tags$div(
+            id = "five",
+            "Extra text",
+            htmltools::tags$div(
+              id = "inner_element_5",
+              "Complex html tag(s) with id: 'five'"
+            )
+          )
+        ),
         input_id = "rank_list_1"
       ),
-      tags$p("You provided the answer"),
+      tags$b("Result"),
       verbatimTextOutput("results")
     )
   )
@@ -88,7 +106,8 @@ shinyApp(ui, server)
 
 With a bucket list you can have more than one rank lists in a single
 object. This can be useful for bucketing tasks, e.g. asking your
-students to classify objects into multiple categories.
+students to classify objects into multiple
+categories.
 
 <center>
 
@@ -113,7 +132,25 @@ ui <- fluidPage(
         group_name = "bucket_list_group",
         add_rank_list(
           text = "Drag from here",
-          labels = c("one", "two", "three", "four", "five"),
+          labels = list(
+            "one",
+            "two",
+            "three",
+            htmltools::tags$div(
+              htmltools::tags$div(
+                id = "inner_element_4",
+                "Complex html tag(s) with no 'id' attribute in outer element."
+              )
+            ),
+            htmltools::tags$div(
+              id = "five",
+              "Extra text",
+              htmltools::tags$div(
+                id = "inner_element_5",
+                "Complex html tag(s) with id: 'five'"
+              )
+            )
+          ),
           input_id = "rank_list_1"
         ),
         add_rank_list(
