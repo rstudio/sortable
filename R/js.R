@@ -14,7 +14,23 @@
 #' system.file("shiny-examples/drag_vars_to_plot/drag_vars_to_plot_app.R", package = "sortable")
 sortable_js_capture_input <- function(input_id) {
   # can call jquery as shiny will always have jquery
-  inner_text <- "$.map(this.el.children, function(child){return child.innerText})"
+  inner_text <- paste0(
+    "$.map(this.el.children, function(child) {",
+    # make child a jquery element
+    "  var child_ = $(child);",
+    "  var children = child_.children();",
+    #  if there are children elements
+    "  if (children.length > 0) {",
+    #    get the first child and check it's id
+    "    var id = $(children.get(0)).attr('id');",
+    #    if there is an id, return it
+    "    if (id) return(id);",
+    "  }",
+    #  otherwise return the inner text of the element
+    "  return $.trim(child_.text());",
+    "})",
+    collapse = "\n"
+  )
   js_text <- "function(evt) {
   if (typeof Shiny !== \"undefined\") {
     Shiny.setInputValue(\"%s:sortablejs.rank_list\", %s)
