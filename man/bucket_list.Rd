@@ -30,7 +30,7 @@ drag-and-drop of items between the different lists.
 \examples{
 ## Example of a shiny app
 if (interactive()) {
-  app <- system.file("shiny-examples/bucket_list/bucket_list_app.R", package = "sortable")
+  app <- system.file("shiny-examples/bucket_list/app.R", package = "sortable")
   shiny::runApp(app)
 }
 ## -- example-bucket-list ---------------------------------------------
