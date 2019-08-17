@@ -36,7 +36,7 @@
 #' @examples
 #' ## Example of a shiny app
 #' if (interactive()) {
-#'   app <- system.file("shiny-examples/rank_list/rank_list_app.R", package = "sortable")
+#'   app <- system.file("shiny-examples/rank_list/app.R", package = "sortable")
 #'   shiny::runApp(app)
 #' }
 #'
