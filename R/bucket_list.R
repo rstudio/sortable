@@ -30,8 +30,8 @@ is_add_rank_list <- function(x) {
 
 #' Create a bucket list.
 #'
-#' A bucket list can contain more than one [rank_list] and allows
-#' drag-and-drop of items between the different lists.
+#' A bucket list can contain more than one [rank_list] and allows drag-and-drop
+#' of items between the different lists.
 #'
 #'
 #' @inheritParams rank_list
@@ -40,12 +40,25 @@ is_add_rank_list <- function(x) {
 #'
 #' @param header Text that appears at the top of the bucket list.  (This is
 #'   encoded as an HTML `<p>` tag, so not strictly speaking a header.)
-#' @param ... One or more specifications for a rank list, and must be
-#'   defined by [add_rank_list].
-#' @param class A css class applied to the bucket list and rank lists.  This can be used to define custom styling.
 #'
-#' @param group_name Passed to `SortableJS` as the group name. Also the input value set in Shiny. (`input[[group_name]]`)
+#' @param ... One or more specifications for a rank list, and must be defined by
+#'   [add_rank_list].
+#'
+#' @param class A css class applied to the bucket list and rank lists.  This can
+#'   be used to define custom styling.
+#'
+#' @param group_name Passed to `SortableJS` as the group name. Also the input
+#'   value set in Shiny. (`input[[group_name]]`)
+#'
 #' @param group_put_max Not yet implemented
+#'
+#' @param orientation Either `horizontal` or `vertical`, and specifies the
+#'   layout of the components on the page.
+#'
+#' @param dependencies Additional CSS dependencies, specified as a `list`
+#'   containing one or more [htmltools::htmlDependency] dependencies, i.e.
+#'   `list(htmltools::htmlDependency(...))`. You can use this to extend the CSS
+#'   for custom variations of a bucket list.
 #'
 #' @export
 #' @example inst/examples/example_bucket_list.R
@@ -61,7 +74,9 @@ bucket_list <- function(
   group_name,
   group_put_max = rep(Inf, length(labels)),
   options = sortable_options(),
-  class = "default-sortable"
+  class = "default-sortable",
+  orientation = c("horizontal", "vertical"),
+  dependencies = NULL
 ) {
 
   # assert_that(is_header(header))
@@ -70,6 +85,8 @@ bucket_list <- function(
   if (missing(group_name) || is.null(group_name)) {
     group_name <- increment_bucket_group()
   }
+
+  orientation <- match.arg(orientation)
 
   class <- paste(class, collapse = " ")
 
@@ -119,11 +136,12 @@ bucket_list <- function(
       class = paste("bucket-list-container", class),
       title_tag,
       tags$div(
-        class = paste(class, "bucket-list"),
+        class = paste(class, "bucket-list", orientation),
         sortables
       )
     ),
-    bucket_list_dependencies()
+    bucket_list_dependencies(),
+    dependencies
   )
 
 

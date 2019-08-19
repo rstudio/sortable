@@ -13,6 +13,7 @@ ui <- fluidPage(
       bucket_list(
         header = "Drag the items in any desired bucket",
         group_name = "bucket_list_group",
+        orientation = "vertical",
         add_rank_list(
           text = "Drag from here",
           labels = list(
