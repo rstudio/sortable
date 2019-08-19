@@ -13,55 +13,74 @@ sortable_options(group = NULL, sort = NULL, delay = NULL,
   onLoad = NULL, ...)
 }
 \arguments{
-\item{group}{To drag elements from one list into another, both lists must have the same group value. See \href{https://github.com/sortablejs/Sortable/#group-option}{Sortable#group-option} for more details. [\code{"name"}]}
+\item{group}{To drag elements from one list into another, both lists must
+have the same group value. See
+\href{https://github.com/sortablejs/Sortable/#group-option}{Sortable#group-option}
+for more details. [\code{"name"}]}
 
 \item{sort}{Boolean that allows sorting inside a list. [\code{TRUE}]}
 
-\item{delay}{Time in milliseconds to define when the sorting should start. [\code{0}]}
+\item{delay}{Time in milliseconds to define when the sorting should start.
+[\code{0}]}
 
 \item{disabled}{Boolean that disables the sortable if set to true. [\code{FALSE}]}
 
-\item{animation}{Millisecond duration of the animation of items when sorting [\code{0} (no animation)]}
+\item{animation}{Millisecond duration of the animation of items when sorting
+[\code{0} (no animation)]}
 
-\item{handle}{CSS selector used for the drag handle selector within list items. [\code{".my-handle"}]}
+\item{handle}{CSS selector used for the drag handle selector within list
+items. [\code{".my-handle"}]}
 
-\item{filter}{CSS selector or JS function used for elements that cannot be dragged. [\code{".ignore-elements"}]}
+\item{filter}{CSS selector or JS function used for elements that cannot be
+dragged. [\code{".ignore-elements"}]}
 
-\item{draggable}{CSS selector of which items inside the element should be draggable. [\code{".item"}]}
+\item{draggable}{CSS selector of which items inside the element should be
+draggable. [\code{".item"}]}
 
-\item{swapThreshold}{Percentage of the target that the swap zone will take up, as a number between \code{0} and \code{1}. [\code{1}]}
+\item{swapThreshold}{Percentage of the target that the swap zone will take
+up, as a number between \code{0} and \code{1}. [\code{1}]}
 
-\item{invertSwap}{Set to \code{TRUE} to set the swap zone to the sides of the target, for the effect of sorting "in between" items. [\code{FALSE}]}
+\item{invertSwap}{Set to \code{TRUE} to set the swap zone to the sides of the
+target, for the effect of sorting "in between" items. [\code{FALSE}]}
 
 \item{direction}{Direction of Sortable [\code{"horizontal"}]}
 
-\item{scrollSensitivity}{Number of pixels the mouse needs to be to an edge to start scrolling. [\code{30}]}
+\item{scrollSensitivity}{Number of pixels the mouse needs to be to an edge to
+start scrolling. [\code{30}]}
 
 \item{scrollSpeed}{Number of pixels for the speed of scrolling. [\code{10}]}
 
 \item{onStart, onEnd}{JS function called when an element dragging starts or ends}
 
-\item{onAdd}{JS function called when an element is dropped into the list from another list}
+\item{onAdd}{JS function called when an element is dropped into the list from
+another list}
 
 \item{onUpdate}{JS function called when the sorting is changed within a list}
 
-\item{onSort}{JS function called by any change to the list (add / update / remove)}
+\item{onSort}{JS function called by any change to the list (add / update /
+remove)}
 
-\item{onRemove}{JS function called when an element is removed from the list into another list}
+\item{onRemove}{JS function called when an element is removed from the list
+into another list}
 
-\item{onFilter}{JS function called when an attempt is made to drag a filtered element}
+\item{onFilter}{JS function called when an attempt is made to drag a filtered
+element}
 
-\item{onMove}{JS function called when an item is moved in a list or between lists}
+\item{onMove}{JS function called when an item is moved in a list or between
+lists}
 
-\item{onLoad}{JS function dispatched on the "next tick" after SortableJS has initialized}
+\item{onLoad}{JS function dispatched on the "next tick" after SortableJS has
+initialized}
 
 \item{...}{other params passed onto SortableJS}
 }
 \description{
-Use this function to define the options for \link{sortable_js} and \link{rank_list}, which will pass these in turn to the \code{SortableJS} JavaScript library.
+Use this function to define the options for \link{sortable_js} and \link{rank_list},
+which will pass these in turn to the \code{SortableJS} JavaScript library.
 }
 \details{
-Many of the \code{SortableJS} options will accept a JavaScript function. You can do this using the \code{htmlwidgets::JS} function.
+Many of the \code{SortableJS} options will accept a JavaScript function. You can
+do this using the \code{htmlwidgets::JS} function.
 }
 \references{
 \url{https://github.com/sortablejs/Sortable/}

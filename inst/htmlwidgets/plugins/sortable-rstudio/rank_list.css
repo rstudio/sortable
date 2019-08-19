@@ -30,7 +30,7 @@
   width: 100%;
 }
 
-.default-sortable .rank-list-item:hover {
+.default-sortable .rank-list-item:hover:not(.disabled) {
   background-color: #dcdcdc;
   cursor: grab;
 }
@@ -39,7 +39,7 @@
   color: transparent;
 }
 
-.default-sortable .rank-list-item.sortable-ghost:hover {
+.default-sortable .rank-list-item.sortable-ghost:hover:not(.disabled) {
   cursor: grabbing;
 }
 
@@ -49,7 +49,7 @@
   border: 1px solid #4d91d0;
 }
 
-.default-sortable .rank-list-item.sortable-chosen:hover {
+.default-sortable .rank-list-item.sortable-chosen:hover:not(.disabled) {
   cursor: grabbing;
 }
 
@@ -57,7 +57,7 @@
   color: transparent;
 }
 
-.default-sortable .rank-list-item.sortable-ghost.sortable-chosen:hover {
+.default-sortable .rank-list-item.sortable-ghost.sortable-chosen:hover:not(.disabled) {
   cursor: grabbing;
 }
 
@@ -67,7 +67,11 @@
   border: 1px solid #4d91d0;
 }
 
-.default-sortable .rank-list-item.sortable-drag:hover {
+.default-sortable .rank-list-item.sortable-drag:hover:not(.disabled) {
   cursor: grabbing;
+}
+
+.default-sortable .rank-list-item.disabled {
+  cursor: not-allowed;
 }
 

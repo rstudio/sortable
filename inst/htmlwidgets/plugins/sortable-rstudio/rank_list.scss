@@ -24,6 +24,7 @@
     margin: 5px;
   }
 
+
   $border-radius: 3px;
   .rank-list-item {
     border-radius: $border-radius;
@@ -35,8 +36,7 @@
     overflow: hidden;
     width: 100%;
 
-
-    &:hover {
+    &:hover:not(.disabled) {
       background-color: $item-hover-color;
       cursor: grab;
     }
@@ -44,7 +44,7 @@
     // Class name for the drop placeholder
     &.sortable-ghost {
       color: transparent;
-      &:hover {
+      &:hover:not(.disabled) {
         cursor: grabbing;
       }
     }
@@ -53,13 +53,13 @@
       color: white;
       background-color: $item-dragging-color;
       border: 1px solid darken($item-dragging-color, 10%);
-      &:hover {
+      &:hover:not(.disabled) {
         cursor: grabbing;
       }
     }
     &.sortable-ghost.sortable-chosen {
       color: transparent;
-      &:hover {
+      &:hover:not(.disabled) {
         cursor: grabbing;
       }
     }
@@ -68,9 +68,14 @@
       color: white;
       background-color: $item-dragging-color;
       border: 1px solid darken($item-dragging-color, 10%);
-      &:hover {
+      &:hover:not(.disabled) {
         cursor: grabbing;
       }
     }
+
+    &.disabled {
+      cursor: not-allowed;
+    }
+
   }
 }
