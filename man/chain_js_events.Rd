@@ -10,8 +10,11 @@ chain_js_events(...)
 \item{...}{JavaScript functions defined by \link[htmlwidgets:JS]{htmlwidgets::JS}}
 }
 \value{
-A single JavaScript function that will call all methods provided with the event
+A single JavaScript function that will call all methods provided with
+the event
 }
 \description{
-SortableJS does not have an event based system.  To be able to call multiple JavaScript events under the same event execution, they need to be executed one after another.
+SortableJS does not have an event based system.  To be able to call multiple
+JavaScript events under the same event execution, they need to be executed
+one after another.
 }
