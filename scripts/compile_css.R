@@ -11,13 +11,15 @@ scss_files <- dir(
   full.names = TRUE
 )
 
-lapply(scss_files, function(scss_file) {
+for (scss_file in scss_files) {
   if (grepl("^_", basename(scss_file))) {
-    return(NULL)
+    message("Skipping   : ", basename(scss_file))
+    NULL
+  } else {
+    message("Translating: ", basename(scss_file))
+    sass::sass(
+      input = sass::sass_file(scss_file),
+      output = sub("\\.scss", ".css", scss_file)
+    )
   }
-  print(scss_file)
-  sass::sass(
-    input = sass::sass_file(scss_file),
-    output = sub("\\.scss", ".css", scss_file)
-  )
-})
+}
