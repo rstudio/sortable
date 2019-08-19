@@ -71,18 +71,10 @@ ui <- fluidPage(
           "two",
           "three",
           htmltools::tags$div(
-            htmltools::tags$div(
-              id = "inner_element_4",
-              "Complex html tag(s) with no 'id' attribute in outer element."
-            )
+            htmltools::em("Complex"), " html tags with no label name"
           ),
-          htmltools::tags$div(
-            id = "five",
-            "Extra text",
-            htmltools::tags$div(
-              id = "inner_element_5",
-              "Complex html tag(s) with id: 'five'"
-            )
+          "five" = htmltools::tags$div(
+            htmltools::em("Complex"), " html tags with name: 'five'"
           )
         ),
         input_id = "rank_list_1"
@@ -137,18 +129,10 @@ ui <- fluidPage(
             "two",
             "three",
             htmltools::tags$div(
-              htmltools::tags$div(
-                id = "inner_element_4",
-                "Complex html tag(s) with no 'id' attribute in outer element."
-              )
+              htmltools::em("Complex"), " html tags with no label name"
             ),
-            htmltools::tags$div(
-              id = "five",
-              "Extra text",
-              htmltools::tags$div(
-                id = "inner_element_5",
-                "Complex html tag(s) with id: 'five'"
-              )
+            "five" = htmltools::tags$div(
+              htmltools::em("Complex"), " html tags with name: 'five'"
             )
           ),
           input_id = "rank_list_1"
