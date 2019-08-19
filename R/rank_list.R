@@ -80,7 +80,10 @@ rank_list <- function(
         class = "rank-list",
         id = selector,
         lapply(labels, function(x) {
-          tags$div(class = "rank-list-item", x )
+          tags$div(
+            class = "rank-list-item-container",
+            tags$div(class = "rank-list-item", x )
+          )
         })
       )
     ),
