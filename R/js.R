@@ -1,19 +1,12 @@
 get_child_id_or_text_js_fn <- function() {
   paste0(collapse = "\n",
     "function(child) {",
-    # make child a jquery element
-    "  var child_ = $(child);",
-    "  var children = child_.children();",
-    #  if there are children elements
-    "  if (children.length > 0) {",
-    #    get the first child and check it's id
-    "    var id = $(children.get(0)).attr('id');",
-    #    if there is an id, return it
-    "    if (id) return(id);",
-    "  }",
-    #  otherwise return the inner text of the element
-    # use inner text vs `.text()` to avoid extra white space
-    "  return $.trim(child.innerText);",
+    "  return ",
+    #    use child element attribute 'data-rank-id'
+    "    $(child).attr('data-rank-id') || ",
+    #    otherwise return the inner text of the element
+    #    use inner text vs `.text()` to avoid extra white space
+    "    $.trim(child.innerText);",
     "}"
   )
 }

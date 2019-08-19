@@ -79,9 +79,15 @@ rank_list <- function(
       tags$div(
         class = "rank-list",
         id = selector,
-        lapply(labels, function(x) {
-          tags$div(class = "rank-list-item", x )
-        })
+        mapply(
+          USE.NAMES = FALSE,
+          SIMPLIFY = FALSE,
+          labels,
+          label_ids(labels),
+          FUN = function(label, label_id) {
+            tags$div(class = "rank-list-item", "data-rank-id" = label_id, label)
+          }
+        )
       )
     ),
     sortable_js(
