@@ -12,7 +12,8 @@ get_child_id_or_text_js_fn <- function() {
     "    if (id) return(id);",
     "  }",
     #  otherwise return the inner text of the element
-    "  return $.trim(child_.text());",
+    # use inner text vs `.text()` to avoid extra white space
+    "  return $.trim(child.innerText);",
     "}"
   )
 }
