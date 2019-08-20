@@ -23,7 +23,7 @@
   }
 
   .rank-list:empty {
-    min-height: 50px;
+    min-height: $min-item-height;
     border-style: dashed;
     border-color: $border-color;
   }
