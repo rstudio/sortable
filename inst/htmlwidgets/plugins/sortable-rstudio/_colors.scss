@@ -1,5 +1,10 @@
 $item-color: white;
-$item-hover-color: #dcdcdc;
 $rank-background-color: transparent;
+$item-background-color: #f8f8f8;
 $border-color: #ddd;
 $item-dragging-color: #75aadb;
+$item-hover-color: scale-color($item-dragging-color, $lightness: 75%);
+
+$min-width: 150px;
+$min-container-height: 100px;
+$min-item-height: 50px;

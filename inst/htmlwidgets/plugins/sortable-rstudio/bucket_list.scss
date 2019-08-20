@@ -9,8 +9,23 @@
 
   .bucket-list {
     display: flex;
+    // flex-direction: column;
+    // flex-flow: column nowrap;
+  }
+
+  .bucket-list.horizontal {
     flex-direction: row;
     flex-wrap: wrap;
+  }
+
+  .bucket-list.vertical {
+    flex-direction: column;
+  }
+
+  .rank-list:empty {
+    min-height: $min-item-height;
+    border-style: dashed;
+    border-color: $border-color;
   }
 
 }

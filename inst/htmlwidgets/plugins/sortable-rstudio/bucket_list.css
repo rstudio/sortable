@@ -6,7 +6,20 @@
 
 .default-sortable .bucket-list {
   display: flex;
+}
+
+.default-sortable .bucket-list.horizontal {
   flex-direction: row;
   flex-wrap: wrap;
+}
+
+.default-sortable .bucket-list.vertical {
+  flex-direction: column;
+}
+
+.default-sortable .rank-list:empty {
+  min-height: 50px;
+  border-style: dashed;
+  border-color: #ddd;
 }
 

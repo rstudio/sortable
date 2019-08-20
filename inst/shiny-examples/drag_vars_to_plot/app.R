@@ -6,6 +6,23 @@ library(htmlwidgets)
 library(sortable)
 library(magrittr)
 
+colnames_to_tags <- function(df){
+  lapply(
+    colnames(df),
+    function(co) {
+      tag(
+        "p",
+        list(
+          class = class(df[, co]),
+          tags$span(class = "glyphicon glyphicon-move"),
+          tags$strong(co)
+        )
+      )
+    }
+  )
+}
+
+
 ui <- fluidPage(
   fluidRow(
     class = "panel panel-heading",
@@ -23,19 +40,7 @@ ui <- fluidPage(
           tags$div(
             class = "panel-body",
             id = "sort1",
-            lapply(
-              colnames(mtcars),
-              function(co) {
-                tag(
-                  "p",
-                  list(
-                    class = class(mtcars[, co]),
-                    tags$span(class = "glyphicon glyphicon-move"),
-                    tags$strong(co)
-                  )
-                )
-              }
-            )
+            colnames_to_tags(mtcars)
           )
         )
       ),
