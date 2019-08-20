@@ -55,11 +55,6 @@ is_add_rank_list <- function(x) {
 #' @param orientation Either `horizontal` or `vertical`, and specifies the
 #'   layout of the components on the page.
 #'
-#' @param dependencies Additional CSS dependencies, specified as a `list`
-#'   containing one or more [htmltools::htmlDependency] dependencies, i.e.
-#'   `list(htmltools::htmlDependency(...))`. You can use this to extend the CSS
-#'   for custom variations of a bucket list.
-#'
 #' @export
 #' @example inst/examples/example_bucket_list.R
 #' @examples
@@ -75,8 +70,7 @@ bucket_list <- function(
   group_put_max = rep(Inf, length(labels)),
   options = sortable_options(),
   class = "default-sortable",
-  orientation = c("horizontal", "vertical"),
-  dependencies = NULL
+  orientation = c("horizontal", "vertical")
 ) {
 
   # assert_that(is_header(header))
@@ -140,10 +134,8 @@ bucket_list <- function(
         sortables
       )
     ),
-    bucket_list_dependencies(),
-    dependencies
+    bucket_list_dependencies()
   )
-
 
   as_bucket_list(z)
 }

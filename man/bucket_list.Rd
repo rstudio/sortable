@@ -7,7 +7,7 @@
 bucket_list(header = NULL, ..., group_name, group_put_max = rep(Inf,
   length(labels)), options = sortable_options(),
   class = "default-sortable", orientation = c("horizontal",
-  "vertical"), dependencies = NULL)
+  "vertical"))
 }
 \arguments{
 \item{header}{Text that appears at the top of the bucket list.  (This is
@@ -28,11 +28,6 @@ be used to define custom styling.}
 
 \item{orientation}{Either \code{horizontal} or \code{vertical}, and specifies the
 layout of the components on the page.}
-
-\item{dependencies}{Additional CSS dependencies, specified as a \code{list}
-containing one or more \link[htmltools:htmlDependency]{htmltools::htmlDependency} dependencies, i.e.
-\code{list(htmltools::htmlDependency(...))}. You can use this to extend the CSS
-for custom variations of a bucket list.}
 }
 \description{
 A bucket list can contain more than one \link{rank_list} and allows drag-and-drop
