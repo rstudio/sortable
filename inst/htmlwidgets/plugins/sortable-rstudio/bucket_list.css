@@ -10,6 +10,7 @@
 
 .default-sortable .bucket-list.horizontal {
   flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .default-sortable .bucket-list.vertical {
@@ -18,6 +19,7 @@
 
 .default-sortable .rank-list:empty {
   min-height: 50px;
-  background-color: #75aadb;
+  border-style: dashed;
+  border-color: #ddd;
 }
 

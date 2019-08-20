@@ -1,6 +1,9 @@
 $item-color: white;
 $item-hover-color: #dcdcdc;
 $rank-background-color: transparent;
+$item-background-color: #f5f5f5;
 $border-color: #ddd;
 $item-dragging-color: #75aadb;
-$empty-background-color:#75aadb;
+$empty-background-color: lighten($item-background-color, 5%);
+
+$min-width: 150px;

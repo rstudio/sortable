@@ -30,7 +30,7 @@
 }
 
 .default-sortable .rank-list-item-container {
-  width: auto;
+  width: 100%;
 }
 
 .default-sortable .rank-list-item-container:hover:not(.disabled) {

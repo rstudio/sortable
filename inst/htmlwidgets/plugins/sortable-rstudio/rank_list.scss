@@ -3,7 +3,7 @@
 .default-sortable {
 
   &.rank-list-container {
-    flex: 1 0 150px;
+    flex: 1 0 $min-width;
     background-color: $rank-background-color;
     border: 1px solid $border-color;
     padding: 10px;
@@ -31,14 +31,14 @@
     // position: relative;
     display: block;
     padding: 10px 15px;
-    background-color: #f5f5f5;
+    background-color: $item-background-color;
     border: 1px solid $border-color;
     overflow: hidden;
     width: fit-content;
   }
   
   .rank-list-item-container{
-    width:auto;
+    width:100%;
 
     &:hover:not(.disabled) {
       background-color: $item-hover-color;

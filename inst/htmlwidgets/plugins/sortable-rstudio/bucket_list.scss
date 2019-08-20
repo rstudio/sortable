@@ -15,6 +15,7 @@
 
   .bucket-list.horizontal {
     flex-direction: row;
+    flex-wrap: wrap;
   }
 
   .bucket-list.vertical {
@@ -23,7 +24,8 @@
 
   .rank-list:empty {
     min-height: 50px;
-    background-color: $empty-background-color;
+    border-style: dashed;
+    border-color: $border-color;
   }
 
 }
