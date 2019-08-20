@@ -10,32 +10,37 @@ rank_list(text = "", labels, input_id, selector = NULL,
 \arguments{
 \item{text}{Text to appear at top of list.}
 
-\item{labels}{A character vector with the text to display inside the widget.}
+\item{labels}{A character vector with the text to display inside the widget.
+This can also be a list of html tag elements.  The text content of each
+label or label name will be used to set the shiny \code{input_id} value.}
 
 \item{input_id}{output variable to read the plot/image from.}
 
 \item{selector}{This is the css id to use, and must be unique in your shiny
 app. If NULL, the function generates a selector of the form
-\code{rank_list_id_1}, and will automatically increment for every
-\code{rank_list}.}
+\code{rank_list_id_1}, and will automatically increment for every \code{rank_list}.}
 
 \item{options}{Options to be supplied to \link{sortable_js} object. See \link{sortable_options} for more details}
 
-\item{class}{A css class applied to the rank list.  This can be used to define custom styling.}
+\item{class}{A css class applied to the rank list.  This can be used to
+define custom styling.}
 }
 \description{
-Creates a ranking item list using the \code{SortableJS} framework, and generates
-an \code{htmlwidgets} element.  The elements of this list can be dragged and
-dropped in any order.
+Creates a ranking item list using the \code{SortableJS} framework,
+and generates an \code{htmlwidgets} element.  The elements of this list can be
+dragged and dropped in any order.
 
-You can embed a ranking question inside a \code{learnr} tutorial, using \code{\link[=question_rank]{question_rank()}}.
+You can embed a ranking question inside a \code{learnr} tutorial, using
+\code{\link[=question_rank]{question_rank()}}.
 
 To embed a \code{rank_list} inside a shiny app, see the Details section.
 }
 \details{
-You can embed a \code{rank_list} inside a Shiny app, to capure the preferred ranking order of your user.
+You can embed a \code{rank_list} inside a Shiny app, to capure the preferred
+ranking order of your user.
 
-The widget automatically updates a Shiny output, with the matching \code{input_id}.
+The widget automatically updates a Shiny output, with the matching
+\code{input_id}.
 }
 \examples{
 ## Example of a shiny app

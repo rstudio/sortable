@@ -1,18 +1,12 @@
 get_child_id_or_text_js_fn <- function() {
   paste0(collapse = "\n",
     "function(child) {",
-    # make child a jquery element
-    "  var child_ = $(child);",
-    "  var children = child_.children();",
-    #  if there are children elements
-    "  if (children.length > 0) {",
-    #    get the first child and check it's id
-    "    var id = $(children.get(0)).attr('id');",
-    #    if there is an id, return it
-    "    if (id) return(id);",
-    "  }",
-    #  otherwise return the inner text of the element
-    "  return $.trim(child_.text());",
+    "  return ",
+    #    use child element attribute 'data-rank-id'
+    "    $(child).attr('data-rank-id') || ",
+    #    otherwise return the inner text of the element
+    #    use inner text vs `.text()` to avoid extra white space
+    "    $.trim(child.innerText);",
     "}"
   )
 }
@@ -20,9 +14,13 @@ get_child_id_or_text_js_fn <- function() {
 
 #' Construct JavaScript method to capture Shiny inputs on change.
 #'
-#' This captures the state of a `sortable` list.  It will look for an `id` attribute of the first child for each element.  If not attribute exists for that particular item's first child, the inner text will be used as an identifier.
+#' This captures the state of a `sortable` list.  It will look for an `id`
+#' attribute of the first child for each element.  If not attribute exists for
+#' that particular item's first child, the inner text will be used as an
+#' identifier.
 #'
-#' This method is used with the `onSort` option of `sortable_js`. See [sortable_options()].
+#' This method is used with the `onSort` option of `sortable_js`. See
+#' [sortable_options()].
 #'
 #' @param input_id Shiny input name to set
 #'
@@ -55,8 +53,10 @@ sortable_js_capture_input <- function(input_id) {
 
 
 #' @rdname sortable_js_capture_input
-#' @param input_ids Set of Shiny input ids to set corresponding to the provided `selectors`
-#' @param selectors Set of SortableJS selector values to help retrieve all to set as an object
+#' @param input_ids Set of Shiny input ids to set corresponding to the provided
+#'   `selectors`
+#' @param selectors Set of SortableJS selector values to help retrieve all to
+#'   set as an object
 #' @export
 sortable_js_capture_bucket_input <- function(input_id, input_ids, selectors) {
   assert_that(length(input_ids) > 0)
@@ -100,10 +100,13 @@ sortable_js_capture_bucket_input <- function(input_id, input_ids, selectors) {
 
 #' Chain multiple JavaScript events
 #'
-#' SortableJS does not have an event based system.  To be able to call multiple JavaScript events under the same event execution, they need to be executed one after another.
+#' SortableJS does not have an event based system.  To be able to call multiple
+#' JavaScript events under the same event execution, they need to be executed
+#' one after another.
 #'
 #' @param ... JavaScript functions defined by [htmlwidgets::JS]
-#' @return A single JavaScript function that will call all methods provided with the event
+#' @return A single JavaScript function that will call all methods provided with
+#'   the event
 chain_js_events <- function(...) {
 
   fns <- list(...)

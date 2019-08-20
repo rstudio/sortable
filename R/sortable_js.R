@@ -61,7 +61,8 @@ sortable_output <- function(input_id, width = "0px", height = "0px") {
 #'
 #' @param expr An expression
 #' @param env The environment in which to evaluate `expr`.
-#' @param quoted Is `expr` a quoted expression (with `quote()`)? This is useful if you want to save an expression in a variable.
+#' @param quoted Is `expr` a quoted expression (with `quote()`)? This is useful
+#'   if you want to save an expression in a variable.
 #'
 #' @export
 render_sortable <- function(expr, env = parent.frame(), quoted = FALSE) {
