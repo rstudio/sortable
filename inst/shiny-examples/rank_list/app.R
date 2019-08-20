@@ -10,7 +10,7 @@ ui <- fluidPage(
       width = 12,
       tags$b("Exercise"),
       rank_list(
-        text = "Drag the items in the correct order",
+        text = "Drag the items in any desired order",
         labels = list(
           "one",
           "two",
