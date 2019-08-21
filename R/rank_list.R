@@ -64,7 +64,8 @@ rank_list <- function(
   )
   options$onLoad <- chain_js_events( # nolint
     options$onLoad, # nolint
-    sortable_js_capture_input(input_id)
+    sortable_js_capture_input(input_id),
+    sortable_js_set_empty_class(css_id)
   )
 
   title_tag <- if (!is.null(text) && nchar(text) > 0) {

@@ -108,10 +108,12 @@ bucket_list <- function(
   input_ids <- vapply(dots, function(dot) dot$input_id, character(1))
 
   set_bucket <- sortable_js_capture_bucket_input(group_name, input_ids, css_ids)
+  display_empty_class <- sortable_js_set_empty_class(css_ids)
 
   dots <- lapply(dots, function(dot) {
     dot$options$onLoad <- chain_js_events(set_bucket, dot$options$onLoad) # nolint
     dot$options$onSort <- chain_js_events(set_bucket, dot$options$onSort) # nolint
+    dot$options$onMove <- chain_js_events(dot$options$onMove, display_empty_class) # nolint
     dot
   })
 
