@@ -189,6 +189,7 @@ sortable_options <- function(
 
 default_sortable_options <- function() {
   sortable_options(
-    animation = 150
+    animation = 150,
+    emptyInsertThreshold = 50 / 4
   )
 }
