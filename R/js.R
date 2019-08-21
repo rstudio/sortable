@@ -109,13 +109,13 @@ sortable_js_set_empty_class <- function(css_ids) {
   "function(evt) {
     var css_ids = %s;
     setTimeout(function() {
-      css_ids.map(function(id){
+      css_ids.map(function(id) {
         var el = window.document.getElementById(id);
         if (el) {
           Sortable.utils.toggleClass(el, 'rank-list-empty', el.children.length == 0);
         }
       })
-    }, 0)
+    }, 0);
   }"
 
   js <- sprintf(

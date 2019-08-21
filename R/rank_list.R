@@ -83,6 +83,9 @@ rank_list <- function(
     labels,
     label_ids(labels),
     FUN = function(label, label_id) {
+      if (identical(label_id, "")) {
+        label_id <- NULL
+      }
       tags$div(
         class = "rank-list-item",
         "data-rank-id" = label_id,

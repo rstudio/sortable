@@ -7,17 +7,6 @@ label_ids <- function(labels) {
     return(rep("", length(labels)))
   }
 
-  vapply(
-    FUN.VALUE = character(1),
-    USE.NAMES = FALSE,
-    nms,
-    function(name) {
-      if (is.na(name)) {
-        ""
-      } else {
-        name
-      }
-    }
-  )
-
+  nms[is.na(nms)] <- ""
+  nms
 }
