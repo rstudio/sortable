@@ -127,7 +127,7 @@ tagList(
     HTML(img(pngfile_1)),
     HTML(img(pngfile_2))
   ),
-  sortable_js(selector = "example03")
+  sortable_js(css_id = "example03")
 )
 ```
 

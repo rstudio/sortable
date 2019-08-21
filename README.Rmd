@@ -115,7 +115,7 @@ html_print(tagList(
               height = 250, width = 150)
     )
   ),
-  sortable_js("aUniqueId") # again, the CSS id must match the selector
+  sortable_js("aUniqueId") # the CSS id
 ))
 ```
 
