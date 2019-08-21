@@ -1,9 +1,10 @@
 .default-sortable.rank-list-container {
-  flex: 1 0 150px;
+  flex: 1 0 200px;
   background-color: transparent;
   border: 1px solid #ddd;
   padding: 10px;
   margin: 5px;
+  display: flex;
   flex-flow: column nowrap;
 }
 
@@ -17,6 +18,12 @@
   border-radius: 5px;
   background-color: white;
   margin: 5px;
+  min-height: 45px;
+}
+
+.default-sortable .rank-list.rank-list-empty {
+  border-style: dashed;
+  border-color: #ddd;
 }
 
 .default-sortable .rank-list-item {
@@ -26,53 +33,32 @@
   background-color: #f8f8f8;
   border: 1px solid #ddd;
   overflow: hidden;
-  width: fit-content;
-}
-
-.default-sortable .rank-list-item-container {
   width: 100%;
 }
 
-.default-sortable .rank-list-item-container:hover:not(.disabled) {
+.default-sortable .rank-list-item:hover:not(.disabled) {
   background-color: #ddeaf6;
   cursor: grab;
 }
 
-.default-sortable .rank-list-item-container.sortable-ghost {
+.default-sortable .rank-list-item.sortable-ghost {
   color: transparent;
 }
 
-.default-sortable .rank-list-item-container.sortable-ghost:hover:not(.disabled) {
+.default-sortable .rank-list-item.sortable-ghost:hover:not(.disabled) {
   cursor: grabbing;
 }
 
-.default-sortable .rank-list-item-container.sortable-chosen {
+.default-sortable .rank-list-item.sortable-chosen, .default-sortable .rank-list-item.sortable-ghost.sortable-chosen, .default-sortable .rank-list-item.sortable-drag {
   background-color: #75aadb;
   border: 1px solid #4d91d0;
 }
 
-.default-sortable .rank-list-item-container.sortable-chosen:hover:not(.disabled) {
+.default-sortable .rank-list-item.sortable-chosen:hover:not(.disabled), .default-sortable .rank-list-item.sortable-ghost.sortable-chosen:hover:not(.disabled), .default-sortable .rank-list-item.sortable-drag:hover:not(.disabled) {
   cursor: grabbing;
 }
 
-.default-sortable .rank-list-item-container.sortable-ghost.sortable-chosen {
-  color: transparent;
-}
-
-.default-sortable .rank-list-item-container.sortable-ghost.sortable-chosen:hover:not(.disabled) {
-  cursor: grabbing;
-}
-
-.default-sortable .rank-list-item-container.sortable-drag {
-  background-color: #75aadb;
-  border: 1px solid #4d91d0;
-}
-
-.default-sortable .rank-list-item-container.sortable-drag:hover:not(.disabled) {
-  cursor: grabbing;
-}
-
-.default-sortable .rank-list-item-container.disabled {
+.default-sortable .rank-list-item.disabled {
   cursor: not-allowed;
 }
 

@@ -4,22 +4,20 @@
   margin: 5px;
 }
 
-.default-sortable .bucket-list {
+.default-sortable.bucket-list {
   display: flex;
 }
 
-.default-sortable .bucket-list.horizontal {
+.default-sortable.bucket-list.bucket-list-horizontal {
   flex-direction: row;
   flex-wrap: wrap;
 }
 
-.default-sortable .bucket-list.vertical {
+.default-sortable.bucket-list.bucket-list-vertical {
   flex-direction: column;
 }
 
-.default-sortable .rank-list:empty {
-  min-height: 50px;
-  border-style: dashed;
-  border-color: #ddd;
+.default-sortable.bucket-list.bucket-list-vertical .rank-list-container {
+  flex: 1 0 45px;
 }
 

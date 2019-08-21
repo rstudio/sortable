@@ -3,12 +3,12 @@
 .default-sortable {
 
   &.rank-list-container {
-    flex: 1 0 $min-width;
+    flex: 1 0 $rank-list-min-flex-size;
     background-color: $rank-background-color;
     border: 1px solid $border-color;
     padding: 10px;
     margin: 5px;
-    // display: flex;
+    display: flex;
     flex-flow: column nowrap;
   }
 
@@ -22,7 +22,16 @@
     border-radius: 5px;
     background-color: $item-color;
     margin: 5px;
+    min-height: $rank-list-min-height;
+
+    &.rank-list-empty {
+      border-style: dashed;
+      border-color: $border-color;
+    }
   }
+
+
+
 
   $border-radius: 3px;
 
@@ -34,11 +43,7 @@
     background-color: $item-background-color;
     border: 1px solid $border-color;
     overflow: hidden;
-    width: fit-content;
-  }
-  
-  .rank-list-item-container{
-    width:100%;
+    width: 100%;
 
     &:hover:not(.disabled) {
       background-color: $item-hover-color;
@@ -53,20 +58,9 @@
       }
     }
     // Class name for the chosen item
-    &.sortable-chosen {
-      // color: white;
-      background-color: $item-dragging-color;
-      border: 1px solid darken($item-dragging-color, 10%);
-      &:hover:not(.disabled) {
-        cursor: grabbing;
-      }
-    }
-    &.sortable-ghost.sortable-chosen {
-      color: transparent;
-      &:hover:not(.disabled) {
-        cursor: grabbing;
-      }
-    }
+    &.sortable-chosen,
+    // Class name for chosen and original item
+    &.sortable-ghost.sortable-chosen,
     // Class name for the dragging item
     &.sortable-drag {
       // color: white;
