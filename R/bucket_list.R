@@ -132,7 +132,7 @@ bucket_list <- function(
       class = paste("bucket-list-container", class),
       title_tag,
       tags$div(
-        class = paste(class, "bucket-list", orientation),
+        class = paste(class, "bucket-list", paste0("bucket-list-", orientation)),
         sortables
       )
     ),
