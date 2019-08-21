@@ -1,4 +1,4 @@
-css_dependency <- function(name, files, package = "sortable") {
+css_dependency <- function(name, files) {
   list(
     htmltools::htmlDependency(
       name,
