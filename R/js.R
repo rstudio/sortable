@@ -145,7 +145,7 @@ to_json_array <- function(x) {
 #' @param ... JavaScript functions defined by [htmlwidgets::JS]
 #' @return A single JavaScript function that will call all methods provided with
 #'   the event
-#' @noRd
+#' @export
 chain_js_events <- function(...) {
 
   fns <- list(...)
