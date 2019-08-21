@@ -76,34 +76,37 @@ rank_list <- function(
     NULL
   }
 
-  z <- tagList(
+  label_tags <- mapply(
+    USE.NAMES = FALSE,
+    SIMPLIFY = FALSE,
+    labels,
+    label_ids(labels),
+    FUN = function(label, label_id) {
+      tags$div(
+        class = "rank-list-item",
+        "data-rank-id" = label_id,
+        label
+      )
+    }
+  )
+
+  rank_list_tags <- tagList(
     tags$div(
       class = paste("rank-list-container", paste(class, collapse = " ")),
       title_tag,
       tags$div(
         class = "rank-list",
-        id = selector,
-        mapply(
-          USE.NAMES = FALSE,
-          SIMPLIFY = FALSE,
-          labels,
-          label_ids(labels),
-          FUN = function(label, label_id) {
-            tags$div(
-              class = "rank-list-item-container",
-              tags$div(class = "rank-list-item", "data-rank-id" = label_id, label)
-            )
-          }
-        )
+        id = css_id,
+        label_tags
       )
     ),
     sortable_js(
-      selector = selector,
+      css_id = css_id,
       options = options
     ),
     rank_list_dependencies()
   )
 
-  as_rank_list(z)
+  as_rank_list(rank_list_tags)
 
 }
