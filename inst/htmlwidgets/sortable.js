@@ -21,7 +21,7 @@ HTMLWidgets.widget({
 
 
     instance.sortable = Sortable.create(
-      document.getElementById( x.selector ),
+      document.getElementById( x.css_id ),
       x.options
     )
 

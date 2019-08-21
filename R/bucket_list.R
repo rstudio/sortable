@@ -92,8 +92,8 @@ bucket_list <- function(
     dot <- dot_vals[[i]]
     assert_that(is_add_rank_list(dot))
 
-    if (is.null(dot$selector)) {
-      dot$selector <- increment_rank_list()
+    if (is.null(dot$css_id)) {
+      dot$css_id <- increment_rank_list()
     }
     modifyList(
       dot,
@@ -104,10 +104,10 @@ bucket_list <- function(
     )
   })
 
-  selectors <- vapply(dots, function(dot) dot$selector, character(1))
+  css_ids <- vapply(dots, function(dot) dot$css_id, character(1))
   input_ids <- vapply(dots, function(dot) dot$input_id, character(1))
 
-  set_bucket <- sortable_js_capture_bucket_input(group_name, input_ids, selectors)
+  set_bucket <- sortable_js_capture_bucket_input(group_name, input_ids, css_ids)
 
   dots <- lapply(dots, function(dot) {
     dot$options$onLoad <- chain_js_events(set_bucket, dot$options$onLoad) # nolint

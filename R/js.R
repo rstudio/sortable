@@ -54,13 +54,13 @@ sortable_js_capture_input <- function(input_id) {
 
 #' @rdname sortable_js_capture_input
 #' @param input_ids Set of Shiny input ids to set corresponding to the provided
-#'   `selectors`
-#' @param selectors Set of SortableJS selector values to help retrieve all to
+#'   `css_ids`
+#' @param css_ids Set of SortableJS `css_id` values to help retrieve all to
 #'   set as an object
 #' @export
-sortable_js_capture_bucket_input <- function(input_id, input_ids, selectors) {
+sortable_js_capture_bucket_input <- function(input_id, input_ids, css_ids) {
   assert_that(length(input_ids) > 0)
-  assert_that(length(input_ids) == length(selectors))
+  assert_that(length(input_ids) == length(css_ids))
 
   # can use jquery as shiny will have jquery
   js_text <- "function(evt) {
@@ -71,12 +71,12 @@ sortable_js_capture_bucket_input <- function(input_id, input_ids, selectors) {
   var child_id_or_text_fn = %s;
 
   var ret = {}, i;
-  var selectors = %s;
+  var css_ids = %s;
   var input_ids = %s;
 
-  $.map(selectors, function(selector, i) {
+  $.map(css_ids, function(css_id, i) {
     var input_id = input_ids[i];
-    var item = $('#' + selector).get(0);
+    var item = $('#' + css_id).get(0);
     if (item && item.children) {
       ret[input_id] = $.map(item.children, child_id_or_text_fn);
     } else {
@@ -89,12 +89,22 @@ sortable_js_capture_bucket_input <- function(input_id, input_ids, selectors) {
   js <- sprintf(
     js_text,
     get_child_id_or_text_js_fn(),
-    as.character(jsonlite::toJSON(as.list(selectors))),
-    as.character(jsonlite::toJSON(as.list(input_ids))),
+    to_json_array(css_ids),
+    to_json_array(input_ids),
     input_id
   )
 
   htmlwidgets::JS(js)
+}
+
+
+to_json_array <- function(x) {
+  as.character(
+    jsonlite::toJSON(
+      as.list(x),
+      auto_unbox = TRUE
+    )
+  )
 }
 
 

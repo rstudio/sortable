@@ -24,8 +24,8 @@
 #'   This can also be a list of html tag elements.  The text content of each
 #'   label or label name will be used to set the shiny `input_id` value.
 #' @param text Text to appear at top of list.
-#' @param selector This is the css id to use, and must be unique in your shiny
-#'   app. If NULL, the function generates a selector of the form
+#' @param css_id This is the css id to use, and must be unique in your shiny
+#'   app. If NULL, the function generates a id of the form
 #'   `rank_list_id_1`, and will automatically increment for every `rank_list`.
 #' @param class A css class applied to the rank list.  This can be used to
 #'   define custom styling.
@@ -48,12 +48,12 @@ rank_list <- function(
   text = "",
   labels,
   input_id,
-  selector = NULL,
+  css_id = NULL,
   options = sortable_options(),
   class = "default-sortable"
 ) {
-  if (is.null(selector)) {
-    selector <- increment_rank_list()
+  if (is.null(css_id)) {
+    css_id <- increment_rank_list()
   }
   assert_that(is_sortable_options(options))
   assert_that(is_input_id(input_id))

@@ -16,8 +16,8 @@ test_that( "sortable_js height and width", {
   expect_equal( sortable_js( "", height = 100 )$height, 100 )
 })
 
-test_that( "selector and options passed as expected", {
-  expect_identical( sortable_js( "an_id" )$x$selector, "an_id" )
+test_that( "css_id and options passed as expected", {
+  expect_identical( sortable_js( "an_id" )$x$css_id, "an_id" )
   expect_identical(
     sortable_js(
       "an_id",
@@ -28,7 +28,7 @@ test_that( "selector and options passed as expected", {
       )
     )$x,
     list(
-      selector = "an_id",
+      css_id = "an_id",
       options = modifyList(
         default_sortable_options(),
         sortable_options(

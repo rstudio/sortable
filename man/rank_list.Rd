@@ -4,7 +4,7 @@
 \alias{rank_list}
 \title{Create a ranking item list.}
 \usage{
-rank_list(text = "", labels, input_id, selector = NULL,
+rank_list(text = "", labels, input_id, css_id = NULL,
   options = sortable_options(), class = "default-sortable")
 }
 \arguments{
@@ -16,8 +16,8 @@ label or label name will be used to set the shiny \code{input_id} value.}
 
 \item{input_id}{output variable to read the plot/image from.}
 
-\item{selector}{This is the css id to use, and must be unique in your shiny
-app. If NULL, the function generates a selector of the form
+\item{css_id}{This is the css id to use, and must be unique in your shiny
+app. If NULL, the function generates a id of the form
 \code{rank_list_id_1}, and will automatically increment for every \code{rank_list}.}
 
 \item{options}{Options to be supplied to \link{sortable_js} object. See \link{sortable_options} for more details}

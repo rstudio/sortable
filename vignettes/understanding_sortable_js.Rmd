@@ -55,7 +55,7 @@ Note:
 
 ````r
 ```{r}`r ''`
-sortable_js(selector = "example01")
+sortable_js(css_id = "example01")
 ```
 ````
 
@@ -68,7 +68,7 @@ sortable_js(selector = "example01")
 </ul>
 
 ```{r, echo=FALSE}
-sortable_js(selector = "example01")
+sortable_js(css_id = "example01")
 ```
 
 ![](figures/simple_rank_list.gif)

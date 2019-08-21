@@ -4,11 +4,11 @@
 \alias{sortable_js}
 \title{Creates an htmlwidget with embedded 'SortableJS' library.}
 \usage{
-sortable_js(selector, options = sortable_options(), width = 0,
+sortable_js(css_id, options = sortable_options(), width = 0,
   height = 0, elementId = NULL, preRenderHook = NULL)
 }
 \arguments{
-\item{selector}{\code{String} selector id on which to apply \code{SortableJS}.  Note,
+\item{css_id}{\code{String} css_id id on which to apply \code{SortableJS}.  Note,
 \code{sortable_js} works with any html element, not just \code{ul/li}.}
 
 \item{options}{Options to be supplied to \link{sortable_js} object. See \link{sortable_options} for more details}
@@ -37,7 +37,7 @@ drag-and-drop interactivity in Shiny apps and R Markdown.
 \examples{
 ## -- example-sortable-js -------------------------------------------------
 # Simple example of sortable_js.
-# Important: set the tags CSS `id` equal to the sortable_js `selector`
+# Important: set the tags CSS `id` equal to the sortable_js `css_id`
 
 if (require(htmltools)) {
   html_print(
@@ -50,7 +50,7 @@ if (require(htmltools)) {
         tags$li("Each of the items"),
         tags$li("To different positions")
       ),
-      sortable_js(selector = "example_1")
+      sortable_js(css_id = "example_1")
     )
   )
 }

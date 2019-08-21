@@ -7,15 +7,15 @@
 \usage{
 sortable_js_capture_input(input_id)
 
-sortable_js_capture_bucket_input(input_id, input_ids, selectors)
+sortable_js_capture_bucket_input(input_id, input_ids, css_ids)
 }
 \arguments{
 \item{input_id}{Shiny input name to set}
 
 \item{input_ids}{Set of Shiny input ids to set corresponding to the provided
-\code{selectors}}
+\code{css_ids}}
 
-\item{selectors}{Set of SortableJS selector values to help retrieve all to
+\item{css_ids}{Set of SortableJS \code{css_id} values to help retrieve all to
 set as an object}
 }
 \description{
