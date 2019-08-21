@@ -16,7 +16,7 @@ ui <- fluidPage(
           "two",
           "three",
           htmltools::tags$div(
-            htmltools::em("Complex"), " html tag without label name"
+            htmltools::em("Complex"), " html tag without a name"
           ),
           "five" = htmltools::tags$div(
             htmltools::em("Complex"), " html tag with name: 'five'"
