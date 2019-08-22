@@ -6,6 +6,9 @@ library(sortable)
 
 
 ui <- fluidPage(
+  tags$head(
+    tags$style(HTML(".bucket-list-container {min-height: 350px;}"))
+  ),
   fluidRow(
     column(
       tags$b("Exercise"),
@@ -13,7 +16,7 @@ ui <- fluidPage(
       bucket_list(
         header = "Drag the items in any desired bucket",
         group_name = "bucket_list_group",
-        orientation = "vertical",
+        orientation = "horizontal",
         add_rank_list(
           text = "Drag from here",
           labels = list(
@@ -39,29 +42,17 @@ ui <- fluidPage(
   ),
   fluidRow(
     column(
+      width = 12,
       tags$b("Result"),
-      width = 12
-    )),
-  fluidRow(
-    column(
-      width = 12,
-      column(
-        width = 6,
-        tags$p("input$rank_list_1"),
-        verbatimTextOutput("results_1")
-      ),
-      column(
-        width = 6,
-        tags$p("input$rank_list_2"),
-        verbatimTextOutput("results_2")
-      )
-    )
-  ),
-  fluidRow(
-    column(
-      width = 12,
       column(
         width = 12,
+
+        tags$p("input$rank_list_1"),
+        verbatimTextOutput("results_1"),
+
+        tags$p("input$rank_list_2"),
+        verbatimTextOutput("results_2"),
+
         tags$p("input$bucket_list_group"),
         verbatimTextOutput("results_3")
       )
@@ -72,11 +63,11 @@ ui <- fluidPage(
 server <- function(input,output) {
   output$results_1 <-
     renderPrint(
-      input$rank_list_1 # This matches the input_id of the rank list
+      input$rank_list_1 # This matches the input_id of the first rank list
     )
   output$results_2 <-
     renderPrint(
-      input$rank_list_2 # This matches the input_id of the rank list
+      input$rank_list_2 # This matches the input_id of the second rank list
     )
   output$results_3 <-
     renderPrint(
