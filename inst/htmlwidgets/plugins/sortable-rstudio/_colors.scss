@@ -1,5 +1,9 @@
 $item-color: white;
-$item-hover-color: #dcdcdc;
 $rank-background-color: transparent;
+$item-background-color: #f8f8f8;
 $border-color: #ddd;
 $item-dragging-color: #75aadb;
+$item-hover-color: scale-color($item-dragging-color, $lightness: 75%);
+
+$rank-list-min-flex-size: 200px;
+$rank-list-min-height: 45px;

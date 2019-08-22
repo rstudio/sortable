@@ -22,4 +22,3 @@ test_that("Can create bucket_list", {
   )
   expect_is(z, "bucket_list")
 })
-

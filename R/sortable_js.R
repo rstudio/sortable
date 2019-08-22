@@ -4,7 +4,7 @@
 #' [SortableJS](https://github.com/SortableJS/Sortable) to use for
 #' drag-and-drop interactivity in Shiny apps and R Markdown.
 #'
-#' @param selector `String` selector id on which to apply `SortableJS`.  Note,
+#' @param css_id `String` css_id id on which to apply `SortableJS`.  Note,
 #'   `sortable_js` works with any html element, not just `ul/li`.
 #' @template options
 #' @inheritParams htmlwidgets::createWidget
@@ -15,7 +15,7 @@
 #' @export
 #' @example inst/examples/example_sortable_js.R
 sortable_js <- function(
-  selector,
+  css_id,
   options = sortable_options(),
   width = 0,
   height = 0,
@@ -27,7 +27,7 @@ sortable_js <- function(
 
   # forward options using x
   x <- list(
-    selector = selector,
+    css_id = css_id,
     options = modifyList(
       # set default options to be overwritten by supplied options
       default_sortable_options(),
@@ -61,7 +61,8 @@ sortable_output <- function(input_id, width = "0px", height = "0px") {
 #'
 #' @param expr An expression
 #' @param env The environment in which to evaluate `expr`.
-#' @param quoted Is `expr` a quoted expression (with `quote()`)? This is useful if you want to save an expression in a variable.
+#' @param quoted Is `expr` a quoted expression (with `quote()`)? This is useful
+#'   if you want to save an expression in a variable.
 #'
 #' @export
 render_sortable <- function(expr, env = parent.frame(), quoted = FALSE) {

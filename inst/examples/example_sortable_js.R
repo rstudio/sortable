@@ -1,6 +1,6 @@
 ## -- example-sortable-js -------------------------------------------------
 # Simple example of sortable_js.
-# Important: set the tags CSS `id` equal to the sortable_js `selector`
+# Important: set the tags CSS `id` equal to the sortable_js `css_id`
 
 if (require(htmltools)) {
   html_print(
@@ -13,7 +13,7 @@ if (require(htmltools)) {
         tags$li("Each of the items"),
         tags$li("To different positions")
       ),
-      sortable_js(selector = "example_1")
+      sortable_js(css_id = "example_1")
     )
   )
 }

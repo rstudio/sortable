@@ -1,30 +1,34 @@
 #' Create a ranking item list.
 #'
-#' @description
-#' Creates a ranking item list using the `SortableJS` framework, and generates
-#' an `htmlwidgets` element.  The elements of this list can be dragged and
-#' dropped in any order.
+#' @description Creates a ranking item list using the `SortableJS` framework,
+#' and generates an `htmlwidgets` element.  The elements of this list can be
+#' dragged and dropped in any order.
 #'
-#' You can embed a ranking question inside a `learnr` tutorial, using [question_rank()].
+#' You can embed a ranking question inside a `learnr` tutorial, using
+#' [question_rank()].
 #'
 #' To embed a `rank_list` inside a shiny app, see the Details section.
 #'
 #' @details
 #'
-#' You can embed a `rank_list` inside a Shiny app, to capure the preferred ranking order of your user.
+#' You can embed a `rank_list` inside a Shiny app, to capure the preferred
+#' ranking order of your user.
 #'
-#' The widget automatically updates a Shiny output, with the matching `input_id`.
+#' The widget automatically updates a Shiny output, with the matching
+#' `input_id`.
 #'
 #' @inheritParams sortable_js
 #'
 #' @param input_id output variable to read the plot/image from.
 #' @param labels A character vector with the text to display inside the widget.
+#'   This can also be a list of html tag elements.  The text content of each
+#'   label or label name will be used to set the shiny `input_id` value.
 #' @param text Text to appear at top of list.
-#' @param selector This is the css id to use, and must be unique in your shiny
-#'   app. If NULL, the function generates a selector of the form
-#'   `rank_list_id_1`, and will automatically increment for every
-#'   `rank_list`.
-#' @param class A css class applied to the rank list.  This can be used to define custom styling.
+#' @param css_id This is the css id to use, and must be unique in your shiny
+#'   app. If NULL, the function generates a id of the form
+#'   `rank_list_id_1`, and will automatically increment for every `rank_list`.
+#' @param class A css class applied to the rank list.  This can be used to
+#'   define custom styling.
 #' @template options
 #'
 #' @seealso [sortable_js], [bucket_list] and [question_rank]
@@ -44,12 +48,12 @@ rank_list <- function(
   text = "",
   labels,
   input_id,
-  selector = NULL,
+  css_id = NULL,
   options = sortable_options(),
   class = "default-sortable"
 ) {
-  if (is.null(selector)) {
-    selector <- increment_rank_list()
+  if (is.null(css_id)) {
+    css_id <- increment_rank_list()
   }
   assert_that(is_sortable_options(options))
   assert_that(is_input_id(input_id))
@@ -60,7 +64,8 @@ rank_list <- function(
   )
   options$onLoad <- chain_js_events( # nolint
     options$onLoad, # nolint
-    sortable_js_capture_input(input_id)
+    sortable_js_capture_input(input_id),
+    sortable_js_set_empty_class(css_id)
   )
 
   title_tag <- if (!is.null(text) && nchar(text) > 0) {
@@ -72,25 +77,40 @@ rank_list <- function(
     NULL
   }
 
-  z <- tagList(
+  label_tags <- mapply(
+    USE.NAMES = FALSE,
+    SIMPLIFY = FALSE,
+    labels,
+    label_ids(labels),
+    FUN = function(label, label_id) {
+      if (identical(label_id, "")) {
+        label_id <- NULL
+      }
+      tags$div(
+        class = "rank-list-item",
+        "data-rank-id" = label_id,
+        label
+      )
+    }
+  )
+
+  rank_list_tags <- tagList(
     tags$div(
       class = paste("rank-list-container", paste(class, collapse = " ")),
       title_tag,
       tags$div(
         class = "rank-list",
-        id = selector,
-        lapply(labels, function(x) {
-          tags$div(class = "rank-list-item", x )
-        })
+        id = css_id,
+        label_tags
       )
     ),
     sortable_js(
-      selector = selector,
+      css_id = css_id,
       options = options
     ),
     rank_list_dependencies()
   )
 
-  as_rank_list(z)
+  as_rank_list(rank_list_tags)
 
 }

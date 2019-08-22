@@ -55,7 +55,7 @@ Note:
 
 ````r
 ```{r}`r ''`
-sortable_js(selector = "example01")
+sortable_js(css_id = "example01")
 ```
 ````
 
@@ -68,7 +68,7 @@ sortable_js(selector = "example01")
 </ul>
 
 ```{r, echo=FALSE}
-sortable_js(selector = "example01")
+sortable_js(css_id = "example01")
 ```
 
 ![](figures/simple_rank_list.gif)
@@ -127,7 +127,7 @@ tagList(
     HTML(img(pngfile_1)),
     HTML(img(pngfile_2))
   ),
-  sortable_js(selector = "example03")
+  sortable_js(css_id = "example03")
 )
 ```
 

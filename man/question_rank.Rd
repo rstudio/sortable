@@ -13,7 +13,7 @@ question_rank(text, ..., correct = "Correct!", incorrect = "Incorrect",
 \arguments{
 \item{text}{Question or option text}
 
-\item{...}{parameters passed onto \code{learnr::\link[learnr]{question}}.}
+\item{...}{parameters passed onto \code{\link[learnr:question]{learnr::question()}}.}
 
 \item{correct}{For \code{question}, text to print for a correct answer (defaults
 to "Correct!"). For \code{answer}, a boolean indicating whether this answer is

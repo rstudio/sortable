@@ -18,7 +18,7 @@ NULL
 #'
 #' Note that, by default, the answer order is randomized.
 #'
-#' @param ... parameters passed onto \code{learnr::\link[learnr]{question}}.
+#' @param ... parameters passed onto [learnr::question()].
 #' @template options
 #' @inheritParams learnr::question
 #' @export

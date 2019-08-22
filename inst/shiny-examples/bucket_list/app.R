@@ -13,9 +13,20 @@ ui <- fluidPage(
       bucket_list(
         header = "Drag the items in any desired bucket",
         group_name = "bucket_list_group",
+        orientation = "vertical",
         add_rank_list(
           text = "Drag from here",
-          labels = c("one", "two", "three", "four", "five"),
+          labels = list(
+            "one",
+            "two",
+            "three",
+            htmltools::tags$div(
+              htmltools::em("Complex"), " html tag without a name"
+            ),
+            "five" = htmltools::tags$div(
+              htmltools::em("Complex"), " html tag with name: 'five'"
+            )
+          ),
           input_id = "rank_list_1"
         ),
         add_rank_list(

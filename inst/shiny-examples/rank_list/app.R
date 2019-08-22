@@ -10,8 +10,18 @@ ui <- fluidPage(
       width = 12,
       tags$b("Exercise"),
       rank_list(
-        text = "Drag the items in the correct order",
-        labels = sample(c("one", "two", "three", "four", "five")),
+        text = "Drag the items in any desired order",
+        labels = list(
+          "one",
+          "two",
+          "three",
+          htmltools::tags$div(
+            htmltools::em("Complex"), " html tag without a name"
+          ),
+          "five" = htmltools::tags$div(
+            htmltools::em("Complex"), " html tag with name: 'five'"
+          )
+        ),
         input_id = "rank_list_1"
       ),
       tags$b("Result"),

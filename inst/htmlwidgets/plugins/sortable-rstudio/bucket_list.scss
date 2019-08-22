@@ -7,10 +7,23 @@
     margin: 5px;
   }
 
-  .bucket-list {
+  &.bucket-list {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    // flex-direction: column;
+    // flex-flow: column nowrap;
+    &.bucket-list-horizontal {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+
+    &.bucket-list-vertical {
+      flex-direction: column;
+
+      .rank-list-container {
+        flex: 1 0 $rank-list-min-height;
+      }
+    }
   }
+
 
 }

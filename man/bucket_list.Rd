@@ -6,26 +6,32 @@
 \usage{
 bucket_list(header = NULL, ..., group_name, group_put_max = rep(Inf,
   length(labels)), options = sortable_options(),
-  class = "default-sortable")
+  class = "default-sortable", orientation = c("horizontal",
+  "vertical"))
 }
 \arguments{
 \item{header}{Text that appears at the top of the bucket list.  (This is
 encoded as an HTML \code{<p>} tag, so not strictly speaking a header.)}
 
-\item{...}{One or more specifications for a rank list, and must be
-defined by \link{add_rank_list}.}
+\item{...}{One or more specifications for a rank list, and must be defined by
+\link{add_rank_list}.}
 
-\item{group_name}{Passed to \code{SortableJS} as the group name. Also the input value set in Shiny. (\code{input[[group_name]]})}
+\item{group_name}{Passed to \code{SortableJS} as the group name. Also the input
+value set in Shiny. (\code{input[[group_name]]})}
 
 \item{group_put_max}{Not yet implemented}
 
 \item{options}{Options to be supplied to \link{sortable_js} object. See \link{sortable_options} for more details}
 
-\item{class}{A css class applied to the bucket list and rank lists.  This can be used to define custom styling.}
+\item{class}{A css class applied to the bucket list and rank lists.  This can
+be used to define custom styling.}
+
+\item{orientation}{Either \code{horizontal} or \code{vertical}, and specifies the
+layout of the components on the page.}
 }
 \description{
-A bucket list can contain more than one \link{rank_list} and allows
-drag-and-drop of items between the different lists.
+A bucket list can contain more than one \link{rank_list} and allows drag-and-drop
+of items between the different lists.
 }
 \examples{
 ## Example of a shiny app

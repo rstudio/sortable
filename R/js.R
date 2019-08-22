@@ -1,7 +1,26 @@
+get_child_id_or_text_js_fn <- function() {
+  paste0(collapse = "\n",
+    "function(child) {",
+    "  return ",
+    #    use child element attribute 'data-rank-id'
+    "    $(child).attr('data-rank-id') || ",
+    #    otherwise return the inner text of the element
+    #    use inner text vs `.text()` to avoid extra white space
+    "    $.trim(child.innerText);",
+    "}"
+  )
+}
+
+
 #' Construct JavaScript method to capture Shiny inputs on change.
 #'
-#' This captures the state of a `sortable` list.  Typically you would use this
-#' with the `onSort` option of `sortable_js`. See [sortable_options()].
+#' This captures the state of a `sortable` list.  It will look for an `id`
+#' attribute of the first child for each element.  If not attribute exists for
+#' that particular item's first child, the inner text will be used as an
+#' identifier.
+#'
+#' This method is used with the `onSort` option of `sortable_js`. See
+#' [sortable_options()].
 #'
 #' @param input_id Shiny input name to set
 #'
@@ -14,7 +33,13 @@
 #' system.file("shiny-examples/drag_vars_to_plot/app.R", package = "sortable")
 sortable_js_capture_input <- function(input_id) {
   # can call jquery as shiny will always have jquery
-  inner_text <- "$.map(this.el.children, function(child){return child.innerText})"
+  inner_text <- paste0(
+    "$.map(",
+    "  this.el.children, ",
+    get_child_id_or_text_js_fn(),
+    ")",
+    collapse = "\n"
+  )
   js_text <- "function(evt) {
   if (typeof Shiny !== \"undefined\") {
     Shiny.setInputValue(\"%s:sortablejs.rank_list\", %s)
@@ -28,12 +53,14 @@ sortable_js_capture_input <- function(input_id) {
 
 
 #' @rdname sortable_js_capture_input
-#' @param input_ids Set of Shiny input ids to set corresponding to the provided `selectors`
-#' @param selectors Set of SortableJS selector values to help retrieve all to set as an object
+#' @param input_ids Set of Shiny input ids to set corresponding to the provided
+#'   `css_ids`
+#' @param css_ids Set of SortableJS `css_id` values to help retrieve all to
+#'   set as an object
 #' @export
-sortable_js_capture_bucket_input <- function(input_id, input_ids, selectors) {
+sortable_js_capture_bucket_input <- function(input_id, input_ids, css_ids) {
   assert_that(length(input_ids) > 0)
-  assert_that(length(input_ids) == length(selectors))
+  assert_that(length(input_ids) == length(css_ids))
 
   # can use jquery as shiny will have jquery
   js_text <- "function(evt) {
@@ -41,17 +68,17 @@ sortable_js_capture_bucket_input <- function(input_id, input_ids, selectors) {
     return;
   }
 
+  var child_id_or_text_fn = %s;
+
   var ret = {}, i;
-  var selectors = %s;
+  var css_ids = %s;
   var input_ids = %s;
 
-  $.map(selectors, function(selector, i) {
+  $.map(css_ids, function(css_id, i) {
     var input_id = input_ids[i];
-    var item = $('#' + selector).get(0);
+    var item = $('#' + css_id).get(0);
     if (item && item.children) {
-      ret[input_id] = $.map(item.children, function(child) {
-        return child.innerText;
-      });
+      ret[input_id] = $.map(item.children, child_id_or_text_fn);
     } else {
       ret[input_id] = undefined;
     }
@@ -61,8 +88,9 @@ sortable_js_capture_bucket_input <- function(input_id, input_ids, selectors) {
 
   js <- sprintf(
     js_text,
-    as.character(jsonlite::toJSON(as.list(selectors))),
-    as.character(jsonlite::toJSON(as.list(input_ids))),
+    get_child_id_or_text_js_fn(),
+    to_json_array(css_ids),
+    to_json_array(input_ids),
     input_id
   )
 
@@ -70,12 +98,54 @@ sortable_js_capture_bucket_input <- function(input_id, input_ids, selectors) {
 }
 
 
+
+# add empty class to all css_ids on execution
+# need to setTimeout as dom effects have not executed
+# need to pass in all ids, as moving an element from
+#   group A to B back to A without dropping will remove empty class from B,
+#   but never add it back.
+sortable_js_set_empty_class <- function(css_ids) {
+  js_text <-
+  "function(evt) {
+    var css_ids = %s;
+    setTimeout(function() {
+      css_ids.map(function(id) {
+        var el = window.document.getElementById(id);
+        if (el) {
+          Sortable.utils.toggleClass(el, 'rank-list-empty', el.children.length == 0);
+        }
+      })
+    }, 0);
+  }"
+
+  js <- sprintf(
+    js_text,
+    to_json_array(css_ids)
+  )
+
+  htmlwidgets::JS(js)
+}
+
+to_json_array <- function(x) {
+  as.character(
+    jsonlite::toJSON(
+      as.list(x),
+      auto_unbox = TRUE
+    )
+  )
+}
+
+
 #' Chain multiple JavaScript events
 #'
-#' SortableJS does not have an event based system.  To be able to call multiple JavaScript events under the same event execution, they need to be executed one after another.
+#' SortableJS does not have an event based system.  To be able to call multiple
+#' JavaScript events under the same event execution, they need to be executed
+#' one after another.
 #'
 #' @param ... JavaScript functions defined by [htmlwidgets::JS]
-#' @return A single JavaScript function that will call all methods provided with the event
+#' @return A single JavaScript function that will call all methods provided with
+#'   the event
+#' @export
 chain_js_events <- function(...) {
 
   fns <- list(...)

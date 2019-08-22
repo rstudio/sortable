@@ -1,5 +1,5 @@
 .default-sortable.rank-list-container {
-  flex: 1 0 150px;
+  flex: 1 0 200px;
   background-color: transparent;
   border: 1px solid #ddd;
   padding: 10px;
@@ -18,20 +18,26 @@
   border-radius: 5px;
   background-color: white;
   margin: 5px;
+  min-height: 45px;
+}
+
+.default-sortable .rank-list.rank-list-empty {
+  border-style: dashed;
+  border-color: #ddd;
 }
 
 .default-sortable .rank-list-item {
   border-radius: 3px;
   display: block;
   padding: 10px 15px;
-  background-color: #f5f5f5;
+  background-color: #f8f8f8;
   border: 1px solid #ddd;
   overflow: hidden;
   width: 100%;
 }
 
 .default-sortable .rank-list-item:hover:not(.disabled) {
-  background-color: #dcdcdc;
+  background-color: #ddeaf6;
   cursor: grab;
 }
 
@@ -43,31 +49,12 @@
   cursor: grabbing;
 }
 
-.default-sortable .rank-list-item.sortable-chosen {
-  color: white;
+.default-sortable .rank-list-item.sortable-chosen, .default-sortable .rank-list-item.sortable-ghost.sortable-chosen, .default-sortable .rank-list-item.sortable-drag {
   background-color: #75aadb;
   border: 1px solid #4d91d0;
 }
 
-.default-sortable .rank-list-item.sortable-chosen:hover:not(.disabled) {
-  cursor: grabbing;
-}
-
-.default-sortable .rank-list-item.sortable-ghost.sortable-chosen {
-  color: transparent;
-}
-
-.default-sortable .rank-list-item.sortable-ghost.sortable-chosen:hover:not(.disabled) {
-  cursor: grabbing;
-}
-
-.default-sortable .rank-list-item.sortable-drag {
-  color: white;
-  background-color: #75aadb;
-  border: 1px solid #4d91d0;
-}
-
-.default-sortable .rank-list-item.sortable-drag:hover:not(.disabled) {
+.default-sortable .rank-list-item.sortable-chosen:hover:not(.disabled), .default-sortable .rank-list-item.sortable-ghost.sortable-chosen:hover:not(.disabled), .default-sortable .rank-list-item.sortable-drag:hover:not(.disabled) {
   cursor: grabbing;
 }
 

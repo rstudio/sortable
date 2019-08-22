@@ -19,3 +19,8 @@ All script should be run from the root directory, such as `source("scripts/compi
 
 * `download_sortablejs.R`
   * Downloads a `sortable.js` file and updates the appropriate versions
+
+* `build_docs.R`
+  * Build the README.Rmd
+  * Installs the pkg to avoid docs issues
+  * Build the pkgdocs locally (which is `.gitignore`'d)
