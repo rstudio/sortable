@@ -39,10 +39,11 @@
 
 <meta property="og:title" content="Create a ranking item list. — rank_list" />
 
-<meta property="og:description" content="Creates a ranking item list using the SortableJS framework, and generates
-an htmlwidgets element.  The elements of this list can be dragged and
-dropped in any order.
-You can embed a ranking question inside a learnr tutorial, using question_rank().
+<meta property="og:description" content="Creates a ranking item list using the SortableJS framework,
+and generates an htmlwidgets element.  The elements of this list can be
+dragged and dropped in any order.
+You can embed a ranking question inside a learnr tutorial, using
+question_rank().
 To embed a rank_list inside a shiny app, see the Details section." />
 
 <meta property="og:image" content="https://rstudio.github.io/sortable/logo.png" />
@@ -149,15 +150,16 @@ To embed a rank_list inside a shiny app, see the Details section." />
 
     <div class="ref-description">
     
-    <p>Creates a ranking item list using the <code>SortableJS</code> framework, and generates
-an <code>htmlwidgets</code> element.  The elements of this list can be dragged and
-dropped in any order.</p>
-<p>You can embed a ranking question inside a <code>learnr</code> tutorial, using <code><a href='question_rank.html'>question_rank()</a></code>.</p>
+    <p>Creates a ranking item list using the <code>SortableJS</code> framework,
+and generates an <code>htmlwidgets</code> element.  The elements of this list can be
+dragged and dropped in any order.</p>
+<p>You can embed a ranking question inside a <code>learnr</code> tutorial, using
+<code><a href='question_rank.html'>question_rank()</a></code>.</p>
 <p>To embed a <code>rank_list</code> inside a shiny app, see the Details section.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>rank_list</span>(<span class='kw'>text</span> <span class='kw'>=</span> <span class='st'>""</span>, <span class='no'>labels</span>, <span class='no'>input_id</span>, <span class='kw'>selector</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+    <pre class="usage"><span class='fu'>rank_list</span>(<span class='kw'>text</span> <span class='kw'>=</span> <span class='st'>""</span>, <span class='no'>labels</span>, <span class='no'>input_id</span>, <span class='kw'>css_id</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
   <span class='kw'>options</span> <span class='kw'>=</span> <span class='fu'><a href='sortable_options.html'>sortable_options</a></span>(), <span class='kw'>class</span> <span class='kw'>=</span> <span class='st'>"default-sortable"</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -169,18 +171,19 @@ dropped in any order.</p>
     </tr>
     <tr>
       <th>labels</th>
-      <td><p>A character vector with the text to display inside the widget.</p></td>
+      <td><p>A character vector with the text to display inside the widget.
+This can also be a list of html tag elements.  The text content of each
+label or label name will be used to set the shiny <code>input_id</code> value.</p></td>
     </tr>
     <tr>
       <th>input_id</th>
       <td><p>output variable to read the plot/image from.</p></td>
     </tr>
     <tr>
-      <th>selector</th>
+      <th>css_id</th>
       <td><p>This is the css id to use, and must be unique in your shiny
-app. If NULL, the function generates a selector of the form
-<code>rank_list_id_1</code>, and will automatically increment for every
-<code>rank_list</code>.</p></td>
+app. If NULL, the function generates a id of the form
+<code>rank_list_id_1</code>, and will automatically increment for every <code>rank_list</code>.</p></td>
     </tr>
     <tr>
       <th>options</th>
@@ -188,14 +191,17 @@ app. If NULL, the function generates a selector of the form
     </tr>
     <tr>
       <th>class</th>
-      <td><p>A css class applied to the rank list.  This can be used to define custom styling.</p></td>
+      <td><p>A css class applied to the rank list.  This can be used to
+define custom styling.</p></td>
     </tr>
     </table>
     
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>You can embed a <code>rank_list</code> inside a Shiny app, to capure the preferred ranking order of your user.</p>
-<p>The widget automatically updates a Shiny output, with the matching <code>input_id</code>.</p>
+    <p>You can embed a <code>rank_list</code> inside a Shiny app, to capure the preferred
+ranking order of your user.</p>
+<p>The widget automatically updates a Shiny output, with the matching
+<code>input_id</code>.</p>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 

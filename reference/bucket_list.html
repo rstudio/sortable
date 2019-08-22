@@ -39,8 +39,8 @@
 
 <meta property="og:title" content="Create a bucket list. — bucket_list" />
 
-<meta property="og:description" content="A bucket list can contain more than one rank_list and allows
-drag-and-drop of items between the different lists." />
+<meta property="og:description" content="A bucket list can contain more than one rank_list and allows drag-and-drop
+of items between the different lists." />
 
 <meta property="og:image" content="https://rstudio.github.io/sortable/logo.png" />
 <meta name="twitter:card" content="summary" />
@@ -146,14 +146,15 @@ drag-and-drop of items between the different lists." />
 
     <div class="ref-description">
     
-    <p>A bucket list can contain more than one <a href='rank_list.html'>rank_list</a> and allows
-drag-and-drop of items between the different lists.</p>
+    <p>A bucket list can contain more than one <a href='rank_list.html'>rank_list</a> and allows drag-and-drop
+of items between the different lists.</p>
     
     </div>
 
     <pre class="usage"><span class='fu'>bucket_list</span>(<span class='kw'>header</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>, <span class='no'>group_name</span>, <span class='kw'>group_put_max</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/rep'>rep</a></span>(<span class='fl'>Inf</span>,
   <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/length'>length</a></span>(<span class='no'>labels</span>)), <span class='kw'>options</span> <span class='kw'>=</span> <span class='fu'><a href='sortable_options.html'>sortable_options</a></span>(),
-  <span class='kw'>class</span> <span class='kw'>=</span> <span class='st'>"default-sortable"</span>)</pre>
+  <span class='kw'>class</span> <span class='kw'>=</span> <span class='st'>"default-sortable"</span>, <span class='kw'>orientation</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"horizontal"</span>,
+  <span class='st'>"vertical"</span>))</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -165,12 +166,13 @@ encoded as an HTML <code>&lt;p&gt;</code> tag, so not strictly speaking a header
     </tr>
     <tr>
       <th>...</th>
-      <td><p>One or more specifications for a rank list, and must be
-defined by <a href='add_rank_list.html'>add_rank_list</a>.</p></td>
+      <td><p>One or more specifications for a rank list, and must be defined by
+<a href='add_rank_list.html'>add_rank_list</a>.</p></td>
     </tr>
     <tr>
       <th>group_name</th>
-      <td><p>Passed to <code>SortableJS</code> as the group name. Also the input value set in Shiny. (<code>input[[group_name]]</code>)</p></td>
+      <td><p>Passed to <code>SortableJS</code> as the group name. Also the input
+value set in Shiny. (<code>input[[group_name]]</code>)</p></td>
     </tr>
     <tr>
       <th>group_put_max</th>
@@ -182,7 +184,13 @@ defined by <a href='add_rank_list.html'>add_rank_list</a>.</p></td>
     </tr>
     <tr>
       <th>class</th>
-      <td><p>A css class applied to the bucket list and rank lists.  This can be used to define custom styling.</p></td>
+      <td><p>A css class applied to the bucket list and rank lists.  This can
+be used to define custom styling.</p></td>
+    </tr>
+    <tr>
+      <th>orientation</th>
+      <td><p>Either <code>horizontal</code> or <code>vertical</code>, and specifies the
+layout of the components on the page.</p></td>
     </tr>
     </table>
     

@@ -39,8 +39,10 @@
 
 <meta property="og:title" content="Construct JavaScript method to capture Shiny inputs on change. — sortable_js_capture_input" />
 
-<meta property="og:description" content="This captures the state of a sortable list.  Typically you would use this
-with the onSort option of sortable_js. See sortable_options()." />
+<meta property="og:description" content="This captures the state of a sortable list.  It will look for an id
+attribute of the first child for each element.  If not attribute exists for
+that particular item's first child, the inner text will be used as an
+identifier." />
 
 <meta property="og:image" content="https://rstudio.github.io/sortable/logo.png" />
 <meta name="twitter:card" content="summary" />
@@ -146,14 +148,16 @@ with the onSort option of sortable_js. See sortable_options()." />
 
     <div class="ref-description">
     
-    <p>This captures the state of a <code>sortable</code> list.  Typically you would use this
-with the <code>onSort</code> option of <code>sortable_js</code>. See <code><a href='sortable_options.html'>sortable_options()</a></code>.</p>
+    <p>This captures the state of a <code>sortable</code> list.  It will look for an <code>id</code>
+attribute of the first child for each element.  If not attribute exists for
+that particular item's first child, the inner text will be used as an
+identifier.</p>
     
     </div>
 
     <pre class="usage"><span class='fu'>sortable_js_capture_input</span>(<span class='no'>input_id</span>)
 
-<span class='fu'>sortable_js_capture_bucket_input</span>(<span class='no'>input_id</span>, <span class='no'>input_ids</span>, <span class='no'>selectors</span>)</pre>
+<span class='fu'>sortable_js_capture_bucket_input</span>(<span class='no'>input_id</span>, <span class='no'>input_ids</span>, <span class='no'>css_ids</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -164,13 +168,20 @@ with the <code>onSort</code> option of <code>sortable_js</code>. See <code><a hr
     </tr>
     <tr>
       <th>input_ids</th>
-      <td><p>Set of Shiny input ids to set corresponding to the provided <code>selectors</code></p></td>
+      <td><p>Set of Shiny input ids to set corresponding to the provided
+<code>css_ids</code></p></td>
     </tr>
     <tr>
-      <th>selectors</th>
-      <td><p>Set of SortableJS selector values to help retrieve all to set as an object</p></td>
+      <th>css_ids</th>
+      <td><p>Set of SortableJS <code>css_id</code> values to help retrieve all to
+set as an object</p></td>
     </tr>
     </table>
+    
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>This method is used with the <code>onSort</code> option of <code>sortable_js</code>. See
+<code><a href='sortable_options.html'>sortable_options()</a></code>.</p>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
@@ -186,6 +197,8 @@ with the <code>onSort</code> option of <code>sortable_js</code>. See <code><a hr
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
       
+      <li><a href="#details">Details</a></li>
+
       <li><a href="#see-also">See also</a></li>
       
       <li><a href="#examples">Examples</a></li>

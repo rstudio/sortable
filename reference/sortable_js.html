@@ -153,15 +153,15 @@ drag-and-drop interactivity in Shiny apps and R Markdown.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>sortable_js</span>(<span class='no'>selector</span>, <span class='kw'>options</span> <span class='kw'>=</span> <span class='fu'><a href='sortable_options.html'>sortable_options</a></span>(), <span class='kw'>width</span> <span class='kw'>=</span> <span class='fl'>0</span>,
+    <pre class="usage"><span class='fu'>sortable_js</span>(<span class='no'>css_id</span>, <span class='kw'>options</span> <span class='kw'>=</span> <span class='fu'><a href='sortable_options.html'>sortable_options</a></span>(), <span class='kw'>width</span> <span class='kw'>=</span> <span class='fl'>0</span>,
   <span class='kw'>height</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>elementId</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>preRenderHook</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>selector</th>
-      <td><p><code>String</code> selector id on which to apply <code>SortableJS</code>.  Note,
+      <th>css_id</th>
+      <td><p><code>String</code> css_id id on which to apply <code>SortableJS</code>.  Note,
 <code>sortable_js</code> works with any html element, not just <code>ul/li</code>.</p></td>
     </tr>
     <tr>
@@ -202,7 +202,7 @@ a modified widget object.</p></td>
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'>## -- example-sortable-js -------------------------------------------------</span>
 <span class='co'># Simple example of sortable_js.</span>
-<span class='co'># Important: set the tags CSS `id` equal to the sortable_js `selector`</span>
+<span class='co'># Important: set the tags CSS `id` equal to the sortable_js `css_id`</span>
 
 <span class='kw'>if</span> (<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>require</a></span>(<span class='no'>htmltools</span>)) {
   <span class='fu'><a href='https://www.rdocumentation.org/packages/htmltools/topics/html_print'>html_print</a></span>(
@@ -215,7 +215,7 @@ a modified widget object.</p></td>
         <span class='no'>tags</span>$<span class='fu'>li</span>(<span class='st'>"Each of the items"</span>),
         <span class='no'>tags</span>$<span class='fu'>li</span>(<span class='st'>"To different positions"</span>)
       ),
-      <span class='fu'>sortable_js</span>(<span class='kw'>selector</span> <span class='kw'>=</span> <span class='st'>"example_1"</span>)
+      <span class='fu'>sortable_js</span>(<span class='kw'>css_id</span> <span class='kw'>=</span> <span class='st'>"example_1"</span>)
     )
   )
 }</div><div class='output co'>#&gt; <span class='message'>Loading required package: htmltools</span></div></pre>
