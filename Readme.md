@@ -104,8 +104,7 @@ shinyApp(ui, server)
 
 With a bucket list you can have more than one rank lists in a single
 object. This can be useful for bucketing tasks, e.g. asking your
-students to classify objects into multiple
-categories.
+students to classify objects into multiple categories.
 
 <center>
 
@@ -128,7 +127,7 @@ ui <- fluidPage(
       bucket_list(
         header = "Drag the items in any desired bucket",
         group_name = "bucket_list_group",
-        orientation = "vertical",
+        orientation = "horizontal",
         add_rank_list(
           text = "Drag from here",
           labels = list(
