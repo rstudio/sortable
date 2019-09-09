@@ -23,6 +23,7 @@ sortable](https://img.shields.io/badge/Ask%20a%20question-sortable-75aadb.svg?st
 
 <!-- badges: end -->
 
+
 The `sortable` package enables drag-and-drop behaviour in your Shiny
 apps. It does this by exposing the functionality of the
 [SortableJS](https://sortablejs.github.io/Sortable/) JavaScript library
