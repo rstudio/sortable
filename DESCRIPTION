@@ -37,7 +37,7 @@ BugReports: https://github.com/rstudio/sortable/issues
 Imports:
     htmltools,
     htmlwidgets,
-    learnr (>= 0.9.2),
+    learnr (>= 0.10.0),
     shiny,
     assertthat,
     jsonlite,
