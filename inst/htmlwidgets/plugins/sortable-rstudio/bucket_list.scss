@@ -20,7 +20,7 @@
       flex-direction: column;
 
       .rank-list-container {
-        flex: 1 0 $rank-list-min-height;
+        flex: 1 0 auto;
       }
     }
   }

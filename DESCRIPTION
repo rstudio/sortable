@@ -1,25 +1,39 @@
-Package: sortable
 Type: Package
-Title: Create Drag-and-Drop Elements In "shiny" Apps and "learnr" tutorials.
-Version: 0.3.1
-Date: 2019-08-23
-Authors@R: c(
-    person("Andrie", "de Vries", role = c("cre", "aut"), email = "apdevries@gmail.com"),
-    person("Barret", "Schloerke", role = "aut", email = "barret@rstudio.com"),
-    person("Kenton", "Russell", role = c("aut", "ccp"),
-        comment = "Original author", email = "kent.russell@timelyportfolio.com"),
-    person("Lebedev", "Konstantin", role = "cph",
-        comment = "'SortableJS' library,
-        http://sortablejs.github.io/Sortable/")
-    )
-Description: Add drag-and-drop behavior to Shiny Apps and gadgets.
-    Add ranking and bucketing question types to `learnr` tutorials.
-    The package creates an 'htmlwidget' by wrapping 'SortableJS'
-    JavaScript library.
+Package: sortable
+Title: Create Drag-and-Drop Elements in 'shiny' Apps and
+    'learnr' Tutorials using the 'sortable' JavaScript Library
+Version: 0.4.0
+Date: 2019-11-10
+Authors@R: 
+    c(person(given = "Andrie",
+             family = "de Vries",
+             role = c("cre", "aut"),
+             email = "apdevries@gmail.com"),
+      person(given = "Barret",
+             family = "Schloerke",
+             role = "aut",
+             email = "barret@rstudio.com"),
+      person(given = "Kenton",
+             family = "Russell",
+             role = c("aut", "ccp"),
+             email = "kent.russell@timelyportfolio.com",
+             comment = "Original author"),
+      person(given = "Lebedev",
+             family = "Konstantin",
+             role = "cph",
+             comment = "'SortableJS' library,\n http://sortablejs.github.io/Sortable/"))
+Description: The 'sortable' package enables drag-and-drop behaviour in 
+    Shiny apps.
+    It does this by exposing the functionality of the
+    SortableJS <https://sortablejs.github.io/Sortable/> JavaScript library as
+    an 'htmlwidget' <http://htmlwidgets.org> in R,
+    so you can use this in Shiny apps and widgets, 
+    'learnr' tutorials as well as R Markdown. 
+    In addition, provides a custom 'learnr' question type - 'question_rank()' - 
+    that allows ranking questions with drag-and-drop.
+License: MIT + file LICENSE
 URL: https://github.com/rstudio/sortable
 BugReports: https://github.com/rstudio/sortable/issues
-License: MIT + file LICENSE
-LazyData: TRUE
 Imports:
     htmltools,
     htmlwidgets,
@@ -35,10 +49,14 @@ Suggests:
     testthat (>= 2.1.0),
     withr,
     rmarkdown,
-    magrittr
-Remotes:
-    rstudio/learnr
-VignetteBuilder: knitr
-RoxygenNote: 6.1.1
-Roxygen: list(markdown = TRUE)
+    magrittr,
+    lifecycle,
+    webshot
+VignetteBuilder: 
+    knitr
+RdMacros: 
+    lifecycle
 Encoding: UTF-8
+LazyData: TRUE
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 6.1.1

@@ -18,6 +18,6 @@
 }
 
 .default-sortable.bucket-list.bucket-list-vertical .rank-list-container {
-  flex: 1 0 45px;
+  flex: 1 0 auto;
 }
 

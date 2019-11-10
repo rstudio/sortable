@@ -5,12 +5,18 @@
 \alias{sortable}
 \alias{_PACKAGE}
 \alias{sortable-package}
-\title{sortable: Create Drag-and-Drop Elements Using the JavaScript 'SortableJS' Library}
+\title{sortable: Create Drag-and-Drop Elements in 'shiny' Apps and
+    'learnr' Tutorials using the 'sortable' JavaScript Library}
 \description{
-Add drag-and-drop behavior to Shiny Apps and gadgets.
-    Add ranking, sorting and bucketing question types to `learnr` tutorials.
-    The package creates an 'htmlwidget' by wrapping the 'SortableJS'
-    JavaScript library.
+The 'sortable' package enables drag-and-drop behaviour in 
+    Shiny apps.
+    It does this by exposing the functionality of the
+    SortableJS <https://sortablejs.github.io/Sortable/> JavaScript library as
+    an 'htmlwidget' <http://htmlwidgets.org> in R,
+    so you can use this in Shiny apps and widgets, 
+    'learnr' tutorials as well as R Markdown. 
+    In addition, provides a custom 'learnr' question type - 'question_rank()' - 
+    that allows ranking questions with drag-and-drop.
 }
 \section{A new html widget}{
 
@@ -58,7 +64,7 @@ Authors:
 Other contributors:
 \itemize{
   \item Lebedev Konstantin ('SortableJS' library,
-        http://sortablejs.github.io/Sortable/) [copyright holder]
+ http://sortablejs.github.io/Sortable/) [copyright holder]
 }
 
 }
