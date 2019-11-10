@@ -26,3 +26,4 @@
 ^inst/tutorials/.*\\.html$
 
 ^.*\.scss$
+^cran-comments\.md$

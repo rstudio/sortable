@@ -51,7 +51,8 @@ Suggests:
     rmarkdown,
     magrittr,
     lifecycle,
-    webshot
+    webshot,
+    spelling
 VignetteBuilder: 
     knitr
 RdMacros: 
@@ -60,3 +61,4 @@ Encoding: UTF-8
 LazyData: TRUE
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 6.1.1
+Language: en-US

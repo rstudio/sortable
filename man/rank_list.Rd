@@ -36,7 +36,7 @@ You can embed a ranking question inside a \code{learnr} tutorial, using
 To embed a \code{rank_list} inside a shiny app, see the Details section.
 }
 \details{
-You can embed a \code{rank_list} inside a Shiny app, to capure the preferred
+You can embed a \code{rank_list} inside a Shiny app, to capture the preferred
 ranking order of your user.
 
 The widget automatically updates a Shiny output, with the matching

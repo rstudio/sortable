@@ -232,12 +232,12 @@ html_print(tagList(
 
 The `esquisse` [package](https://github.com/dreamRs/esquisse):
 
-> ‘The purpose of this add-in is to let you explore your data quickly to
+> “The purpose of this add-in is to let you explore your data quickly to
 > extract the information they hold. You can only create simple plots,
-> you won’t be able to use custom scales and all the power of ggplot2.’
+> you won’t be able to use custom scales and all the power of ggplot2.”
 
 There is also the `shinyjqui`
 [package](https://yang-tang.github.io/shinyjqui/):
 
-> ‘An R wrapper for jQuery UI javascript library. It allows user to
-> easily add interactions and animation effects to a shiny app’.
+> “An R wrapper for jQuery UI javascript library. It allows user to
+> easily add interactions and animation effects to a shiny app.”

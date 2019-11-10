@@ -11,7 +11,7 @@
 #'
 #' @details
 #'
-#' You can embed a `rank_list` inside a Shiny app, to capure the preferred
+#' You can embed a `rank_list` inside a Shiny app, to capture the preferred
 #' ranking order of your user.
 #'
 #' The widget automatically updates a Shiny output, with the matching

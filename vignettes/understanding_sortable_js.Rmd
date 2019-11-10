@@ -149,7 +149,11 @@ knitr::read_chunk(
 
 ## Dragging and dropping shiny tabs
 
-I learned late last night that `sortable` will allow movable tabs inside a Shiny (and also not Shiny) app.  By adding just one line of code and an `id` to this RStudio [Tabset example](https://github.com/rstudio/shiny-examples/tree/master/006-tabsets), we get rearrangeable tabs.  I really hope you'll copy and paste to see it for yourself, or you can `runGist("2dbe45f77b65e28acab9")`.
+The `sortable` JS library allows movable tabs inside a Shiny (and also not Shiny) app.  
+By adding just one line of code and an `id` to this RStudio 
+[Tabset example](https://github.com/rstudio/shiny-examples/tree/master/006-tabsets), 
+you get tabs that the user can re-arrange.
+You can copy and paste to see it for yourself, or `runGist("2dbe45f77b65e28acab9")`.
 
 The modified code snippet is:
 
