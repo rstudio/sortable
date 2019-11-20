@@ -7,6 +7,7 @@
 #' @inheritParams rank_list
 #' @param ... Other arguments passed to `rank_list`
 #'
+#' @return A list of class `add_rank_list`
 #' @export
 add_rank_list <- function(text, labels = NULL, input_id = NULL, ...) {
   if (is.null(input_id)) {
@@ -55,6 +56,8 @@ is_add_rank_list <- function(x) {
 #' @param orientation Either `horizontal` or `vertical`, and specifies the
 #'   layout of the components on the page.
 #'
+#' @return A list with class `bucket_list`
+#' @seealso rank_list
 #' @export
 #' @example inst/examples/example_bucket_list.R
 #' @examples

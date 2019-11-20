@@ -27,6 +27,9 @@ get_child_id_or_text_js_fn <- function() {
 #' @seealso [sortable_js] and [rank_list].
 #'
 #' @rdname sortable_js_capture_input
+#'
+#' @return A character vector with class `JS_EVAL`. See [htmlwidgets::JS()].
+#' @family JavaScript functions
 #' @export
 #' @examples
 #' # For an example, see the Shiny app at
@@ -57,6 +60,7 @@ sortable_js_capture_input <- function(input_id) {
 #'   `css_ids`
 #' @param css_ids Set of SortableJS `css_id` values to help retrieve all to
 #'   set as an object
+#'
 #' @export
 sortable_js_capture_bucket_input <- function(input_id, input_ids, css_ids) {
   assert_that(length(input_ids) > 0)
@@ -146,6 +150,7 @@ to_json_array <- function(x) {
 #' @return A single JavaScript function that will call all methods provided with
 #'   the event
 #' @export
+#' @family JavaScript functions
 chain_js_events <- function(...) {
 
   fns <- list(...)

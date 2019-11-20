@@ -74,6 +74,9 @@ initialized}
 
 \item{...}{other params passed onto SortableJS}
 }
+\value{
+A list with class \code{sortable_options}
+}
 \description{
 Use this function to define the options for \link{sortable_js} and \link{rank_list},
 which will pass these in turn to the \code{SortableJS} JavaScript library.
@@ -81,6 +84,9 @@ which will pass these in turn to the \code{SortableJS} JavaScript library.
 \details{
 Many of the \code{SortableJS} options will accept a JavaScript function. You can
 do this using the \code{htmlwidgets::JS} function.
+}
+\examples{
+sortable_options(sort = FALSE)
 }
 \references{
 \url{https://github.com/sortablejs/Sortable/}

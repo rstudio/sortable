@@ -18,6 +18,9 @@ sortable_js_capture_bucket_input(input_id, input_ids, css_ids)
 \item{css_ids}{Set of SortableJS \code{css_id} values to help retrieve all to
 set as an object}
 }
+\value{
+A character vector with class \code{JS_EVAL}. See \code{\link[htmlwidgets:JS]{htmlwidgets::JS()}}.
+}
 \description{
 This captures the state of a \code{sortable} list.  It will look for an \code{id}
 attribute of the first child for each element.  If not attribute exists for
@@ -34,4 +37,7 @@ system.file("shiny-examples/drag_vars_to_plot/app.R", package = "sortable")
 }
 \seealso{
 \link{sortable_js} and \link{rank_list}.
+
+Other JavaScript functions: \code{\link{chain_js_events}}
 }
+\concept{JavaScript functions}

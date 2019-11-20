@@ -5,8 +5,7 @@
 \alias{sortable}
 \alias{_PACKAGE}
 \alias{sortable-package}
-\title{sortable: Create Drag-and-Drop Elements in 'shiny' Apps and
-    'learnr' Tutorials using the 'sortable' JavaScript Library}
+\title{sortable: Drag-and-Drop in 'shiny' Apps with 'SortableJS'}
 \description{
 The 'sortable' package enables drag-and-drop behaviour in 
     Shiny apps.

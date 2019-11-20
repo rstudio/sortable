@@ -17,6 +17,9 @@ label or label name will be used to set the shiny \code{input_id} value.}
 
 \item{...}{Other arguments passed to \code{rank_list}}
 }
+\value{
+A list of class \code{add_rank_list}
+}
 \description{
 Since a \link{bucket_list} can contain more than one \link{rank_list}, you need
 an easy way to define the contents of each individual rank list.  This

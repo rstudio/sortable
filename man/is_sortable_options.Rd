@@ -9,6 +9,12 @@ is_sortable_options(x)
 \arguments{
 \item{x}{Object to test}
 }
+\value{
+Logical vector.  TRUE if the object inherits from \code{sortable_options}
+}
 \description{
 Check if object is sortable options.
+}
+\examples{
+is_sortable_options("foo") # returns FALSE
 }

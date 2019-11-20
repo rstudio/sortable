@@ -34,6 +34,9 @@ when \code{allow_retry} is \code{FALSE}.}
 
 \item{options}{Options to be supplied to \link{sortable_js} object. See \link{sortable_options} for more details}
 }
+\value{
+A custom \code{learnr} question, with type \code{sortable_rank}.  See \code{\link[learnr:question_methods]{learnr::question_methods()}}
+}
 \description{
 Add interactive ranking tasks to your \code{learnr} tutorials.  The student can
 drag-and-drop the answer options into the desired order.

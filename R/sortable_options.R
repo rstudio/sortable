@@ -1,7 +1,10 @@
 #' Check if object is sortable options.
 #'
 #' @param x Object to test
+#' @return Logical vector.  TRUE if the object inherits from `sortable_options`
 #' @export
+#' @examples
+#' is_sortable_options("foo") # returns FALSE
 is_sortable_options <- function(x) {
   inherits(x, "sortable_options")
 }
@@ -141,6 +144,9 @@ is_sortable_options <- function(x) {
 #'
 #' @seealso [sortable_js]
 #'
+#' @return A list with class `sortable_options`
+#' @examples
+#' sortable_options(sort = FALSE)
 #' @export
 sortable_options <- function(
   # nolint start

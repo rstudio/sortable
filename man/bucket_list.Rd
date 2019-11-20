@@ -29,6 +29,9 @@ be used to define custom styling.}
 \item{orientation}{Either \code{horizontal} or \code{vertical}, and specifies the
 layout of the components on the page.}
 }
+\value{
+A list with class \code{bucket_list}
+}
 \description{
 A bucket list can contain more than one \link{rank_list} and allows drag-and-drop
 of items between the different lists.
@@ -70,4 +73,7 @@ bucket_list(
     text = "Numbers"
   )
 )
+}
+\seealso{
+rank_list
 }

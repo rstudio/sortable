@@ -21,6 +21,8 @@ NULL
 #' @param ... parameters passed onto [learnr::question()].
 #' @template options
 #' @inheritParams learnr::question
+#'
+#' @return A custom `learnr` question, with type `sortable_rank`.  See [learnr::question_methods()]
 #' @export
 #' @examples
 #' ## Example of rank problem inside a learnr tutorial
@@ -56,6 +58,7 @@ question_rank <- function(
 
 
 #' @export
+#' @seealso question_rank
 question_ui_initialize.sortable_rank <- function(question, value, ...) {
 
   # quickly validate the all possible answers are possible
@@ -99,6 +102,7 @@ question_ui_initialize.sortable_rank <- function(question, value, ...) {
 }
 
 #' @export
+#' @seealso question_rank
 question_ui_completed.sortable_rank <- function(question, value, ...) {
   # TODO display correct values with X or √ compared to best match
   # TODO DON'T display correct values (listen to an option?)
@@ -116,6 +120,7 @@ question_ui_completed.sortable_rank <- function(question, value, ...) {
 }
 
 #' @export
+#' @seealso question_rank
 question_ui_try_again.sortable_rank <- function(question, value, ...) {
   disable_all_tags(
     rank_list(
@@ -132,6 +137,7 @@ question_ui_try_again.sortable_rank <- function(question, value, ...) {
 
 
 #' @export
+#' @seealso question_rank
 question_is_correct.sortable_rank <- function(question, value, ...) {
   # for each possible answer, check if it matches
   for (answer in question$answers) {

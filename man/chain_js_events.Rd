@@ -18,3 +18,7 @@ SortableJS does not have an event based system.  To be able to call multiple
 JavaScript events under the same event execution, they need to be executed
 one after another.
 }
+\seealso{
+Other JavaScript functions: \code{\link{sortable_js_capture_input}}
+}
+\concept{JavaScript functions}
