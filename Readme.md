@@ -201,7 +201,7 @@ You can also use `sortable_js()` to drag and drop other widgets:
 
 <center>
 
-![](man/figures/diagrammer.gif)
+<img src="man/figures/diagrammer.gif" style = 'width:500px;'></img>
 
 </center>
 
