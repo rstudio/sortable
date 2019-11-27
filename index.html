@@ -168,7 +168,7 @@
 <a href="#add-drag-and-drop-to-any-html-element" class="anchor"></a>Add drag-and-drop to any HTML element</h3>
 <p>You can also use <code><a href="reference/sortable_js.html">sortable_js()</a></code> to drag and drop other widgets:</p>
 <center>
-![](man/figures/diagrammer.gif)
+<img src="reference/figures/diagrammer.gif" style="width:500px;">
 </center>
 <p>```{r, eval=FALSE} library(DiagrammeR) library(htmltools)</p>
 <p>html_print(tagList( tags$p(“You can drag and drop the diagrams to switch order:”), tags$div( id = “aUniqueId”, tags$div( style = “border: solid 0.2em gray; float:left; margin: 5px”, mermaid(“graph LR; S[SortableJS] –&gt;|sortable| R”, height = 250, width = 300) ), tags$div( style = “border: solid 0.2em gray; float:left; margin: 5px”, mermaid(“graph TD; JavaScript –&gt;|htmlwidgets| R”, height = 250, width = 150) ) ), sortable_js(“aUniqueId”) # the CSS id )) ```</p>
