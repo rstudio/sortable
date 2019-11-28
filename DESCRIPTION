@@ -1,8 +1,8 @@
 Type: Package
 Package: sortable
 Title: Drag-and-Drop in 'shiny' Apps with 'SortableJS'
-Version: 0.4.1
-Date: 2019-11-20
+Version: 0.4.2
+Date: 2019-11-28
 Authors@R: 
     c(person(given = "Andrie",
              family = "de Vries",
@@ -20,16 +20,13 @@ Authors@R:
       person(given = "Lebedev",
              family = "Konstantin",
              role = "cph",
-             comment = "'SortableJS' library,\n http://sortablejs.github.io/Sortable/"))
-Description: The 'sortable' package enables drag-and-drop behaviour in 
-    Shiny apps.
-    It does this by exposing the functionality of the
-    SortableJS <https://sortablejs.github.io/Sortable/> JavaScript library as
-    an 'htmlwidget' <http://htmlwidgets.org> in R,
-    so you can use this in Shiny apps and widgets, 
-    'learnr' tutorials as well as R Markdown. 
-    In addition, provides a custom 'learnr' question type - 'question_rank()' - 
-    that allows ranking questions with drag-and-drop.
+             comment = "'SortableJS', http://sortablejs.github.io/Sortable/"))
+Description: Enables drag-and-drop behaviour in Shiny apps, by exposing the 
+    functionality of the 'SortableJS' <https://sortablejs.github.io/Sortable/> 
+    JavaScript library as an 'htmlwidget' <http://htmlwidgets.org>. 
+    You can use this in Shiny apps and widgets, 'learnr' tutorials as well as 
+    R Markdown. In addition, provides a custom 'learnr' question type - 
+    'question_rank()' - that allows ranking questions with drag-and-drop.
 License: MIT + file LICENSE
 URL: https://github.com/rstudio/sortable
 BugReports: https://github.com/rstudio/sortable/issues

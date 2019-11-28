@@ -1,10 +1,6 @@
 ## Response to CRAN review
 
-In reponse to the CRAN review, I have:
-
-* reduced the package title to less than 65 characters
-* checked all function documentation and added /value statements
-* added examples for the functions that didn't have any
+In reponse to the 2nd CRAN review, I edited the description to not start with "the sortable package..."
 
 ## Test environments
 
