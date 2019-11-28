@@ -28,7 +28,7 @@ Description: Enables drag-and-drop behaviour in Shiny apps, by exposing the
     R Markdown. In addition, provides a custom 'learnr' question type - 
     'question_rank()' - that allows ranking questions with drag-and-drop.
 License: MIT + file LICENSE
-URL: https://github.com/rstudio/sortable
+URL: https://github.com/rstudio/sortable, https://rstudio.github.io/sortable/
 BugReports: https://github.com/rstudio/sortable/issues
 Imports:
     htmltools,
