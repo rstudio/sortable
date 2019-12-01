@@ -44,6 +44,7 @@ You can also use new question types in your \code{learnr} tutorials:
 Useful links:
 \itemize{
   \item \url{https://github.com/rstudio/sortable}
+  \item \url{https://rstudio.github.io/sortable/}
   \item Report bugs at \url{https://github.com/rstudio/sortable/issues}
 }
 

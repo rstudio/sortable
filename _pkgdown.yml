@@ -1,5 +1,7 @@
-destination: docs
 url: https://rstudio.github.io/sortable
+template:
+  params:
+    bootswatch: cerulean
 
 reference:
 - title: Learnr question types
