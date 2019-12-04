@@ -14,8 +14,8 @@ get_child_id_or_text_js_fn <- function() {
 
 #' Construct JavaScript method to capture Shiny inputs on change.
 #'
-#' This captures the state of a `sortable` list.  It will look for an `id`
-#' attribute of the first child for each element.  If not attribute exists for
+#' This captures the state of a `sortable` list.  It will look for a `data-rank-id`
+#' attribute of the first child for each element.  If no? attribute exists for
 #' that particular item's first child, the inner text will be used as an
 #' identifier.
 #'
@@ -31,7 +31,10 @@ get_child_id_or_text_js_fn <- function() {
 #' @return A character vector with class `JS_EVAL`. See [htmlwidgets::JS()].
 #' @family JavaScript functions
 #' @export
+#' @example inst/examples/example_sortable_js_capture.R
 #' @examples
+#'
+#' ## ------------------------------------
 #' # For an example, see the Shiny app at
 #' system.file("shiny-examples/drag_vars_to_plot/app.R", package = "sortable")
 sortable_js_capture_input <- function(input_id) {

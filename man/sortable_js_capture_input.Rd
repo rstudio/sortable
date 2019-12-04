@@ -22,8 +22,8 @@ set as an object}
 A character vector with class \code{JS_EVAL}. See \code{\link[htmlwidgets:JS]{htmlwidgets::JS()}}.
 }
 \description{
-This captures the state of a \code{sortable} list.  It will look for an \code{id}
-attribute of the first child for each element.  If not attribute exists for
+This captures the state of a \code{sortable} list.  It will look for a \code{data-rank-id}
+attribute of the first child for each element.  If no? attribute exists for
 that particular item's first child, the inner text will be used as an
 identifier.
 }
@@ -32,12 +32,46 @@ This method is used with the \code{onSort} option of \code{sortable_js}. See
 \code{\link[=sortable_options]{sortable_options()}}.
 }
 \examples{
+## -- example-sortable-js-capture -----------------------------------------
+# Simple example of sortable_js_capture.
+# Important: set the tags CSS `id` equal to the sortable_js `css_id`
+
+if(interactive()) {
+  library(shiny)
+  library(sortable)
+
+  ui <- fluidPage(
+    div(
+      id = "sortable",
+      div(id = 1, `data-rank-id` = "HELLO", class = "well", "Hello"),
+      div(id = 2, `data-rank-id` = "WORLD", class = "well", "world")
+    ),
+    verbatimTextOutput("chosen"),
+    sortable_js(
+      css_id = "sortable",
+      options = sortable_options(
+        onSort = sortable_js_capture_input(input_id = "selected")
+      )
+    )
+  )
+
+  server <- function(input, output){
+    output$chosen <- renderPrint(input$selected)
+  }
+
+  shinyApp(ui, server)
+}
+
+
+
+## ------------------------------------
 # For an example, see the Shiny app at
 system.file("shiny-examples/drag_vars_to_plot/app.R", package = "sortable")
 }
 \seealso{
 \link{sortable_js} and \link{rank_list}.
 
-Other JavaScript functions: \code{\link{chain_js_events}}
+Other JavaScript functions: 
+\code{\link{chain_js_events}()}
 }
 \concept{JavaScript functions}
