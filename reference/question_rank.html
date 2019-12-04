@@ -78,7 +78,7 @@ drag-and-drop the answer options into the desired order." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">sortable</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.2.9000</span>
       </span>
     </div>
 
@@ -157,11 +157,18 @@ drag-and-drop the answer options into the desired order." />
 drag-and-drop the answer options into the desired order.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>question_rank</span>(<span class='no'>text</span>, <span class='no'>...</span>, <span class='kw'>correct</span> <span class='kw'>=</span> <span class='st'>"Correct!"</span>, <span class='kw'>incorrect</span> <span class='kw'>=</span> <span class='st'>"Incorrect"</span>,
+    <pre class="usage"><span class='fu'>question_rank</span>(
+  <span class='no'>text</span>,
+  <span class='no'>...</span>,
+  <span class='kw'>correct</span> <span class='kw'>=</span> <span class='st'>"Correct!"</span>,
+  <span class='kw'>incorrect</span> <span class='kw'>=</span> <span class='st'>"Incorrect"</span>,
   <span class='kw'>loading</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"**Loading:** "</span>, <span class='no'>text</span>, <span class='st'>"&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;"</span>),
-  <span class='kw'>submit_button</span> <span class='kw'>=</span> <span class='st'>"Submit Answer"</span>, <span class='kw'>try_again_button</span> <span class='kw'>=</span> <span class='st'>"Try Again"</span>,
-  <span class='kw'>allow_retry</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>random_answer_order</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>options</span> <span class='kw'>=</span> <span class='fu'><a href='sortable_options.html'>sortable_options</a></span>())</pre>
+  <span class='kw'>submit_button</span> <span class='kw'>=</span> <span class='st'>"Submit Answer"</span>,
+  <span class='kw'>try_again_button</span> <span class='kw'>=</span> <span class='st'>"Try Again"</span>,
+  <span class='kw'>allow_retry</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>random_answer_order</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>options</span> <span class='kw'>=</span> <span class='fu'><a href='sortable_options.html'>sortable_options</a></span>()
+)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
