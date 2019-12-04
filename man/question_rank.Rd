@@ -4,11 +4,18 @@
 \alias{question_rank}
 \title{Ranking question for learnr tutorials.}
 \usage{
-question_rank(text, ..., correct = "Correct!", incorrect = "Incorrect",
+question_rank(
+  text,
+  ...,
+  correct = "Correct!",
+  incorrect = "Incorrect",
   loading = c("**Loading:** ", text, "<br/><br/><br/>"),
-  submit_button = "Submit Answer", try_again_button = "Try Again",
-  allow_retry = FALSE, random_answer_order = TRUE,
-  options = sortable_options())
+  submit_button = "Submit Answer",
+  try_again_button = "Try Again",
+  allow_retry = FALSE,
+  random_answer_order = TRUE,
+  options = sortable_options()
+)
 }
 \arguments{
 \item{text}{Question or option text}

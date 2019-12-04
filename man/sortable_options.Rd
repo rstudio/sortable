@@ -4,13 +4,31 @@
 \alias{sortable_options}
 \title{Define options to pass to a sortable object.}
 \usage{
-sortable_options(group = NULL, sort = NULL, delay = NULL,
-  disabled = NULL, animation = NULL, handle = NULL, filter = NULL,
-  draggable = NULL, swapThreshold = NULL, invertSwap = NULL,
-  direction = NULL, scrollSensitivity = NULL, scrollSpeed = NULL,
-  onStart = NULL, onEnd = NULL, onAdd = NULL, onUpdate = NULL,
-  onSort = NULL, onRemove = NULL, onFilter = NULL, onMove = NULL,
-  onLoad = NULL, ...)
+sortable_options(
+  group = NULL,
+  sort = NULL,
+  delay = NULL,
+  disabled = NULL,
+  animation = NULL,
+  handle = NULL,
+  filter = NULL,
+  draggable = NULL,
+  swapThreshold = NULL,
+  invertSwap = NULL,
+  direction = NULL,
+  scrollSensitivity = NULL,
+  scrollSpeed = NULL,
+  onStart = NULL,
+  onEnd = NULL,
+  onAdd = NULL,
+  onUpdate = NULL,
+  onSort = NULL,
+  onRemove = NULL,
+  onFilter = NULL,
+  onMove = NULL,
+  onLoad = NULL,
+  ...
+)
 }
 \arguments{
 \item{group}{To drag elements from one list into another, both lists must

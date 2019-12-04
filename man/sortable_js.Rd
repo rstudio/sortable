@@ -4,8 +4,14 @@
 \alias{sortable_js}
 \title{Creates an htmlwidget with embedded 'SortableJS' library.}
 \usage{
-sortable_js(css_id, options = sortable_options(), width = 0,
-  height = 0, elementId = NULL, preRenderHook = NULL)
+sortable_js(
+  css_id,
+  options = sortable_options(),
+  width = 0,
+  height = 0,
+  elementId = NULL,
+  preRenderHook = NULL
+)
 }
 \arguments{
 \item{css_id}{\code{String} css_id id on which to apply \code{SortableJS}.  Note,

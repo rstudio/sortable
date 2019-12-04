@@ -4,8 +4,14 @@
 \alias{rank_list}
 \title{Create a ranking item list.}
 \usage{
-rank_list(text = "", labels, input_id, css_id = NULL,
-  options = sortable_options(), class = "default-sortable")
+rank_list(
+  text = "",
+  labels,
+  input_id,
+  css_id = NULL,
+  options = sortable_options(),
+  class = "default-sortable"
+)
 }
 \arguments{
 \item{text}{Text to appear at top of list.}
@@ -43,12 +49,6 @@ The widget automatically updates a Shiny output, with the matching
 \code{input_id}.
 }
 \examples{
-## Example of a shiny app
-if (interactive()) {
-  app <- system.file("shiny-examples/rank_list/app.R", package = "sortable")
-  shiny::runApp(app)
-}
-
 ## - example-rank-list ------------------------------------------------
 
 rank_list(
@@ -56,6 +56,12 @@ rank_list(
   labels = c("one", "two", "three", "four", "five"),
   input_id = "example_2"
 )
+## Example of a shiny app
+if (interactive()) {
+  app <- system.file("shiny-examples/rank_list/app.R", package = "sortable")
+  shiny::runApp(app)
+}
+
 }
 \seealso{
 \link{sortable_js}, \link{bucket_list} and \link{question_rank}

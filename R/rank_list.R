@@ -17,7 +17,6 @@
 #' The widget automatically updates a Shiny output, with the matching
 #' `input_id`.
 #'
-#' @inheritParams sortable_js
 #'
 #' @param input_id output variable to read the plot/image from.
 #' @param labels A character vector with the text to display inside the widget.

@@ -4,14 +4,19 @@
 \alias{bucket_list}
 \title{Create a bucket list.}
 \usage{
-bucket_list(header = NULL, ..., group_name, group_put_max = rep(Inf,
-  length(labels)), options = sortable_options(),
-  class = "default-sortable", orientation = c("horizontal",
-  "vertical"))
+bucket_list(
+  header = NULL,
+  ...,
+  group_name,
+  group_put_max = rep(Inf, length(labels)),
+  options = sortable_options(),
+  class = "default-sortable",
+  orientation = c("horizontal", "vertical")
+)
 }
 \arguments{
 \item{header}{Text that appears at the top of the bucket list.  (This is
-encoded as an HTML \code{<p>} tag, so not strictly speaking a header.)}
+encoded as an HTML \verb{<p>} tag, so not strictly speaking a header.)}
 
 \item{...}{One or more specifications for a rank list, and must be defined by
 \link{add_rank_list}.}
@@ -37,11 +42,6 @@ A bucket list can contain more than one \link{rank_list} and allows drag-and-dro
 of items between the different lists.
 }
 \examples{
-## Example of a shiny app
-if (interactive()) {
-  app <- system.file("shiny-examples/bucket_list/app.R", package = "sortable")
-  shiny::runApp(app)
-}
 ## -- example-bucket-list ---------------------------------------------
 
 ## bucket list
@@ -73,6 +73,11 @@ bucket_list(
     text = "Numbers"
   )
 )
+## Example of a shiny app
+if (interactive()) {
+  app <- system.file("shiny-examples/bucket_list/app.R", package = "sortable")
+  shiny::runApp(app)
+}
 }
 \seealso{
 rank_list

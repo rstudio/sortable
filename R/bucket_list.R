@@ -34,9 +34,6 @@ is_add_rank_list <- function(x) {
 #' A bucket list can contain more than one [rank_list] and allows drag-and-drop
 #' of items between the different lists.
 #'
-#'
-#' @inheritParams rank_list
-#'
 #' @template options
 #'
 #' @param header Text that appears at the top of the bucket list.  (This is
