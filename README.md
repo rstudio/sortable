@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# sortable <img src='man/figures/sortable-logo.png' align="right" height="139" />
+# sortable <img src='man/figures/logo.svg' align="right" height="139" />
 
 <!-- badges: start -->
 

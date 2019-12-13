@@ -13,7 +13,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-# sortable <img src='man/figures/sortable-logo.png' align="right" height="139" />
+# sortable <img src='man/figures/logo.svg' align="right" height="139" />
 
 <!-- badges: start -->
 [![Travis build status](https://travis-ci.org/rstudio/sortable.svg?branch=master)](https://travis-ci.org/rstudio/sortable)
