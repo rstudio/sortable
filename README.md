@@ -227,6 +227,12 @@ html_print(tagList(
 ))
 ```
 
+### Clone elements
+
+You can clone items from a drag area, and the clone will stay in the original list. To remove an element from the dropped list you can drag it to a "trash" area
+
+<img src="man/figures/clone_delete.gif" style = 'width:500px;'></img>
+
 ## Related work
 
 I learnt about the following related work after starting on `sortable`:
