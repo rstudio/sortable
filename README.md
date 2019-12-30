@@ -229,9 +229,59 @@ html_print(tagList(
 
 ### Clone elements
 
-You can clone items from a drag area, and the clone will stay in the original list. To remove an element from the dropped list you can drag it to a "trash" area
+By setting `pull = "clone"` inside the `sortable_options` function, you can clone the items of the original list, enabling the addition of a list item multiple times. To remove an element from the dropped list you can drag it to a "trash" area by using the JS code `this.el.removeChild(evt.item);`
 
 <img src="man/figures/clone_delete.gif" style = 'width:500px;'></img>
+
+```
+  sortable_js(
+    "sort1",
+    options = sortable_options(
+      group = list(
+      pull = "clone",
+        name = "sortGroup1",
+        put = FALSE
+      ),
+      # swapClass = "sortable-swap-highlight",
+      onSort = sortable_js_capture_input("sort_vars")
+    )
+  ),
+  sortable_js(
+    "sort2",
+    options = sortable_options(
+      group = list(
+        group = "sortGroup1",
+        put = htmlwidgets::JS("function (to) { return to.el.children.length < 3; }"),
+        pull = TRUE
+      ),
+      swapClass = "sortable-swap-highlight",
+      onSort = sortable_js_capture_input("sort_x")
+    )
+  ),
+  sortable_js(
+    "sort3",
+    options = sortable_options(
+      group = list(
+        group = "sortGroup1",
+        put = TRUE,
+        pull = TRUE
+      ),
+      swapClass = "sortable-swap-highlight",
+      onSort = sortable_js_capture_input("sort_y")
+    )
+  ),
+  sortable_js(
+    "sortable_bin",
+    options = sortable_options(
+      group = list(
+        group = "sortGroup1",
+        put = TRUE,
+        pull = TRUE
+      ),
+      onAdd = htmlwidgets::JS("function (evt) { this.el.removeChild(evt.item); }")
+    )
+  )
+```
 
 ## Related work
 
