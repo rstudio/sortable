@@ -2,11 +2,11 @@
 if (!requireNamespace("remotes")) install.packages("remotes")
 
 # install rsconnect and glue
-remotes::install_cran("rsconnect")
-remotes::install_cran("glue")
+if (!requireNamespace("rsconnect")) remotes::install_cran("rsconnect")
+if (!requireNamespace("glue")) remotes::install_cran("glue")
 
 # install the latest
-remotes::install_github("rstudio/sortable", upgrade = "always")
+remotes::install_github("rstudio/sortable")
 
 
 
