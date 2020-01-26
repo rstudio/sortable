@@ -24,7 +24,7 @@ The `sortable` package allows you to create custom HTML widgets with drag-and-dr
 # Define the answer options
 insects <- c(
     "ant",
-    "bumble bea",
+    "bumble bee",
     "cricket",
     "dragonfly"
   )
@@ -51,7 +51,7 @@ You must provide at least one correct answer, using the `learnr` `answer()` func
 # Define the answer options
 insects <- c(
     "ant",
-    "bumble bea",
+    "bumble bee",
     "cricket",
     "dragonfly"
   )
@@ -74,7 +74,7 @@ You can change the behaviour of the HTML widget by sending different options to 
 # Define the answer options
 insects <- c(
     "ant",
-    "bumble bea",
+    "bumble bee",
     "cricket",
     "dragonfly"
   )
