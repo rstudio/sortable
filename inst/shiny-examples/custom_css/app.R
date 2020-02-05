@@ -23,11 +23,14 @@ ui <- fluidPage(
       ),
       tags$style(
         HTML("
-             .rank-list-container.custom-sortable {background-color: #8A8;}
-             .custom-sortable .rank-list-item {background-color: #BDB;}
-
-             ")
-        ),
+          .rank-list-container.custom-sortable {
+            background-color: #8A8;
+          }
+          .custom-sortable .rank-list-item {
+            background-color: #BDB;
+          }
+        ")
+      ),
       tags$b("Result"),
       verbatimTextOutput("results")
     )
