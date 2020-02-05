@@ -17,6 +17,7 @@ Authors@R:
              role = c("aut", "ccp"),
              email = "kent.russell@timelyportfolio.com",
              comment = "Original author"),
+      person("RStudio", role = c("cph", "fnd")),
       person(given = "Lebedev",
              family = "Konstantin",
              role = "cph",
