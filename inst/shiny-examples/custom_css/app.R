@@ -15,15 +15,11 @@ ui <- fluidPage(
           "one",
           "two",
           "three",
-          htmltools::tags$div(
-            htmltools::em("Complex"), " html tag without a name"
-          ),
-          "five" = htmltools::tags$div(
-            htmltools::em("Complex"), " html tag with name: 'five'"
-          )
+          "four",
+          "five"
         ),
         input_id = "rank_list_1",
-        class = c("default-sortable custom-sortable") # add custom style
+        class = c("default-sortable", "custom-sortable") # add custom style
       ),
       tags$style(
         HTML("
