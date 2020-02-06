@@ -5,6 +5,7 @@ articles:
   novel_solutions: novel_solutions.html
   shiny_apps: shiny_apps.html
   understanding_sortable_js: understanding_sortable_js.html
+  using_custom_css: using_custom_css.html
 urls:
   reference: https://rstudio.github.io/sortable/reference
   article: https://rstudio.github.io/sortable/articles
