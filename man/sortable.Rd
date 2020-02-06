@@ -7,6 +7,8 @@
 \alias{sortable-package}
 \title{sortable: Drag-and-Drop in 'shiny' Apps with 'SortableJS'}
 \description{
+\if{html}{\figure{logo.png}{options: align='right' alt='logo' width='120'}}
+
 Enables drag-and-drop behaviour in Shiny apps, by exposing the 
     functionality of the 'SortableJS' <https://sortablejs.github.io/Sortable/> 
     JavaScript library as an 'htmlwidget' <http://htmlwidgets.org>. 
@@ -60,6 +62,7 @@ Authors:
 
 Other contributors:
 \itemize{
+  \item RStudio [copyright holder, funder]
   \item Lebedev Konstantin ('SortableJS', http://sortablejs.github.io/Sortable/) [copyright holder]
 }
 

@@ -45,6 +45,10 @@ articles:
   desc: ~
   contents:
   - shiny_apps
+- title: Using custom styles with CSS
+  desc: ~
+  contents:
+  - using_custom_css
 - title: Novel solutions using sortable in shiny apps
   desc: ~
   contents:
