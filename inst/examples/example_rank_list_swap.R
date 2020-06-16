@@ -1,7 +1,7 @@
 ## - example-rank-list-swap -----------------------------------------------
 
 rank_list(
-  text = "You can drag, drap and re-order these items:",
+  text = "You can re-order these items, and notice the swapping behaviour:",
   labels = c("one", "two", "three", "four", "five"),
   input_id = "example_2",
   options = sortable_options(
