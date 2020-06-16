@@ -40,41 +40,33 @@ rank_list_multi <- rank_list(
 
 ui <- fluidPage(
   fluidRow(
-    tabsetPanel(
-      type = "tabs",
-      tabPanel(
-        "basic",
-        column(
-          width = 12,
-          tags$b("Exercise"),
-          rank_list_basic,
-          tags$b("Result"),
-          verbatimTextOutput("results_basic")
-        )
-      ),
-      tabPanel(
-        "swap",
-        column(
-          width = 12,
-          tags$b("Exercise"),
-          rank_list_swap,
-          tags$b("Result"),
-          verbatimTextOutput("results_swap")
-        )
-      ),
-      tabPanel(
-        "multi",
-        column(
-          width = 12,
-          tags$b("Exercise"),
-          rank_list_multi,
-          tags$b("Result"),
-          verbatimTextOutput("results_multi")
+    column(
+      width = 12,
+    tags$h2("Default, multi-drag and swapping behaviour"),
+      tabsetPanel(
+        type = "tabs",
+        tabPanel(
+          "Default",
+            tags$b("Exercise"),
+            rank_list_basic,
+            tags$b("Result"),
+            verbatimTextOutput("results_basic")
+        ),
+        tabPanel(
+          "Multi-drag",
+            tags$b("Exercise"),
+            rank_list_multi,
+            tags$b("Result"),
+            verbatimTextOutput("results_multi")
+        ),
+        tabPanel(
+          "Swap",
+            tags$b("Exercise"),
+            rank_list_swap,
+            tags$b("Result"),
+            verbatimTextOutput("results_swap")
         )
       )
-
-
-
     )
   )
 )
@@ -83,11 +75,11 @@ server <- function(input, output) {
   output$results_basic <- renderPrint({
     input$rank_list_basic # This matches the input_id of the rank list
   })
-  output$results_swap <- renderPrint({
-    input$rank_list_swap # This matches the input_id of the rank list
-  })
   output$results_multi <- renderPrint({
     input$rank_list_multi # This matches the input_id of the rank list
+  })
+  output$results_swap <- renderPrint({
+    input$rank_list_swap # This matches the input_id of the rank list
   })
 }
 
