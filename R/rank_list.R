@@ -37,6 +37,7 @@
 #' @importFrom htmltools  tagList tags
 #' @example inst/examples/example_rank_list.R
 #' @example inst/examples/example_rank_list_multidrag.R
+#' @example inst/examples/example_rank_list_swap.R
 #' @examples
 #' ## Example of a shiny app
 #' if (interactive()) {

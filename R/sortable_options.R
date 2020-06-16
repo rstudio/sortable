@@ -43,6 +43,12 @@ is_sortable_options <- function(x) {
 #' @param draggable CSS selector of which items inside the element should be
 #'   draggable. \[`".item"`\]
 #'
+#' @param swap If `TRUE`, modifies the behaviour of sortable to allow for items to
+#'   be swapped with each other rather than sorted. Once dragging starts, the
+#'   user can drag over other items and there will be no change in the elements.
+#'   However, the item that the user drops on will be swapped with the
+#'   originally dragged item.
+#'
 #' @param swapThreshold Percentage of the target that the swap zone will take
 #'   up, as a number between `0` and `1`. \[`1`\]
 #'
@@ -158,6 +164,7 @@ sortable_options <- function(
   handle = NULL,
   filter = NULL,
   draggable = NULL,
+  swap = NULL,
   swapThreshold = NULL,
   invertSwap = NULL,
   direction = NULL,
