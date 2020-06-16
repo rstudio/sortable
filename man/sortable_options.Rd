@@ -13,6 +13,7 @@ sortable_options(
   handle = NULL,
   filter = NULL,
   draggable = NULL,
+  swap = NULL,
   swapThreshold = NULL,
   invertSwap = NULL,
   direction = NULL,
@@ -54,6 +55,12 @@ dragged. [\code{".ignore-elements"}]}
 
 \item{draggable}{CSS selector of which items inside the element should be
 draggable. [\code{".item"}]}
+
+\item{swap}{If \code{TRUE}, modifies the behaviour of sortable to allow for items to
+be swapped with each other rather than sorted. Once dragging starts, the
+user can drag over other items and there will be no change in the elements.
+However, the item that the user drops on will be swapped with the
+originally dragged item.}
 
 \item{swapThreshold}{Percentage of the target that the swap zone will take
 up, as a number between \code{0} and \code{1}. [\code{1}]}

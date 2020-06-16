@@ -68,6 +68,17 @@ rank_list(
 )
 
 
+## - example-rank-list-swap -----------------------------------------------
+
+rank_list(
+  text = "You can drag, drap and re-order these items:",
+  labels = c("one", "two", "three", "four", "five"),
+  input_id = "example_2",
+  options = sortable_options(
+    swap = TRUE
+  )
+)
+
 ## Example of a shiny app
 if (interactive()) {
   app <- system.file("shiny-examples/rank_list/app.R", package = "sortable")
