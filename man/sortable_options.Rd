@@ -5,6 +5,9 @@
 \title{Define options to pass to a sortable object.}
 \usage{
 sortable_options(
+  ...,
+  swap = NULL,
+  multiDrag = NULL,
   group = NULL,
   sort = NULL,
   delay = NULL,
@@ -13,7 +16,6 @@ sortable_options(
   handle = NULL,
   filter = NULL,
   draggable = NULL,
-  swap = NULL,
   swapThreshold = NULL,
   invertSwap = NULL,
   direction = NULL,
@@ -27,11 +29,25 @@ sortable_options(
   onRemove = NULL,
   onFilter = NULL,
   onMove = NULL,
-  onLoad = NULL,
-  ...
+  onLoad = NULL
 )
 }
 \arguments{
+\item{...}{other arguments passed onto \code{SortableJS}}
+
+\item{swap}{If \code{TRUE}, modifies the behaviour of \code{sortable} to allow for items to
+be swapped with each other rather than sorted. Once dragging starts, the
+user can drag over other items and there will be no change in the elements.
+However, the item that the user drops on will be swapped with the
+originally dragged item.
+See also https://github.com/SortableJS/Sortable/tree/master/plugins/Swap}
+
+\item{multiDrag}{If \code{TRUE}, allows the selection of multiple items within a
+\code{sortable} at once, and drag them as one item. Once placed, the items will
+unfold into their original order, but all beside each other at the new
+position.
+See also https://github.com/SortableJS/Sortable/wiki/Dragging-Multiple-Items-in-Sortable}
+
 \item{group}{To drag elements from one list into another, both lists must
 have the same group value. See
 \href{https://github.com/sortablejs/Sortable/#group-option}{Sortable#group-option}
@@ -42,7 +58,7 @@ for more details. [\code{"name"}]}
 \item{delay}{Time in milliseconds to define when the sorting should start.
 [\code{0}]}
 
-\item{disabled}{Boolean that disables the sortable if set to true. [\code{FALSE}]}
+\item{disabled}{Boolean that disables the \code{sortable} if set to true. [\code{FALSE}]}
 
 \item{animation}{Millisecond duration of the animation of items when sorting
 [\code{0} (no animation)]}
@@ -56,19 +72,13 @@ dragged. [\code{".ignore-elements"}]}
 \item{draggable}{CSS selector of which items inside the element should be
 draggable. [\code{".item"}]}
 
-\item{swap}{If \code{TRUE}, modifies the behaviour of sortable to allow for items to
-be swapped with each other rather than sorted. Once dragging starts, the
-user can drag over other items and there will be no change in the elements.
-However, the item that the user drops on will be swapped with the
-originally dragged item.}
-
 \item{swapThreshold}{Percentage of the target that the swap zone will take
 up, as a number between \code{0} and \code{1}. [\code{1}]}
 
 \item{invertSwap}{Set to \code{TRUE} to set the swap zone to the sides of the
 target, for the effect of sorting "in between" items. [\code{FALSE}]}
 
-\item{direction}{Direction of Sortable [\code{"horizontal"}]}
+\item{direction}{Direction of \code{sortable} [\code{"horizontal"}]}
 
 \item{scrollSensitivity}{Number of pixels the mouse needs to be to an edge to
 start scrolling. [\code{30}]}
@@ -96,8 +106,6 @@ lists}
 
 \item{onLoad}{JS function dispatched on the "next tick" after SortableJS has
 initialized}
-
-\item{...}{other params passed onto SortableJS}
 }
 \value{
 A list with class \code{sortable_options}
