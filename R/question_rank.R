@@ -22,7 +22,9 @@ NULL
 #' @template options
 #' @inheritParams learnr::question
 #'
-#' @return A custom `learnr` question, with type `sortable_rank`.  See [learnr::question_methods()]
+#' @return A custom `learnr` question, with `type = sortable_rank`.
+#' See [learnr::question()]
+#'
 #' @export
 #' @examples
 #' ## Example of rank problem inside a learnr tutorial
