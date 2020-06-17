@@ -4,7 +4,6 @@ if (!requireNamespace("remotes")) install.packages("remotes")
 # install rsconnect and glue
 if (!requireNamespace("rsconnect")) remotes::install_cran("rsconnect")
 if (!requireNamespace("glue"))      remotes::install_cran("glue")
-if (!requireNamespace("rsconnect")) remotes::install_cran("rsconnect")
 
 
 # install the latest version when running on travis
