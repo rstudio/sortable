@@ -7,8 +7,6 @@
 
 [![R build
 status](https://github.com/rstudio/sortable/workflows/R-CMD-check/badge.svg)](https://github.com/rstudio/sortable/actions)
-[![Travis build
-status](https://travis-ci.org/rstudio/sortable.svg?branch=master)](https://travis-ci.org/rstudio/sortable)
 [![CRAN
 version](http://www.r-pkg.org/badges/version/sortable)](https://cran.r-project.org/package=sortable)
 [![sortable downloads per
