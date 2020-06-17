@@ -8,9 +8,10 @@ matching resulting in the incorrect sortable option being set.
 
 Other:
 
+* Updated `sortable.js` to version 1.10.2
+
 * Added examples for using the `sortable.js` plugins, specifically multiDrag and
 swap.  
-
 
 # sortable 0.4.2 (Release date 2019-11-28)
 

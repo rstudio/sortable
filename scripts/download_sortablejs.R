@@ -1,7 +1,7 @@
 
 
-sortable_version <- "1.10.0-rc3"
-yaml_version <- "1.10.0"
+sortable_version <- "1.10.2"
+yaml_version <- "1.10.2"
 
 
 writeLines(
