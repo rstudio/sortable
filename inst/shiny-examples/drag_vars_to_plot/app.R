@@ -88,8 +88,6 @@ ui <- fluidPage(
         name = "sortGroup1",
         put = TRUE
       ),
-      swap = TRUE,
-      swapClass = "sortable-swap-highlight",
       sort = FALSE,
       onSort = sortable_js_capture_input("sort_vars")
     )
@@ -102,8 +100,6 @@ ui <- fluidPage(
         put = htmlwidgets::JS("function (to) { return to.el.children.length < 1; }"),
         pull = TRUE
       ),
-      swap = TRUE,
-      swapClass = "sortable-swap-highlight",
       onSort = sortable_js_capture_input("sort_x")
     )
   ),
@@ -115,8 +111,6 @@ ui <- fluidPage(
         put = htmlwidgets::JS("function (to) { return to.el.children.length < 1; }"),
         pull = TRUE
       ),
-        swap = TRUE,
-      swapClass = "sortable-swap-highlight",
       onSort = sortable_js_capture_input("sort_y")
     )
   )
