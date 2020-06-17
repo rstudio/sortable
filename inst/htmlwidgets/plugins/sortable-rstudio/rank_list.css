@@ -49,12 +49,12 @@
   cursor: grabbing;
 }
 
-.default-sortable .rank-list-item.sortable-chosen, .default-sortable .rank-list-item.sortable-ghost.sortable-chosen, .default-sortable .rank-list-item.sortable-drag {
+.default-sortable .rank-list-item.sortable-selected, .default-sortable .rank-list-item.sortable-chosen, .default-sortable .rank-list-item.sortable-ghost.sortable-chosen, .default-sortable .rank-list-item.sortable-drag {
   background-color: #75aadb;
   border: 1px solid #4d91d0;
 }
 
-.default-sortable .rank-list-item.sortable-chosen:hover:not(.disabled), .default-sortable .rank-list-item.sortable-ghost.sortable-chosen:hover:not(.disabled), .default-sortable .rank-list-item.sortable-drag:hover:not(.disabled) {
+.default-sortable .rank-list-item.sortable-selected:hover:not(.disabled), .default-sortable .rank-list-item.sortable-chosen:hover:not(.disabled), .default-sortable .rank-list-item.sortable-ghost.sortable-chosen:hover:not(.disabled), .default-sortable .rank-list-item.sortable-drag:hover:not(.disabled) {
   cursor: grabbing;
 }
 
