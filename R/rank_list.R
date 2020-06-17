@@ -24,7 +24,7 @@
 #'   label or label name will be used to set the shiny `input_id` value.
 #' @param text Text to appear at top of list.
 #' @param css_id This is the css id to use, and must be unique in your shiny
-#'   app. If NULL, the function generates a id of the form
+#'   app. If NULL, the function generates an id of the form
 #'   `rank_list_id_1`, and will automatically increment for every `rank_list`.
 #' @param class A css class applied to the rank list.  This can be used to
 #'   define custom styling.
@@ -36,6 +36,8 @@
 #' @importFrom utils modifyList
 #' @importFrom htmltools  tagList tags
 #' @example inst/examples/example_rank_list.R
+#' @example inst/examples/example_rank_list_multidrag.R
+#' @example inst/examples/example_rank_list_swap.R
 #' @examples
 #' ## Example of a shiny app
 #' if (interactive()) {

@@ -18,6 +18,21 @@ is_sortable_options <- function(x) {
 #' Many of the `SortableJS` options will accept a JavaScript function. You can
 #' do this using the `htmlwidgets::JS` function.
 #'
+#' @param ... other arguments passed onto `SortableJS`
+#'
+#' @param swap If `TRUE`, modifies the behaviour of `sortable` to allow for items to
+#'   be swapped with each other rather than sorted. Once dragging starts, the
+#'   user can drag over other items and there will be no change in the elements.
+#'   However, the item that the user drops on will be swapped with the
+#'   originally dragged item.
+#'   See also https://github.com/SortableJS/Sortable/tree/master/plugins/Swap
+#'
+#' @param multiDrag If `TRUE`, allows the selection of multiple items within a
+#'   `sortable` at once, and drag them as one item. Once placed, the items will
+#'   unfold into their original order, but all beside each other at the new
+#'   position.
+#'   See also https://github.com/SortableJS/Sortable/wiki/Dragging-Multiple-Items-in-Sortable
+#'
 #'
 #' @param group To drag elements from one list into another, both lists must
 #'   have the same group value. See
@@ -29,7 +44,7 @@ is_sortable_options <- function(x) {
 #' @param delay Time in milliseconds to define when the sorting should start.
 #'   \[`0`\]
 #
-#' @param disabled Boolean that disables the sortable if set to true. \[`FALSE`\]
+#' @param disabled Boolean that disables the `sortable` if set to true. \[`FALSE`\]
 #
 #' @param animation Millisecond duration of the animation of items when sorting
 #'   \[`0` (no animation)\]
@@ -49,7 +64,7 @@ is_sortable_options <- function(x) {
 #' @param invertSwap Set to \code{TRUE} to set the swap zone to the sides of the
 #'   target, for the effect of sorting "in between" items. \[`FALSE`\]
 #'
-#' @param direction Direction of Sortable \[`"horizontal"`\]
+#' @param direction Direction of `sortable` \[`"horizontal"`\]
 #'
 #' @param scrollSensitivity Number of pixels the mouse needs to be to an edge to
 #'   start scrolling. \[`30`\]
@@ -78,8 +93,6 @@ is_sortable_options <- function(x) {
 #' @param onLoad JS function dispatched on the "next tick" after SortableJS has
 #'   initialized
 #
-#' @param ... other params passed onto SortableJS
-#'
 # @param delayOnTouchOnly Boolean that will only delay if user is using touch
 #   (mobile display). \[`FALSE`\]
 #
@@ -126,7 +139,7 @@ is_sortable_options <- function(x) {
 #   showing, rather than just hiding it
 #
 # @param emptyInsertThreshold: Number of pixels a mouse must be from empty
-#   sortable to insert drag element into it. \[`5`\]
+#   `sortable` to insert drag element into it. \[`5`\]
 #
 # @param setData undocumented on website
 #   https://github.com/SortableJS/Sortable/tree/master/plugins/AutoScroll
@@ -149,7 +162,10 @@ is_sortable_options <- function(x) {
 #' sortable_options(sort = FALSE)
 #' @export
 sortable_options <- function(
+  ...,
   # nolint start
+  swap = NULL,
+  multiDrag = NULL,
   group = NULL,
   sort = NULL,
   delay = NULL,
@@ -171,15 +187,14 @@ sortable_options <- function(
   onRemove = NULL,
   onFilter = NULL,
   onMove = NULL,
-  onLoad = NULL,
+  onLoad = NULL
   # nolint end
-  ...
 ) {
   extra_args <- list(...)
 
   # get all names and values
   args <- names(formals(sortable_options))
-  arg_vals <- mget(args[-length(args)], environment()) # remove last element (...)
+  arg_vals <- mget(args[-1], environment()) # remove first element (...)
 
   # remove null values
   is_null <- vapply(arg_vals, is.null, logical(1))

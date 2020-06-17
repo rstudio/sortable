@@ -52,6 +52,8 @@
         cursor: grabbing;
       }
     }
+    // Class name for the multi-selected item
+    &.sortable-selected,
     // Class name for the chosen item
     &.sortable-chosen,
     // Class name for chosen and original item
