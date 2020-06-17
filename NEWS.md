@@ -1,5 +1,7 @@
 # sortable (development version)
 
+* Updated `sortable.js` to version 1.10.2
+
 # sortable 0.4.2 (Release date 2019-11-28)
 
 * First release accepted by CRAN
