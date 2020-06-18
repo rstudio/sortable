@@ -67,8 +67,8 @@ sortable_js(css_id = "example01")
   <li>To different positions</li>
 </ul>
 
-```{r, echo=FALSE, eval = webshot::is_phantomjs_installed()}
-  sortable_js(css_id = "example01")
+```{r, echo=FALSE, eval = FALSE}
+sortable_js(css_id = "example01")
 ```
 
 ![](figures/simple_rank_list.gif)
