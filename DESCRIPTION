@@ -1,8 +1,7 @@
 Type: Package
 Package: sortable
 Title: Drag-and-Drop in 'shiny' Apps with 'SortableJS'
-Version: 0.4.2.9000
-Date: 2019-11-28
+Version: 0.4.3
 Authors@R: 
     c(person(given = "Andrie",
              family = "de Vries",
@@ -57,5 +56,5 @@ RdMacros:
 Encoding: UTF-8
 LazyData: TRUE
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.0.2
+RoxygenNote: 7.1.0
 Language: en-US
