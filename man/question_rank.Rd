@@ -20,7 +20,7 @@ question_rank(
 \arguments{
 \item{text}{Question or option text}
 
-\item{...}{parameters passed onto \code{\link[learnr]{question}}.}
+\item{...}{parameters passed onto \code{\link[learnr:quiz]{learnr::question()}}.}
 
 \item{correct}{For \code{question}, text to print for a correct answer (defaults
 to "Correct!"). For \code{answer}, a boolean indicating whether this answer is
@@ -43,7 +43,7 @@ when \code{allow_retry} is \code{FALSE}.}
 }
 \value{
 A custom \code{learnr} question, with \code{type = sortable_rank}.
-See \code{\link[learnr]{question}}
+See \code{\link[learnr:quiz]{learnr::question()}}.
 }
 \description{
 Add interactive ranking tasks to your \code{learnr} tutorials.  The student can
