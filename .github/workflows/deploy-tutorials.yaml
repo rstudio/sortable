@@ -2,7 +2,7 @@ on:
   push:
     branches: master
 
-name: pkgdown
+name: deploy-tutorials
 
 jobs:
   pkgdown:
@@ -39,5 +39,5 @@ jobs:
         run: R CMD INSTALL .
 
       - name: Deploy tutorials
-        run: scripts/deploy_on_travis.R
+        run: source("scripts/deploy_on_travis.R")
         shell: Rscript {0}
