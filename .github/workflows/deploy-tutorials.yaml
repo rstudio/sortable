@@ -5,7 +5,7 @@ on:
 name: deploy-tutorials
 
 jobs:
-  pkgdown:
+  deploy-tutorials:
     runs-on: macOS-latest
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
