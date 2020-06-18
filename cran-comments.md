@@ -10,6 +10,6 @@ This is a comparatively minor update of the package.
 
 ## R CMD check results
 
-0 errors | 0 warnings | 1 note
-
-* This is a new release.
+On Solaris there are two Warnings.  We've traced this to the fact that 
+phantom.js isn't available on that platform.  I now test for the correct 
+platform, and this should deal with the issue.

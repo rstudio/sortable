@@ -68,7 +68,10 @@ sortable_js(css_id = "example01")
 </ul>
 
 ```{r, echo=FALSE}
-sortable_js(css_id = "example01")
+if (Sys.info()[["sysname"]] != "SunOS") {
+  # don't display on Solaris, since phantom.js isn't available.
+  sortable_js(css_id = "example01")
+}
 ```
 
 ![](figures/simple_rank_list.gif)
