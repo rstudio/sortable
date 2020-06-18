@@ -1,4 +1,4 @@
-# sortable (development version)
+# sortable 0.4.3 (Release date 2020-06-18)
 
 Breaking changes:
 

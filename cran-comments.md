@@ -1,11 +1,11 @@
 ## Response to CRAN review
 
-In reponse to the 2nd CRAN review, I edited the description to not start with "the sortable package..."
+This is a comparatively minor update of the package.
 
 ## Test environments
 
 * local Windows install, R 3.6.1
-* ubuntu 14.04 (on travis-ci), R-release, R-dev and R-old-release
+* ubuntu 16.04 (on travis-ci), R-release, R-dev and R-old-release
 * win-builder (devel and release)
 
 ## R CMD check results
