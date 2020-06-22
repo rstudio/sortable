@@ -18,11 +18,13 @@ NULL
 #'
 #' Note that, by default, the answer order is randomized.
 #'
-#' @param ... parameters passed onto [learnr::question()].
+#' @param ... parameters passed onto \code{\link[learnr:quiz]{learnr::question()}}.
 #' @template options
 #' @inheritParams learnr::question
 #'
-#' @return A custom `learnr` question, with type `sortable_rank`.  See [learnr::question_methods()]
+#' @return A custom `learnr` question, with `type = sortable_rank`.
+#' See \code{\link[learnr:quiz]{learnr::question()}}.
+#'
 #' @export
 #' @examples
 #' ## Example of rank problem inside a learnr tutorial

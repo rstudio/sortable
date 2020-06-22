@@ -1,0 +1,82 @@
+---
+title: "Using custom styles with CSS"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Using custom styles with CSS}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(sortable)
+```
+
+## Using custom styles
+
+Sometimes you want to take control of the styling of your app, e.g. changing colours or sizes.
+
+The functions `rank_list()` and `bucket_list()` allows you to set a custom CSS class, and you can then define your own CSS rules that modifies your shiny app.
+
+The default CSS style for a rank list is `default-sortable`, but you can specify your own class by modifying the `class` argument.
+
+For example, to add `custom-sortable` to the CSS class, use:
+
+```r
+rank_list(
+  class = c("default-sortable", "custom-sortable"), # add custom style
+  ...
+)
+```
+
+Then you can use any of the standard techniques to [Style your apps with CSS](https://shiny.rstudio.com/articles/css.html) to modify your styling.
+
+For example, to modify the `custom-sortable` class using a `shiny` tag, use:
+
+```r
+tags$style(
+  HTML("
+    .rank-list-container.custom-sortable {
+      background-color: #8A8;
+    }
+    .custom-sortable .rank-list-item {
+      background-color: #BDB;
+    }
+  ")
+)
+```
+
+This app contains a fully worked example that turns the background colours of the `rank_list` into shades of green:
+
+
+```{r, echo=FALSE}
+library(htmltools)
+tags$div(
+  class = "shiny-app-frame",
+  tags$iframe(
+    src = "https://andrie-de-vries.shinyapps.io/sortable_custom_css_app/",
+    width = "100%",
+    height = 450
+  )
+)
+```
+
+
+
+## Source code
+
+```{r echo=FALSE, cache=FALSE}
+knitr::read_chunk(
+  system.file("shiny-examples/custom_css/app.R", package = "sortable")
+)
+```
+
+```{r custom-css-app, eval=FALSE}
+```
+

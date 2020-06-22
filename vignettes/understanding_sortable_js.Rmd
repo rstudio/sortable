@@ -59,18 +59,6 @@ sortable_js(css_id = "example01")
 ```
 ````
 
-<p>You can drag and drop these items in any order:</p>
-<ul id = "example01">
-  <li>Move</li>
-  <li>Or drag</li>
-  <li>Each of the items</li>
-  <li>To different positions</li>
-</ul>
-
-```{r, echo=FALSE}
-sortable_js(css_id = "example01")
-```
-
 ![](figures/simple_rank_list.gif)
 
 
