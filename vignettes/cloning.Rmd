@@ -1,0 +1,48 @@
+---
+title: "Using cloning"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Using cloning}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(sortable)
+```
+
+
+
+## Cloning elements
+
+By setting `pull = "clone"` inside the `sortable_options` function, you can clone the items of the original list, enabling the addition of a list item multiple times. To remove an element from the dropped list you can drag it to a "trash" area by using the JS code `this.el.removeChild(evt.item);`
+
+<img src="figures/clone_delete.gif" style = 'width:500px;'></img>
+
+```
+  sortable_js(
+    "sort1",
+    options = sortable_options(
+      group = list(
+      pull = "clone",
+        name = "sortGroup1",
+        put = FALSE
+      ),
+      onSort = sortable_js_capture_input("sort_vars")
+    )
+  )
+```
+
+
+```{r shiny-drag-vars-to-plot, eval=FALSE}
+knitr::read_chunk(
+  system.file("shiny-examples/clone_remove/app.R", package = "sortable")
+)
+```
