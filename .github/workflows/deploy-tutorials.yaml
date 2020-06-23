@@ -8,7 +8,10 @@ jobs:
   deploy-tutorials:
     runs-on: macOS-latest
     env:
-      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+      GITHUB_PAT:       ${{ secrets.GITHUB_TOKEN }}
+      SHINYAPPS_NAME:   ${{ secrets.SHINYAPPS_NAME }}
+      SHINYAPPS_TOKEN:  ${{ secrets.SHINYAPPS_TOKEN }}
+      SHINYAPPS_SECRET: ${{ secrets.SHINYAPPS_SECRET }}
     steps:
       - uses: actions/checkout@v2
 
