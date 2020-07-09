@@ -1,0 +1,3 @@
+*.html linguist-documentation=true
+docs/* linguist-documentation=true
+inst/htmlwidgets/lib/sortable/* linguist-vendored
