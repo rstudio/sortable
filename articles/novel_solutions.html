@@ -128,12 +128,12 @@
   <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span>(
     <span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span>(<span class="kw">df</span>),
     <span class="fu">function</span>(<span class="kw">co</span>) {
-      <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/tag.html">tag</a></span>(
+      <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/tag.html">tag</a></span>(
         <span class="st">"p"</span>,
         <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span>(
           class = <span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span>(<span class="kw">df</span>[, <span class="kw">co</span>]),
-          <span class="kw">tags</span><span class="op">$</span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/builder.html">span</a></span>(class = <span class="st">"glyphicon glyphicon-move"</span>),
-          <span class="kw">tags</span><span class="op">$</span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/builder.html">strong</a></span>(<span class="kw">co</span>)
+          <span class="kw">tags</span><span class="op">$</span><span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">span</a></span>(class = <span class="st">"glyphicon glyphicon-move"</span>),
+          <span class="kw">tags</span><span class="op">$</span><span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">strong</a></span>(<span class="kw">co</span>)
         )
       )
     }
@@ -144,18 +144,18 @@
 <span class="kw">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/fluidPage.html">fluidPage</a></span>(
   <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/fluidPage.html">fluidRow</a></span>(
     class = <span class="st">"panel panel-heading"</span>,
-    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/builder.html">div</a></span>(
+    <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">div</a></span>(
       class = <span class="st">"panel-heading"</span>,
-      <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/builder.html">h3</a></span>(<span class="st">"Dragging variables to define a plot"</span>)
+      <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">h3</a></span>(<span class="st">"Dragging variables to define a plot"</span>)
     ),
     <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/fluidPage.html">fluidRow</a></span>(
       class = <span class="st">"panel-body"</span>,
       <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/column.html">column</a></span>(
         width = <span class="fl">3</span>,
-        <span class="kw">tags</span><span class="op">$</span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/builder.html">div</a></span>(
+        <span class="kw">tags</span><span class="op">$</span><span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">div</a></span>(
           class = <span class="st">"panel panel-default"</span>,
-          <span class="kw">tags</span><span class="op">$</span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/builder.html">div</a></span>(class = <span class="st">"panel-heading"</span>, <span class="st">"Variables"</span>),
-          <span class="kw">tags</span><span class="op">$</span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/builder.html">div</a></span>(
+          <span class="kw">tags</span><span class="op">$</span><span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">div</a></span>(class = <span class="st">"panel-heading"</span>, <span class="st">"Variables"</span>),
+          <span class="kw">tags</span><span class="op">$</span><span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">div</a></span>(
             class = <span class="st">"panel-body"</span>,
             id = <span class="st">"sort1"</span>,
             <span class="fu">colnames_to_tags</span>(<span class="kw">mtcars</span>)
@@ -165,27 +165,27 @@
       <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/column.html">column</a></span>(
         width = <span class="fl">3</span>,
         <span class="co"># analyse as x</span>
-        <span class="kw">tags</span><span class="op">$</span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/builder.html">div</a></span>(
+        <span class="kw">tags</span><span class="op">$</span><span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">div</a></span>(
           class = <span class="st">"panel panel-default"</span>,
-          <span class="kw">tags</span><span class="op">$</span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/builder.html">div</a></span>(
+          <span class="kw">tags</span><span class="op">$</span><span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">div</a></span>(
             class = <span class="st">"panel-heading"</span>,
-            <span class="kw">tags</span><span class="op">$</span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/builder.html">span</a></span>(class = <span class="st">"glyphicon glyphicon-stats"</span>),
+            <span class="kw">tags</span><span class="op">$</span><span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">span</a></span>(class = <span class="st">"glyphicon glyphicon-stats"</span>),
             <span class="st">"Analyze as x (drag here)"</span>
           ),
-          <span class="kw">tags</span><span class="op">$</span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/builder.html">div</a></span>(
+          <span class="kw">tags</span><span class="op">$</span><span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">div</a></span>(
             class = <span class="st">"panel-body"</span>,
             id = <span class="st">"sort2"</span>
           )
         ),
         <span class="co"># analyse as y</span>
-        <span class="kw">tags</span><span class="op">$</span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/builder.html">div</a></span>(
+        <span class="kw">tags</span><span class="op">$</span><span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">div</a></span>(
           class = <span class="st">"panel panel-default"</span>,
-          <span class="kw">tags</span><span class="op">$</span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/builder.html">div</a></span>(
+          <span class="kw">tags</span><span class="op">$</span><span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">div</a></span>(
             class = <span class="st">"panel-heading"</span>,
-            <span class="kw">tags</span><span class="op">$</span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/builder.html">span</a></span>(class = <span class="st">"glyphicon glyphicon-stats"</span>),
+            <span class="kw">tags</span><span class="op">$</span><span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">span</a></span>(class = <span class="st">"glyphicon glyphicon-stats"</span>),
             <span class="st">"Analyze as y (drag here)"</span>
           ),
-          <span class="kw">tags</span><span class="op">$</span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/builder.html">div</a></span>(
+          <span class="kw">tags</span><span class="op">$</span><span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">div</a></span>(
             class = <span class="st">"panel-body"</span>,
             id = <span class="st">"sort3"</span>
           )

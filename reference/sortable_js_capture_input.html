@@ -195,12 +195,12 @@ set as an object</p></td>
   <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='https://github.com/rstudio/sortable'>sortable</a></span>)
 
   <span class='kw'>ui</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/fluidPage.html'>fluidPage</a></span>(
-    <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/builder.html'>div</a></span>(
+    <span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/builder.html'>div</a></span>(
       id = <span class='st'>"sortable"</span>,
-      <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/builder.html'>div</a></span>(id = <span class='fl'>1</span>, `data-rank-id` = <span class='st'>"HELLO"</span>, class = <span class='st'>"well"</span>, <span class='st'>"Hello"</span>),
-      <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/builder.html'>div</a></span>(id = <span class='fl'>2</span>, `data-rank-id` = <span class='st'>"WORLD"</span>, class = <span class='st'>"well"</span>, <span class='st'>"world"</span>)
+      <span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/builder.html'>div</a></span>(id = <span class='fl'>1</span>, `data-rank-id` = <span class='st'>"HELLO"</span>, class = <span class='st'>"well"</span>, <span class='st'>"Hello"</span>),
+      <span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/builder.html'>div</a></span>(id = <span class='fl'>2</span>, `data-rank-id` = <span class='st'>"WORLD"</span>, class = <span class='st'>"well"</span>, <span class='st'>"world"</span>)
     ),
-    <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/verbatimTextOutput.html'>verbatimTextOutput</a></span>(<span class='st'>"chosen"</span>),
+    <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/textOutput.html'>verbatimTextOutput</a></span>(<span class='st'>"chosen"</span>),
     <span class='fu'><a href='https://rstudio.github.io/sortable/reference/sortable_js.html'>sortable_js</a></span>(
       css_id = <span class='st'>"sortable"</span>,
       options = <span class='fu'><a href='https://rstudio.github.io/sortable/reference/sortable_options.html'>sortable_options</a></span>(
@@ -220,7 +220,7 @@ set as an object</p></td>
 
 <span class='co'>## ------------------------------------</span>
 <span class='co'># For an example, see the Shiny app at</span>
-<span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span>(<span class='st'>"shiny-examples/drag_vars_to_plot/app.R"</span>, package = <span class='st'>"sortable"</span>)</div><div class='output co'>#&gt; [1] "/Users/runner/runners/2.263.0/work/_temp/Library/sortable/shiny-examples/drag_vars_to_plot/app.R"</div></pre>
+<span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span>(<span class='st'>"shiny-examples/drag_vars_to_plot/app.R"</span>, package = <span class='st'>"sortable"</span>)</div><div class='output co'>#&gt; [1] "/Users/runner/work/_temp/Library/sortable/shiny-examples/drag_vars_to_plot/app.R"</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
