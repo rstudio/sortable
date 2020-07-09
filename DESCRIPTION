@@ -48,7 +48,8 @@ Suggests:
     magrittr,
     lifecycle,
     webshot,
-    spelling
+    spelling,
+    covr
 VignetteBuilder: 
     knitr
 RdMacros: 
