@@ -41,6 +41,7 @@ jobs:
       - name: Install package from github
         run:  |
           remotes::install_github("rstudio/sortable")
+        shell: Rscript {0}
 
       - name: Deploy tutorials
         run: source("scripts/deploy_on_travis.R")
