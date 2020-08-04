@@ -141,36 +141,36 @@ which will pass these in turn to the SortableJS JavaScript library." />
     </div>
 
     <div class="ref-description">
-    <p>Use this function to define the options for <a href='https://rstudio.github.io/sortable/reference/sortable_js.html'>sortable_js</a> and <a href='https://rstudio.github.io/sortable/reference/rank_list.html'>rank_list</a>,
+    <p>Use this function to define the options for <a href='sortable_js.html'>sortable_js</a> and <a href='rank_list.html'>rank_list</a>,
 which will pass these in turn to the <code>SortableJS</code> JavaScript library.</p>
     </div>
 
-    <pre class="usage"><span class='fu'><a href='https://rstudio.github.io/sortable/reference/sortable_options.html'>sortable_options</a></span>(
-  <span class='kw'>...</span>,
-  swap = <span class='kw'>NULL</span>,
-  multiDrag = <span class='kw'>NULL</span>,
-  group = <span class='kw'>NULL</span>,
-  sort = <span class='kw'>NULL</span>,
-  delay = <span class='kw'>NULL</span>,
-  disabled = <span class='kw'>NULL</span>,
-  animation = <span class='kw'>NULL</span>,
-  handle = <span class='kw'>NULL</span>,
-  filter = <span class='kw'>NULL</span>,
-  draggable = <span class='kw'>NULL</span>,
-  swapThreshold = <span class='kw'>NULL</span>,
-  invertSwap = <span class='kw'>NULL</span>,
-  direction = <span class='kw'>NULL</span>,
-  scrollSensitivity = <span class='kw'>NULL</span>,
-  scrollSpeed = <span class='kw'>NULL</span>,
-  onStart = <span class='kw'>NULL</span>,
-  onEnd = <span class='kw'>NULL</span>,
-  onAdd = <span class='kw'>NULL</span>,
-  onUpdate = <span class='kw'>NULL</span>,
-  onSort = <span class='kw'>NULL</span>,
-  onRemove = <span class='kw'>NULL</span>,
-  onFilter = <span class='kw'>NULL</span>,
-  onMove = <span class='kw'>NULL</span>,
-  onLoad = <span class='kw'>NULL</span>
+    <pre class="usage"><span class='fu'>sortable_options</span>(
+  <span class='no'>...</span>,
+  <span class='kw'>swap</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>multiDrag</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>group</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>sort</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>delay</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>disabled</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>animation</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>handle</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>filter</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>draggable</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>swapThreshold</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>invertSwap</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>direction</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>scrollSensitivity</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>scrollSpeed</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>onStart</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>onEnd</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>onAdd</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>onUpdate</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>onSort</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>onRemove</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>onFilter</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>onMove</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>onLoad</span> <span class='kw'>=</span> <span class='kw'>NULL</span>
 )</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -312,10 +312,10 @@ do this using the <code><a href='https://rdrr.io/pkg/htmlwidgets/man/JS.html'>ht
     <p><a href='https://github.com/sortablejs/Sortable/'>https://github.com/sortablejs/Sortable/</a></p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><a href='https://rstudio.github.io/sortable/reference/sortable_js.html'>sortable_js</a></p></div>
+    <div class='dont-index'><p><a href='sortable_js.html'>sortable_js</a></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='https://rstudio.github.io/sortable/reference/sortable_options.html'>sortable_options</a></span>(sort = <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; $sort
+    <pre class="examples"><div class='input'><span class='fu'>sortable_options</span>(<span class='kw'>sort</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; $sort
 #&gt; [1] FALSE
 #&gt; 
 #&gt; attr(,"class")
@@ -335,7 +335,7 @@ do this using the <code><a href='https://rdrr.io/pkg/htmlwidgets/man/JS.html'>ht
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
 </div>
 
       </footer>

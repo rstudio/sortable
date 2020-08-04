@@ -108,14 +108,10 @@
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
 <p>You can install the released version of sortable from <a href="https://CRAN.R-project.org">CRAN</a> with:</p>
-<div class="sourceCode" id="cb1"><pre class="downlit">
-<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"sortable"</span>)
-</pre></div>
+<div class="sourceCode" id="cb1"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"sortable"</span>)</pre></div>
 <p>And the development version from <a href="https://github.com/rstudio/sortable">GitHub</a> with:</p>
-<div class="sourceCode" id="cb2"><pre class="downlit">
-<span class="co"># install.packages("remotes")</span>
-<span class="kw">remotes</span>::<span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span>(<span class="st">"rstudio/sortable"</span>)
-</pre></div>
+<div class="sourceCode" id="cb2"><pre class="r"><span class="co"># install.packages("remotes")</span>
+<span class="kw pkg">remotes</span><span class="kw ns">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span>(<span class="st">"rstudio/sortable"</span>)</pre></div>
 </div>
 <div id="examples" class="section level2">
 <h2 class="hasAnchor">
@@ -151,28 +147,26 @@
 <center>
 <p><img src="reference/figures/diagrammer.gif" style="width:500px;"></p>
 </center>
-<div class="sourceCode" id="cb5"><pre class="downlit">
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw">DiagrammeR</span>)
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="https://github.com/rstudio/htmltools">htmltools</a></span>)
+<div class="sourceCode" id="cb5"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">DiagrammeR</span>)
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">htmltools</span>)
 
 <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/html_print.html">html_print</a></span>(<span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/tag.html">tagList</a></span>(
-  <span class="kw">tags</span><span class="op">$</span><span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">p</a></span>(<span class="st">"You can drag and drop the diagrams to switch order:"</span>),
-  <span class="kw">tags</span><span class="op">$</span><span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">div</a></span>(
-    id = <span class="st">"aUniqueId"</span>,
-    <span class="kw">tags</span><span class="op">$</span><span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">div</a></span>(
-      style = <span class="st">"border: solid 0.2em gray; float:left; margin: 5px"</span>,
+  <span class="no">tags</span>$<span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">p</a></span>(<span class="st">"You can drag and drop the diagrams to switch order:"</span>),
+  <span class="no">tags</span>$<span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">div</a></span>(
+    <span class="kw">id</span> <span class="kw">=</span> <span class="st">"aUniqueId"</span>,
+    <span class="no">tags</span>$<span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">div</a></span>(
+      <span class="kw">style</span> <span class="kw">=</span> <span class="st">"border: solid 0.2em gray; float:left; margin: 5px"</span>,
       <span class="fu">mermaid</span>(<span class="st">"graph LR; S[SortableJS] --&gt;|sortable| R "</span>,
-              height = <span class="fl">250</span>, width = <span class="fl">300</span>)
+              <span class="kw">height</span> <span class="kw">=</span> <span class="fl">250</span>, <span class="kw">width</span> <span class="kw">=</span> <span class="fl">300</span>)
     ),
-    <span class="kw">tags</span><span class="op">$</span><span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">div</a></span>(
-      style = <span class="st">"border: solid 0.2em gray; float:left; margin: 5px"</span>,
+    <span class="no">tags</span>$<span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">div</a></span>(
+      <span class="kw">style</span> <span class="kw">=</span> <span class="st">"border: solid 0.2em gray; float:left; margin: 5px"</span>,
       <span class="fu">mermaid</span>(<span class="st">"graph TD; JavaScript --&gt;|htmlwidgets| R "</span>,
-              height = <span class="fl">250</span>, width = <span class="fl">150</span>)
+              <span class="kw">height</span> <span class="kw">=</span> <span class="fl">250</span>, <span class="kw">width</span> <span class="kw">=</span> <span class="fl">150</span>)
     )
   ),
   <span class="fu"><a href="reference/sortable_js.html">sortable_js</a></span>(<span class="st">"aUniqueId"</span>) <span class="co"># the CSS id</span>
-))
-</pre></div>
+))</pre></div>
 </div>
 </div>
 <div id="related-work" class="section level2">
@@ -256,7 +250,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
 </div>
 
       </footer>

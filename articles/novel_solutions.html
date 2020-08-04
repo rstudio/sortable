@@ -102,9 +102,7 @@
 
     
     
-<div class="sourceCode" id="cb1"><pre class="downlit">
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="https://github.com/rstudio/sortable">sortable</a></span>)
-</pre></div>
+<div class="sourceCode" id="cb1"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">sortable</span>)</pre></body></html></div>
 <div id="creating-an-app" class="section level2">
 <h2 class="hasAnchor">
 <a href="#creating-an-app" class="anchor"></a>Creating an app</h2>
@@ -116,24 +114,23 @@
 <div id="source-code" class="section level2">
 <h2 class="hasAnchor">
 <a href="#source-code" class="anchor"></a>Source code</h2>
-<div class="sourceCode" id="cb2"><pre class="downlit">
-<span class="co">## Example shiny app to create a plot from sortable inputs</span>
+<div class="sourceCode" id="cb2"><html><body><pre class="r"><span class="co">## Example shiny app to create a plot from sortable inputs</span>
 
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="http://shiny.rstudio.com">shiny</a></span>)
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="https://github.com/ramnathv/htmlwidgets">htmlwidgets</a></span>)
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="https://github.com/rstudio/sortable">sortable</a></span>)
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw">magrittr</span>)
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">shiny</span>)
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">htmlwidgets</span>)
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">sortable</span>)
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">magrittr</span>)
 
-<span class="kw">colnames_to_tags</span> <span class="op">&lt;-</span> <span class="fu">function</span>(<span class="kw">df</span>){
+<span class="no">colnames_to_tags</span> <span class="kw">&lt;-</span> <span class="kw">function</span>(<span class="no">df</span>){
   <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span>(
-    <span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span>(<span class="kw">df</span>),
-    <span class="fu">function</span>(<span class="kw">co</span>) {
-      <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/tag.html">tag</a></span>(
+    <span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span>(<span class="no">df</span>),
+    <span class="kw">function</span>(<span class="no">co</span>) {
+      <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/reexports.html">tag</a></span>(
         <span class="st">"p"</span>,
         <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span>(
-          class = <span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span>(<span class="kw">df</span>[, <span class="kw">co</span>]),
-          <span class="kw">tags</span><span class="op">$</span><span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">span</a></span>(class = <span class="st">"glyphicon glyphicon-move"</span>),
-          <span class="kw">tags</span><span class="op">$</span><span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">strong</a></span>(<span class="kw">co</span>)
+          <span class="kw">class</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span>(<span class="no">df</span>[, <span class="no">co</span>]),
+          <span class="no">tags</span>$<span class="fu"><a href="https://rdrr.io/pkg/shiny/man/reexports.html">span</a></span>(<span class="kw">class</span> <span class="kw">=</span> <span class="st">"glyphicon glyphicon-move"</span>),
+          <span class="no">tags</span>$<span class="fu"><a href="https://rdrr.io/pkg/shiny/man/reexports.html">strong</a></span>(<span class="no">co</span>)
         )
       )
     }
@@ -141,59 +138,59 @@
 }
 
 
-<span class="kw">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/fluidPage.html">fluidPage</a></span>(
+<span class="no">ui</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/fluidPage.html">fluidPage</a></span>(
   <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/fluidPage.html">fluidRow</a></span>(
-    class = <span class="st">"panel panel-heading"</span>,
-    <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">div</a></span>(
-      class = <span class="st">"panel-heading"</span>,
-      <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">h3</a></span>(<span class="st">"Dragging variables to define a plot"</span>)
+    <span class="kw">class</span> <span class="kw">=</span> <span class="st">"panel panel-heading"</span>,
+    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/reexports.html">div</a></span>(
+      <span class="kw">class</span> <span class="kw">=</span> <span class="st">"panel-heading"</span>,
+      <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/reexports.html">h3</a></span>(<span class="st">"Dragging variables to define a plot"</span>)
     ),
     <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/fluidPage.html">fluidRow</a></span>(
-      class = <span class="st">"panel-body"</span>,
+      <span class="kw">class</span> <span class="kw">=</span> <span class="st">"panel-body"</span>,
       <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/column.html">column</a></span>(
-        width = <span class="fl">3</span>,
-        <span class="kw">tags</span><span class="op">$</span><span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">div</a></span>(
-          class = <span class="st">"panel panel-default"</span>,
-          <span class="kw">tags</span><span class="op">$</span><span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">div</a></span>(class = <span class="st">"panel-heading"</span>, <span class="st">"Variables"</span>),
-          <span class="kw">tags</span><span class="op">$</span><span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">div</a></span>(
-            class = <span class="st">"panel-body"</span>,
-            id = <span class="st">"sort1"</span>,
-            <span class="fu">colnames_to_tags</span>(<span class="kw">mtcars</span>)
+        <span class="kw">width</span> <span class="kw">=</span> <span class="fl">3</span>,
+        <span class="no">tags</span>$<span class="fu"><a href="https://rdrr.io/pkg/shiny/man/reexports.html">div</a></span>(
+          <span class="kw">class</span> <span class="kw">=</span> <span class="st">"panel panel-default"</span>,
+          <span class="no">tags</span>$<span class="fu"><a href="https://rdrr.io/pkg/shiny/man/reexports.html">div</a></span>(<span class="kw">class</span> <span class="kw">=</span> <span class="st">"panel-heading"</span>, <span class="st">"Variables"</span>),
+          <span class="no">tags</span>$<span class="fu"><a href="https://rdrr.io/pkg/shiny/man/reexports.html">div</a></span>(
+            <span class="kw">class</span> <span class="kw">=</span> <span class="st">"panel-body"</span>,
+            <span class="kw">id</span> <span class="kw">=</span> <span class="st">"sort1"</span>,
+            <span class="fu">colnames_to_tags</span>(<span class="no">mtcars</span>)
           )
         )
       ),
       <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/column.html">column</a></span>(
-        width = <span class="fl">3</span>,
+        <span class="kw">width</span> <span class="kw">=</span> <span class="fl">3</span>,
         <span class="co"># analyse as x</span>
-        <span class="kw">tags</span><span class="op">$</span><span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">div</a></span>(
-          class = <span class="st">"panel panel-default"</span>,
-          <span class="kw">tags</span><span class="op">$</span><span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">div</a></span>(
-            class = <span class="st">"panel-heading"</span>,
-            <span class="kw">tags</span><span class="op">$</span><span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">span</a></span>(class = <span class="st">"glyphicon glyphicon-stats"</span>),
+        <span class="no">tags</span>$<span class="fu"><a href="https://rdrr.io/pkg/shiny/man/reexports.html">div</a></span>(
+          <span class="kw">class</span> <span class="kw">=</span> <span class="st">"panel panel-default"</span>,
+          <span class="no">tags</span>$<span class="fu"><a href="https://rdrr.io/pkg/shiny/man/reexports.html">div</a></span>(
+            <span class="kw">class</span> <span class="kw">=</span> <span class="st">"panel-heading"</span>,
+            <span class="no">tags</span>$<span class="fu"><a href="https://rdrr.io/pkg/shiny/man/reexports.html">span</a></span>(<span class="kw">class</span> <span class="kw">=</span> <span class="st">"glyphicon glyphicon-stats"</span>),
             <span class="st">"Analyze as x (drag here)"</span>
           ),
-          <span class="kw">tags</span><span class="op">$</span><span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">div</a></span>(
-            class = <span class="st">"panel-body"</span>,
-            id = <span class="st">"sort2"</span>
+          <span class="no">tags</span>$<span class="fu"><a href="https://rdrr.io/pkg/shiny/man/reexports.html">div</a></span>(
+            <span class="kw">class</span> <span class="kw">=</span> <span class="st">"panel-body"</span>,
+            <span class="kw">id</span> <span class="kw">=</span> <span class="st">"sort2"</span>
           )
         ),
         <span class="co"># analyse as y</span>
-        <span class="kw">tags</span><span class="op">$</span><span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">div</a></span>(
-          class = <span class="st">"panel panel-default"</span>,
-          <span class="kw">tags</span><span class="op">$</span><span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">div</a></span>(
-            class = <span class="st">"panel-heading"</span>,
-            <span class="kw">tags</span><span class="op">$</span><span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">span</a></span>(class = <span class="st">"glyphicon glyphicon-stats"</span>),
+        <span class="no">tags</span>$<span class="fu"><a href="https://rdrr.io/pkg/shiny/man/reexports.html">div</a></span>(
+          <span class="kw">class</span> <span class="kw">=</span> <span class="st">"panel panel-default"</span>,
+          <span class="no">tags</span>$<span class="fu"><a href="https://rdrr.io/pkg/shiny/man/reexports.html">div</a></span>(
+            <span class="kw">class</span> <span class="kw">=</span> <span class="st">"panel-heading"</span>,
+            <span class="no">tags</span>$<span class="fu"><a href="https://rdrr.io/pkg/shiny/man/reexports.html">span</a></span>(<span class="kw">class</span> <span class="kw">=</span> <span class="st">"glyphicon glyphicon-stats"</span>),
             <span class="st">"Analyze as y (drag here)"</span>
           ),
-          <span class="kw">tags</span><span class="op">$</span><span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">div</a></span>(
-            class = <span class="st">"panel-body"</span>,
-            id = <span class="st">"sort3"</span>
+          <span class="no">tags</span>$<span class="fu"><a href="https://rdrr.io/pkg/shiny/man/reexports.html">div</a></span>(
+            <span class="kw">class</span> <span class="kw">=</span> <span class="st">"panel-body"</span>,
+            <span class="kw">id</span> <span class="kw">=</span> <span class="st">"sort3"</span>
           )
         )
 
       ),
       <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/column.html">column</a></span>(
-        width = <span class="fl">6</span>,
+        <span class="kw">width</span> <span class="kw">=</span> <span class="fl">6</span>,
         <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/plotOutput.html">plotOutput</a></span>(<span class="st">"plot"</span>)
 
       )
@@ -201,68 +198,67 @@
   ),
   <span class="fu"><a href="../reference/sortable_js.html">sortable_js</a></span>(
     <span class="st">"sort1"</span>,
-    options = <span class="fu"><a href="../reference/sortable_options.html">sortable_options</a></span>(
-      group = <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span>(
-        name = <span class="st">"sortGroup1"</span>,
-        put = <span class="fl">TRUE</span>
+    <span class="kw">options</span> <span class="kw">=</span> <span class="fu"><a href="../reference/sortable_options.html">sortable_options</a></span>(
+      <span class="kw">group</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span>(
+        <span class="kw">name</span> <span class="kw">=</span> <span class="st">"sortGroup1"</span>,
+        <span class="kw">put</span> <span class="kw">=</span> <span class="fl">TRUE</span>
       ),
-      sort = <span class="fl">FALSE</span>,
-      onSort = <span class="fu"><a href="../reference/sortable_js_capture_input.html">sortable_js_capture_input</a></span>(<span class="st">"sort_vars"</span>)
+      <span class="kw">sort</span> <span class="kw">=</span> <span class="fl">FALSE</span>,
+      <span class="kw">onSort</span> <span class="kw">=</span> <span class="fu"><a href="../reference/sortable_js_capture_input.html">sortable_js_capture_input</a></span>(<span class="st">"sort_vars"</span>)
     )
   ),
   <span class="fu"><a href="../reference/sortable_js.html">sortable_js</a></span>(
     <span class="st">"sort2"</span>,
-    options = <span class="fu"><a href="../reference/sortable_options.html">sortable_options</a></span>(
-      group = <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span>(
-        group = <span class="st">"sortGroup1"</span>,
-        put = <span class="kw">htmlwidgets</span>::<span class="fu"><a href="https://rdrr.io/pkg/htmlwidgets/man/JS.html">JS</a></span>(<span class="st">"function (to) { return to.el.children.length &lt; 1; }"</span>),
-        pull = <span class="fl">TRUE</span>
+    <span class="kw">options</span> <span class="kw">=</span> <span class="fu"><a href="../reference/sortable_options.html">sortable_options</a></span>(
+      <span class="kw">group</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span>(
+        <span class="kw">group</span> <span class="kw">=</span> <span class="st">"sortGroup1"</span>,
+        <span class="kw">put</span> <span class="kw">=</span> <span class="kw pkg">htmlwidgets</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/htmlwidgets/man/JS.html">JS</a></span>(<span class="st">"function (to) { return to.el.children.length &lt; 1; }"</span>),
+        <span class="kw">pull</span> <span class="kw">=</span> <span class="fl">TRUE</span>
       ),
-      onSort = <span class="fu"><a href="../reference/sortable_js_capture_input.html">sortable_js_capture_input</a></span>(<span class="st">"sort_x"</span>)
+      <span class="kw">onSort</span> <span class="kw">=</span> <span class="fu"><a href="../reference/sortable_js_capture_input.html">sortable_js_capture_input</a></span>(<span class="st">"sort_x"</span>)
     )
   ),
   <span class="fu"><a href="../reference/sortable_js.html">sortable_js</a></span>(
     <span class="st">"sort3"</span>,
-    options = <span class="fu"><a href="../reference/sortable_options.html">sortable_options</a></span>(
-      group = <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span>(
-        group = <span class="st">"sortGroup1"</span>,
-        put = <span class="kw">htmlwidgets</span>::<span class="fu"><a href="https://rdrr.io/pkg/htmlwidgets/man/JS.html">JS</a></span>(<span class="st">"function (to) { return to.el.children.length &lt; 1; }"</span>),
-        pull = <span class="fl">TRUE</span>
+    <span class="kw">options</span> <span class="kw">=</span> <span class="fu"><a href="../reference/sortable_options.html">sortable_options</a></span>(
+      <span class="kw">group</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span>(
+        <span class="kw">group</span> <span class="kw">=</span> <span class="st">"sortGroup1"</span>,
+        <span class="kw">put</span> <span class="kw">=</span> <span class="kw pkg">htmlwidgets</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/htmlwidgets/man/JS.html">JS</a></span>(<span class="st">"function (to) { return to.el.children.length &lt; 1; }"</span>),
+        <span class="kw">pull</span> <span class="kw">=</span> <span class="fl">TRUE</span>
       ),
-      onSort = <span class="fu"><a href="../reference/sortable_js_capture_input.html">sortable_js_capture_input</a></span>(<span class="st">"sort_y"</span>)
+      <span class="kw">onSort</span> <span class="kw">=</span> <span class="fu"><a href="../reference/sortable_js_capture_input.html">sortable_js_capture_input</a></span>(<span class="st">"sort_y"</span>)
     )
   )
 )
 
-<span class="kw">server</span> <span class="op">&lt;-</span> <span class="fu">function</span>(<span class="kw">input</span>, <span class="kw">output</span>) {
-  <span class="kw">output</span><span class="op">$</span><span class="kw">variables</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderPrint.html">renderPrint</a></span>(<span class="kw">input</span>[[<span class="st">"sort_vars"</span>]])
-  <span class="kw">output</span><span class="op">$</span><span class="kw">analyse_x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderPrint.html">renderPrint</a></span>(<span class="kw">input</span>[[<span class="st">"sort_x"</span>]])
-  <span class="kw">output</span><span class="op">$</span><span class="kw">analyse_y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderPrint.html">renderPrint</a></span>(<span class="kw">input</span>[[<span class="st">"sort_y"</span>]])
+<span class="no">server</span> <span class="kw">&lt;-</span> <span class="kw">function</span>(<span class="no">input</span>, <span class="no">output</span>) {
+  <span class="no">output</span>$<span class="no">variables</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderPrint.html">renderPrint</a></span>(<span class="no">input</span><span class="kw">[[</span><span class="st">"sort_vars"</span>]])
+  <span class="no">output</span>$<span class="no">analyse_x</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderPrint.html">renderPrint</a></span>(<span class="no">input</span><span class="kw">[[</span><span class="st">"sort_x"</span>]])
+  <span class="no">output</span>$<span class="no">analyse_y</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderPrint.html">renderPrint</a></span>(<span class="no">input</span><span class="kw">[[</span><span class="st">"sort_y"</span>]])
 
 
-  <span class="kw">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/reactive.html">reactive</a></span>({
-    <span class="kw">x</span> <span class="op">&lt;-</span> <span class="kw">input</span><span class="op">$</span><span class="kw">sort_x</span>
-    <span class="co">if</span> (<span class="fu"><a href="https://rdrr.io/r/base/character.html">is.character</a></span>(<span class="kw">x</span>)) <span class="kw">x</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/base/trimws.html">trimws</a></span>()
+  <span class="no">x</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/reactive.html">reactive</a></span>({
+    <span class="no">x</span> <span class="kw">&lt;-</span> <span class="no">input</span>$<span class="no">sort_x</span>
+    <span class="kw">if</span> (<span class="fu"><a href="https://rdrr.io/r/base/character.html">is.character</a></span>(<span class="no">x</span>)) <span class="no">x</span> <span class="kw">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/base/trimws.html">trimws</a></span>()
   })
 
-  <span class="kw">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/reactive.html">reactive</a></span>({
-    <span class="kw">input</span><span class="op">$</span><span class="kw">sort_y</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/base/trimws.html">trimws</a></span>()
+  <span class="no">y</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/reactive.html">reactive</a></span>({
+    <span class="no">input</span>$<span class="no">sort_y</span> <span class="kw">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/base/trimws.html">trimws</a></span>()
   })
 
-  <span class="kw">output</span><span class="op">$</span><span class="kw">plot</span> <span class="op">&lt;-</span>
+  <span class="no">output</span>$<span class="no">plot</span> <span class="kw">&lt;-</span>
     <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderPlot.html">renderPlot</a></span>({
       <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/validate.html">validate</a></span>(
         <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/validate.html">need</a></span>(<span class="fu">x</span>(), <span class="st">"Drag a variable to x"</span>),
         <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/validate.html">need</a></span>(<span class="fu">y</span>(), <span class="st">"Drag a variable to y"</span>)
       )
-      <span class="kw">dat</span> <span class="op">&lt;-</span> <span class="kw">mtcars</span>[, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fu">x</span>(), <span class="fu">y</span>())]
-      <span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span>(<span class="kw">dat</span>) <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"x"</span>, <span class="st">"y"</span>)
-      <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span>(<span class="kw">y</span> <span class="op">~</span> <span class="kw">x</span>, data = <span class="kw">dat</span>, xlab = <span class="fu">x</span>(), ylab = <span class="fu">y</span>())
+      <span class="no">dat</span> <span class="kw">&lt;-</span> <span class="no">mtcars</span>[, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fu">x</span>(), <span class="fu">y</span>())]
+      <span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span>(<span class="no">dat</span>) <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"x"</span>, <span class="st">"y"</span>)
+      <span class="fu"><a href="https://rdrr.io/r/base/plot.html">plot</a></span>(<span class="no">y</span> ~ <span class="no">x</span>, <span class="kw">data</span> <span class="kw">=</span> <span class="no">dat</span>, <span class="kw">xlab</span> <span class="kw">=</span> <span class="fu">x</span>(), <span class="kw">ylab</span> <span class="kw">=</span> <span class="fu">y</span>())
     })
 
 }
-<span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html">shinyApp</a></span>(<span class="kw">ui</span>, <span class="kw">server</span>)
-</pre></div>
+<span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html">shinyApp</a></span>(<span class="no">ui</span>, <span class="no">server</span>)</pre></body></html></div>
 </div>
   </div>
 
@@ -281,7 +277,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
 </div>
 
       </footer>
