@@ -36,6 +36,7 @@ jobs:
           install.packages("remotes")
           remotes::install_cran("rsconnect")
           remotes::install_cran("glue")
+          remotes::install_cran("lifecycle")
         shell: Rscript {0}
 
       - name: Install package from github
