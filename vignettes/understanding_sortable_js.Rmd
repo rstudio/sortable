@@ -9,7 +9,7 @@ vignette: >
   %\usepackage[utf8]{inputenc}
 ---
 
-```{r echo = F}
+```{r, echo = FALSE}
 ## get knitr just the way we like it
 
 knitr::opts_chunk$set(
@@ -18,7 +18,6 @@ knitr::opts_chunk$set(
   error = FALSE,
   tidy = FALSE,
   cache = FALSE
-  # , results = 'asis'
 )
 ```
 
@@ -26,6 +25,7 @@ With the `sortable` [`htmlwidget`](http://htmlwidgets.org) you can use powerful,
 
 ```{r}
 library(sortable)
+library(htmltools)
 ```
 
 ## The central idea
@@ -44,7 +44,7 @@ Note:
 2. You can drag and drop the list entries. Try it!
 
 ```html
-<p>You can drag and drop these items in any order:</p>
+<p>You can drag and drop these items in any order (try it!):</p>
 <ul id = "example01">
   <li>Move</li>
   <li>Or drag</li>
@@ -59,7 +59,20 @@ sortable_js(css_id = "example01")
 ```
 ````
 
-![](figures/simple_rank_list.gif)
+
+<p>You can drag and drop these items in any order (try it!):</p>
+<ul id = "example01">
+  <li>Move</li>
+  <li>Or drag</li>
+  <li>Each of the items</li>
+  <li>To different positions</li>
+</ul>
+
+```{r, echo=FALSE}
+sortable_js(css_id = "example01")
+```
+
+
 
 
 
@@ -67,7 +80,9 @@ sortable_js(css_id = "example01")
 
 You can use the functions `tags()` and `tagList()`, both from the `htmltools` package, to create HTML.
 
-This means you can construct the
+This means you can construct the sortable list using:
+
+<!-- the following chunk fails to build on CRAN, so use raw code instead -->
 
 ```{r}
 library(htmltools)
@@ -96,24 +111,27 @@ library(base64)
 library(withr)
 
 # use example from ?base64::img
-pngfile_1 <- tempfile()
+pngfile_1 <- tempfile(fileext = ".png")
 with_png(pngfile_1, width = 300, height = 200,{
   plot(1:100, rnorm(100), pch = 21, bg = "red")
   title(main = "Moves Like Jagger")
 })
 
 # make another plot for demo purposes
-pngfile_2 <- tempfile()
+pngfile_2 <- tempfile(fileext = ".png")
 with_png(pngfile_2, width = 300, height = 200,{
   barplot(1:9, col = blues9)
   title(main = "I Like the Way You Move")
 })
+```
 
+
+```{r}
 tagList(
   tags$div(
     id = "example03",
-    HTML(img(pngfile_1)),
-    HTML(img(pngfile_2))
+    HTML(base64::img(pngfile_1)),
+    HTML(base64::img(pngfile_2))
   ),
   sortable_js(css_id = "example03")
 )
@@ -146,19 +164,19 @@ You can copy and paste to see it for yourself, or `runGist("2dbe45f77b65e28acab9
 The modified code snippet is:
 
 ```r
-      # Show a tabset that includes a plot, summary, and table view
-      # of the generated distribution
-      mainPanel(
-        tabsetPanel(
-          type = "tabs",
-          id = "sortTab",
-          tabPanel("Plot", plotOutput("plot")),
-          tabPanel("Summary", verbatimTextOutput("summary")),
-          tabPanel("Table", tableOutput("table"))
-        )
-      )
-    ),
-    sortable_js("sortTab")
+# Show a tabset that includes a plot, summary, and table view
+# of the generated distribution
+mainPanel(
+tabsetPanel(
+type = "tabs",
+id = "sortTab",
+tabPanel("Plot", plotOutput("plot")),
+tabPanel("Summary", verbatimTextOutput("summary")),
+tabPanel("Table", tableOutput("table"))
+)
+)
+),
+sortable_js("sortTab")
 ```
 
 And the full code:
