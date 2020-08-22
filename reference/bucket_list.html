@@ -205,37 +205,41 @@ layout of the components on the page.</p></td>
 
 <span class='co'>## bucket list</span>
 
-<span class='fu'>bucket_list</span>(
-  <span class='kw'>header</span> <span class='kw'>=</span> <span class='st'>"This is a bucket list. You can drag items between the lists."</span>,
-  <span class='fu'><a href='add_rank_list.html'>add_rank_list</a></span>(
-    <span class='kw'>text</span> <span class='kw'>=</span> <span class='st'>"Drag from here"</span>,
-    <span class='kw'>labels</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"a"</span>, <span class='st'>"bb"</span>, <span class='st'>"ccc"</span>)
-  ),
-  <span class='fu'><a href='add_rank_list.html'>add_rank_list</a></span>(
-    <span class='kw'>text</span> <span class='kw'>=</span> <span class='st'>"to here"</span>,
-    <span class='kw'>labels</span> <span class='kw'>=</span> <span class='kw'>NULL</span>
+<span class='kw'>if</span>(<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>()) {
+  <span class='fu'>bucket_list</span>(
+    <span class='kw'>header</span> <span class='kw'>=</span> <span class='st'>"This is a bucket list. You can drag items between the lists."</span>,
+    <span class='fu'><a href='add_rank_list.html'>add_rank_list</a></span>(
+      <span class='kw'>text</span> <span class='kw'>=</span> <span class='st'>"Drag from here"</span>,
+      <span class='kw'>labels</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"a"</span>, <span class='st'>"bb"</span>, <span class='st'>"ccc"</span>)
+    ),
+    <span class='fu'><a href='add_rank_list.html'>add_rank_list</a></span>(
+      <span class='kw'>text</span> <span class='kw'>=</span> <span class='st'>"to here"</span>,
+      <span class='kw'>labels</span> <span class='kw'>=</span> <span class='kw'>NULL</span>
+    )
   )
-)
+}
 
 <span class='co'>## bucket list with three columns</span>
 
-<span class='fu'>bucket_list</span>(
-  <span class='kw'>header</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"Sort these items into Letters and Numbers"</span>),
-  <span class='fu'><a href='add_rank_list.html'>add_rank_list</a></span>(
-    <span class='kw'>text</span> <span class='kw'>=</span> <span class='st'>"Drag from here"</span>,
-    <span class='kw'>labels</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/sample.html'>sample</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>:<span class='fl'>3</span>, <span class='no'>letters</span>[<span class='fl'>1</span>:<span class='fl'>2</span>]))
-  ),
-  <span class='fu'><a href='add_rank_list.html'>add_rank_list</a></span>(
-    <span class='kw'>text</span> <span class='kw'>=</span> <span class='st'>"Letters"</span>
-  ),
-  <span class='fu'><a href='add_rank_list.html'>add_rank_list</a></span>(
-    <span class='kw'>text</span> <span class='kw'>=</span> <span class='st'>"Numbers"</span>
+<span class='kw'>if</span>(<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>()) {
+  <span class='fu'>bucket_list</span>(
+    <span class='kw'>header</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"Sort these items into Letters and Numbers"</span>),
+    <span class='fu'><a href='add_rank_list.html'>add_rank_list</a></span>(
+      <span class='kw'>text</span> <span class='kw'>=</span> <span class='st'>"Drag from here"</span>,
+      <span class='kw'>labels</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/sample.html'>sample</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>:<span class='fl'>3</span>, <span class='no'>letters</span>[<span class='fl'>1</span>:<span class='fl'>2</span>]))
+    ),
+    <span class='fu'><a href='add_rank_list.html'>add_rank_list</a></span>(
+      <span class='kw'>text</span> <span class='kw'>=</span> <span class='st'>"Letters"</span>
+    ),
+    <span class='fu'><a href='add_rank_list.html'>add_rank_list</a></span>(
+      <span class='kw'>text</span> <span class='kw'>=</span> <span class='st'>"Numbers"</span>
+    )
   )
-)
+}
 <span class='co'>## Example of a shiny app</span>
 <span class='kw'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>()) {
   <span class='no'>app</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span>(<span class='st'>"shiny-examples/bucket_list/app.R"</span>, <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"sortable"</span>)
-  <span class='kw pkg'>shiny</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/shiny/man/runApp.html'>runApp</a></span>(<span class='no'>app</span>)
+  <span class='kw pkg'>shiny</span><span class='kw ns'>::</span><span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/runApp.html'>runApp</a></span>(<span class='no'>app</span>)
 }</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

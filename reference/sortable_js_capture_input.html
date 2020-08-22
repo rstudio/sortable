@@ -194,13 +194,13 @@ set as an object</p></td>
   <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>shiny</span>)
   <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>sortable</span>)
 
-  <span class='no'>ui</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/fluidPage.html'>fluidPage</a></span>(
-    <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/reexports.html'>div</a></span>(
+  <span class='no'>ui</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/fluidPage.html'>fluidPage</a></span>(
+    <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/reexports.html'>div</a></span>(
       <span class='kw'>id</span> <span class='kw'>=</span> <span class='st'>"sortable"</span>,
-      <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/reexports.html'>div</a></span>(<span class='kw'>id</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>`data-rank-id`</span> <span class='kw'>=</span> <span class='st'>"HELLO"</span>, <span class='kw'>class</span> <span class='kw'>=</span> <span class='st'>"well"</span>, <span class='st'>"Hello"</span>),
-      <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/reexports.html'>div</a></span>(<span class='kw'>id</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>`data-rank-id`</span> <span class='kw'>=</span> <span class='st'>"WORLD"</span>, <span class='kw'>class</span> <span class='kw'>=</span> <span class='st'>"well"</span>, <span class='st'>"world"</span>)
+      <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/reexports.html'>div</a></span>(<span class='kw'>id</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>`data-rank-id`</span> <span class='kw'>=</span> <span class='st'>"HELLO"</span>, <span class='kw'>class</span> <span class='kw'>=</span> <span class='st'>"well"</span>, <span class='st'>"Hello"</span>),
+      <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/reexports.html'>div</a></span>(<span class='kw'>id</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>`data-rank-id`</span> <span class='kw'>=</span> <span class='st'>"WORLD"</span>, <span class='kw'>class</span> <span class='kw'>=</span> <span class='st'>"well"</span>, <span class='st'>"world"</span>)
     ),
-    <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/textOutput.html'>verbatimTextOutput</a></span>(<span class='st'>"chosen"</span>),
+    <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/textOutput.html'>verbatimTextOutput</a></span>(<span class='st'>"chosen"</span>),
     <span class='fu'><a href='sortable_js.html'>sortable_js</a></span>(
       <span class='kw'>css_id</span> <span class='kw'>=</span> <span class='st'>"sortable"</span>,
       <span class='kw'>options</span> <span class='kw'>=</span> <span class='fu'><a href='sortable_options.html'>sortable_options</a></span>(
@@ -210,10 +210,10 @@ set as an object</p></td>
   )
 
   <span class='no'>server</span> <span class='kw'>&lt;-</span> <span class='kw'>function</span>(<span class='no'>input</span>, <span class='no'>output</span>){
-    <span class='no'>output</span>$<span class='no'>chosen</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/renderPrint.html'>renderPrint</a></span>(<span class='no'>input</span>$<span class='no'>selected</span>)
+    <span class='no'>output</span>$<span class='no'>chosen</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/renderPrint.html'>renderPrint</a></span>(<span class='no'>input</span>$<span class='no'>selected</span>)
   }
 
-  <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/shinyApp.html'>shinyApp</a></span>(<span class='no'>ui</span>, <span class='no'>server</span>)
+  <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html'>shinyApp</a></span>(<span class='no'>ui</span>, <span class='no'>server</span>)
 }
 
 
