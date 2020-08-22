@@ -26,7 +26,7 @@ knitr::opts_chunk$set(
 
 <!-- badges: end -->
 
-The `sortable` package enables drag-and-drop behaviour in your Shiny apps.  It does this by exposing the functionality of the [SortableJS](https://sortablejs.github.io/Sortable/) JavaScript library as an [htmlwidget](http://htmlwidgets.org) in R, so you can use this in Shiny apps and widgets, `learnr` tutorials as well as R Markdown. In addition, provides a custom `learnr` question type - `question_rank()` that allows ranking questions with drag-and-drop.
+The `sortable` package enables drag-and-drop behaviour in your Shiny apps.  It does this by exposing the functionality of the [SortableJS](https://sortablejs.github.io/Sortable/) JavaScript library as an [htmlwidget](http://www.htmlwidgets.org) in R, so you can use this in Shiny apps and widgets, `learnr` tutorials as well as R Markdown. In addition, provides a custom `learnr` question type - `question_rank()` that allows ranking questions with drag-and-drop.
 
 
 

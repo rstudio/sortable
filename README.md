@@ -25,8 +25,8 @@ sortable](https://img.shields.io/badge/Ask%20a%20question-sortable-75aadb.svg?st
 The `sortable` package enables drag-and-drop behaviour in your Shiny
 apps. It does this by exposing the functionality of the
 [SortableJS](https://sortablejs.github.io/Sortable/) JavaScript library
-as an [htmlwidget](http://htmlwidgets.org) in R, so you can use this in
-Shiny apps and widgets, `learnr` tutorials as well as R Markdown. In
+as an [htmlwidget](http://www.htmlwidgets.org) in R, so you can use this
+in Shiny apps and widgets, `learnr` tutorials as well as R Markdown. In
 addition, provides a custom `learnr` question type - `question_rank()`
 that allows ranking questions with drag-and-drop.
 
@@ -60,10 +60,46 @@ You can create a drag-and-drop input object in Shiny, using the
 
 </center>
 
-    #> Warning in file(con, "r"): file("") only supports open = "w+" and open = "w+b":
-    #> using the former
-    #> Warning in knitr::read_chunk(system.file("shiny-examples/rank_list/app.R", :
-    #> code is empty
+``` r
+## Example shiny app with rank list
+
+library(shiny)
+library(sortable)
+
+ui <- fluidPage(
+  fluidRow(
+    column(
+      width = 12,
+      tags$b("Exercise"),
+      rank_list(
+        text = "Drag the items in any desired order",
+        labels = list(
+          "one",
+          "two",
+          "three",
+          htmltools::tags$div(
+            htmltools::em("Complex"), " html tag without a name"
+          ),
+          "five" = htmltools::tags$div(
+            htmltools::em("Complex"), " html tag with name: 'five'"
+          )
+        ),
+        input_id = "rank_list_1"
+      ),
+      tags$b("Result"),
+      verbatimTextOutput("results")
+    )
+  )
+)
+
+server <- function(input, output) {
+  output$results <- renderPrint({
+    input$rank_list_1 # This matches the input_id of the rank list
+  })
+}
+
+shinyApp(ui, server)
+```
 
 ### Bucket list
 
@@ -77,10 +113,86 @@ students to classify objects into multiple categories.
 
 </center>
 
-    #> Warning in file(con, "r"): file("") only supports open = "w+" and open = "w+b":
-    #> using the former
-    #> Warning in knitr::read_chunk(system.file("shiny-examples/bucket_list/app.R", :
-    #> code is empty
+``` r
+## Example shiny app with bucket list
+
+library(shiny)
+library(sortable)
+
+
+ui <- fluidPage(
+  tags$head(
+    tags$style(HTML(".bucket-list-container {min-height: 350px;}"))
+  ),
+  fluidRow(
+    column(
+      tags$b("Exercise"),
+      width = 12,
+      bucket_list(
+        header = "Drag the items in any desired bucket",
+        group_name = "bucket_list_group",
+        orientation = "horizontal",
+        add_rank_list(
+          text = "Drag from here",
+          labels = list(
+            "one",
+            "two",
+            "three",
+            htmltools::tags$div(
+              htmltools::em("Complex"), " html tag without a name"
+            ),
+            "five" = htmltools::tags$div(
+              htmltools::em("Complex"), " html tag with name: 'five'"
+            )
+          ),
+          input_id = "rank_list_1"
+        ),
+        add_rank_list(
+          text = "to here",
+          labels = NULL,
+          input_id = "rank_list_2"
+        )
+      )
+    )
+  ),
+  fluidRow(
+    column(
+      width = 12,
+      tags$b("Result"),
+      column(
+        width = 12,
+
+        tags$p("input$rank_list_1"),
+        verbatimTextOutput("results_1"),
+
+        tags$p("input$rank_list_2"),
+        verbatimTextOutput("results_2"),
+
+        tags$p("input$bucket_list_group"),
+        verbatimTextOutput("results_3")
+      )
+    )
+  )
+)
+
+server <- function(input,output) {
+  output$results_1 <-
+    renderPrint(
+      input$rank_list_1 # This matches the input_id of the first rank list
+    )
+  output$results_2 <-
+    renderPrint(
+      input$rank_list_2 # This matches the input_id of the second rank list
+    )
+  output$results_3 <-
+    renderPrint(
+      input$bucket_list_group # Matches the group_name of the bucket list
+    )
+}
+
+
+shinyApp(ui, server)
+```
 
 ### Add drag-and-drop to any HTML element
 
@@ -113,62 +225,6 @@ html_print(tagList(
   ),
   sortable_js("aUniqueId") # the CSS id
 ))
-```
-
-### Clone elements
-
-By setting `pull = "clone"` inside the `sortable_options` function, you can clone the items of the original list, enabling the addition of a list item multiple times. To remove an element from the dropped list you can drag it to a "trash" area by using the JS code `this.el.removeChild(evt.item);`
-
-<img src="man/figures/clone_delete.gif" style = 'width:500px;'></img>
-
-```
-  sortable_js(
-    "sort1",
-    options = sortable_options(
-      group = list(
-      pull = "clone",
-        name = "sortGroup1",
-        put = FALSE
-      ),
-      # swapClass = "sortable-swap-highlight",
-      onSort = sortable_js_capture_input("sort_vars")
-    )
-  ),
-  sortable_js(
-    "sort2",
-    options = sortable_options(
-      group = list(
-        group = "sortGroup1",
-        put = htmlwidgets::JS("function (to) { return to.el.children.length < 3; }"),
-        pull = TRUE
-      ),
-      swapClass = "sortable-swap-highlight",
-      onSort = sortable_js_capture_input("sort_x")
-    )
-  ),
-  sortable_js(
-    "sort3",
-    options = sortable_options(
-      group = list(
-        group = "sortGroup1",
-        put = TRUE,
-        pull = TRUE
-      ),
-      swapClass = "sortable-swap-highlight",
-      onSort = sortable_js_capture_input("sort_y")
-    )
-  ),
-  sortable_js(
-    "sortable_bin",
-    options = sortable_options(
-      group = list(
-        group = "sortGroup1",
-        put = TRUE,
-        pull = TRUE
-      ),
-      onAdd = htmlwidgets::JS("function (evt) { this.el.removeChild(evt.item); }")
-    )
-  )
 ```
 
 ## Related work

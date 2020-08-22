@@ -21,7 +21,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-With the `sortable` [`htmlwidget`](http://htmlwidgets.org) you can use powerful, dependency-free interactivity from [`SortableJS`](https://sortablejs.github.io/Sortable/) in the browser, RStudio Viewer, or Shiny apps.
+With the `sortable` [`htmlwidget`](http://www.htmlwidgets.org) you can use powerful, dependency-free interactivity from [`SortableJS`](https://sortablejs.github.io/Sortable/) in the browser, RStudio Viewer, or Shiny apps.
 
 ```{r}
 library(sortable)
