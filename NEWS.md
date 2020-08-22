@@ -1,4 +1,4 @@
-# sortable 0.4.3 (Release date 2020-06-18)
+# sortable 0.4.3 (Release date 2020-08-22)
 
 Breaking changes:
 
@@ -11,7 +11,10 @@ Other:
 * Updated `sortable.js` to version 1.10.2
 
 * Added examples for using the `sortable.js` plugins, specifically multiDrag and
-swap.  
+swap.
+
+* Added vignette on cloning and removing, contributed by Maya Gans
+
 
 # sortable 0.4.2 (Release date 2019-11-28)
 
