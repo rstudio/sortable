@@ -20,10 +20,10 @@ Authors@R:
       person(given = "Lebedev",
              family = "Konstantin",
              role = "cph",
-             comment = "'SortableJS', http://sortablejs.github.io/Sortable/"))
+             comment = "'SortableJS', https://sortablejs.github.io/Sortable/"))
 Description: Enables drag-and-drop behaviour in Shiny apps, by exposing the 
     functionality of the 'SortableJS' <https://sortablejs.github.io/Sortable/> 
-    JavaScript library as an 'htmlwidget' <http://htmlwidgets.org>. 
+    JavaScript library as an 'htmlwidget'. 
     You can use this in Shiny apps and widgets, 'learnr' tutorials as well as 
     R Markdown. In addition, provides a custom 'learnr' question type - 
     'question_rank()' - that allows ranking questions with drag-and-drop.
@@ -48,7 +48,8 @@ Suggests:
     magrittr,
     lifecycle,
     webshot,
-    spelling
+    spelling,
+    covr
 VignetteBuilder: 
     knitr
 RdMacros: 
@@ -56,5 +57,5 @@ RdMacros:
 Encoding: UTF-8
 LazyData: TRUE
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.1.0
+RoxygenNote: 7.1.1
 Language: en-US
