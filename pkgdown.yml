@@ -7,7 +7,7 @@ articles:
   shiny_apps: shiny_apps.html
   understanding_sortable_js: understanding_sortable_js.html
   using_custom_css: using_custom_css.html
-last_built: 2020-08-22T20:33Z
+last_built: 2020-08-22T20:49Z
 urls:
   reference: https://rstudio.github.io/sortable/reference
   article: https://rstudio.github.io/sortable/articles

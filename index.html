@@ -103,7 +103,7 @@
 <!-- badges: start -->
 
 <!-- badges: end -->
-<p>The <code>sortable</code> package enables drag-and-drop behaviour in your Shiny apps. It does this by exposing the functionality of the <a href="https://sortablejs.github.io/Sortable/">SortableJS</a> JavaScript library as an <a href="http://htmlwidgets.org">htmlwidget</a> in R, so you can use this in Shiny apps and widgets, <code>learnr</code> tutorials as well as R Markdown. In addition, provides a custom <code>learnr</code> question type - <code><a href="reference/question_rank.html">question_rank()</a></code> that allows ranking questions with drag-and-drop.</p>
+<p>The <code>sortable</code> package enables drag-and-drop behaviour in your Shiny apps. It does this by exposing the functionality of the <a href="https://sortablejs.github.io/Sortable/">SortableJS</a> JavaScript library as an <a href="http://www.htmlwidgets.org">htmlwidget</a> in R, so you can use this in Shiny apps and widgets, <code>learnr</code> tutorials as well as R Markdown. In addition, provides a custom <code>learnr</code> question type - <code><a href="reference/question_rank.html">question_rank()</a></code> that allows ranking questions with drag-and-drop.</p>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
@@ -123,10 +123,44 @@
 <center>
 <p><img src="reference/figures/rank_list_shiny.gif" style="width:500px;"></p>
 </center>
-<div class="sourceCode" id="cb3"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="co">#&gt; Warning in file(con, "r"): file("") only supports open = "w+" and open = "w+b":</span></span>
-<span id="cb3-2"><a href="#cb3-2"></a><span class="co">#&gt; using the former</span></span>
-<span id="cb3-3"><a href="#cb3-3"></a><span class="co">#&gt; Warning in knitr::read_chunk(system.file("shiny-examples/rank_list/app.R", :</span></span>
-<span id="cb3-4"><a href="#cb3-4"></a><span class="co">#&gt; code is empty</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="r"><span class="co">## Example shiny app with rank list</span>
+
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">shiny</span>)
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">sortable</span>)
+
+<span class="no">ui</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/fluidPage.html">fluidPage</a></span>(
+  <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/fluidPage.html">fluidRow</a></span>(
+    <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/column.html">column</a></span>(
+      <span class="kw">width</span> <span class="kw">=</span> <span class="fl">12</span>,
+      <span class="no">tags</span>$<span class="fu">b</span>(<span class="st">"Exercise"</span>),
+      <span class="fu"><a href="reference/rank_list.html">rank_list</a></span>(
+        <span class="kw">text</span> <span class="kw">=</span> <span class="st">"Drag the items in any desired order"</span>,
+        <span class="kw">labels</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span>(
+          <span class="st">"one"</span>,
+          <span class="st">"two"</span>,
+          <span class="st">"three"</span>,
+          <span class="kw pkg">htmltools</span><span class="kw ns">::</span><span class="no"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">tags</a></span>$<span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/reexports.html">div</a></span>(
+            <span class="kw pkg">htmltools</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">em</a></span>(<span class="st">"Complex"</span>), <span class="st">" html tag without a name"</span>
+          ),
+          <span class="st">"five"</span> <span class="kw">=</span> <span class="kw pkg">htmltools</span><span class="kw ns">::</span><span class="no"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">tags</a></span>$<span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/reexports.html">div</a></span>(
+            <span class="kw pkg">htmltools</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">em</a></span>(<span class="st">"Complex"</span>), <span class="st">" html tag with name: 'five'"</span>
+          )
+        ),
+        <span class="kw">input_id</span> <span class="kw">=</span> <span class="st">"rank_list_1"</span>
+      ),
+      <span class="no">tags</span>$<span class="fu">b</span>(<span class="st">"Result"</span>),
+      <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/textOutput.html">verbatimTextOutput</a></span>(<span class="st">"results"</span>)
+    )
+  )
+)
+
+<span class="no">server</span> <span class="kw">&lt;-</span> <span class="kw">function</span>(<span class="no">input</span>, <span class="no">output</span>) {
+  <span class="no">output</span>$<span class="no">results</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/renderPrint.html">renderPrint</a></span>({
+    <span class="no">input</span>$<span class="no">rank_list_1</span> <span class="co"># This matches the input_id of the rank list</span>
+  })
+}
+
+<span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html">shinyApp</a></span>(<span class="no">ui</span>, <span class="no">server</span>)</pre></div>
 </div>
 <div id="bucket-list" class="section level3">
 <h3 class="hasAnchor">
@@ -135,10 +169,84 @@
 <center>
 <p><img src="reference/figures/bucket_list_shiny.gif" style="width:500px;"></p>
 </center>
-<div class="sourceCode" id="cb4"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="co">#&gt; Warning in file(con, "r"): file("") only supports open = "w+" and open = "w+b":</span></span>
-<span id="cb4-2"><a href="#cb4-2"></a><span class="co">#&gt; using the former</span></span>
-<span id="cb4-3"><a href="#cb4-3"></a><span class="co">#&gt; Warning in knitr::read_chunk(system.file("shiny-examples/bucket_list/app.R", :</span></span>
-<span id="cb4-4"><a href="#cb4-4"></a><span class="co">#&gt; code is empty</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="r"><span class="co">## Example shiny app with bucket list</span>
+
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">shiny</span>)
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">sortable</span>)
+
+
+<span class="no">ui</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/fluidPage.html">fluidPage</a></span>(
+  <span class="no">tags</span>$<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(
+    <span class="no">tags</span>$<span class="fu">style</span>(<span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/reexports.html">HTML</a></span>(<span class="st">".bucket-list-container {min-height: 350px;}"</span>))
+  ),
+  <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/fluidPage.html">fluidRow</a></span>(
+    <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/column.html">column</a></span>(
+      <span class="no">tags</span>$<span class="fu">b</span>(<span class="st">"Exercise"</span>),
+      <span class="kw">width</span> <span class="kw">=</span> <span class="fl">12</span>,
+      <span class="fu"><a href="reference/bucket_list.html">bucket_list</a></span>(
+        <span class="kw">header</span> <span class="kw">=</span> <span class="st">"Drag the items in any desired bucket"</span>,
+        <span class="kw">group_name</span> <span class="kw">=</span> <span class="st">"bucket_list_group"</span>,
+        <span class="kw">orientation</span> <span class="kw">=</span> <span class="st">"horizontal"</span>,
+        <span class="fu"><a href="reference/add_rank_list.html">add_rank_list</a></span>(
+          <span class="kw">text</span> <span class="kw">=</span> <span class="st">"Drag from here"</span>,
+          <span class="kw">labels</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span>(
+            <span class="st">"one"</span>,
+            <span class="st">"two"</span>,
+            <span class="st">"three"</span>,
+            <span class="kw pkg">htmltools</span><span class="kw ns">::</span><span class="no"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">tags</a></span>$<span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/reexports.html">div</a></span>(
+              <span class="kw pkg">htmltools</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">em</a></span>(<span class="st">"Complex"</span>), <span class="st">" html tag without a name"</span>
+            ),
+            <span class="st">"five"</span> <span class="kw">=</span> <span class="kw pkg">htmltools</span><span class="kw ns">::</span><span class="no"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">tags</a></span>$<span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/reexports.html">div</a></span>(
+              <span class="kw pkg">htmltools</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">em</a></span>(<span class="st">"Complex"</span>), <span class="st">" html tag with name: 'five'"</span>
+            )
+          ),
+          <span class="kw">input_id</span> <span class="kw">=</span> <span class="st">"rank_list_1"</span>
+        ),
+        <span class="fu"><a href="reference/add_rank_list.html">add_rank_list</a></span>(
+          <span class="kw">text</span> <span class="kw">=</span> <span class="st">"to here"</span>,
+          <span class="kw">labels</span> <span class="kw">=</span> <span class="kw">NULL</span>,
+          <span class="kw">input_id</span> <span class="kw">=</span> <span class="st">"rank_list_2"</span>
+        )
+      )
+    )
+  ),
+  <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/fluidPage.html">fluidRow</a></span>(
+    <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/column.html">column</a></span>(
+      <span class="kw">width</span> <span class="kw">=</span> <span class="fl">12</span>,
+      <span class="no">tags</span>$<span class="fu">b</span>(<span class="st">"Result"</span>),
+      <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/column.html">column</a></span>(
+        <span class="kw">width</span> <span class="kw">=</span> <span class="fl">12</span>,
+
+        <span class="no">tags</span>$<span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/reexports.html">p</a></span>(<span class="st">"input$rank_list_1"</span>),
+        <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/textOutput.html">verbatimTextOutput</a></span>(<span class="st">"results_1"</span>),
+
+        <span class="no">tags</span>$<span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/reexports.html">p</a></span>(<span class="st">"input$rank_list_2"</span>),
+        <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/textOutput.html">verbatimTextOutput</a></span>(<span class="st">"results_2"</span>),
+
+        <span class="no">tags</span>$<span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/reexports.html">p</a></span>(<span class="st">"input$bucket_list_group"</span>),
+        <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/textOutput.html">verbatimTextOutput</a></span>(<span class="st">"results_3"</span>)
+      )
+    )
+  )
+)
+
+<span class="no">server</span> <span class="kw">&lt;-</span> <span class="kw">function</span>(<span class="no">input</span>,<span class="no">output</span>) {
+  <span class="no">output</span>$<span class="no">results_1</span> <span class="kw">&lt;-</span>
+    <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/renderPrint.html">renderPrint</a></span>(
+      <span class="no">input</span>$<span class="no">rank_list_1</span> <span class="co"># This matches the input_id of the first rank list</span>
+    )
+  <span class="no">output</span>$<span class="no">results_2</span> <span class="kw">&lt;-</span>
+    <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/renderPrint.html">renderPrint</a></span>(
+      <span class="no">input</span>$<span class="no">rank_list_2</span> <span class="co"># This matches the input_id of the second rank list</span>
+    )
+  <span class="no">output</span>$<span class="no">results_3</span> <span class="kw">&lt;-</span>
+    <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/renderPrint.html">renderPrint</a></span>(
+      <span class="no">input</span>$<span class="no">bucket_list_group</span> <span class="co"># Matches the group_name of the bucket list</span>
+    )
+}
+
+
+<span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html">shinyApp</a></span>(<span class="no">ui</span>, <span class="no">server</span>)</pre></div>
 </div>
 <div id="add-drag-and-drop-to-any-html-element" class="section level3">
 <h3 class="hasAnchor">
@@ -167,59 +275,6 @@
   ),
   <span class="fu"><a href="reference/sortable_js.html">sortable_js</a></span>(<span class="st">"aUniqueId"</span>) <span class="co"># the CSS id</span>
 ))</pre></div>
-</div>
-<div id="clone-elements" class="section level3">
-<h3 class="hasAnchor">
-<a href="#clone-elements" class="anchor"></a>Clone elements</h3>
-<p>By setting <code>pull = "clone"</code> inside the <code>sortable_options</code> function, you can clone the items of the original list, enabling the addition of a list item multiple times. To remove an element from the dropped list you can drag it to a “trash” area by using the JS code <code>this.el.removeChild(evt.item);</code></p>
-<p><img src="reference/figures/clone_delete.gif" style="width:500px;"></p>
-<pre><code>  sortable_js(
-    "sort1",
-    options = sortable_options(
-      group = list(
-      pull = "clone",
-        name = "sortGroup1",
-        put = FALSE
-      ),
-      # swapClass = "sortable-swap-highlight",
-      onSort = sortable_js_capture_input("sort_vars")
-    )
-  ),
-  sortable_js(
-    "sort2",
-    options = sortable_options(
-      group = list(
-        group = "sortGroup1",
-        put = htmlwidgets::JS("function (to) { return to.el.children.length &lt; 3; }"),
-        pull = TRUE
-      ),
-      swapClass = "sortable-swap-highlight",
-      onSort = sortable_js_capture_input("sort_x")
-    )
-  ),
-  sortable_js(
-    "sort3",
-    options = sortable_options(
-      group = list(
-        group = "sortGroup1",
-        put = TRUE,
-        pull = TRUE
-      ),
-      swapClass = "sortable-swap-highlight",
-      onSort = sortable_js_capture_input("sort_y")
-    )
-  ),
-  sortable_js(
-    "sortable_bin",
-    options = sortable_options(
-      group = list(
-        group = "sortGroup1",
-        put = TRUE,
-        pull = TRUE
-      ),
-      onAdd = htmlwidgets::JS("function (evt) { this.el.removeChild(evt.item); }")
-    )
-  )</code></pre>
 </div>
 </div>
 <div id="related-work" class="section level2">
