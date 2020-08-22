@@ -168,6 +168,59 @@
   <span class="fu"><a href="reference/sortable_js.html">sortable_js</a></span>(<span class="st">"aUniqueId"</span>) <span class="co"># the CSS id</span>
 ))</pre></div>
 </div>
+<div id="clone-elements" class="section level3">
+<h3 class="hasAnchor">
+<a href="#clone-elements" class="anchor"></a>Clone elements</h3>
+<p>By setting <code>pull = "clone"</code> inside the <code>sortable_options</code> function, you can clone the items of the original list, enabling the addition of a list item multiple times. To remove an element from the dropped list you can drag it to a “trash” area by using the JS code <code>this.el.removeChild(evt.item);</code></p>
+<p><img src="reference/figures/clone_delete.gif" style="width:500px;"></p>
+<pre><code>  sortable_js(
+    "sort1",
+    options = sortable_options(
+      group = list(
+      pull = "clone",
+        name = "sortGroup1",
+        put = FALSE
+      ),
+      # swapClass = "sortable-swap-highlight",
+      onSort = sortable_js_capture_input("sort_vars")
+    )
+  ),
+  sortable_js(
+    "sort2",
+    options = sortable_options(
+      group = list(
+        group = "sortGroup1",
+        put = htmlwidgets::JS("function (to) { return to.el.children.length &lt; 3; }"),
+        pull = TRUE
+      ),
+      swapClass = "sortable-swap-highlight",
+      onSort = sortable_js_capture_input("sort_x")
+    )
+  ),
+  sortable_js(
+    "sort3",
+    options = sortable_options(
+      group = list(
+        group = "sortGroup1",
+        put = TRUE,
+        pull = TRUE
+      ),
+      swapClass = "sortable-swap-highlight",
+      onSort = sortable_js_capture_input("sort_y")
+    )
+  ),
+  sortable_js(
+    "sortable_bin",
+    options = sortable_options(
+      group = list(
+        group = "sortGroup1",
+        put = TRUE,
+        pull = TRUE
+      ),
+      onAdd = htmlwidgets::JS("function (evt) { this.el.removeChild(evt.item); }")
+    )
+  )</code></pre>
+</div>
 </div>
 <div id="related-work" class="section level2">
 <h2 class="hasAnchor">
