@@ -1,8 +1,8 @@
 ---
-title: "Using cloning"
+title: "Cloning and removing elements"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Using cloning}
+  %\VignetteIndexEntry{Cloning and removing elements}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---

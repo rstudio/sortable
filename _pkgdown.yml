@@ -57,3 +57,7 @@ articles:
   desc: ~
   contents:
   - understanding_sortable_js
+- title: Cloning and removing elements
+  desc: ~
+  contents:
+  - cloning
