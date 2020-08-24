@@ -40,23 +40,29 @@ tutorials:
   title: Using ranking questions in learnr
   url: https://andrie-de-vries.shinyapps.io/sortable_tutorial_question_rank/
 
+
 articles:
-- title: Using sortable widgets in Shiny apps
-  desc: ~
+
+- title: Using rank list and bucket lists in Shiny apps
+  desc:
   contents:
-  - shiny_apps
+  - built_in
+
 - title: Using custom styles with CSS
   desc: ~
   contents:
   - using_custom_css
+
 - title: Novel solutions using sortable in shiny apps
   desc: ~
   contents:
   - novel_solutions
+
 - title: Understanding the interface to SortableJS
   desc: ~
   contents:
   - understanding_sortable_js
+
 - title: Cloning and removing elements
   desc: ~
   contents:

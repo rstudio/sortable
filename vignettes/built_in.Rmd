@@ -1,0 +1,110 @@
+---
+title: "Using rank list and bucket lists in Shiny apps"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Using rank list and bucket lists in Shiny apps}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+
+```{css, echo=FALSE}
+pre {
+  max-height: 15em;
+  overflow-y: auto;
+}
+
+pre[class] {
+  max-height: 15em;
+}
+```
+
+
+## Introduction
+
+Although `sortable` is designed to be a low-level wrapper around the `SortableJS` library, the package also exposes a few higher level functions.
+
+These functions enable you to easily using drag-and-drop widgets into a Shiny app for specific tasks:
+
+* To create a ranking task, use `rank_list()`
+* To create a bucketing task, use `bucket_list()`
+
+## Rank list
+
+### Demo
+
+This is a rank list app, allowing you to change the order of items in a list.  The app demonstrates three types of drag-and-drop behaviour:
+
+* Default
+* Multi-drag, to select multiple items and drag as a group
+* Swap, to swap two items
+
+
+```{r, echo=FALSE}
+library(htmltools)
+tags$div(
+  class = "shiny-app-frame",
+  tags$iframe(
+    src = "https://andrie-de-vries.shinyapps.io/sortable_rank_list_app/",
+    width = "100%",
+    height = 550
+    )
+)
+```
+
+### Source code
+
+This is the source code:
+
+```{r echo=FALSE, cache=FALSE}
+knitr::read_chunk(
+  system.file("shiny-examples/rank_list/app.R", package = "sortable")
+)
+```
+
+
+```{r rank-list-app, eval=FALSE}
+```
+
+
+## Bucket list
+
+### Demo
+
+This is a bucket list app, where the bucket list allows you to drag from one bucket to another.
+
+
+```{r, echo=FALSE}
+library(htmltools)
+tags$div(
+  class = "shiny-app-frame",
+  tags$iframe(
+    src = "https://andrie-de-vries.shinyapps.io/sortable_bucket_list_app/",
+    width = "100%",
+    height = 800
+    )
+)
+```
+
+
+### Source code
+
+This is the source code:
+
+```{r echo=FALSE, cache=FALSE}
+knitr::read_chunk(
+  system.file("shiny-examples/bucket_list/app.R", package = "sortable")
+)
+```
+
+
+```{r bucket-list-app, eval=FALSE}
+```
+

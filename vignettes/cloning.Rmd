@@ -14,10 +14,6 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r setup}
-library(sortable)
-```
-
 
 ## Introduction
 
@@ -25,12 +21,15 @@ Sometimes you want the ability to drag an item **multiple times** from a list, i
 
 And you may also then want the ability to **remove** cloned items, possibly by dragging to a "bin" or "remove item" list.
 
-
 <img src="figures/clone_delete.gif" style = 'width:500px;'></img>
 
 ### Cloning an element
 
 To clone an element from a list, you must add the `pull = "clone"` option to the `sortable_options` argument::
+
+```{r setup}
+library(sortable)
+```
 
 ```{r, eval=FALSE}
 sortable_js(
@@ -51,11 +50,11 @@ sortable_js(
 
 To remove an element from the dropped list, one option is to create a "bin" area by using the JavaScript code:
 
-````js
+```js
 this.el.removeChild(evt.item);
 ```
 
-Then add to to the `onAdd` element of `sortable_options()`.  To pass your JavaScript code to R, use the `htmlwidgets::JS()` function:
+Then add to this JavaScript to the `onAdd` element of `sortable_options()`.  To pass your JavaScript code to R, use the `htmlwidgets::JS()` function:
 
 ```{r, eval=FALSE}
 sortable_js(
@@ -70,6 +69,7 @@ sortable_js(
   )
 )
 ```
+
 
 ## Full example
 
