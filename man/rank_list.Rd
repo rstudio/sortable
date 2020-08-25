@@ -51,34 +51,37 @@ The widget automatically updates a Shiny output, with the matching
 \examples{
 ## - example-rank-list ------------------------------------------------
 
-rank_list(
-  text = "You can drag, drap and re-order these items:",
-  labels = c("one", "two", "three", "four", "five"),
-  input_id = "example_2"
-)
+if (interactive()) {
+  rank_list(
+    text = "You can drag, drap and re-order these items:",
+    labels = c("one", "two", "three", "four", "five"),
+    input_id = "example_2"
+  )
+}
 ## - example-rank-list-multidrag ------------------------------------------
 
-rank_list(
-  text = "You can select multiple items and drag as a group:",
-  labels = c("one", "two", "three", "four", "five"),
-  input_id = "example_2",
-  options = sortable_options(
-    multiDrag = TRUE
+if (interactive()) {
+  rank_list(
+    text = "You can select multiple items and drag as a group:",
+    labels = c("one", "two", "three", "four", "five"),
+    input_id = "example_2",
+    options = sortable_options(
+      multiDrag = TRUE
+    )
   )
-)
-
-
+}
 ## - example-rank-list-swap -----------------------------------------------
 
-rank_list(
-  text = "You can re-order these items, and notice the swapping behaviour:",
-  labels = c("one", "two", "three", "four", "five"),
-  input_id = "example_2",
-  options = sortable_options(
-    swap = TRUE
+if (interactive()) {
+  rank_list(
+    text = "You can re-order these items, and notice the swapping behaviour:",
+    labels = c("one", "two", "three", "four", "five"),
+    input_id = "example_2",
+    options = sortable_options(
+      swap = TRUE
+    )
   )
-)
-
+}
 ## Example of a shiny app
 if (interactive()) {
   app <- system.file("shiny-examples/rank_list/app.R", package = "sortable")
