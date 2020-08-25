@@ -2,12 +2,12 @@ pandoc: 2.7.3
 pkgdown: 1.5.1
 pkgdown_sha: ~
 articles:
+  built_in: built_in.html
   cloning: cloning.html
   novel_solutions: novel_solutions.html
-  shiny_apps: shiny_apps.html
   understanding_sortable_js: understanding_sortable_js.html
   using_custom_css: using_custom_css.html
-last_built: 2020-08-22T21:14Z
+last_built: 2020-08-25T07:17Z
 urls:
   reference: https://rstudio.github.io/sortable/reference
   article: https://rstudio.github.io/sortable/articles

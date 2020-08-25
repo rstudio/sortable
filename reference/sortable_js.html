@@ -203,21 +203,23 @@ a modified widget object.</p></td>
 <span class='co'># Simple example of sortable_js.</span>
 <span class='co'># Important: set the tags CSS `id` equal to the sortable_js `css_id`</span>
 
-<span class='kw'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/library.html'>require</a></span>(<span class='no'>htmltools</span>)) {
-  <span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/html_print.html'>html_print</a></span>(
-    <span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/tag.html'>tagList</a></span>(
-      <span class='no'>tags</span>$<span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/builder.html'>p</a></span>(<span class='st'>"You can drag and reorder the items in this list:"</span>),
-      <span class='no'>tags</span>$<span class='fu'>ul</span>(
-        <span class='kw'>id</span> <span class='kw'>=</span> <span class='st'>"example_1"</span>,
-        <span class='no'>tags</span>$<span class='fu'>li</span>(<span class='st'>"Move"</span>),
-        <span class='no'>tags</span>$<span class='fu'>li</span>(<span class='st'>"Or drag"</span>),
-        <span class='no'>tags</span>$<span class='fu'>li</span>(<span class='st'>"Each of the items"</span>),
-        <span class='no'>tags</span>$<span class='fu'>li</span>(<span class='st'>"To different positions"</span>)
-      ),
-      <span class='fu'>sortable_js</span>(<span class='kw'>css_id</span> <span class='kw'>=</span> <span class='st'>"example_1"</span>)
+<span class='kw'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>()) {
+  <span class='kw'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/library.html'>require</a></span>(<span class='no'>htmltools</span>)) {
+    <span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/html_print.html'>html_print</a></span>(
+      <span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/tag.html'>tagList</a></span>(
+        <span class='no'>tags</span>$<span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/builder.html'>p</a></span>(<span class='st'>"You can drag and reorder the items in this list:"</span>),
+        <span class='no'>tags</span>$<span class='fu'>ul</span>(
+          <span class='kw'>id</span> <span class='kw'>=</span> <span class='st'>"example_1"</span>,
+          <span class='no'>tags</span>$<span class='fu'>li</span>(<span class='st'>"Move"</span>),
+          <span class='no'>tags</span>$<span class='fu'>li</span>(<span class='st'>"Or drag"</span>),
+          <span class='no'>tags</span>$<span class='fu'>li</span>(<span class='st'>"Each of the items"</span>),
+          <span class='no'>tags</span>$<span class='fu'>li</span>(<span class='st'>"To different positions"</span>)
+        ),
+        <span class='fu'>sortable_js</span>(<span class='kw'>css_id</span> <span class='kw'>=</span> <span class='st'>"example_1"</span>)
+      )
     )
-  )
-}</div><div class='output co'>#&gt; <span class='message'>Loading required package: htmltools</span></div></pre>
+  }
+}</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
