@@ -5,15 +5,9 @@ policy.  The `lifecycle` package was not used in the project, so we removed the
 Suggests dependency.
 
 
-
 ## Test environments
 
-* local Windows install, R 3.6.1
+* local Windows install, R-4.0.2 and R-devel
 * ubuntu 16.04 (on travis-ci), R-release, R-dev and R-old-release
 * win-builder (devel and release)
 
-## R CMD check results
-
-On Solaris there are two Warnings.  We've traced this to the fact that 
-phantom.js isn't available on that platform.  I now test for the correct 
-platform, and this should deal with the issue.
