@@ -46,14 +46,11 @@ Suggests:
     withr,
     rmarkdown,
     magrittr,
-    lifecycle,
     webshot,
     spelling,
     covr
 VignetteBuilder: 
     knitr
-RdMacros: 
-    lifecycle
 Encoding: UTF-8
 LazyData: TRUE
 Roxygen: list(markdown = TRUE)
