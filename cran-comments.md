@@ -1,6 +1,10 @@
-## Response to CRAN review
+## Response to CRAN request
 
-This is a comparatively minor update of the package.
+This release removes a Suggests dependency on `lifecycle` to comply with CRAN
+policy.  The `lifecycle` package was not used in the project, so we removed the
+Suggests dependency.
+
+
 
 ## Test environments
 

@@ -1,3 +1,9 @@
+# sortable 0.4.4 (Release date 2020-09-17)
+
+* No functional changes
+* This release removes a Suggests dependency on `lifecycle` to comply with CRAN
+policy.  The `lifecycle` package was not used in the project.
+
 # sortable 0.4.3 (Release date 2020-08-22)
 
 Breaking changes:
