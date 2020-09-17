@@ -146,16 +146,16 @@ drag-and-drop the answer options into the desired order.</p>
     </div>
 
     <pre class="usage"><span class='fu'>question_rank</span>(
-  <span class='no'>text</span>,
-  <span class='no'>...</span>,
-  <span class='kw'>correct</span> <span class='kw'>=</span> <span class='st'>"Correct!"</span>,
-  <span class='kw'>incorrect</span> <span class='kw'>=</span> <span class='st'>"Incorrect"</span>,
-  <span class='kw'>loading</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"**Loading:** "</span>, <span class='no'>text</span>, <span class='st'>"&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;"</span>),
-  <span class='kw'>submit_button</span> <span class='kw'>=</span> <span class='st'>"Submit Answer"</span>,
-  <span class='kw'>try_again_button</span> <span class='kw'>=</span> <span class='st'>"Try Again"</span>,
-  <span class='kw'>allow_retry</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>random_answer_order</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>options</span> <span class='kw'>=</span> <span class='fu'><a href='sortable_options.html'>sortable_options</a></span>()
+  <span class='kw'>text</span>,
+  <span class='kw'>...</span>,
+  correct = <span class='st'>"Correct!"</span>,
+  incorrect = <span class='st'>"Incorrect"</span>,
+  loading = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"**Loading:** "</span>, <span class='kw'>text</span>, <span class='st'>"&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;"</span>),
+  submit_button = <span class='st'>"Submit Answer"</span>,
+  try_again_button = <span class='st'>"Try Again"</span>,
+  allow_retry = <span class='fl'>FALSE</span>,
+  random_answer_order = <span class='fl'>TRUE</span>,
+  options = <span class='fu'><a href='sortable_options.html'>sortable_options</a></span>()
 )</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -218,9 +218,10 @@ the question is completed, the first correct answer will be displayed.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'>## Example of rank problem inside a learnr tutorial</span>
-<span class='kw'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>()) {
-  <span class='kw pkg'>learnr</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/learnr/man/run_tutorial.html'>run_tutorial</a></span>(<span class='st'>"question_rank"</span>, <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"sortable"</span>)
-}</div></pre>
+<span class='co'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>()) {
+  <span class='kw'>learnr</span>::<span class='fu'><a href='https://rdrr.io/pkg/learnr/man/run_tutorial.html'>run_tutorial</a></span>(<span class='st'>"question_rank"</span>, package = <span class='st'>"sortable"</span>)
+}
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -236,7 +237,7 @@ the question is completed, the first correct answer will be displayed.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

@@ -148,12 +148,12 @@ drag-and-drop interactivity in Shiny apps and R Markdown.</p>
     </div>
 
     <pre class="usage"><span class='fu'>sortable_js</span>(
-  <span class='no'>css_id</span>,
-  <span class='kw'>options</span> <span class='kw'>=</span> <span class='fu'><a href='sortable_options.html'>sortable_options</a></span>(),
-  <span class='kw'>width</span> <span class='kw'>=</span> <span class='fl'>0</span>,
-  <span class='kw'>height</span> <span class='kw'>=</span> <span class='fl'>0</span>,
-  <span class='kw'>elementId</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>preRenderHook</span> <span class='kw'>=</span> <span class='kw'>NULL</span>
+  <span class='kw'>css_id</span>,
+  options = <span class='fu'><a href='sortable_options.html'>sortable_options</a></span>(),
+  width = <span class='fl'>0</span>,
+  height = <span class='fl'>0</span>,
+  elementId = <span class='kw'>NULL</span>,
+  preRenderHook = <span class='kw'>NULL</span>
 )</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -203,23 +203,24 @@ a modified widget object.</p></td>
 <span class='co'># Simple example of sortable_js.</span>
 <span class='co'># Important: set the tags CSS `id` equal to the sortable_js `css_id`</span>
 
-<span class='kw'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>()) {
-  <span class='kw'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/library.html'>require</a></span>(<span class='no'>htmltools</span>)) {
+<span class='co'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>()) {
+  <span class='co'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/library.html'>require</a></span>(<span class='kw'><a href='https://github.com/rstudio/htmltools'>htmltools</a></span>)) {
     <span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/html_print.html'>html_print</a></span>(
       <span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/tag.html'>tagList</a></span>(
-        <span class='no'>tags</span>$<span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/builder.html'>p</a></span>(<span class='st'>"You can drag and reorder the items in this list:"</span>),
-        <span class='no'>tags</span>$<span class='fu'>ul</span>(
-          <span class='kw'>id</span> <span class='kw'>=</span> <span class='st'>"example_1"</span>,
-          <span class='no'>tags</span>$<span class='fu'>li</span>(<span class='st'>"Move"</span>),
-          <span class='no'>tags</span>$<span class='fu'>li</span>(<span class='st'>"Or drag"</span>),
-          <span class='no'>tags</span>$<span class='fu'>li</span>(<span class='st'>"Each of the items"</span>),
-          <span class='no'>tags</span>$<span class='fu'>li</span>(<span class='st'>"To different positions"</span>)
+        <span class='kw'>tags</span><span class='op'>$</span><span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/builder.html'>p</a></span>(<span class='st'>"You can drag and reorder the items in this list:"</span>),
+        <span class='kw'>tags</span><span class='op'>$</span><span class='fu'>ul</span>(
+          id = <span class='st'>"example_1"</span>,
+          <span class='kw'>tags</span><span class='op'>$</span><span class='fu'>li</span>(<span class='st'>"Move"</span>),
+          <span class='kw'>tags</span><span class='op'>$</span><span class='fu'>li</span>(<span class='st'>"Or drag"</span>),
+          <span class='kw'>tags</span><span class='op'>$</span><span class='fu'>li</span>(<span class='st'>"Each of the items"</span>),
+          <span class='kw'>tags</span><span class='op'>$</span><span class='fu'>li</span>(<span class='st'>"To different positions"</span>)
         ),
-        <span class='fu'>sortable_js</span>(<span class='kw'>css_id</span> <span class='kw'>=</span> <span class='st'>"example_1"</span>)
+        <span class='fu'>sortable_js</span>(css_id = <span class='st'>"example_1"</span>)
       )
     )
   }
-}</div></pre>
+}
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -235,7 +236,7 @@ a modified widget object.</p></td>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

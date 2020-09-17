@@ -154,12 +154,12 @@ dragged and dropped in any order.</p>
     </div>
 
     <pre class="usage"><span class='fu'>rank_list</span>(
-  <span class='kw'>text</span> <span class='kw'>=</span> <span class='st'>""</span>,
-  <span class='no'>labels</span>,
-  <span class='no'>input_id</span>,
-  <span class='kw'>css_id</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>options</span> <span class='kw'>=</span> <span class='fu'><a href='sortable_options.html'>sortable_options</a></span>(),
-  <span class='kw'>class</span> <span class='kw'>=</span> <span class='st'>"default-sortable"</span>
+  text = <span class='st'>""</span>,
+  <span class='kw'>labels</span>,
+  <span class='kw'>input_id</span>,
+  css_id = <span class='kw'>NULL</span>,
+  options = <span class='fu'><a href='sortable_options.html'>sortable_options</a></span>(),
+  class = <span class='st'>"default-sortable"</span>
 )</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -209,42 +209,44 @@ ranking order of your user.</p>
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'>## - example-rank-list ------------------------------------------------</span>
 
-<span class='kw'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>()) {
+<span class='co'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>()) {
   <span class='fu'>rank_list</span>(
-    <span class='kw'>text</span> <span class='kw'>=</span> <span class='st'>"You can drag, drap and re-order these items:"</span>,
-    <span class='kw'>labels</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"one"</span>, <span class='st'>"two"</span>, <span class='st'>"three"</span>, <span class='st'>"four"</span>, <span class='st'>"five"</span>),
-    <span class='kw'>input_id</span> <span class='kw'>=</span> <span class='st'>"example_2"</span>
+    text = <span class='st'>"You can drag, drap and re-order these items:"</span>,
+    labels = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"one"</span>, <span class='st'>"two"</span>, <span class='st'>"three"</span>, <span class='st'>"four"</span>, <span class='st'>"five"</span>),
+    input_id = <span class='st'>"example_2"</span>
   )
 }
 <span class='co'>## - example-rank-list-multidrag ------------------------------------------</span>
 
-<span class='kw'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>()) {
+<span class='co'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>()) {
   <span class='fu'>rank_list</span>(
-    <span class='kw'>text</span> <span class='kw'>=</span> <span class='st'>"You can select multiple items and drag as a group:"</span>,
-    <span class='kw'>labels</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"one"</span>, <span class='st'>"two"</span>, <span class='st'>"three"</span>, <span class='st'>"four"</span>, <span class='st'>"five"</span>),
-    <span class='kw'>input_id</span> <span class='kw'>=</span> <span class='st'>"example_2"</span>,
-    <span class='kw'>options</span> <span class='kw'>=</span> <span class='fu'><a href='sortable_options.html'>sortable_options</a></span>(
-      <span class='kw'>multiDrag</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>
+    text = <span class='st'>"You can select multiple items and drag as a group:"</span>,
+    labels = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"one"</span>, <span class='st'>"two"</span>, <span class='st'>"three"</span>, <span class='st'>"four"</span>, <span class='st'>"five"</span>),
+    input_id = <span class='st'>"example_2"</span>,
+    options = <span class='fu'><a href='sortable_options.html'>sortable_options</a></span>(
+      multiDrag = <span class='fl'>TRUE</span>
     )
   )
 }
 <span class='co'>## - example-rank-list-swap -----------------------------------------------</span>
 
-<span class='kw'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>()) {
+<span class='co'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>()) {
   <span class='fu'>rank_list</span>(
-    <span class='kw'>text</span> <span class='kw'>=</span> <span class='st'>"You can re-order these items, and notice the swapping behaviour:"</span>,
-    <span class='kw'>labels</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"one"</span>, <span class='st'>"two"</span>, <span class='st'>"three"</span>, <span class='st'>"four"</span>, <span class='st'>"five"</span>),
-    <span class='kw'>input_id</span> <span class='kw'>=</span> <span class='st'>"example_2"</span>,
-    <span class='kw'>options</span> <span class='kw'>=</span> <span class='fu'><a href='sortable_options.html'>sortable_options</a></span>(
-      <span class='kw'>swap</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>
+    text = <span class='st'>"You can re-order these items, and notice the swapping behaviour:"</span>,
+    labels = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"one"</span>, <span class='st'>"two"</span>, <span class='st'>"three"</span>, <span class='st'>"four"</span>, <span class='st'>"five"</span>),
+    input_id = <span class='st'>"example_2"</span>,
+    options = <span class='fu'><a href='sortable_options.html'>sortable_options</a></span>(
+      swap = <span class='fl'>TRUE</span>
     )
   )
 }
 <span class='co'>## Example of a shiny app</span>
-<span class='kw'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>()) {
-  <span class='no'>app</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span>(<span class='st'>"shiny-examples/rank_list/app.R"</span>, <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"sortable"</span>)
-  <span class='kw pkg'>shiny</span><span class='kw ns'>::</span><span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/runApp.html'>runApp</a></span>(<span class='no'>app</span>)
-}</div></pre>
+<span class='co'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>()) {
+  <span class='kw'>app</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span>(<span class='st'>"shiny-examples/rank_list/app.R"</span>, package = <span class='st'>"sortable"</span>)
+  <span class='kw'>shiny</span>::<span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/runApp.html'>runApp</a></span>(<span class='kw'>app</span>)
+}
+
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -260,7 +262,7 @@ ranking order of your user.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>
