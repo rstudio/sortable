@@ -1,6 +1,3 @@
-context("js events")
-
-
 test_that( "js events can be chained ", {
 
   fns <- list(

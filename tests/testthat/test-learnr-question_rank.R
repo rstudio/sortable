@@ -1,5 +1,3 @@
-context("learnr question_rank")
-
 test_that( "init display validates", {
 
   question <- question_rank(

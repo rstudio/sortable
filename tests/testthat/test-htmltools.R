@@ -1,5 +1,3 @@
-context("htmltools")
-
 library(htmltools)
 test_that( "works with tags ", {
   z <- html_print(

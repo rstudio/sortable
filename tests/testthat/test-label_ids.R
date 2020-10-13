@@ -1,7 +1,3 @@
-
-context("label_ids")
-
-
 test_that("no names are found", {
   lets <- letters[1:3]
   expect_equal(label_ids(lets), c("", "", ""))

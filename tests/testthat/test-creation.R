@@ -1,5 +1,3 @@
-context("creation")
-
 test_that( "sortable_js makes a htmlwidget ", {
   expect_is( sortable_js( "" ), "htmlwidget" )
   expect_is( sortable_js( "" ), "sortable" )
