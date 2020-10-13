@@ -37,7 +37,10 @@ is_add_rank_list <- function(x) {
 #' @template options
 #'
 #' @param header Text that appears at the top of the bucket list.  (This is
-#'   encoded as an HTML `<p>` tag, so not strictly speaking a header.)
+#'   encoded as an HTML `<p>` tag, so not strictly speaking a header.)  Note
+#'   that you must explicitly provide `header` argument, especially in the case
+#'   where you want the header to be empty - to do this use `header = NULL` or
+#'   `header = NA`.
 #'
 #' @param ... One or more specifications for a rank list, and must be defined by
 #'   [add_rank_list].
@@ -56,6 +59,7 @@ is_add_rank_list <- function(x) {
 #' @return A list with class `bucket_list`
 #' @seealso rank_list
 #' @export
+#'
 #' @example inst/examples/example_bucket_list.R
 #' @examples
 #' ## Example of a shiny app
@@ -64,7 +68,7 @@ is_add_rank_list <- function(x) {
 #'   shiny::runApp(app)
 #' }
 bucket_list <- function(
-  header = NULL,
+  header = NA,
   ...,
   group_name,
   group_put_max = rep(Inf, length(labels)),
@@ -72,6 +76,8 @@ bucket_list <- function(
   class = "default-sortable",
   orientation = c("horizontal", "vertical")
 ) {
+
+  if (missing(header) || is.null(header)) header <- NA
 
   assert_that(is_header(header))
 
@@ -120,24 +126,31 @@ bucket_list <- function(
   # construct list rank_list objects
   sortables <- lapply(dots, function(dot) do.call(rank_list, dot) )
 
-  title_tag <-
-    if (!is.null(header)) {
-      tags$p(header)
-    } else {
-      NULL
-    }
-
-  z <- tagList(
-    tags$div(
-      class = paste("bucket-list-container", class),
-      title_tag,
+  z_class <- c()
+  z_tag <-
       tags$div(
         class = paste(class, "bucket-list", paste0("bucket-list-", orientation)),
         sortables
       )
-    ),
-    bucket_list_dependencies()
-  )
+
+  z <-
+    if (is.na(header)) {
+      tagList(
+        tags$div(
+          class = paste("bucket-list-container", class),
+          z_tag),
+        bucket_list_dependencies()
+      )
+    } else {
+      tagList(
+        tags$div(
+          class = paste("bucket-list-container", class),
+          tags$p(header),
+          z_tag
+        ),
+        bucket_list_dependencies()
+      )
+    }
 
   as_bucket_list(z)
 }

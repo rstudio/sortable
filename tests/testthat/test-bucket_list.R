@@ -36,5 +36,18 @@ test_that("Can create bucket_list", {
     ".*must be a string.*"
   )
 
+  z <- bucket_list(
+    header = NA,
+    add_rank_list(
+      text = "Drag from here",
+      labels = c("a", "bb", "ccc")
+    ),
+    add_rank_list(
+      text = "to here",
+      labels = NULL
+    )
+  )
+  expect_s3_class(z, "bucket_list")
+
 })
 
