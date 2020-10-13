@@ -56,3 +56,4 @@ LazyData: TRUE
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
 Language: en-US
+Config/testthat/edition: 3

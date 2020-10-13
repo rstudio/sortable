@@ -1,6 +1,6 @@
 test_that("Can use add_rank_list", {
   z <- add_rank_list(text = "missing", labels = NULL, input_id = NULL)
-  expect_is(z, "add_rank_list")
+  expect_s3_class(z, "add_rank_list")
 })
 
 
@@ -18,7 +18,7 @@ test_that("Can create bucket_list", {
       input_id = "input_to"
     )
   )
-  expect_is(z, "bucket_list")
+  expect_s3_class(z, "bucket_list")
 
 
   expect_error(
@@ -32,7 +32,8 @@ test_that("Can create bucket_list", {
         text = "to here",
         labels = NULL
       )
-    )
+    ),
+    ".*must be a string.*"
   )
 
 })
