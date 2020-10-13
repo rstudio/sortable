@@ -33,7 +33,7 @@ test_that("Can create bucket_list", {
         labels = NULL
       )
     ),
-    ".*must be a string.*"
+    "must be NULL or a string"
   )
 
   z <- bucket_list(

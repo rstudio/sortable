@@ -5,7 +5,7 @@
 \title{Create a bucket list.}
 \usage{
 bucket_list(
-  header = NA,
+  header = NULL,
   ...,
   group_name,
   group_put_max = rep(Inf, length(labels)),

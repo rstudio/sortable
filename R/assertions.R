@@ -12,11 +12,11 @@ on_failure(is_input_id) <- function(call, env) {
 
 
 is_header <- function(x) {
-  is.na(x) || (is.character(x) && length(x) == 1)
+  is.null(x) || length(x) == 1 && (is.na(x) || is.character(x))
 }
 
 on_failure(is_header) <- function(call, env) {
-  paste0(deparse(call$x), " must be a string with at least 1 character")
+  paste0(deparse(call$x), " must be NULL or a string with at least 1 character")
 }
 
 

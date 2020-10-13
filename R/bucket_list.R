@@ -68,7 +68,7 @@ is_add_rank_list <- function(x) {
 #'   shiny::runApp(app)
 #' }
 bucket_list <- function(
-  header = NA,
+  header = NULL,
   ...,
   group_name,
   group_put_max = rep(Inf, length(labels)),
@@ -77,9 +77,8 @@ bucket_list <- function(
   orientation = c("horizontal", "vertical")
 ) {
 
-  if (missing(header) || is.null(header)) header <- NA
-
   assert_that(is_header(header))
+  if (is.na(header)) header <- NULL
 
   assert_that(is_sortable_options(options))
   if (missing(group_name) || is.null(group_name)) {
@@ -126,31 +125,24 @@ bucket_list <- function(
   # construct list rank_list objects
   sortables <- lapply(dots, function(dot) do.call(rank_list, dot) )
 
-  z_class <- c()
-  z_tag <-
+  title_tag <-
+    if (!is.null(header)) {
+      tags$p(header)
+    } else {
+      NULL
+    }
+
+  z <- tagList(
+    tags$div(
+      class = paste("bucket-list-container", class),
+      title_tag,
       tags$div(
         class = paste(class, "bucket-list", paste0("bucket-list-", orientation)),
         sortables
       )
-
-  z <-
-    if (is.na(header)) {
-      tagList(
-        tags$div(
-          class = paste("bucket-list-container", class),
-          z_tag),
-        bucket_list_dependencies()
-      )
-    } else {
-      tagList(
-        tags$div(
-          class = paste("bucket-list-container", class),
-          tags$p(header),
-          z_tag
-        ),
-        bucket_list_dependencies()
-      )
-    }
+    ),
+    bucket_list_dependencies()
+  )
 
   as_bucket_list(z)
 }
