@@ -81,7 +81,7 @@ drag-and-drop the answer options into the desired order." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">sortable</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.4</span>
       </span>
     </div>
 
@@ -145,18 +145,18 @@ drag-and-drop the answer options into the desired order." />
 drag-and-drop the answer options into the desired order.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>question_rank</span>(
-  <span class='kw'>text</span>,
-  <span class='kw'>...</span>,
-  correct = <span class='st'>"Correct!"</span>,
-  incorrect = <span class='st'>"Incorrect"</span>,
-  loading = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"**Loading:** "</span>, <span class='kw'>text</span>, <span class='st'>"&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;"</span>),
-  submit_button = <span class='st'>"Submit Answer"</span>,
-  try_again_button = <span class='st'>"Try Again"</span>,
-  allow_retry = <span class='fl'>FALSE</span>,
-  random_answer_order = <span class='fl'>TRUE</span>,
-  options = <span class='fu'><a href='sortable_options.html'>sortable_options</a></span>()
-)</pre>
+    <pre class="usage"><span class='fu'>question_rank</span><span class='op'>(</span>
+  <span class='va'>text</span>,
+  <span class='va'>...</span>,
+  correct <span class='op'>=</span> <span class='st'>"Correct!"</span>,
+  incorrect <span class='op'>=</span> <span class='st'>"Incorrect"</span>,
+  loading <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"**Loading:** "</span>, <span class='va'>text</span>, <span class='st'>"&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;"</span><span class='op'>)</span>,
+  submit_button <span class='op'>=</span> <span class='st'>"Submit Answer"</span>,
+  try_again_button <span class='op'>=</span> <span class='st'>"Try Again"</span>,
+  allow_retry <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  random_answer_order <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  options <span class='op'>=</span> <span class='fu'><a href='sortable_options.html'>sortable_options</a></span><span class='op'>(</span><span class='op'>)</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -218,9 +218,9 @@ the question is completed, the first correct answer will be displayed.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'>## Example of rank problem inside a learnr tutorial</span>
-<span class='co'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>()) {
-  <span class='kw'>learnr</span>::<span class='fu'><a href='https://rdrr.io/pkg/learnr/man/run_tutorial.html'>run_tutorial</a></span>(<span class='st'>"question_rank"</span>, package = <span class='st'>"sortable"</span>)
-}
+<span class='kw'>if</span> <span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>{</span>
+  <span class='fu'>learnr</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/learnr/man/run_tutorial.html'>run_tutorial</a></span><span class='op'>(</span><span class='st'>"question_rank"</span>, package <span class='op'>=</span> <span class='st'>"sortable"</span><span class='op'>)</span>
+<span class='op'>}</span>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

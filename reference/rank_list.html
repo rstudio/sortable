@@ -85,7 +85,7 @@ To embed a rank_list inside a shiny app, see the Details section." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">sortable</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.4</span>
       </span>
     </div>
 
@@ -153,14 +153,14 @@ dragged and dropped in any order.</p>
 <p>To embed a <code>rank_list</code> inside a shiny app, see the Details section.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>rank_list</span>(
-  text = <span class='st'>""</span>,
-  <span class='kw'>labels</span>,
-  <span class='kw'>input_id</span>,
-  css_id = <span class='kw'>NULL</span>,
-  options = <span class='fu'><a href='sortable_options.html'>sortable_options</a></span>(),
-  class = <span class='st'>"default-sortable"</span>
-)</pre>
+    <pre class="usage"><span class='fu'>rank_list</span><span class='op'>(</span>
+  text <span class='op'>=</span> <span class='st'>""</span>,
+  <span class='va'>labels</span>,
+  <span class='va'>input_id</span>,
+  css_id <span class='op'>=</span> <span class='cn'>NULL</span>,
+  options <span class='op'>=</span> <span class='fu'><a href='sortable_options.html'>sortable_options</a></span><span class='op'>(</span><span class='op'>)</span>,
+  class <span class='op'>=</span> <span class='st'>"default-sortable"</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -209,42 +209,42 @@ ranking order of your user.</p>
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'>## - example-rank-list ------------------------------------------------</span>
 
-<span class='co'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>()) {
-  <span class='fu'>rank_list</span>(
-    text = <span class='st'>"You can drag, drap and re-order these items:"</span>,
-    labels = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"one"</span>, <span class='st'>"two"</span>, <span class='st'>"three"</span>, <span class='st'>"four"</span>, <span class='st'>"five"</span>),
-    input_id = <span class='st'>"example_2"</span>
-  )
-}
+<span class='kw'>if</span> <span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>{</span>
+  <span class='fu'>rank_list</span><span class='op'>(</span>
+    text <span class='op'>=</span> <span class='st'>"You can drag, drap and re-order these items:"</span>,
+    labels <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"one"</span>, <span class='st'>"two"</span>, <span class='st'>"three"</span>, <span class='st'>"four"</span>, <span class='st'>"five"</span><span class='op'>)</span>,
+    input_id <span class='op'>=</span> <span class='st'>"example_2"</span>
+  <span class='op'>)</span>
+<span class='op'>}</span>
 <span class='co'>## - example-rank-list-multidrag ------------------------------------------</span>
 
-<span class='co'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>()) {
-  <span class='fu'>rank_list</span>(
-    text = <span class='st'>"You can select multiple items and drag as a group:"</span>,
-    labels = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"one"</span>, <span class='st'>"two"</span>, <span class='st'>"three"</span>, <span class='st'>"four"</span>, <span class='st'>"five"</span>),
-    input_id = <span class='st'>"example_2"</span>,
-    options = <span class='fu'><a href='sortable_options.html'>sortable_options</a></span>(
-      multiDrag = <span class='fl'>TRUE</span>
-    )
-  )
-}
+<span class='kw'>if</span> <span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>{</span>
+  <span class='fu'>rank_list</span><span class='op'>(</span>
+    text <span class='op'>=</span> <span class='st'>"You can select multiple items and drag as a group:"</span>,
+    labels <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"one"</span>, <span class='st'>"two"</span>, <span class='st'>"three"</span>, <span class='st'>"four"</span>, <span class='st'>"five"</span><span class='op'>)</span>,
+    input_id <span class='op'>=</span> <span class='st'>"example_2"</span>,
+    options <span class='op'>=</span> <span class='fu'><a href='sortable_options.html'>sortable_options</a></span><span class='op'>(</span>
+      multiDrag <span class='op'>=</span> <span class='cn'>TRUE</span>
+    <span class='op'>)</span>
+  <span class='op'>)</span>
+<span class='op'>}</span>
 <span class='co'>## - example-rank-list-swap -----------------------------------------------</span>
 
-<span class='co'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>()) {
-  <span class='fu'>rank_list</span>(
-    text = <span class='st'>"You can re-order these items, and notice the swapping behaviour:"</span>,
-    labels = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"one"</span>, <span class='st'>"two"</span>, <span class='st'>"three"</span>, <span class='st'>"four"</span>, <span class='st'>"five"</span>),
-    input_id = <span class='st'>"example_2"</span>,
-    options = <span class='fu'><a href='sortable_options.html'>sortable_options</a></span>(
-      swap = <span class='fl'>TRUE</span>
-    )
-  )
-}
+<span class='kw'>if</span> <span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>{</span>
+  <span class='fu'>rank_list</span><span class='op'>(</span>
+    text <span class='op'>=</span> <span class='st'>"You can re-order these items, and notice the swapping behaviour:"</span>,
+    labels <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"one"</span>, <span class='st'>"two"</span>, <span class='st'>"three"</span>, <span class='st'>"four"</span>, <span class='st'>"five"</span><span class='op'>)</span>,
+    input_id <span class='op'>=</span> <span class='st'>"example_2"</span>,
+    options <span class='op'>=</span> <span class='fu'><a href='sortable_options.html'>sortable_options</a></span><span class='op'>(</span>
+      swap <span class='op'>=</span> <span class='cn'>TRUE</span>
+    <span class='op'>)</span>
+  <span class='op'>)</span>
+<span class='op'>}</span>
 <span class='co'>## Example of a shiny app</span>
-<span class='co'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>()) {
-  <span class='kw'>app</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span>(<span class='st'>"shiny-examples/rank_list/app.R"</span>, package = <span class='st'>"sortable"</span>)
-  <span class='kw'>shiny</span>::<span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/runApp.html'>runApp</a></span>(<span class='kw'>app</span>)
-}
+<span class='kw'>if</span> <span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>{</span>
+  <span class='va'>app</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"shiny-examples/rank_list/app.R"</span>, package <span class='op'>=</span> <span class='st'>"sortable"</span><span class='op'>)</span>
+  <span class='fu'>shiny</span><span class='fu'>::</span><span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/runApp.html'>runApp</a></span><span class='op'>(</span><span class='va'>app</span><span class='op'>)</span>
+<span class='op'>}</span>
 
 </div></pre>
   </div>
