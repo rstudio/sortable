@@ -33,7 +33,6 @@
   background-color: #f8f8f8;
   border: 1px solid #ddd;
   overflow: hidden;
-  width: 100%;
 }
 
 .default-sortable .rank-list-item:hover:not(.disabled) {
