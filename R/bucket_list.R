@@ -73,7 +73,7 @@ bucket_list <- function(
   orientation = c("horizontal", "vertical")
 ) {
 
-  # assert_that(is_header(header))
+  assert_that(is_header(header))
 
   assert_that(is_sortable_options(options))
   if (missing(group_name) || is.null(group_name)) {
