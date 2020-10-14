@@ -12,7 +12,7 @@ on_failure(is_input_id) <- function(call, env) {
 
 
 is_header <- function(x) {
-  is.null(x) || length(x) == 1 && (is.na(x) || is.character(x))
+  is.null(x) || (length(x) == 1 && (is.na(x) || is.character(x)))
 }
 
 on_failure(is_header) <- function(call, env) {
@@ -21,5 +21,4 @@ on_failure(is_header) <- function(call, env) {
 
 
 # -------------------------------------------------------------------------
-
 
