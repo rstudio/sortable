@@ -16,7 +16,10 @@ bucket_list(
 }
 \arguments{
 \item{header}{Text that appears at the top of the bucket list.  (This is
-encoded as an HTML \verb{<p>} tag, so not strictly speaking a header.)}
+encoded as an HTML \verb{<p>} tag, so not strictly speaking a header.)  Note
+that you must explicitly provide \code{header} argument, especially in the case
+where you want the header to be empty - to do this use \code{header = NULL} or
+\code{header = NA}.}
 
 \item{...}{One or more specifications for a rank list, and must be defined by
 \link{add_rank_list}.}

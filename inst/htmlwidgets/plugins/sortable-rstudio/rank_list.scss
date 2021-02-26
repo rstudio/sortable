@@ -32,13 +32,12 @@
 
   .rank-list-item {
     border-radius: $border-radius;
-    // position: relative;
     display: block;
     padding: 10px 15px;
     background-color: $item-background-color;
     border: 1px solid $border-color;
     overflow: hidden;
-    width: 100%;
+    // width: 100%;
 
     &:hover:not(.disabled) {
       background-color: $item-hover-color;

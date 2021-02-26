@@ -1,5 +1,3 @@
-context("learnr question_rank")
-
 test_that( "init display validates", {
 
   question <- question_rank(
@@ -29,7 +27,7 @@ test_that( "init display validates", {
     learnr::question_ui_try_again(question, rev(LETTERS[1:5]))
   )
 
-  expect_is(
+  expect_s3_class(
     learnr::question_ui_try_again(question, rev(LETTERS[1:5])),
     "rank_list"
   )

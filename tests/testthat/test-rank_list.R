@@ -1,5 +1,3 @@
-context("rank_list")
-
 test_that("Can create rank_list", {
   z <- rank_list(
     text = "You can drag, drap and re-order these items:",
@@ -7,5 +5,5 @@ test_that("Can create rank_list", {
     input_id = "example_2"
   )
 
-  expect_is(z, "rank_list")
+  expect_s3_class(z, "rank_list")
 })

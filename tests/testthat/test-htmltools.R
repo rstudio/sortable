@@ -1,5 +1,3 @@
-context("htmltools")
-
 library(htmltools)
 test_that( "works with tags ", {
   z <- html_print(
@@ -16,15 +14,15 @@ test_that( "works with tags ", {
       sortable_js( "items" )
     )
   )
-  expect_is(z, "character")
+  expect_type(z, "character")
 
 })
 
 test_that("htmlwidget produces correct output", {
   z <- sortable_output("test")
-  expect_is(z, "list")
-  expect_is(z, "shiny.tag.list")
+  expect_type(z, "list")
+  expect_s3_class(z, "shiny.tag.list")
 
   zr <- render_sortable(z)
-  expect_is(zr, "shiny.render.function")
+  expect_s3_class(zr, "shiny.render.function")
 })

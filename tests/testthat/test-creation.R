@@ -1,8 +1,6 @@
-context("creation")
-
 test_that( "sortable_js makes a htmlwidget ", {
-  expect_is( sortable_js( "" ), "htmlwidget" )
-  expect_is( sortable_js( "" ), "sortable" )
+  expect_s3_class( sortable_js( "" ), "htmlwidget" )
+  expect_s3_class( sortable_js( "" ), "sortable" )
 })
 
 test_that( "sortable_js height and width", {
