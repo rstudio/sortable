@@ -60,6 +60,8 @@ is_add_rank_list <- function(x) {
 #' @seealso rank_list
 #' @export
 #'
+#' @importFrom rlang list2
+#'
 #' @example inst/examples/example_bucket_list.R
 #' @examples
 #' ## Example of a shiny app
@@ -91,7 +93,11 @@ bucket_list <- function(
 
   # capture the dots
   ellipsis::check_dots_unnamed()
-  dot_vals <- list(...)
+  dot_vals <- rlang::list2(...)
+
+  # Remove any NULL elements
+  dot_vals <- dot_vals[!vapply(dot_vals, is.null, FUN.VALUE = logical(1))]
+
   # modify the dots by adding the group_name to the sortable options
   dots <- lapply(seq_along(dot_vals), function(i) {
     dot <- dot_vals[[i]]

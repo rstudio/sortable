@@ -1,7 +1,7 @@
 Type: Package
 Package: sortable
 Title: Drag-and-Drop in 'shiny' Apps with 'SortableJS'
-Version: 0.4.4
+Version: 0.4.4.9000
 Authors@R: 
     c(person(given = "Andrie",
              family = "de Vries",
@@ -38,7 +38,8 @@ Imports:
     assertthat,
     jsonlite,
     utils,
-    ellipsis
+    ellipsis,
+    rlang
 Suggests:
     base64,
     knitr,
@@ -48,7 +49,8 @@ Suggests:
     magrittr,
     webshot,
     spelling,
-    covr
+    covr,
+    ragg
 VignetteBuilder: 
     knitr
 Encoding: UTF-8
