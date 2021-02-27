@@ -156,7 +156,7 @@ to_json_array <- function(x) {
 #' @family JavaScript functions
 chain_js_events <- function(...) {
 
-  fns <- list(...)
+  fns <- rlang::list2(...)
   fns <- fns[!vapply(fns, is.null, logical(1))]
   fns <- lapply(fns, as.character)
 
