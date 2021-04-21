@@ -1,5 +1,5 @@
 dependencies:
 - name: SortableJS
-  version: 1.10.2
+  version: 1.13.0
   src: htmlwidgets/lib/sortable
   script: sortable.js

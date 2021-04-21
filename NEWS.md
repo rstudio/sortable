@@ -1,11 +1,17 @@
 # sortable 0.4.4.9000
 
+Upgrade sortable.js
+
+* Include `sortable.js` version 1.13.0, as suggested by #73
+
 Bug fixes
+
 * Capture error if bucket_list header is empty #31
 * Fix rank-list-item that spills outside the container boundary #68
 * Allow bucket_list to have empty header, and capture error better #69
 
 Other changes
+
 * Upgrade tests to `testthat` version 3
 
 
