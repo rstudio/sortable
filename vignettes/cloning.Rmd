@@ -1,6 +1,8 @@
 ---
 title: "Cloning and removing elements"
 output: rmarkdown::html_vignette
+description: >
+  You can clone and remove elements in a rank_list, i.e. drag an element multiple times.
 vignette: >
   %\VignetteIndexEntry{Cloning and removing elements}
   %\VignetteEngine{knitr::rmarkdown}

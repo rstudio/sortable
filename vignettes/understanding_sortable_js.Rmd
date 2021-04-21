@@ -1,10 +1,12 @@
 ---
-title: "Understanding the interface to SortableJS"
+title: "Understanding the interface to sortable.js"
 author: "Andrie de Vries and Kenton Russell"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
+description: >
+  Understanding the key idea of `sortable.js` will help you to write your own custom sortable widgets.
 vignette: >
-  %\VignetteIndexEntry{Understanding the interface to SortableJS}
+  %\VignetteIndexEntry{Understanding the interface to sortable.js}
   %\VignetteEngine{knitr::rmarkdown}
   %\usepackage[utf8]{inputenc}
 ---

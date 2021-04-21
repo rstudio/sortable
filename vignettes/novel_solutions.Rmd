@@ -1,6 +1,8 @@
 ---
 title: "Novel solutions using sortable in shiny apps"
 output: rmarkdown::html_vignette
+description: >
+  Once you understand some of the inner workings of `sortable.js`, you can create sortable widgets using any shiny object.
 vignette: >
   %\VignetteIndexEntry{Novel solutions using sortable in shiny apps}
   %\VignetteEngine{knitr::rmarkdown}

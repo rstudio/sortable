@@ -1,6 +1,8 @@
 ---
 title: "Using custom styles with CSS"
 output: rmarkdown::html_vignette
+description: >
+  Sometimes you may want to control the appearance of your rank_list elements, and override the default CSS classes.
 vignette: >
   %\VignetteIndexEntry{Using custom styles with CSS}
   %\VignetteEngine{knitr::rmarkdown}

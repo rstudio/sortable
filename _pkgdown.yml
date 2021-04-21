@@ -43,27 +43,14 @@ tutorials:
 
 articles:
 
-- title: Using rank list and bucket lists in Shiny apps
-  desc:
+- title: Getting started
   contents:
   - built_in
-
-- title: Using custom styles with CSS
-  desc: ~
-  contents:
   - using_custom_css
 
-- title: Novel solutions using sortable in shiny apps
-  desc: ~
-  contents:
-  - novel_solutions
-
-- title: Understanding the interface to SortableJS
-  desc: ~
+- title: Take control of `sortable.js`
   contents:
   - understanding_sortable_js
-
-- title: Cloning and removing elements
-  desc: ~
-  contents:
+  - novel_solutions
   - cloning
+  - updating_rank_list
