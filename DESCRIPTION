@@ -49,8 +49,7 @@ Suggests:
     magrittr,
     webshot,
     spelling,
-    covr,
-    ragg
+    covr
 VignetteBuilder: 
     knitr
 Encoding: UTF-8

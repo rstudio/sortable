@@ -60,8 +60,6 @@ is_add_rank_list <- function(x) {
 #' @seealso rank_list
 #' @export
 #'
-#' @importFrom rlang list2
-#'
 #' @example inst/examples/example_bucket_list.R
 #' @examples
 #' ## Example of a shiny app
