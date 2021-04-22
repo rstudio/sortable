@@ -79,7 +79,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">sortable</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.4</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.4.9000</span>
       </span>
     </div>
 
@@ -87,7 +87,7 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -116,7 +116,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/rstudio/sortable/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -137,41 +137,75 @@
       <small>Source: <a href='https://github.com/rstudio/sortable/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
     </div>
 
-    <div id="sortable-044-release-date-2020-09-17" class="section level1">
+    <div id="sortable-0449000" class="section level1">
+<h1 class="page-header" data-toc-text="0.4.4.9000">
+<a href="#sortable-0449000" class="anchor"></a>sortable 0.4.4.9000<small> Unreleased </small>
+</h1>
+<div id="upgrade-sortablejs" class="section level2">
+<h2 class="hasAnchor">
+<a href="#upgrade-sortablejs" class="anchor"></a>Upgrade sortable.js</h2>
+<ul>
+<li>Include <code>sortable.js</code> version 1.13.0, as suggested by <a href='https://github.com/rstudio/sortable/issues/73'>#73</a></li>
+</ul>
+</div>
+<div id="bug-fixes" class="section level2">
+<h2 class="hasAnchor">
+<a href="#bug-fixes" class="anchor"></a>Bug fixes</h2>
+<ul>
+<li>Capture error if bucket_list header is empty <a href='https://github.com/rstudio/sortable/issues/31'>#31</a></li>
+<li>Fix rank-list-item that spills outside the container boundary <a href='https://github.com/rstudio/sortable/issues/68'>#68</a></li>
+<li>Allow bucket_list to have empty header, and capture error better <a href='https://github.com/rstudio/sortable/issues/69'>#69</a></li>
+</ul>
+</div>
+<div id="other-changes" class="section level2">
+<h2 class="hasAnchor">
+<a href="#other-changes" class="anchor"></a>Other changes</h2>
+<ul>
+<li>Upgrade tests to <code>testthat</code> version 3</li>
+</ul>
+</div>
+</div>
+    <div id="sortable-044" class="section level1">
 <h1 class="page-header" data-toc-text="0.4.4">
-<a href="#sortable-044-release-date-2020-09-17" class="anchor"></a>sortable 0.4.4 (Release date 2020-09-17)<small> 2020-09-17 </small>
+<a href="#sortable-044" class="anchor"></a>sortable 0.4.4<small> 2020-09-17 </small>
 </h1>
 <ul>
 <li>No functional changes</li>
 <li>This release removes a Suggests dependency on <code>lifecycle</code> to comply with CRAN policy. The <code>lifecycle</code> package was not used in the project.</li>
 </ul>
 </div>
-    <div id="sortable-043-release-date-2020-08-22" class="section level1">
+    <div id="sortable-043" class="section level1">
 <h1 class="page-header" data-toc-text="0.4.3">
-<a href="#sortable-043-release-date-2020-08-22" class="anchor"></a>sortable 0.4.3 (Release date 2020-08-22)<small> 2020-08-26 </small>
+<a href="#sortable-043" class="anchor"></a>sortable 0.4.3<small> 2020-08-26 </small>
 </h1>
-<p>Breaking changes:</p>
+<div id="breaking-changes" class="section level2">
+<h2 class="hasAnchor">
+<a href="#breaking-changes" class="anchor"></a>Breaking changes:</h2>
 <ul>
 <li>Moved the <code>...</code> dots argument of <code><a href="../reference/sortable_options.html">sortable_options()</a></code> to the first argument, where previously it was the last argument. This is to prevent partial name matching resulting in the incorrect sortable option being set.</li>
 </ul>
-<p>Other:</p>
+</div>
+<div id="other" class="section level2">
+<h2 class="hasAnchor">
+<a href="#other" class="anchor"></a>Other:</h2>
 <ul>
 <li><p>Updated <code>sortable.js</code> to version 1.10.2</p></li>
 <li><p>Added examples for using the <code>sortable.js</code> plugins, specifically multiDrag and swap.</p></li>
 <li><p>Added vignette on cloning and removing, contributed by Maya Gans</p></li>
 </ul>
 </div>
-    <div id="sortable-042-release-date-2019-11-28" class="section level1">
+</div>
+    <div id="sortable-042" class="section level1">
 <h1 class="page-header" data-toc-text="0.4.2">
-<a href="#sortable-042-release-date-2019-11-28" class="anchor"></a>sortable 0.4.2 (Release date 2019-11-28)<small> 2019-12-01 </small>
+<a href="#sortable-042" class="anchor"></a>sortable 0.4.2<small> 2019-12-01 </small>
 </h1>
 <ul>
 <li>First release accepted by CRAN</li>
 </ul>
 </div>
-    <div id="sortable-040-release-date-2019-11-10" class="section level1">
+    <div id="sortable-040" class="section level1">
 <h1 class="page-header" data-toc-text="0.4.0">
-<a href="#sortable-040-release-date-2019-11-10" class="anchor"></a>sortable 0.4.0 (Release date 2019-11-10)<small> Unreleased </small>
+<a href="#sortable-040" class="anchor"></a>sortable 0.4.0<small> Unreleased </small>
 </h1>
 <ul>
 <li>First candidate release to CRAN</li>
