@@ -1,18 +1,35 @@
-# sortable 0.4.4 (Release date 2020-09-17)
+# sortable 0.4.4.9000
+
+## Upgrade sortable.js
+
+* Include `sortable.js` version 1.13.0, as suggested by #73
+
+## Bug fixes
+
+* Capture error if bucket_list header is empty #31
+* Fix rank-list-item that spills outside the container boundary #68
+* Allow bucket_list to have empty header, and capture error better #69
+
+## Other changes
+
+* Upgrade tests to `testthat` version 3
+
+
+# sortable 0.4.4
 
 * No functional changes
 * This release removes a Suggests dependency on `lifecycle` to comply with CRAN
 policy.  The `lifecycle` package was not used in the project.
 
-# sortable 0.4.3 (Release date 2020-08-22)
+# sortable 0.4.3
 
-Breaking changes:
+## Breaking changes:
 
 * Moved the `...` dots argument of `sortable_options()` to the first argument,
 where previously it was the last argument. This is to prevent partial name
 matching resulting in the incorrect sortable option being set.
 
-Other:
+## Other:
 
 * Updated `sortable.js` to version 1.10.2
 
@@ -22,11 +39,11 @@ swap.
 * Added vignette on cloning and removing, contributed by Maya Gans
 
 
-# sortable 0.4.2 (Release date 2019-11-28)
+# sortable 0.4.2
 
 * First release accepted by CRAN
 
 
-# sortable 0.4.0 (Release date 2019-11-10)
+# sortable 0.4.0
 
 * First candidate release to CRAN

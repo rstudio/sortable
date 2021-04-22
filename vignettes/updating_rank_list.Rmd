@@ -1,0 +1,50 @@
+---
+title: "Dynamically updating a rank_list element"
+output: rmarkdown::html_vignette
+description: >
+  You can dynamically update the values inside a `rank_list` by using
+  standard shiny reactive programming techniques.
+vignette: >
+  %\VignetteIndexEntry{Dynamically updating a rank_list element}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+
+## Introduction
+
+This app demonstrates how to dynamically update a `rank_list()`
+
+```{r, echo=FALSE}
+library(htmltools)
+tags$div(
+  class = "shiny-app-frame",
+  tags$iframe(
+    src = "https://andrie-de-vries.shinyapps.io/sortable_update_rank_list",
+    width = 800,
+    height = 700
+  )
+)
+```
+
+
+## Full example
+
+And the full code:
+
+```{r echo=FALSE, cache=FALSE}
+knitr::read_chunk(
+  system.file("shiny-examples/update_rank_list/app.R", package = "sortable")
+)
+```
+
+
+```{r update-rank-list-app, eval=FALSE}
+```

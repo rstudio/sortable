@@ -1,6 +1,8 @@
 ---
 title: "Using rank list and bucket lists in Shiny apps"
 output: rmarkdown::html_vignette
+description: >
+  An introduction to rank list and bucket list elemens, as provided by the `sortable` package.  A rank list allows you to rank items by drag-and-drop, and a bucket list lets you drag items between linked rank lists.
 vignette: >
   %\VignetteIndexEntry{Using rank list and bucket lists in Shiny apps}
   %\VignetteEngine{knitr::rmarkdown}

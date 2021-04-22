@@ -190,7 +190,7 @@ sortable_options <- function(
   onLoad = NULL
   # nolint end
 ) {
-  extra_args <- list(...)
+  extra_args <- rlang::list2(...)
 
   # get all names and values
   args <- names(formals(sortable_options))
