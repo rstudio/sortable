@@ -1,7 +1,3 @@
-library(shiny)
-library(sortable)
-
-
 # Example of "independently working" sortable items.
 #
 # From https://community.rstudio.com/t/trying-to-use-input-text-to-subset-sortable-input/61612
@@ -11,6 +7,12 @@ library(sortable)
 # To link the independent rank_lists, use sortable_options(group = "GROUP") in the rank_list definitions. (You can think of bucket lists as rank lists that share the same group value.). See https://rstudio.github.io/sortable/reference/sortable_options.html for more details.
 #
 # Create an extra wrapping div container to make the grouped rank_lists appear like a bucket_list.
+
+## ---- group-list-app ------------------------------------------------
+## Example shiny app with grouped lists
+
+library(shiny)
+library(sortable)
 
 ui <- fluidPage(
   tags$head(

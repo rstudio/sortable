@@ -1,0 +1,71 @@
+---
+title: "Using grouped rank_list and bucket_list elements"
+output: rmarkdown::html_vignette
+description: >
+  An introduction to rank list and bucket list elemens, as provided by the `sortable` package.  A rank list allows you to rank items by drag-and-drop, and a bucket list lets you drag items between linked rank lists.
+vignette: >
+  %\VignetteIndexEntry{Using grouped rank_list and bucket_list elements}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+
+```{css, echo=FALSE}
+pre {
+  max-height: 15em;
+  overflow-y: auto;
+}
+
+pre[class] {
+  max-height: 15em;
+}
+```
+
+
+## Introduction
+
+Imagine you have the following use case:
+
+> I'm attempting to do something special with bucket_list() from sortable. I'd like to be able to input a text to subset the list of values to drag from.
+
+> I have a large list of variables in my main application, and need to make the list shorter at times, but also provide the option to see all the variables when needed. In my example code, I have set the default subsetting text to the letter "c", and then only variables that have the letter "c" in them are available to choose from. This works fine, except that when I change the text input for subsetting, the whole bucket list resets, and I have lost what I have already chosen. I've tried saving off the chosen values to a reactive value, but without any luck. Any help or ideas are appreciated!
+
+To achieve this outcome, you have to link the independent rank_lists and then use `sortable_options(group = "{GROUP}")` in the rank_list definitions.
+
+(You can think of bucket lists as rank lists that share the same group value.). See https://rstudio.github.io/sortable/reference/sortable_options.html for more details.
+
+## Demo
+
+
+```{r, echo=FALSE}
+library(htmltools)
+tags$div(
+  class = "shiny-app-frame",
+  tags$iframe(
+    src = "https://andrie-de-vries.shinyapps.io/sortable_group_list_app/",
+    width = "100%",
+    height = 550
+    )
+)
+```
+
+### Source code
+
+This is the source code:
+
+```{r echo=FALSE, cache=FALSE}
+knitr::read_chunk(
+  system.file("shiny-examples/group_list/app.R", package = "sortable")
+)
+```
+
+```{r group-list-app, eval=FALSE}
+```
+
