@@ -310,11 +310,11 @@
 
   <span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/reactive.html">reactive</a></span><span class="op">(</span><span class="op">{</span>
     <span class="va">x</span> <span class="op">&lt;-</span> <span class="va">input</span><span class="op">$</span><span class="va">sort_x</span>
-    <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/character.html">is.character</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span> <span class="va">x</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/base/trimws.html">trimws</a></span><span class="op">(</span><span class="op">)</span>
+    <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/character.html">is.character</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span> <span class="va">x</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/trimws.html">trimws</a></span><span class="op">(</span><span class="op">)</span>
   <span class="op">}</span><span class="op">)</span>
 
   <span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/reactive.html">reactive</a></span><span class="op">(</span><span class="op">{</span>
-    <span class="va">input</span><span class="op">$</span><span class="va">sort_y</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/base/trimws.html">trimws</a></span><span class="op">(</span><span class="op">)</span>
+    <span class="va">input</span><span class="op">$</span><span class="va">sort_y</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/trimws.html">trimws</a></span><span class="op">(</span><span class="op">)</span>
   <span class="op">}</span><span class="op">)</span>
 
 <span class="op">}</span>

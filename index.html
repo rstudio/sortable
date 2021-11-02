@@ -113,7 +113,7 @@
 <p>And the development version from <a href="https://github.com/rstudio/sortable">GitHub</a> with:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># install.packages("remotes")</span>
-<span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span><span class="op">(</span><span class="st">"rstudio/sortable"</span><span class="op">)</span></code></pre></div>
+<span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"rstudio/sortable"</span><span class="op">)</span></code></pre></div>
 </div>
 <div id="examples" class="section level2">
 <h2 class="hasAnchor">
@@ -125,10 +125,92 @@
 <center>
 <p><img src="reference/figures/rank_list_shiny.gif" style="width:500px;"></p>
 </center>
-<div class="sourceCode" id="cb3"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="co">#&gt; Warning in file(con, "r"): file("") only supports open = "w+" and open = "w+b":</span></span>
-<span id="cb3-2"><a href="#cb3-2"></a><span class="co">#&gt; using the former</span></span>
-<span id="cb3-3"><a href="#cb3-3"></a><span class="co">#&gt; Warning in knitr::read_chunk(system.file("shiny-examples/rank_list/app.R", :</span></span>
-<span id="cb3-4"><a href="#cb3-4"></a><span class="co">#&gt; code is empty</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co">## Example shiny app with rank list</span>
+
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.rstudio.com/">shiny</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/rstudio/sortable">sortable</a></span><span class="op">)</span>
+
+<span class="va">labels</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>
+  <span class="st">"one"</span>,
+  <span class="st">"two"</span>,
+  <span class="st">"three"</span>,
+  <span class="fu">htmltools</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">tags</a></span><span class="op">$</span><span class="fu">div</span><span class="op">(</span>
+    <span class="fu">htmltools</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">em</a></span><span class="op">(</span><span class="st">"Complex"</span><span class="op">)</span>, <span class="st">" html tag without a name"</span>
+  <span class="op">)</span>,
+  <span class="st">"five"</span> <span class="op">=</span> <span class="fu">htmltools</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">tags</a></span><span class="op">$</span><span class="fu">div</span><span class="op">(</span>
+    <span class="fu">htmltools</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">em</a></span><span class="op">(</span><span class="st">"Complex"</span><span class="op">)</span>, <span class="st">" html tag with name: 'five'"</span>
+  <span class="op">)</span>
+<span class="op">)</span>
+
+<span class="va">rank_list_basic</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/rank_list.html">rank_list</a></span><span class="op">(</span>
+  text <span class="op">=</span> <span class="st">"Drag the items in any desired order"</span>,
+  labels <span class="op">=</span> <span class="va">labels</span>,
+  input_id <span class="op">=</span> <span class="st">"rank_list_basic"</span>
+<span class="op">)</span>
+
+<span class="va">rank_list_swap</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/rank_list.html">rank_list</a></span><span class="op">(</span>
+  text <span class="op">=</span> <span class="st">"Notice that dragging causes items to swap"</span>,
+  labels <span class="op">=</span> <span class="va">labels</span>,
+  input_id <span class="op">=</span> <span class="st">"rank_list_swap"</span>,
+  options <span class="op">=</span> <span class="fu"><a href="reference/sortable_options.html">sortable_options</a></span><span class="op">(</span>swap <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
+<span class="op">)</span>
+
+<span class="va">rank_list_multi</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/rank_list.html">rank_list</a></span><span class="op">(</span>
+  text <span class="op">=</span> <span class="st">"You can select multiple items, then drag as a group"</span>,
+  labels <span class="op">=</span> <span class="va">labels</span>,
+  input_id <span class="op">=</span> <span class="st">"rank_list_multi"</span>,
+  options <span class="op">=</span> <span class="fu"><a href="reference/sortable_options.html">sortable_options</a></span><span class="op">(</span>multiDrag <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
+<span class="op">)</span>
+
+
+
+<span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/fluidPage.html">fluidPage</a></span><span class="op">(</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/fluidPage.html">fluidRow</a></span><span class="op">(</span>
+    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/column.html">column</a></span><span class="op">(</span>
+      width <span class="op">=</span> <span class="fl">12</span>,
+    <span class="va">tags</span><span class="op">$</span><span class="fu">h2</span><span class="op">(</span><span class="st">"Default, multi-drag and swapping behaviour"</span><span class="op">)</span>,
+      <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/tabsetPanel.html">tabsetPanel</a></span><span class="op">(</span>
+        type <span class="op">=</span> <span class="st">"tabs"</span>,
+        <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/tabPanel.html">tabPanel</a></span><span class="op">(</span>
+          <span class="st">"Default"</span>,
+            <span class="va">tags</span><span class="op">$</span><span class="fu">b</span><span class="op">(</span><span class="st">"Exercise"</span><span class="op">)</span>,
+            <span class="va">rank_list_basic</span>,
+            <span class="va">tags</span><span class="op">$</span><span class="fu">b</span><span class="op">(</span><span class="st">"Result"</span><span class="op">)</span>,
+            <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/textOutput.html">verbatimTextOutput</a></span><span class="op">(</span><span class="st">"results_basic"</span><span class="op">)</span>
+        <span class="op">)</span>,
+        <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/tabPanel.html">tabPanel</a></span><span class="op">(</span>
+          <span class="st">"Multi-drag"</span>,
+            <span class="va">tags</span><span class="op">$</span><span class="fu">b</span><span class="op">(</span><span class="st">"Exercise"</span><span class="op">)</span>,
+            <span class="va">rank_list_multi</span>,
+            <span class="va">tags</span><span class="op">$</span><span class="fu">b</span><span class="op">(</span><span class="st">"Result"</span><span class="op">)</span>,
+            <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/textOutput.html">verbatimTextOutput</a></span><span class="op">(</span><span class="st">"results_multi"</span><span class="op">)</span>
+        <span class="op">)</span>,
+        <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/tabPanel.html">tabPanel</a></span><span class="op">(</span>
+          <span class="st">"Swap"</span>,
+            <span class="va">tags</span><span class="op">$</span><span class="fu">b</span><span class="op">(</span><span class="st">"Exercise"</span><span class="op">)</span>,
+            <span class="va">rank_list_swap</span>,
+            <span class="va">tags</span><span class="op">$</span><span class="fu">b</span><span class="op">(</span><span class="st">"Result"</span><span class="op">)</span>,
+            <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/textOutput.html">verbatimTextOutput</a></span><span class="op">(</span><span class="st">"results_swap"</span><span class="op">)</span>
+        <span class="op">)</span>
+      <span class="op">)</span>
+    <span class="op">)</span>
+  <span class="op">)</span>
+<span class="op">)</span>
+
+<span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span><span class="op">)</span> <span class="op">{</span>
+  <span class="va">output</span><span class="op">$</span><span class="va">results_basic</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderPrint.html">renderPrint</a></span><span class="op">(</span><span class="op">{</span>
+    <span class="va">input</span><span class="op">$</span><span class="va">rank_list_basic</span> <span class="co"># This matches the input_id of the rank list</span>
+  <span class="op">}</span><span class="op">)</span>
+  <span class="va">output</span><span class="op">$</span><span class="va">results_multi</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderPrint.html">renderPrint</a></span><span class="op">(</span><span class="op">{</span>
+    <span class="va">input</span><span class="op">$</span><span class="va">rank_list_multi</span> <span class="co"># This matches the input_id of the rank list</span>
+  <span class="op">}</span><span class="op">)</span>
+  <span class="va">output</span><span class="op">$</span><span class="va">results_swap</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderPrint.html">renderPrint</a></span><span class="op">(</span><span class="op">{</span>
+    <span class="va">input</span><span class="op">$</span><span class="va">rank_list_swap</span> <span class="co"># This matches the input_id of the rank list</span>
+  <span class="op">}</span><span class="op">)</span>
+<span class="op">}</span>
+
+<span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html">shinyApp</a></span><span class="op">(</span><span class="va">ui</span>, <span class="va">server</span><span class="op">)</span></code></pre></div>
 </div>
 <div id="bucket-list" class="section level3">
 <h3 class="hasAnchor">
@@ -137,10 +219,85 @@
 <center>
 <p><img src="reference/figures/bucket_list_shiny.gif" style="width:500px;"></p>
 </center>
-<div class="sourceCode" id="cb4"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="co">#&gt; Warning in file(con, "r"): file("") only supports open = "w+" and open = "w+b":</span></span>
-<span id="cb4-2"><a href="#cb4-2"></a><span class="co">#&gt; using the former</span></span>
-<span id="cb4-3"><a href="#cb4-3"></a><span class="co">#&gt; Warning in knitr::read_chunk(system.file("shiny-examples/bucket_list/app.R", :</span></span>
-<span id="cb4-4"><a href="#cb4-4"></a><span class="co">#&gt; code is empty</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co">## Example shiny app with bucket list</span>
+
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.rstudio.com/">shiny</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/rstudio/sortable">sortable</a></span><span class="op">)</span>
+
+
+<span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/fluidPage.html">fluidPage</a></span><span class="op">(</span>
+  <span class="va">tags</span><span class="op">$</span><span class="fu">head</span><span class="op">(</span>
+    <span class="va">tags</span><span class="op">$</span><span class="fu">style</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/HTML.html">HTML</a></span><span class="op">(</span><span class="st">".bucket-list-container {min-height: 350px;}"</span><span class="op">)</span><span class="op">)</span>
+  <span class="op">)</span>,
+  <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/fluidPage.html">fluidRow</a></span><span class="op">(</span>
+    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/column.html">column</a></span><span class="op">(</span>
+      <span class="va">tags</span><span class="op">$</span><span class="fu">b</span><span class="op">(</span><span class="st">"Exercise"</span><span class="op">)</span>,
+      width <span class="op">=</span> <span class="fl">12</span>,
+      <span class="fu"><a href="reference/bucket_list.html">bucket_list</a></span><span class="op">(</span>
+        header <span class="op">=</span> <span class="st">"Drag the items in any desired bucket"</span>,
+        group_name <span class="op">=</span> <span class="st">"bucket_list_group"</span>,
+        orientation <span class="op">=</span> <span class="st">"horizontal"</span>,
+        <span class="fu"><a href="reference/add_rank_list.html">add_rank_list</a></span><span class="op">(</span>
+          text <span class="op">=</span> <span class="st">"Drag from here"</span>,
+          labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>
+            <span class="st">"one"</span>,
+            <span class="st">"two"</span>,
+            <span class="st">"three"</span>,
+            <span class="fu">htmltools</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">tags</a></span><span class="op">$</span><span class="fu">div</span><span class="op">(</span>
+              <span class="fu">htmltools</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">em</a></span><span class="op">(</span><span class="st">"Complex"</span><span class="op">)</span>, <span class="st">" html tag without a name"</span>
+            <span class="op">)</span>,
+            <span class="st">"five"</span> <span class="op">=</span> <span class="fu">htmltools</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">tags</a></span><span class="op">$</span><span class="fu">div</span><span class="op">(</span>
+              <span class="fu">htmltools</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">em</a></span><span class="op">(</span><span class="st">"Complex"</span><span class="op">)</span>, <span class="st">" html tag with name: 'five'"</span>
+            <span class="op">)</span>
+          <span class="op">)</span>,
+          input_id <span class="op">=</span> <span class="st">"rank_list_1"</span>
+        <span class="op">)</span>,
+        <span class="fu"><a href="reference/add_rank_list.html">add_rank_list</a></span><span class="op">(</span>
+          text <span class="op">=</span> <span class="st">"to here"</span>,
+          labels <span class="op">=</span> <span class="cn">NULL</span>,
+          input_id <span class="op">=</span> <span class="st">"rank_list_2"</span>
+        <span class="op">)</span>
+      <span class="op">)</span>
+    <span class="op">)</span>
+  <span class="op">)</span>,
+  <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/fluidPage.html">fluidRow</a></span><span class="op">(</span>
+    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/column.html">column</a></span><span class="op">(</span>
+      width <span class="op">=</span> <span class="fl">12</span>,
+      <span class="va">tags</span><span class="op">$</span><span class="fu">b</span><span class="op">(</span><span class="st">"Result"</span><span class="op">)</span>,
+      <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/column.html">column</a></span><span class="op">(</span>
+        width <span class="op">=</span> <span class="fl">12</span>,
+
+        <span class="va">tags</span><span class="op">$</span><span class="fu">p</span><span class="op">(</span><span class="st">"input$rank_list_1"</span><span class="op">)</span>,
+        <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/textOutput.html">verbatimTextOutput</a></span><span class="op">(</span><span class="st">"results_1"</span><span class="op">)</span>,
+
+        <span class="va">tags</span><span class="op">$</span><span class="fu">p</span><span class="op">(</span><span class="st">"input$rank_list_2"</span><span class="op">)</span>,
+        <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/textOutput.html">verbatimTextOutput</a></span><span class="op">(</span><span class="st">"results_2"</span><span class="op">)</span>,
+
+        <span class="va">tags</span><span class="op">$</span><span class="fu">p</span><span class="op">(</span><span class="st">"input$bucket_list_group"</span><span class="op">)</span>,
+        <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/textOutput.html">verbatimTextOutput</a></span><span class="op">(</span><span class="st">"results_3"</span><span class="op">)</span>
+      <span class="op">)</span>
+    <span class="op">)</span>
+  <span class="op">)</span>
+<span class="op">)</span>
+
+<span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>,<span class="va">output</span><span class="op">)</span> <span class="op">{</span>
+  <span class="va">output</span><span class="op">$</span><span class="va">results_1</span> <span class="op">&lt;-</span>
+    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderPrint.html">renderPrint</a></span><span class="op">(</span>
+      <span class="va">input</span><span class="op">$</span><span class="va">rank_list_1</span> <span class="co"># This matches the input_id of the first rank list</span>
+    <span class="op">)</span>
+  <span class="va">output</span><span class="op">$</span><span class="va">results_2</span> <span class="op">&lt;-</span>
+    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderPrint.html">renderPrint</a></span><span class="op">(</span>
+      <span class="va">input</span><span class="op">$</span><span class="va">rank_list_2</span> <span class="co"># This matches the input_id of the second rank list</span>
+    <span class="op">)</span>
+  <span class="va">output</span><span class="op">$</span><span class="va">results_3</span> <span class="op">&lt;-</span>
+    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderPrint.html">renderPrint</a></span><span class="op">(</span>
+      <span class="va">input</span><span class="op">$</span><span class="va">bucket_list_group</span> <span class="co"># Matches the group_name of the bucket list</span>
+    <span class="op">)</span>
+<span class="op">}</span>
+
+
+<span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html">shinyApp</a></span><span class="op">(</span><span class="va">ui</span>, <span class="va">server</span><span class="op">)</span></code></pre></div>
 </div>
 <div id="add-drag-and-drop-to-any-html-element" class="section level3">
 <h3 class="hasAnchor">
@@ -150,10 +307,10 @@
 <p><img src="reference/figures/diagrammer.gif" style="width:500px;"></p>
 </center>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">DiagrammeR</span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/rich-iannone/DiagrammeR">DiagrammeR</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/rstudio/htmltools">htmltools</a></span><span class="op">)</span>
 
-<span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/html_print.html">html_print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/tag.html">tagList</a></span><span class="op">(</span>
+<span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/html_print.html">html_print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/tagList.html">tagList</a></span><span class="op">(</span>
   <span class="va">tags</span><span class="op">$</span><span class="fu">p</span><span class="op">(</span><span class="st">"You can drag and drop the diagrams to switch order:"</span><span class="op">)</span>,
   <span class="va">tags</span><span class="op">$</span><span class="fu">div</span><span class="op">(</span>
     id <span class="op">=</span> <span class="st">"aUniqueId"</span>,
@@ -238,7 +395,7 @@
 <li><a href="https://github.com/rstudio/sortable/actions"><img src="https://github.com/rstudio/sortable/workflows/R-CMD-check/badge.svg" alt="R build status"></a></li>
 <li><a href="https://cran.r-project.org/package=sortable"><img src="http://www.r-pkg.org/badges/version/sortable" alt="CRAN version"></a></li>
 <li><a href="http://www.rpackages.io/package/sortable"><img src="http://cranlogs.r-pkg.org/badges/sortable" alt="sortable downloads per month"></a></li>
-<li><a href="https://codecov.io/gh/rstudio/sortable?branch=master"><img src="https://codecov.io/gh/rstudio/sortable/branch/master/graph/badge.svg" alt="Codecov test coverage"></a></li>
+<li><a href="https://codecov.io/gh/rstudio/sortable?branch=main"><img src="https://codecov.io/gh/rstudio/sortable/branch/main/graph/badge.svg" alt="Codecov test coverage"></a></li>
 <li><a href="https://www.tidyverse.org/lifecycle/#maturing"><img src="https://img.shields.io/badge/lifecycle-maturing-blue.svg" alt="Lifecycle: maturing"></a></li>
 <li><a href="https://community.rstudio.com/c/teaching"><img src="https://img.shields.io/badge/Community%20Support-Teaching-75aadb.svg?style=popout&amp;logo=data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDIyLjEuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiCgkgdmlld0JveD0iMCAwIDYyNS45IDYyNS45IiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA2MjUuOSA2MjUuOTsiIHhtbDpzcGFjZT0icHJlc2VydmUiPgo8c3R5bGUgdHlwZT0idGV4dC9jc3MiPgoJLnN0MHtmaWxsOiM3NUFBREI7fQoJLnN0MXtmaWxsOiM0RDRENEQ7fQoJLnN0MntmaWxsOiNGRkZGRkY7fQoJLnN0M3tmaWxsOnVybCgjU1ZHSURfMV8pO30KCS5zdDR7ZmlsbDp1cmwoI1NWR0lEXzJfKTt9Cgkuc3Q1e2ZpbGw6dXJsKCNTVkdJRF8zXyk7fQoJLnN0NntmaWxsOnVybCgjU1ZHSURfNF8pO30KCS5zdDd7ZmlsbDp1cmwoI1NWR0lEXzVfKTt9Cgkuc3Q4e2ZpbGw6dXJsKCNTVkdJRF82Xyk7fQoJLnN0OXtmaWxsOnVybCgjU1ZHSURfN18pO30KCS5zdDEwe2ZpbGw6dXJsKCNTVkdJRF84Xyk7fQoJLnN0MTF7ZmlsbDp1cmwoI1NWR0lEXzlfKTt9Cgkuc3QxMntmaWxsOnVybCgjU1ZHSURfMTBfKTt9Cgkuc3QxM3tvcGFjaXR5OjAuMTg7ZmlsbDp1cmwoI1NWR0lEXzExXyk7fQoJLnN0MTR7b3BhY2l0eTowLjM7fQo8L3N0eWxlPgo8ZyBpZD0iR3JheV9Mb2dvIj4KPC9nPgo8ZyBpZD0iQmxhY2tfTGV0dGVycyI+CjwvZz4KPGcgaWQ9IkJsdWVfR3JhZGllbnRfTGV0dGVycyI+Cgk8Zz4KCgkJCTxlbGxpcHNlIHRyYW5zZm9ybT0ibWF0cml4KDAuNzA3MSAtMC43MDcxIDAuNzA3MSAwLjcwNzEgLTEyNy45MjY1IDMxNy4wMzE3KSIgY2xhc3M9InN0MCIgY3g9IjMxOC43IiBjeT0iMzEyLjkiIHJ4PSIzMDkuOCIgcnk9IjMwOS44Ii8+CgkJPGc+CgkJCTxwYXRoIGNsYXNzPSJzdDIiIGQ9Ik00MjQuNyw0MTEuOGgzMy42djI2LjFoLTUxLjNMMzIyLDMxMC41aC00NS4zdjEwMS4zaDQ0LjN2MjYuMUgyMDkuNXYtMjYuMWgzOC4zVjE4Ny4zbC0zOC4zLTQuN3YtMjQuNwoJCQkJYzE0LjUsMy4zLDI3LjEsNS42LDQyLjksNS42YzIzLjgsMCw0OC4xLTUuNiw3MS45LTUuNmM0Ni4yLDAsODkuMSwyMSw4OS4xLDcyLjNjMCwzOS43LTIzLjgsNjQuOS02MC43LDc1LjZMNDI0LjcsNDExLjh6CgkJCQkgTTI3Ni43LDI4NS4zbDI0LjMsMC41YzU5LjMsMC45LDgyLjEtMjEuOSw4Mi4xLTUyLjNjMC0zNS41LTI1LjctNDkuNS01OC4zLTQ5LjVjLTE1LjQsMC0zMS4zLDEuNC00OC4xLDMuM1YyODUuM3oiLz4KCQk8L2c+Cgk8L2c+CjwvZz4KPGcgaWQ9IldoaXRlX0xldHRlcnMiPgo8L2c+CjxnIGlkPSJSX0JhbGwiPgo8L2c+Cjwvc3ZnPg==" alt="RStudio Community: Teaching"></a></li>
 <li><a href="https://community.rstudio.com/new-topic?title=&amp;category_id=13&amp;tags=sortable&amp;body=%0A%0A%0A%20%20--------%0A%20%20%0A%20%20%3Csup%3EReferred%20here%20by%20%60sortable%60%27s%20GitHub%3C/sup%3E%0A&amp;u=barret"><img src="https://img.shields.io/badge/Ask%20a%20question-sortable-75aadb.svg?style=popout&amp;logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2ZXJzaW9uPSIxLjEiIHg9IjBweCIgeT0iMHB4IiB2aWV3Qm94PSIwIDAgNjI1LjkgNjI1LjkiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDYyNS45IDYyNS45OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+Cgkuc3Qwe2ZpbGw6Izc1QUFEQjt9Cgkuc3Qxe2ZpbGw6IzRENEQ0RDt9Cgkuc3Qye2ZpbGw6I0ZGRkZGRjt9Cgkuc3Qze2ZpbGw6dXJsKCNTVkdJRF8xXyk7fQoJLnN0NHtmaWxsOnVybCgjU1ZHSURfMl8pO30KCS5zdDV7ZmlsbDp1cmwoI1NWR0lEXzNfKTt9Cgkuc3Q2e2ZpbGw6dXJsKCNTVkdJRF80Xyk7fQoJLnN0N3tmaWxsOnVybCgjU1ZHSURfNV8pO30KCS5zdDh7ZmlsbDp1cmwoI1NWR0lEXzZfKTt9Cgkuc3Q5e2ZpbGw6dXJsKCNTVkdJRF83Xyk7fQoJLnN0MTB7ZmlsbDp1cmwoI1NWR0lEXzhfKTt9Cgkuc3QxMXtmaWxsOnVybCgjU1ZHSURfOV8pO30KCS5zdDEye2ZpbGw6dXJsKCNTVkdJRF8xMF8pO30KCS5zdDEze29wYWNpdHk6MC4xODtmaWxsOnVybCgjU1ZHSURfMTFfKTt9Cgkuc3QxNHtvcGFjaXR5OjAuMzt9Cjwvc3R5bGU+CjxnIGlkPSJHcmF5X0xvZ28iPgo8L2c+CjxnIGlkPSJCbGFja19MZXR0ZXJzIj4KPC9nPgo8ZyBpZD0iQmx1ZV9HcmFkaWVudF9MZXR0ZXJzIj4KCTxnPgoKCQkJPGVsbGlwc2UgdHJhbnNmb3JtPSJtYXRyaXgoMC43MDcxIC0wLjcwNzEgMC43MDcxIDAuNzA3MSAtMTI3LjkyNjUgMzE3LjAzMTcpIiBjbGFzcz0ic3QwIiBjeD0iMzE4LjciIGN5PSIzMTIuOSIgcng9IjMwOS44IiByeT0iMzA5LjgiLz4KCQk8Zz4KCQkJPHBhdGggY2xhc3M9InN0MiIgZD0iTTQyNC43LDQxMS44aDMzLjZ2MjYuMWgtNTEuM0wzMjIsMzEwLjVoLTQ1LjN2MTAxLjNoNDQuM3YyNi4xSDIwOS41di0yNi4xaDM4LjNWMTg3LjNsLTM4LjMtNC43di0yNC43ICAgICBjMTQuNSwzLjMsMjcuMSw1LjYsNDIuOSw1LjZjMjMuOCwwLDQ4LjEtNS42LDcxLjktNS42YzQ2LjIsMCw4OS4xLDIxLDg5LjEsNzIuM2MwLDM5LjctMjMuOCw2NC45LTYwLjcsNzUuNkw0MjQuNyw0MTEuOHogICAgICBNMjc2LjcsMjg1LjNsMjQuMywwLjVjNTkuMywwLjksODIuMS0yMS45LDgyLjEtNTIuM2MwLTM1LjUtMjUuNy00OS41LTU4LjMtNDkuNWMtMTUuNCwwLTMxLjMsMS40LTQ4LjEsMy4zVjI4NS4zeiIvPgoJCTwvZz4KCTwvZz4KPC9nPgo8ZyBpZD0iV2hpdGVfTGV0dGVycyI+CjwvZz4KPGcgaWQ9IlJfQmFsbCI+CjwvZz4KPC9zdmc+" alt="RStudio Ask a question: sortable"></a></li>
