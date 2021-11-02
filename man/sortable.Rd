@@ -9,12 +9,7 @@
 \description{
 \if{html}{\figure{logo.png}{options: align='right' alt='logo' width='120'}}
 
-Enables drag-and-drop behaviour in Shiny apps, by exposing the 
-    functionality of the 'SortableJS' <https://sortablejs.github.io/Sortable/> 
-    JavaScript library as an 'htmlwidget'. 
-    You can use this in Shiny apps and widgets, 'learnr' tutorials as well as 
-    R Markdown. In addition, provides a custom 'learnr' question type - 
-    'question_rank()' - that allows ranking questions with drag-and-drop.
+Enables drag-and-drop behaviour in Shiny apps, by exposing the functionality of the 'SortableJS' <https://sortablejs.github.io/Sortable/> JavaScript library as an 'htmlwidget'. You can use this in Shiny apps and widgets, 'learnr' tutorials as well as R Markdown. In addition, provides a custom 'learnr' question type - 'question_rank()' - that allows ranking questions with drag-and-drop.
 }
 \section{A new html widget}{
 

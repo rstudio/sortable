@@ -1,12 +1,12 @@
 on:
   push:
-    branches: master
+    branches: [main, rc-v**]
 
 name: deploy-tutorials
 
 jobs:
   deploy-tutorials:
-    runs-on: macOS-latest
+    runs-on: ubuntu-latest
     env:
       GITHUB_PAT:       ${{ secrets.GITHUB_TOKEN }}
       SHINYAPPS_NAME:   ${{ secrets.SHINYAPPS_NAME }}
@@ -15,34 +15,18 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - uses: r-lib/actions/setup-r@master
-
-      - name: Query dependencies
-        run: |
-          install.packages('remotes')
-          saveRDS(remotes::dev_package_deps(dependencies = TRUE), ".github/depends.Rds", version = 2)
-          writeLines(sprintf("R-%i.%i", getRversion()$major, getRversion()$minor), ".github/R-version")
-        shell: Rscript {0}
-
-      - name: Cache R packages
-        uses: actions/cache@v1
+      - uses: rstudio/shinycoreci/.github/actions/install-r-package@v1
         with:
-          path: ${{ env.R_LIBS_USER }}
-          key: ${{ runner.os }}-${{ hashFiles('.github/R-version') }}-1-${{ hashFiles('.github/depends.Rds') }}
-          restore-keys: ${{ runner.os }}-${{ hashFiles('.github/R-version') }}-1-
+          extra-packages: |
+            remotes
+            rsconnect
+            glue
 
-      - name: Install dependencies
-        run: |
-          install.packages("remotes")
-          remotes::install_cran("rsconnect")
-          remotes::install_cran("glue")
+      - name: Install package from GitHub
         shell: Rscript {0}
-
-      - name: Install package from github
         run:  |
-          remotes::install_github("rstudio/sortable")
-        shell: Rscript {0}
+          remotes::pkg_install("rstudio/sortable")
 
       - name: Deploy tutorials
-        run: source("scripts/deploy_on_travis.R")
         shell: Rscript {0}
+        run: source("scripts/deploy_on_travis.R")
