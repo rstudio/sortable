@@ -3,7 +3,7 @@
 
 
 # all credit for code goes to RStudio
-# https://github.com/rstudio/shiny-examples/tree/master/006-tabsets
+# https://github.com/rstudio/shiny-examples/tree/main/006-tabsets
 library(sortable)
 library(shiny)
 
