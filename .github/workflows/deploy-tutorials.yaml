@@ -25,7 +25,7 @@ jobs:
       - name: Install package from GitHub
         shell: Rscript {0}
         run:  |
-          remotes::pkg_install("rstudio/sortable")
+          remotes::install_github("rstudio/sortable")
 
       - name: Deploy tutorials
         shell: Rscript {0}
