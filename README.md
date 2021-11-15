@@ -6,7 +6,7 @@
 <!-- badges: start -->
 
 [![R build
-status](https://github.com/rstudio/sortable/workflows/R-CMD-check/badge.svg)](https://github.com/rstudio/sortable/actions)
+status](https://github.com/rstudio/sortable/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/rstudio/sortable/actions)
 [![CRAN
 version](http://www.r-pkg.org/badges/version/sortable)](https://cran.r-project.org/package=sortable)
 [![sortable downloads per
@@ -279,7 +279,7 @@ html_print(tagList(
 I learnt about the following related work after starting on `sortable`:
 
   - The `esquisse` [package](https://github.com/dreamRs/esquisse):
-    
+
     > “The purpose of this add-in is to let you explore your data
     > quickly to extract the information they hold. You can only create
     > simple plots, you won’t be able to use custom scales and all the
@@ -287,11 +287,11 @@ I learnt about the following related work after starting on `sortable`:
 
   - There is also the `shinyjqui`
     [package](https://yang-tang.github.io/shinyjqui/):
-    
+
     > “An R wrapper for jQuery UI javascript library. It allows user to
     > easily add interactions and animation effects to a shiny app.”
 
   - The `shinyDND`
     [package](https://cran.r-project.org/package=shinyDND):
-    
+
     > Adds functionality to create drag and drop div elements in shiny.
