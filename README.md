@@ -6,7 +6,7 @@
 <!-- badges: start -->
 
 [![R build
-status](https://github.com/rstudio/sortable/workflows/R-CMD-check/badge.svg)](https://github.com/rstudio/sortable/actions)
+status](https://github.com/rstudio/sortable/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/rstudio/sortable/actions)
 [![CRAN
 version](http://www.r-pkg.org/badges/version/sortable)](https://cran.r-project.org/package=sortable)
 [![sortable downloads per
