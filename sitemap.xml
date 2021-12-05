@@ -1,7 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://rstudio.github.io/sortable/404.html</loc>
+  </url>
+  <url>
+    <loc>https://rstudio.github.io/sortable/LICENSE-text.html</loc>
+  </url>
+  <url>
+    <loc>https://rstudio.github.io/sortable/LICENSE.html</loc>
+  </url>
+  <url>
+    <loc>https://rstudio.github.io/sortable/articles/built_in.html</loc>
+  </url>
+  <url>
+    <loc>https://rstudio.github.io/sortable/articles/cloning.html</loc>
+  </url>
+  <url>
+    <loc>https://rstudio.github.io/sortable/articles/index.html</loc>
+  </url>
+  <url>
+    <loc>https://rstudio.github.io/sortable/articles/novel_solutions.html</loc>
+  </url>
+  <url>
+    <loc>https://rstudio.github.io/sortable/articles/understanding_sortable_js.html</loc>
+  </url>
+  <url>
+    <loc>https://rstudio.github.io/sortable/articles/updating_rank_list.html</loc>
+  </url>
+  <url>
+    <loc>https://rstudio.github.io/sortable/articles/using_custom_css.html</loc>
+  </url>
+  <url>
+    <loc>https://rstudio.github.io/sortable/authors.html</loc>
+  </url>
+  <url>
     <loc>https://rstudio.github.io/sortable/index.html</loc>
+  </url>
+  <url>
+    <loc>https://rstudio.github.io/sortable/news/index.html</loc>
   </url>
   <url>
     <loc>https://rstudio.github.io/sortable/reference/add_rank_list.html</loc>
@@ -11,6 +47,9 @@
   </url>
   <url>
     <loc>https://rstudio.github.io/sortable/reference/chain_js_events.html</loc>
+  </url>
+  <url>
+    <loc>https://rstudio.github.io/sortable/reference/index.html</loc>
   </url>
   <url>
     <loc>https://rstudio.github.io/sortable/reference/is_sortable_options.html</loc>
@@ -40,21 +79,9 @@
     <loc>https://rstudio.github.io/sortable/reference/sortable_output.html</loc>
   </url>
   <url>
-    <loc>https://rstudio.github.io/sortable/articles/built_in.html</loc>
+    <loc>https://rstudio.github.io/sortable/tutorials/index.html</loc>
   </url>
   <url>
-    <loc>https://rstudio.github.io/sortable/articles/cloning.html</loc>
-  </url>
-  <url>
-    <loc>https://rstudio.github.io/sortable/articles/novel_solutions.html</loc>
-  </url>
-  <url>
-    <loc>https://rstudio.github.io/sortable/articles/understanding_sortable_js.html</loc>
-  </url>
-  <url>
-    <loc>https://rstudio.github.io/sortable/articles/updating_rank_list.html</loc>
-  </url>
-  <url>
-    <loc>https://rstudio.github.io/sortable/articles/using_custom_css.html</loc>
+    <loc>https://rstudio.github.io/sortable/tutorials/tutorial_question_rank.html</loc>
   </url>
 </urlset>
