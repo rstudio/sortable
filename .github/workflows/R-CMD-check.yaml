@@ -39,6 +39,7 @@ jobs:
             remotes
             rsconnect
             glue
+            withr
 
       - name: Install package from GitHub
         shell: Rscript {0}
