@@ -48,4 +48,4 @@ jobs:
 
       - name: Deploy tutorials
         shell: Rscript {0}
-        run: source("scripts/deploy_on_travis.R")
+        run: source("scripts/deploy_apps.R")

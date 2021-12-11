@@ -1,18 +1,14 @@
-
-if (!requireNamespace("remotes")) install.packages("remotes")
-
 # install rsconnect and glue
+if (!requireNamespace("remotes")) install.packages("remotes")
 if (!requireNamespace("rsconnect")) remotes::install_cran("rsconnect")
 if (!requireNamespace("glue"))      remotes::install_cran("glue")
 
-
-# install the latest version when running on travis
-
-if (Sys.getenv("TRAVIS") == "true") {
-  remotes::install_github("rstudio/sortable")
-}
-
-
+# Set the account info for deployment.
+rsconnect::setAccountInfo(
+  name   = Sys.getenv("SHINYAPPS_NAME"),
+  token  = Sys.getenv("SHINYAPPS_TOKEN"),
+  secret = Sys.getenv("SHINYAPPS_SECRET")
+)
 
 deploy_app <- function(
   app_dir,
@@ -29,7 +25,7 @@ deploy_app <- function(
   last_deployed <- as.POSIXct(last_deployed, format = "%FT%T")
 
   if (!length(last_deployed) || last_updated > last_deployed) {
-    message("\n\n\n")
+    message("\n\n")
     message("Deploying: ", name)
     message("\n")
     rsconnect::deployApp(
