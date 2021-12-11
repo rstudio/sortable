@@ -23,7 +23,7 @@ jobs:
   deploy-tutorials:
     name: Deploy tutorials
     if: github.repository == 'rstudio/sortable' && github.event_name == 'push'
-    # needs: [R-CMD-check]
+    needs: [R-CMD-check]
     runs-on: ubuntu-latest
     env:
       GITHUB_PAT:       ${{ secrets.GITHUB_TOKEN }}
