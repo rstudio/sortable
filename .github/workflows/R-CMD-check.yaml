@@ -52,5 +52,4 @@ jobs:
         run: source("scripts/deploy_apps.R")
 
       - name: Returns a success even if the deployment step fails.
-        needs: R-CMD-check
         run: exit 0
