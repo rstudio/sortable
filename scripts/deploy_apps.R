@@ -25,7 +25,7 @@ deploy_app <- function(
   last_deployed <- as.POSIXct(last_deployed, format = "%FT%T")
 
   if (!length(last_deployed) || last_updated > last_deployed) {
-    message("\n\n")
+    message("\n")
     message("Deploying: ", name)
     message("\n")
     rsconnect::deployApp(
