@@ -14,7 +14,7 @@ library(magrittr)
 
 ## Introduction
 
-The `sortable` package allows you to create custom HTML widgets with drag-and-drop capability.  As a motivating example, the package exports a function `question_rank()` that lets you design `learnr` quizzes with drag-and-drop questions.
+The `sortable` package allows you to create custom HTML widgets with drag-and-drop capability. As a motivating example, the package exports a function `question_rank()` that lets you design `learnr` quizzes with drag-and-drop questions.
 
 ### Example
 
@@ -40,10 +40,9 @@ question_rank(
 )
 ```
 
-
 ## Creating a ranking question
 
-To insert a ranking question into a `learnr` quiz, use `question_rank()`.  Note that, unlike standard `learnr` questions, ranking questions will by default randomize the order of the answer options.
+To insert a ranking question into a `learnr` quiz, use `question_rank()`. Note that, unlike standard `learnr` questions, ranking questions will by default randomize the order of the answer options.
 
 You must provide at least one correct answer, using the `learnr` `answer()` function:
 
@@ -65,10 +64,9 @@ question_rank(
 )
 ```
 
-
 ## Changing the 'SortableJS' options
 
-You can change the behaviour of the HTML widget by sending different options to the `SortableJS` library.  For example, to change the duration of animation, set `sortable_options(animation = ...)`:
+You can change the behaviour of the HTML widget by sending different options to the `SortableJS` library. For example, to change the duration of animation, set `sortable_options(animation = ...)`:
 
 ```{r insects-code-options}
 # Define the answer options

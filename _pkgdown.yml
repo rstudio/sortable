@@ -1,7 +1,7 @@
 url: https://rstudio.github.io/sortable
 template:
-  params:
-    bootswatch: cerulean
+  bootstrap: 5
+  bootswatch: cerulean
 
 reference:
 - title: Learnr question types
@@ -14,10 +14,6 @@ reference:
   - rank_list
   - bucket_list
   - add_rank_list
-- title: Widget style sheets
-  desc: Control the look-and-feel of your widgets
-  contents:
-  - starts_with("css")
 - title: Access the SortableJS library
   desc: Lower level access to the SortableJS library
   contents:
