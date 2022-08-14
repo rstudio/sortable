@@ -1,11 +1,11 @@
 
 
-sortable_version <- "1.14.0"
-yaml_version <- "1.14.0"
+sortable_version <- "1.15.0"
+yaml_version <- "1.15.0"
 
 
 writeLines(
-  readLines(paste0("https://unpkg.com/sortablejs@", sortable_version)),
+  readLines(paste0("https://unpkg.com/sortablejs@", sortable_version), warn = FALSE),
   file.path("inst", "htmlwidgets", "lib", "sortable", "sortable.js")
 )
 
