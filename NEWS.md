@@ -1,3 +1,10 @@
+# sortable 0.4.6
+
+## Upgrade sortable.js
+
+* Include `sortable.js` version 1.15.0
+
+
 # sortable 0.4.5
 
 ## Upgrade sortable.js
