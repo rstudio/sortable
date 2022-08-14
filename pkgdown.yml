@@ -1,5 +1,5 @@
 pandoc: 2.7.3
-pkgdown: 2.0.1
+pkgdown: 2.0.6
 pkgdown_sha: ~
 articles:
   built_in: built_in.html
@@ -8,7 +8,7 @@ articles:
   understanding_sortable_js: understanding_sortable_js.html
   updating_rank_list: updating_rank_list.html
   using_custom_css: using_custom_css.html
-last_built: 2021-12-13T12:23Z
+last_built: 2022-08-14T19:10Z
 urls:
   reference: https://rstudio.github.io/sortable/reference
   article: https://rstudio.github.io/sortable/articles
