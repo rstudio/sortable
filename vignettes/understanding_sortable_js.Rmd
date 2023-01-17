@@ -55,7 +55,7 @@ The following example uses HTML to construct an unordered list (`<ul>`), and the
 
 Note:
 
-1. The HTML `id` matches the `selector` argument of `sortable_js()`.
+1. The HTML `id` matches the `css_id` argument of `sortable_js()`.
 2. You can drag and drop the list entries. Try it!
 
 ```html
@@ -113,26 +113,24 @@ tagList(
 ```
 
 
-### Little Harder but Better Example
+### Little harder but better example
 
 The `SortableJS` functionality works with any HTML object, not just lists.
 
 In this next example, you can see how to drag and drop images (`<img>`).  To embed the plots on the page, you can use the `base64::img()` function to encode the png images into a format that HTML understands.
 
-Again, notice that the HTML `id` matches the `selector`.
 
-```{r, collapse=TRUE}
-library(base64)
+```{r}
+library(base64enc)
 library(withr)
 
-# use example from ?base64::img
+# create two plots for demo purposes
 pngfile_1 <- tempfile(fileext = ".png")
 with_png(pngfile_1, width = 300, height = 200,{
   plot(1:100, rnorm(100), pch = 21, bg = "red")
   title(main = "Moves Like Jagger")
 })
 
-# make another plot for demo purposes
 pngfile_2 <- tempfile(fileext = ".png")
 with_png(pngfile_2, width = 300, height = 200,{
   barplot(1:9, col = blues9)
@@ -140,13 +138,14 @@ with_png(pngfile_2, width = 300, height = 200,{
 })
 ```
 
+Again, notice that the HTML `id` matches the `css_id`.
 
 ```{r}
 tagList(
   tags$div(
     id = "example03",
-    HTML(base64::img(pngfile_1)),
-    HTML(base64::img(pngfile_2))
+    tags$image(src = base64enc::dataURI(file = pngfile_1, mime = "image/png")),
+    tags$image(src = base64enc::dataURI(file = pngfile_2, mime = "image/png"))
   ),
   sortable_js(css_id = "example03")
 )
