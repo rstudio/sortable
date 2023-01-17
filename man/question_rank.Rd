@@ -26,10 +26,12 @@ question_rank(
 to "Correct!"). For \code{answer}, a boolean indicating whether this answer is
 correct.}
 
-\item{incorrect}{Text to print for an incorrect answer (defaults to "Incorrect")
-when \code{allow_retry} is \code{FALSE}.}
+\item{incorrect}{Text to print for an incorrect answer (defaults to
+"Incorrect") when \code{allow_retry} is \code{FALSE}.}
 
-\item{loading}{Loading text to display as a placeholder while the question is loaded}
+\item{loading}{Loading text to display as a placeholder while the question is
+loaded. If not provided, generic "Loading..." or placeholder elements will
+be displayed.}
 
 \item{submit_button}{Label for the submit button. Defaults to \code{"Submit Answer"}}
 
