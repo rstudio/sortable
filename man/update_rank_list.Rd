@@ -4,10 +4,14 @@
 \alias{update_rank_list}
 \title{Change the value of a rank list on the client.}
 \usage{
-update_rank_list(session = getDefaultReactiveDomain(), inputId, label = NULL)
+update_rank_list(session = getDefaultReactiveDomain(), input_id, text = NULL)
 }
 \arguments{
 \item{session}{The \code{session} object passed to function given to \code{shinyServer}.}
+
+\item{input_id}{output variable to read the plot/image from.}
+
+\item{text}{Text to appear at top of list.}
 }
 \description{
 Change the value of a rank list on the client.
