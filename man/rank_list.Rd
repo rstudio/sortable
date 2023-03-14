@@ -8,7 +8,7 @@ rank_list(
   text = "",
   labels,
   input_id,
-  css_id = NULL,
+  css_id = input_id,
   options = sortable_options(),
   class = "default-sortable"
 )

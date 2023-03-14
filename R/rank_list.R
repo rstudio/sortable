@@ -49,7 +49,7 @@ rank_list <- function(
   text = "",
   labels,
   input_id,
-  css_id = NULL,
+  css_id = input_id,
   options = sortable_options(),
   class = "default-sortable"
 ) {
@@ -95,9 +95,21 @@ rank_list <- function(
     }
   )
 
+  shiny::addResourcePath(
+    prefix = 'wwwSortable', directoryPath = system.file('www', package='sortable')
+  )
+
   rank_list_tags <- tagList(
+    # This makes web page load the JS file in the HTML head.
+    # The singleton() ensures it's only included once in a page.
+    shiny::singleton(
+      tags$head(
+        tags$script(src = "wwwSortable/ranklist-binding.js")
+      )
+    ),
     tags$div(
       class = paste("rank-list-container", paste(class, collapse = " ")),
+      id = paste0("rank-list-", css_id),
       title_tag,
       tags$div(
         class = "rank-list",
@@ -114,4 +126,22 @@ rank_list <- function(
 
   as_rank_list(rank_list_tags)
 
+}
+
+
+dropNulls <- function(x) {
+  x[!vapply(x, is.null, FUN.VALUE = logical(1))]
+}
+
+
+#' Change the value of a rank list on the client.
+#'
+#' @inheritParams rank_list
+#' @param session The `session` object passed to function given to `shinyServer`.
+#' @export
+update_rank_list <- function(session = getDefaultReactiveDomain(), input_id, text = NULL) {
+  inputId <- paste0("rank-list-", input_id)
+  message <- dropNulls(list(id = inputId, text = text))
+  session$sendInputMessage(inputId, message)
+  # session$sendCustomMessage('handler_setDataAtCell', message)
 }

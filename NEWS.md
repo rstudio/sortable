@@ -1,5 +1,9 @@
 # sortable (development version)
 
+## Enhancements
+
+* Add experimental support for `update_rank_list()`
+
 # sortable 0.4.6
 
 ## Upgrade sortable.js

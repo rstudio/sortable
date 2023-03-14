@@ -48,6 +48,7 @@ ui <- fluidPage(
         tabPanel(
           "Default",
             tags$b("Exercise"),
+            actionButton("btnUpdate", label = "update title"),
             rank_list_basic,
             tags$b("Result"),
             verbatimTextOutput("results_basic")
@@ -71,7 +72,7 @@ ui <- fluidPage(
   )
 )
 
-server <- function(input, output) {
+server <- function(input, output, session) {
   output$results_basic <- renderPrint({
     input$rank_list_basic # This matches the input_id of the rank list
   })
@@ -81,6 +82,14 @@ server <- function(input, output) {
   output$results_swap <- renderPrint({
     input$rank_list_swap # This matches the input_id of the rank list
   })
+  # test updating the rank list label
+  observe({
+    update_rank_list(
+      session, "rank_list_basic",
+      text = paste("You pressed the button at",as.character(Sys.time()))
+    )
+  }) %>%
+    bindEvent(input$btnUpdate)
 }
 
 shinyApp(ui, server)
