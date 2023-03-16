@@ -81,6 +81,7 @@ dragged and dropped in any order.</p>
 <span>  <span class="va">input_id</span>,</span>
 <span>  css_id <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  options <span class="op">=</span> <span class="fu"><a href="sortable_options.html">sortable_options</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>  orientation <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"vertical"</span>, <span class="st">"horizontal"</span><span class="op">)</span>,</span>
 <span>  class <span class="op">=</span> <span class="st">"default-sortable"</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
@@ -109,6 +110,11 @@ app. If NULL, the function generates an id of the form
 
 <dt>options</dt>
 <dd><p>Options to be supplied to <a href="sortable_js.html">sortable_js</a> object. See <a href="sortable_options.html">sortable_options</a> for more details</p></dd>
+
+
+<dt>orientation</dt>
+<dd><p>Set this to "horizontal" to get horizontal orientation of
+the items.</p></dd>
 
 
 <dt>class</dt>
