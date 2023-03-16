@@ -147,8 +147,9 @@ server <- function(input, output, session) {
   # test updating the rank list label
   observe({
     update_rank_list(
-      session, "rank_list_basic",
-      text = paste("You pressed the button at",as.character(Sys.time()))
+      "rank_list_basic",
+      text = paste("You pressed the button at",as.character(Sys.time())),
+      session = session
     )
   }) %>%
     bindEvent(input$btnUpdate)
