@@ -133,7 +133,8 @@ dropNulls <- function(x) {
 #' @inheritParams rank_list
 #' @param session The `session` object passed to function given to `shinyServer`.
 #' @export
-update_rank_list <- function(input_id, text = NULL, session = getDefaultReactiveDomain()) {
+update_rank_list <- function(input_id, text = NULL,
+                             session = shiny::getDefaultReactiveDomain()) {
   inputId <- paste0("rank-list-", input_id)
   message <- dropNulls(list(id = inputId, text = text))
   session$sendInputMessage(inputId, message)

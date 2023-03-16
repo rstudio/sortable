@@ -4,7 +4,11 @@
 \alias{update_rank_list}
 \title{Change the value of a rank list on the client.}
 \usage{
-update_rank_list(input_id, text = NULL, session = getDefaultReactiveDomain())
+update_rank_list(
+  input_id,
+  text = NULL,
+  session = shiny::getDefaultReactiveDomain()
+)
 }
 \arguments{
 \item{input_id}{output variable to read the plot/image from.}

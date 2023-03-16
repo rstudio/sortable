@@ -32,3 +32,4 @@
 ^CRAN-SUBMISSION$
 
 revdep/*
+^.sass_cache_keys
