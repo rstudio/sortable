@@ -1,16 +1,23 @@
 library(shiny)
 library(sortable)
 
+set.seed(123456) # to make sample() reproducible
+labels <- sample(month.name[1:5])
+
 ui <- fluidPage(
   div(
-    # style = "width: 500px", id = "my-ranklist",
     rank_list(
       text = "Horizontal rank list",
-      labels = c("/", "26", "2022", "August", "/"),
-      input_id = "rank",
-      orientation = "horizontal",
-      # class = "default-sortable horizontal"
-      class = "default-sortable"
+      labels = labels,
+      input_id = "rank_h",
+      orientation = "horizontal"
+    )
+  ),
+  div(
+    rank_list(
+      text = "Default rank list (vertical)",
+      labels = labels,
+      input_id = "rank"
     )
   )
 )
