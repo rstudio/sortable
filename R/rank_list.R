@@ -100,18 +100,7 @@ rank_list <- function(
     }
   )
 
-  shiny::addResourcePath(
-    prefix = 'wwwSortable', directoryPath = system.file('www', package='sortable')
-  )
-
   rank_list_tags <- tagList(
-    # This makes web page load the JS file in the HTML head.
-    # The singleton() ensures it's only included once in a page.
-    shiny::singleton(
-      tags$head(
-        tags$script(src = "wwwSortable/ranklist-binding.js")
-      )
-    ),
     tags$div(
       class = paste("rank-list-container", paste(class, collapse = " ")),
       id = paste0("rank-list-", css_id),
