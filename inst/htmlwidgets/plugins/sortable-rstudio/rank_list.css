@@ -1,3 +1,11 @@
+.default-sortable.horizontal .rank-list {
+  display: flex;
+}
+
+.default-sortable.horizontal .rank-list-item {
+  flex-grow: 1;
+}
+
 .default-sortable.rank-list-container {
   flex: 1 0 200px;
   background-color: transparent;
@@ -60,4 +68,3 @@
 .default-sortable .rank-list-item.disabled {
   cursor: not-allowed;
 }
-

@@ -1,5 +1,18 @@
 @import "colors";
 
+
+.default-sortable.horizontal {
+  & .rank-list {
+      display:flex; //horizontal
+  }
+
+  & .rank-list-item {
+    // width: 100px;
+    flex-grow: 1;
+  }
+}
+
+
 .default-sortable {
 
   &.rank-list-container {
@@ -16,8 +29,9 @@
     flex: 0 0 auto;
   }
 
+
   .rank-list {
-    flex: 1 0 auto;
+    flex: 1 0 auto;  // default
     -webkit-border-radius: 3px;
     border-radius: 5px;
     background-color: $item-color;
@@ -28,7 +42,9 @@
       border-style: dashed;
       border-color: $border-color;
     }
+
   }
+
 
   .rank-list-item {
     border-radius: $border-radius;
@@ -38,6 +54,9 @@
     border: 1px solid $border-color;
     overflow: hidden;
     // width: 100%;
+
+    // horizontal
+
 
     &:hover:not(.disabled) {
       background-color: $item-hover-color;
