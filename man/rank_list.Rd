@@ -10,6 +10,7 @@ rank_list(
   input_id,
   css_id = input_id,
   options = sortable_options(),
+  orientation = c("vertical", "horizontal"),
   class = "default-sortable"
 )
 }
@@ -27,6 +28,9 @@ app. If NULL, the function generates an id of the form
 \code{rank_list_id_1}, and will automatically increment for every \code{rank_list}.}
 
 \item{options}{Options to be supplied to \link{sortable_js} object. See \link{sortable_options} for more details}
+
+\item{orientation}{Set this to "horizontal" to get horizontal orientation of
+the items.}
 
 \item{class}{A css class applied to the rank list.  This can be used to
 define custom styling.}

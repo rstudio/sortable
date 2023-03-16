@@ -4,6 +4,8 @@
 
 * Add experimental support for `update_rank_list()`
 
+* Add ability to switch the orientation of `rank_list()` items to horizontal. #92
+
 # sortable 0.4.6
 
 ## Upgrade sortable.js

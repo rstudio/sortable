@@ -28,6 +28,8 @@
 #'   `rank_list_id_1`, and will automatically increment for every `rank_list`.
 #' @param class A css class applied to the rank list.  This can be used to
 #'   define custom styling.
+#' @param orientation Set this to "horizontal" to get horizontal orientation of
+#'   the items.
 #' @template options
 #'
 #' @seealso [sortable_js], [bucket_list] and [question_rank]
@@ -51,11 +53,14 @@ rank_list <- function(
   input_id,
   css_id = input_id,
   options = sortable_options(),
+  orientation = c("vertical", "horizontal"),
   class = "default-sortable"
 ) {
   if (is.null(css_id)) {
     css_id <- increment_rank_list()
   }
+  orientation = match.arg(orientation)
+  if (orientation == "horizontal") class = paste0(class, " horizontal")
   assert_that(is_sortable_options(options))
   assert_that(is_input_id(input_id))
 
