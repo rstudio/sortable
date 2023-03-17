@@ -138,5 +138,4 @@ update_rank_list <- function(input_id, text = NULL,
   inputId <- paste0("rank-list-", input_id)
   message <- dropNulls(list(id = inputId, text = text))
   session$sendInputMessage(inputId, message)
-  # session$sendCustomMessage('handler_setDataAtCell', message)
 }
