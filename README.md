@@ -148,7 +148,7 @@ server <- function(input, output, session) {
   observe({
     update_rank_list(
       "rank_list_basic",
-      text = paste("You pressed the button at",as.character(Sys.time())),
+      text = paste("You pressed the button at", as.character(Sys.time())),
       session = session
     )
   }) %>%
