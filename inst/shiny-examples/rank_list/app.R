@@ -48,7 +48,7 @@ ui <- fluidPage(
         tabPanel(
           "Default",
             tags$b("Exercise"),
-            actionButton("btnUpdate", label = "update title"),
+            actionButton("btnUpdate", label = "Update rank list title"),
             rank_list_basic,
             tags$b("Result"),
             verbatimTextOutput("results_basic")

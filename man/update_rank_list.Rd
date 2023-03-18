@@ -2,7 +2,7 @@
 % Please edit documentation in R/rank_list.R
 \name{update_rank_list}
 \alias{update_rank_list}
-\title{Change the value of a rank list on the client.}
+\title{Change the value of a rank list.}
 \usage{
 update_rank_list(
   input_id,
@@ -15,8 +15,13 @@ update_rank_list(
 
 \item{text}{Text to appear at top of list.}
 
-\item{session}{The \code{session} object passed to function given to \code{shinyServer}.}
+\item{session}{The \code{session} object passed to function given to
+\code{shinyServer}.}
 }
 \description{
-Change the value of a rank list on the client.
+At the moment, you can only update the \code{text} of the \code{rank_list}, not the
+labels.
+}
+\seealso{
+\link{rank_list}
 }

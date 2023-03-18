@@ -7,9 +7,10 @@
 #' @inheritParams rank_list
 #' @param ... Other arguments passed to `rank_list`
 #'
+#' @seealso [bucket_list()], [rank_list()] and [update_rank_list()]
 #' @return A list of class `add_rank_list`
 #' @export
-add_rank_list <- function(text, labels = NULL, input_id = NULL, ...) {
+add_rank_list <- function(text, labels = NULL, input_id = NULL, css_id = input_id, ...) {
   if (is.null(input_id)) {
     input_id <- increment_rank_list_input_id()
   }
@@ -17,6 +18,7 @@ add_rank_list <- function(text, labels = NULL, input_id = NULL, ...) {
     text = text,
     labels = labels,
     input_id = input_id,
+    css_id = css_id,
     ...
   )
   # assert_that(is_input_id(input_id))
@@ -57,7 +59,7 @@ is_add_rank_list <- function(x) {
 #'   layout of the components on the page.
 #'
 #' @return A list with class `bucket_list`
-#' @seealso rank_list
+#' @seealso [rank_list], [update_rank_list]
 #' @export
 #'
 #' @example inst/examples/example_bucket_list.R
@@ -71,6 +73,7 @@ bucket_list <- function(
   header = NULL,
   ...,
   group_name,
+  css_id = group_name,
   group_put_max = rep(Inf, length(labels)),
   options = sortable_options(),
   class = "default-sortable",
@@ -131,7 +134,7 @@ bucket_list <- function(
 
   title_tag <-
     if (!is.null(header)) {
-      tags$p(header)
+      tags$p(class = "bucket-list-header", header)
     } else {
       NULL
     }
@@ -139,6 +142,7 @@ bucket_list <- function(
   z <- tagList(
     tags$div(
       class = paste("bucket-list-container", class),
+      id = paste0("bucket-list-", css_id),
       title_tag,
       tags$div(
         class = paste(class, "bucket-list", paste0("bucket-list-", orientation)),
