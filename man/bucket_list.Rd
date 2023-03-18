@@ -8,6 +8,7 @@ bucket_list(
   header = NULL,
   ...,
   group_name,
+  css_id = group_name,
   group_put_max = rep(Inf, length(labels)),
   options = sortable_options(),
   class = "default-sortable",
@@ -87,5 +88,5 @@ if (interactive()) {
 }
 }
 \seealso{
-rank_list
+\link{rank_list}, \link{update_rank_list}
 }

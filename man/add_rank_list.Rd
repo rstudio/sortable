@@ -4,7 +4,7 @@
 \alias{add_rank_list}
 \title{Add a rank list inside bucket list.}
 \usage{
-add_rank_list(text, labels = NULL, input_id = NULL, ...)
+add_rank_list(text, labels = NULL, input_id = NULL, css_id = input_id, ...)
 }
 \arguments{
 \item{text}{Text to appear at top of list.}
@@ -15,6 +15,13 @@ label or label name will be used to set the shiny \code{input_id} value.}
 
 \item{input_id}{output variable to read the plot/image from.}
 
+\item{css_id}{This is the css id to use, and must be unique in your shiny
+app. This defaults to the value of \code{input_id}, and will be appended to the
+value "rank-list-container", to ensure the CSS id is unique for the
+container as well as the labels.
+If NULL, the function generates an id of the form
+\code{rank_list_id_1}, and will automatically increment for every \code{rank_list}.}
+
 \item{...}{Other arguments passed to \code{rank_list}}
 }
 \value{
@@ -24,4 +31,7 @@ A list of class \code{add_rank_list}
 Since a \link{bucket_list} can contain more than one \link{rank_list}, you need
 an easy way to define the contents of each individual rank list.  This
 function serves as a specification of a rank list.
+}
+\seealso{
+\code{\link[=bucket_list]{bucket_list()}}, \code{\link[=rank_list]{rank_list()}} and \code{\link[=update_rank_list]{update_rank_list()}}
 }
