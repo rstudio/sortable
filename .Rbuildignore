@@ -33,3 +33,4 @@
 
 revdep/*
 ^.sass_cache_keys$
+inst/htmlwidgets/plugins/sortable-rstudio/.sass_cache_keys

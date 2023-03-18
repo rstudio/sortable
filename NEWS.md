@@ -1,10 +1,14 @@
-# sortable (development version)
+# sortable 0.5
 
 ## Enhancements
 
-* Add experimental support for `update_rank_list()`
-
+* Add experimental support for `update_rank_list()` and `update_bucket_list()`
 * Add ability to switch the orientation of `rank_list()` items to horizontal. #92
+
+## Changes
+
+* A `rank_list` now has a unique CSS id, to allow updating the `text` of the 
+container.
 
 # sortable 0.4.6
 

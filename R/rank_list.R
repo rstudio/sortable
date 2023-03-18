@@ -19,20 +19,29 @@
 #'
 #'
 #' @param input_id output variable to read the plot/image from.
+#'
 #' @param labels A character vector with the text to display inside the widget.
 #'   This can also be a list of html tag elements.  The text content of each
 #'   label or label name will be used to set the shiny `input_id` value.
+#'
 #' @param text Text to appear at top of list.
+#'
 #' @param css_id This is the css id to use, and must be unique in your shiny
-#'   app. If NULL, the function generates an id of the form
+#'   app. This defaults to the value of `input_id`, and will be appended to the
+#'   value "rank-list-container", to ensure the CSS id is unique for the
+#'   container as well as the labels.
+#'   If NULL, the function generates an id of the form
 #'   `rank_list_id_1`, and will automatically increment for every `rank_list`.
+#'
 #' @param class A css class applied to the rank list.  This can be used to
 #'   define custom styling.
+#'
 #' @param orientation Set this to "horizontal" to get horizontal orientation of
 #'   the items.
+#'
 #' @template options
 #'
-#' @seealso [sortable_js], [bucket_list] and [question_rank]
+#' @seealso [update_rank_list], [sortable_js], [bucket_list] and [question_rank]
 #'
 #' @export
 #' @importFrom utils modifyList
@@ -75,10 +84,7 @@ rank_list <- function(
   )
 
   title_tag <- if (!is.null(text) && nchar(text) > 0) {
-    tags$p(
-      class = "rank-list-title",
-      text
-    )
+    tags$p(class = "rank-list-title", text)
   } else {
     NULL
   }
@@ -128,14 +134,37 @@ dropNulls <- function(x) {
 }
 
 
-#' Change the value of a rank list on the client.
+#' Change the value of a rank list.
+#'
+#' At the moment, you can only update the `text` of the `rank_list`, not the
+#' labels.
 #'
 #' @inheritParams rank_list
-#' @param session The `session` object passed to function given to `shinyServer`.
+#' @param session The `session` object passed to function given to
+#'   `shinyServer`.
+#' @seealso [rank_list]
 #' @export
 update_rank_list <- function(input_id, text = NULL,
                              session = shiny::getDefaultReactiveDomain()) {
   inputId <- paste0("rank-list-", input_id)
+  message <- dropNulls(list(id = inputId, text = text))
+  session$sendInputMessage(inputId, message)
+}
+
+
+#' Change the value of a bucket list.
+#'
+#' At the moment, you can only update the `text` of the `bucket_list`, not the
+#' labels.
+#'
+#' @inheritParams bucket_list
+#' @param session The `session` object passed to function given to
+#'   `shinyServer`.
+#' @seealso [bucket_list]
+#' @export
+update_bucket_list <- function(input_id, text = NULL,
+                             session = shiny::getDefaultReactiveDomain()) {
+  inputId <- paste0("bucket-list-", input_id)
   message <- dropNulls(list(id = inputId, text = text))
   session$sendInputMessage(inputId, message)
 }

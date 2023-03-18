@@ -26,6 +26,8 @@ reference:
   contents:
   - render_sortable
   - sortable_output
+  - update_rank_list
+  - update_bucket_list
 - title: Package documentation
   desc: ~
   contents:
