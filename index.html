@@ -162,6 +162,7 @@
 <span>        <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/tabPanel.html" class="external-link">tabPanel</a></span><span class="op">(</span></span>
 <span>          <span class="st">"Default"</span>,</span>
 <span>            <span class="va">tags</span><span class="op">$</span><span class="fu">b</span><span class="op">(</span><span class="st">"Exercise"</span><span class="op">)</span>,</span>
+<span>            <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/actionButton.html" class="external-link">actionButton</a></span><span class="op">(</span><span class="st">"btnUpdate"</span>, label <span class="op">=</span> <span class="st">"Update rank list title"</span><span class="op">)</span>,</span>
 <span>            <span class="va">rank_list_basic</span>,</span>
 <span>            <span class="va">tags</span><span class="op">$</span><span class="fu">b</span><span class="op">(</span><span class="st">"Result"</span><span class="op">)</span>,</span>
 <span>            <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/textOutput.html" class="external-link">verbatimTextOutput</a></span><span class="op">(</span><span class="st">"results_basic"</span><span class="op">)</span></span>
@@ -185,7 +186,7 @@
 <span>  <span class="op">)</span></span>
 <span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span><span class="op">)</span> <span class="op">{</span></span>
+<span><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="va">output</span><span class="op">$</span><span class="va">results_basic</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/renderPrint.html" class="external-link">renderPrint</a></span><span class="op">(</span><span class="op">{</span></span>
 <span>    <span class="va">input</span><span class="op">$</span><span class="va">rank_list_basic</span> <span class="co"># This matches the input_id of the rank list</span></span>
 <span>  <span class="op">}</span><span class="op">)</span></span>
@@ -195,6 +196,15 @@
 <span>  <span class="va">output</span><span class="op">$</span><span class="va">results_swap</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/renderPrint.html" class="external-link">renderPrint</a></span><span class="op">(</span><span class="op">{</span></span>
 <span>    <span class="va">input</span><span class="op">$</span><span class="va">rank_list_swap</span> <span class="co"># This matches the input_id of the rank list</span></span>
 <span>  <span class="op">}</span><span class="op">)</span></span>
+<span>  <span class="co"># test updating the rank list label</span></span>
+<span>  <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/observe.html" class="external-link">observe</a></span><span class="op">(</span><span class="op">{</span></span>
+<span>    <span class="fu"><a href="reference/update_rank_list.html">update_rank_list</a></span><span class="op">(</span></span>
+<span>      <span class="st">"rank_list_basic"</span>,</span>
+<span>      text <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span><span class="st">"You pressed the button at"</span>, <span class="fu"><a href="https://rdrr.io/r/base/character.html" class="external-link">as.character</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Sys.time.html" class="external-link">Sys.time</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>      session <span class="op">=</span> <span class="va">session</span></span>
+<span>    <span class="op">)</span></span>
+<span>  <span class="op">}</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>    <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/bindEvent.html" class="external-link">bindEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">btnUpdate</span><span class="op">)</span></span>
 <span><span class="op">}</span></span>
 <span></span>
 <span><span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span><span class="va">ui</span>, <span class="va">server</span><span class="op">)</span></span></code></pre></div>
@@ -218,6 +228,8 @@
 <span>  <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/fluidPage.html" class="external-link">fluidRow</a></span><span class="op">(</span></span>
 <span>    <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/column.html" class="external-link">column</a></span><span class="op">(</span></span>
 <span>      <span class="va">tags</span><span class="op">$</span><span class="fu">b</span><span class="op">(</span><span class="st">"Exercise"</span><span class="op">)</span>,</span>
+<span>      <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/actionButton.html" class="external-link">actionButton</a></span><span class="op">(</span><span class="st">"btnUpdateBucket"</span>, label <span class="op">=</span> <span class="st">"Update bucket list title"</span><span class="op">)</span>,</span>
+<span>      <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/actionButton.html" class="external-link">actionButton</a></span><span class="op">(</span><span class="st">"btnUpdateRank"</span>, label <span class="op">=</span> <span class="st">"Update rank list title"</span><span class="op">)</span>,</span>
 <span>      width <span class="op">=</span> <span class="fl">12</span>,</span>
 <span>      <span class="fu"><a href="reference/bucket_list.html">bucket_list</a></span><span class="op">(</span></span>
 <span>        header <span class="op">=</span> <span class="st">"Drag the items in any desired bucket"</span>,</span>
@@ -266,7 +278,7 @@
 <span>  <span class="op">)</span></span>
 <span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>,<span class="va">output</span><span class="op">)</span> <span class="op">{</span></span>
+<span><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="va">output</span><span class="op">$</span><span class="va">results_1</span> <span class="op">&lt;-</span></span>
 <span>    <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/renderPrint.html" class="external-link">renderPrint</a></span><span class="op">(</span></span>
 <span>      <span class="va">input</span><span class="op">$</span><span class="va">rank_list_1</span> <span class="co"># This matches the input_id of the first rank list</span></span>
@@ -279,6 +291,30 @@
 <span>    <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/renderPrint.html" class="external-link">renderPrint</a></span><span class="op">(</span></span>
 <span>      <span class="va">input</span><span class="op">$</span><span class="va">bucket_list_group</span> <span class="co"># Matches the group_name of the bucket list</span></span>
 <span>    <span class="op">)</span></span>
+<span></span>
+<span>  <span class="co"># test updating the bucket list label</span></span>
+<span>  <span class="va">counter_bucket</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/reactiveVal.html" class="external-link">reactiveVal</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/observe.html" class="external-link">observe</a></span><span class="op">(</span><span class="op">{</span></span>
+<span>    <span class="fu"><a href="reference/update_bucket_list.html">update_bucket_list</a></span><span class="op">(</span></span>
+<span>      <span class="st">"bucket_list_group"</span>,</span>
+<span>      text <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span><span class="st">"You pressed the button"</span>, <span class="fu">counter_bucket</span><span class="op">(</span><span class="op">)</span>, <span class="st">"times"</span><span class="op">)</span>,</span>
+<span>      session <span class="op">=</span> <span class="va">session</span></span>
+<span>    <span class="op">)</span></span>
+<span>    <span class="fu">counter_bucket</span><span class="op">(</span><span class="fu">counter_bucket</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> <span class="fl">1</span><span class="op">)</span></span>
+<span>  <span class="op">}</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>    <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/bindEvent.html" class="external-link">bindEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">btnUpdateBucket</span><span class="op">)</span></span>
+<span></span>
+<span>  <span class="co"># test updating the rank list label</span></span>
+<span>  <span class="va">counter_rank</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/reactiveVal.html" class="external-link">reactiveVal</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/observe.html" class="external-link">observe</a></span><span class="op">(</span><span class="op">{</span></span>
+<span>    <span class="fu"><a href="reference/update_rank_list.html">update_rank_list</a></span><span class="op">(</span></span>
+<span>      <span class="st">"rank_list_1"</span>,</span>
+<span>      text <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span><span class="st">"You pressed the button"</span>, <span class="fu">counter_rank</span><span class="op">(</span><span class="op">)</span>, <span class="st">"times"</span><span class="op">)</span>,</span>
+<span>      session <span class="op">=</span> <span class="va">session</span></span>
+<span>    <span class="op">)</span></span>
+<span>    <span class="fu">counter_rank</span><span class="op">(</span><span class="fu">counter_rank</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> <span class="fl">1</span><span class="op">)</span></span>
+<span>  <span class="op">}</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>    <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/bindEvent.html" class="external-link">bindEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">btnUpdateRank</span><span class="op">)</span></span>
 <span><span class="op">}</span></span>
 <span></span>
 <span></span>
