@@ -12,7 +12,7 @@ of items between the different lists."><meta property="og:image" content="https:
     
     <a class="navbar-brand me-2" href="../index.html">sortable</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.4.6.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.5.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -93,6 +93,13 @@ where you want the header to be empty - to do this use <code>header = NULL</code
 <dt>group_name</dt>
 <dd><p>Passed to <code>SortableJS</code> as the group name. Also the input
 value set in Shiny. (<code>input[[group_name]]</code>)</p></dd>
+
+
+<dt>css_id</dt>
+<dd><p>This is the css id to use, and must be unique in your shiny
+app. This defaults to the value of <code>group_id</code>, and will be appended to the
+value "bucket-list-container", to ensure the CSS id is unique for the
+container as well as the embedded rank lists.</p></dd>
 
 
 <dt>group_put_max</dt>

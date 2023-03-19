@@ -12,7 +12,7 @@ labels."><meta property="og:image" content="https://rstudio.github.io/sortable/l
     
     <a class="navbar-brand me-2" href="../index.html">sortable</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.4.6.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.5.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -64,15 +64,30 @@ labels.</p>
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">update_bucket_list</span><span class="op">(</span></span>
-<span>  <span class="va">input_id</span>,</span>
-<span>  text <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  <span class="va">css_id</span>,</span>
+<span>  header <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  session <span class="op">=</span> <span class="fu">shiny</span><span class="fu">::</span><span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/domains.html" class="external-link">getDefaultReactiveDomain</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
-    <dl><dt>session</dt>
+    <dl><dt>css_id</dt>
+<dd><p>This is the css id to use, and must be unique in your shiny
+app. This defaults to the value of <code>group_id</code>, and will be appended to the
+value "bucket-list-container", to ensure the CSS id is unique for the
+container as well as the embedded rank lists.</p></dd>
+
+
+<dt>header</dt>
+<dd><p>Text that appears at the top of the bucket list.  (This is
+encoded as an HTML <code>&lt;p&gt;</code> tag, so not strictly speaking a header.)  Note
+that you must explicitly provide <code>header</code> argument, especially in the case
+where you want the header to be empty - to do this use <code>header = NULL</code> or
+<code>header = NA</code>.</p></dd>
+
+
+<dt>session</dt>
 <dd><p>The <code>session</code> object passed to function given to
 <code>shinyServer</code>.</p></dd>
 
