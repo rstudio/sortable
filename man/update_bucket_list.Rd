@@ -5,12 +5,23 @@
 \title{Change the value of a bucket list.}
 \usage{
 update_bucket_list(
-  input_id,
-  text = NULL,
+  css_id,
+  header = NULL,
   session = shiny::getDefaultReactiveDomain()
 )
 }
 \arguments{
+\item{css_id}{This is the css id to use, and must be unique in your shiny
+app. This defaults to the value of \code{group_id}, and will be appended to the
+value "bucket-list-container", to ensure the CSS id is unique for the
+container as well as the embedded rank lists.}
+
+\item{header}{Text that appears at the top of the bucket list.  (This is
+encoded as an HTML \verb{<p>} tag, so not strictly speaking a header.)  Note
+that you must explicitly provide \code{header} argument, especially in the case
+where you want the header to be empty - to do this use \code{header = NULL} or
+\code{header = NA}.}
+
 \item{session}{The \code{session} object passed to function given to
 \code{shinyServer}.}
 }

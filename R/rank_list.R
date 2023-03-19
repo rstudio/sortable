@@ -144,9 +144,9 @@ dropNulls <- function(x) {
 #'   `shinyServer`.
 #' @seealso [rank_list]
 #' @export
-update_rank_list <- function(input_id, text = NULL,
+update_rank_list <- function(css_id, text = NULL,
                              session = shiny::getDefaultReactiveDomain()) {
-  inputId <- paste0("rank-list-", input_id)
+  inputId <- paste0("rank-list-", css_id)
   message <- dropNulls(list(id = inputId, text = text))
   session$sendInputMessage(inputId, message)
 }
@@ -162,9 +162,9 @@ update_rank_list <- function(input_id, text = NULL,
 #'   `shinyServer`.
 #' @seealso [bucket_list]
 #' @export
-update_bucket_list <- function(input_id, text = NULL,
+update_bucket_list <- function(css_id, header = NULL,
                              session = shiny::getDefaultReactiveDomain()) {
-  inputId <- paste0("bucket-list-", input_id)
-  message <- dropNulls(list(id = inputId, text = text))
+  inputId <- paste0("bucket-list-", css_id)
+  message <- dropNulls(list(id = inputId, header = header))
   session$sendInputMessage(inputId, message)
 }

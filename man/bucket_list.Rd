@@ -28,6 +28,11 @@ where you want the header to be empty - to do this use \code{header = NULL} or
 \item{group_name}{Passed to \code{SortableJS} as the group name. Also the input
 value set in Shiny. (\code{input[[group_name]]})}
 
+\item{css_id}{This is the css id to use, and must be unique in your shiny
+app. This defaults to the value of \code{group_id}, and will be appended to the
+value "bucket-list-container", to ensure the CSS id is unique for the
+container as well as the embedded rank lists.}
+
 \item{group_put_max}{Not yet implemented}
 
 \item{options}{Options to be supplied to \link{sortable_js} object. See \link{sortable_options} for more details}

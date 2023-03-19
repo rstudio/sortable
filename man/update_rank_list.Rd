@@ -5,13 +5,18 @@
 \title{Change the value of a rank list.}
 \usage{
 update_rank_list(
-  input_id,
+  css_id,
   text = NULL,
   session = shiny::getDefaultReactiveDomain()
 )
 }
 \arguments{
-\item{input_id}{output variable to read the plot/image from.}
+\item{css_id}{This is the css id to use, and must be unique in your shiny
+app. This defaults to the value of \code{input_id}, and will be appended to the
+value "rank-list-container", to ensure the CSS id is unique for the
+container as well as the labels.
+If NULL, the function generates an id of the form
+\code{rank_list_id_1}, and will automatically increment for every \code{rank_list}.}
 
 \item{text}{Text to appear at top of list.}
 

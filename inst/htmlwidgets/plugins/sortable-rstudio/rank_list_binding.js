@@ -73,7 +73,7 @@ $.extend(bucketlistBinding, {
   },
 
   receiveMessage: function(el, data) {
-    $(el).find(".bucket-list-header").text(data.text);
+    $(el).find(".bucket-list-header").text(data.header);
   }
 
 });

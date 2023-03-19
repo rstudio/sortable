@@ -58,6 +58,11 @@ is_add_rank_list <- function(x) {
 #' @param orientation Either `horizontal` or `vertical`, and specifies the
 #'   layout of the components on the page.
 #'
+#' @param css_id This is the css id to use, and must be unique in your shiny
+#'   app. This defaults to the value of `group_id`, and will be appended to the
+#'   value "bucket-list-container", to ensure the CSS id is unique for the
+#'   container as well as the embedded rank lists.
+#'
 #' @return A list with class `bucket_list`
 #' @seealso [rank_list], [update_rank_list]
 #' @export

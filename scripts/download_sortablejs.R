@@ -13,4 +13,3 @@ sortable_yaml_file <- file.path("inst", "htmlwidgets", "sortable.yaml")
 config <- yaml::read_yaml(sortable_yaml_file)
 config$dependencies[[1]]$version <- yaml_version
 yaml::write_yaml(config, sortable_yaml_file)
-

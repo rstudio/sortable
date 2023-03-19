@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# sortable <img src='man/figures/logo.svg' align="right" height="139" />
+# sortable <img src='man/figures/logo.png' align="right" height="139" />
 
 <!-- badges: start -->
 
@@ -55,9 +55,7 @@ You can create a drag-and-drop input object in Shiny, using the
 `rank_list()` function.
 
 <center>
-
 <img src="man/figures/rank_list_shiny.gif" style = 'width:500px;'></img>
-
 </center>
 
 ``` r
@@ -165,9 +163,7 @@ object. This can be useful for bucketing tasks, e.g. asking your
 students to classify objects into multiple categories.
 
 <center>
-
 <img src="man/figures/bucket_list_shiny.gif" style = 'width:500px;'></img>
-
 </center>
 
 ``` r
@@ -282,9 +278,7 @@ shinyApp(ui, server)
 You can also use `sortable_js()` to drag and drop other widgets:
 
 <center>
-
 <img src="man/figures/diagrammer.gif" style = 'width:500px;'></img>
-
 </center>
 
 ``` r
@@ -314,20 +308,19 @@ html_print(tagList(
 
 I learnt about the following related work after starting on `sortable`:
 
-  - The `esquisse` [package](https://github.com/dreamRs/esquisse):
-    
-    > “The purpose of this add-in is to let you explore your data
-    > quickly to extract the information they hold. You can only create
-    > simple plots, you won’t be able to use custom scales and all the
-    > power of ggplot2.”
+- The `esquisse` [package](https://github.com/dreamRs/esquisse):
 
-  - There is also the `shinyjqui`
-    [package](https://yang-tang.github.io/shinyjqui/):
-    
-    > “An R wrapper for jQuery UI javascript library. It allows user to
-    > easily add interactions and animation effects to a shiny app.”
+  > “The purpose of this add-in is to let you explore your data quickly
+  > to extract the information they hold. You can only create simple
+  > plots, you won’t be able to use custom scales and all the power of
+  > ggplot2.”
 
-  - The `shinyDND`
-    [package](https://cran.r-project.org/package=shinyDND):
-    
-    > Adds functionality to create drag and drop div elements in shiny.
+- There is also the `shinyjqui`
+  [package](https://yang-tang.github.io/shinyjqui/):
+
+  > “An R wrapper for jQuery UI javascript library. It allows user to
+  > easily add interactions and animation effects to a shiny app.”
+
+- The `shinyDND` [package](https://cran.r-project.org/package=shinyDND):
+
+  > Adds functionality to create drag and drop div elements in shiny.
