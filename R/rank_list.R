@@ -144,6 +144,14 @@ dropNulls <- function(x) {
 #'   `shinyServer`.
 #' @seealso [rank_list]
 #' @export
+#' ## Example of a shiny app that updates a bucket list and rank list
+#' if (interactive()) {
+#'   app <- system.file(
+#'     "shiny-examples/update/app.R",
+#'     package = "sortable"
+#'   )
+#'   shiny::runApp(app)
+#' }
 update_rank_list <- function(css_id, text = NULL,
                              session = shiny::getDefaultReactiveDomain()) {
   inputId <- paste0("rank-list-", css_id)
@@ -162,6 +170,15 @@ update_rank_list <- function(css_id, text = NULL,
 #'   `shinyServer`.
 #' @seealso [bucket_list]
 #' @export
+#' @examples
+#' ## Example of a shiny app that updates a bucket list and rank list
+#' if (interactive()) {
+#'   app <- system.file(
+#'     "shiny-examples/update/app.R",
+#'     package = "sortable"
+#'   )
+#'   shiny::runApp(app)
+#' }
 update_bucket_list <- function(css_id, header = NULL,
                              session = shiny::getDefaultReactiveDomain()) {
   inputId <- paste0("bucket-list-", css_id)

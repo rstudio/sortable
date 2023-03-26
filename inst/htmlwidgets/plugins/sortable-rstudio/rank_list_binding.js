@@ -10,7 +10,7 @@ $.extend(ranklistBinding, {
 
   },
 
-  // this method will be called on initialisation
+  // this method will be called on initialization
   initialize: function(el){
 
   },
@@ -21,8 +21,6 @@ $.extend(ranklistBinding, {
 
   },
 
-  // we want to subscribe to the switchChange event
-  // see http://bootstrapswitch.com/events.html
   subscribe: function(el, callback) {
 
   },
@@ -54,7 +52,7 @@ $.extend(bucketlistBinding, {
 
   },
 
-  // this method will be called on initialisation
+  // this method will be called on initialization
   initialize: function(el){
 
   },
@@ -65,8 +63,6 @@ $.extend(bucketlistBinding, {
 
   },
 
-  // we want to subscribe to the switchChange event
-  // see http://bootstrapswitch.com/events.html
   subscribe: function(el, callback) {
 
 

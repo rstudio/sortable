@@ -36,3 +36,4 @@ revdep/*
 inst/htmlwidgets/plugins/sortable-rstudio/.sass_cache_keys
 sortable/man-roxygen
 sortable/scripts
+^revdep$

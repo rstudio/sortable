@@ -10,7 +10,9 @@
 #' @seealso [bucket_list()], [rank_list()] and [update_rank_list()]
 #' @return A list of class `add_rank_list`
 #' @export
-add_rank_list <- function(text, labels = NULL, input_id = NULL, css_id = input_id, ...) {
+add_rank_list <- function(text, labels = NULL, input_id = NULL,
+  css_id = input_id, ...)
+{ # nolint
   if (is.null(input_id)) {
     input_id <- increment_rank_list_input_id()
   }
@@ -21,7 +23,6 @@ add_rank_list <- function(text, labels = NULL, input_id = NULL, css_id = input_i
     css_id = css_id,
     ...
   )
-  # assert_that(is_input_id(input_id))
   class(z) <- c("add_rank_list", "list")
   z
 }
@@ -71,7 +72,10 @@ is_add_rank_list <- function(x) {
 #' @examples
 #' ## Example of a shiny app
 #' if (interactive()) {
-#'   app <- system.file("shiny-examples/bucket_list/app.R", package = "sortable")
+#'   app <- system.file(
+#'     "shiny-examples/bucket_list/app.R",
+#'     package = "sortable"
+#'   )
 #'   shiny::runApp(app)
 #' }
 bucket_list <- function(
@@ -135,7 +139,7 @@ bucket_list <- function(
   })
 
   # construct list rank_list objects
-  sortables <- lapply(dots, function(dot) do.call(rank_list, dot) )
+  sortables <- lapply(dots, function(dot) do.call(rank_list, dot))
 
   title_tag <-
     if (!is.null(header)) {
@@ -150,7 +154,9 @@ bucket_list <- function(
       id = paste0("bucket-list-", css_id),
       title_tag,
       tags$div(
-        class = paste(class, "bucket-list", paste0("bucket-list-", orientation)),
+        class = paste(class, "bucket-list",
+                      paste0("bucket-list-", orientation)
+                      ),
         sortables
       )
     ),
