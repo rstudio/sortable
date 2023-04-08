@@ -154,11 +154,21 @@ dropNulls <- function(x) {
 #'   )
 #'   shiny::runApp(app)
 #' }
-update_rank_list <- function(css_id, text = NULL,
+
+update_rank_list <- function(css_id,
+                             text = NULL,
+                             labels = NULL,
                              session = shiny::getDefaultReactiveDomain()) {
-  inputId <- paste0("rank-list-", css_id)
-  message <- dropNulls(list(id = inputId, text = text))
-  session$sendInputMessage(inputId, message)
+  id <- session$ns(css_id)
+  if (!is.null(text)) {
+    inputId <- paste0("rank-list-", id)
+    message <- dropNulls(list(id = inputId, text = text))
+    session$sendInputMessage(inputId, message)
+  }
+  if (!is.null(labels)) {
+    session$sendCustomMessage(type = "update-labels",
+                              message = list(inputId = id, labels = labels))
+  }
 }
 
 
