@@ -7,6 +7,7 @@
 update_rank_list(
   css_id,
   text = NULL,
+  labels = NULL,
   session = shiny::getDefaultReactiveDomain()
 )
 }
@@ -20,12 +21,27 @@ If NULL, the function generates an id of the form
 
 \item{text}{Text to appear at top of list.}
 
+\item{labels}{A character vector with the text to display inside the widget.
+This can also be a list of html tag elements.  The text content of each
+label or label name will be used to set the shiny \code{input_id} value.}
+
 \item{session}{The \code{session} object passed to function given to
 \code{shinyServer}.}
 }
 \description{
 At the moment, you can only update the \code{text} of the \code{rank_list}, not the
 labels.
+}
+\examples{
+
+## Example of a shiny app that updates a bucket list and rank list
+if (interactive()) {
+  app <- system.file(
+    "shiny-examples/update/app.R",
+    package = "sortable"
+  )
+  shiny::runApp(app)
+}
 }
 \seealso{
 \link{rank_list}
