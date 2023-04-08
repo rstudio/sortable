@@ -144,6 +144,8 @@ dropNulls <- function(x) {
 #'   `shinyServer`.
 #' @seealso [rank_list]
 #' @export
+#' @examples
+#'
 #' ## Example of a shiny app that updates a bucket list and rank list
 #' if (interactive()) {
 #'   app <- system.file(
