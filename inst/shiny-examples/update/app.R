@@ -15,7 +15,7 @@ ui <- fluidPage(
       width = 12,
       h2("Update the title"),
       actionButton("btnUpdateBucket", label = "Update bucket list title"),
-
+      actionButton("btnUpdateLabels", label = "Update bucket list labels")
     )
   ),
   fluidRow(
@@ -29,9 +29,7 @@ ui <- fluidPage(
         add_rank_list(
           text = "Drag from here",
           labels = list(
-            "one",
-            "two",
-            "three"
+            "1"
           ),
           input_id = "rank_list_1"
         ),
@@ -49,6 +47,7 @@ server <- function(input, output, session) {
 
   # test updating the bucket list label
   counter_bucket <- reactiveVal(1)
+  label_counter <- reactiveVal(1)
   observe({
     update_bucket_list(
       "bucket_list_group",
@@ -58,6 +57,15 @@ server <- function(input, output, session) {
     counter_bucket(counter_bucket() + 1)
   }) %>%
     bindEvent(input$btnUpdateBucket)
+
+  observeEvent(
+    input$btnUpdateLabels, {
+      label_counter(label_counter() + 1)
+      update_rank_list(
+        "rank_list_1",
+        labels = c(input$rank_list_1, label_counter())
+      )
+    })
 
   observe({
     len <- length(input$rank_list_1)
