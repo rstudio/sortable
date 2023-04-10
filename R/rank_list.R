@@ -173,6 +173,7 @@ update_rank_list <- function(css_id,
 #' labels.
 #'
 #' @inheritParams bucket_list
+#' @inheritParams update_rank_list
 #' @param session The `session` object passed to function given to
 #'   `shinyServer`.
 #' @seealso [bucket_list]

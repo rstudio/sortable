@@ -7,6 +7,7 @@
 update_bucket_list(
   css_id,
   header = NULL,
+  labels = NULL,
   session = shiny::getDefaultReactiveDomain()
 )
 }
@@ -21,6 +22,10 @@ encoded as an HTML \verb{<p>} tag, so not strictly speaking a header.)  Note
 that you must explicitly provide \code{header} argument, especially in the case
 where you want the header to be empty - to do this use \code{header = NULL} or
 \code{header = NA}.}
+
+\item{labels}{A character vector with the text to display inside the widget.
+This can also be a list of html tag elements.  The text content of each
+label or label name will be used to set the shiny \code{input_id} value.}
 
 \item{session}{The \code{session} object passed to function given to
 \code{shinyServer}.}
