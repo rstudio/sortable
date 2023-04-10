@@ -77,16 +77,3 @@ $.extend(bucketlistBinding, {
 
 // register the binding so Shiny knows it exists
 Shiny.inputBindings.register(bucketlistBinding);
-
-Shiny.addCustomMessageHandler(
-  type = 'update-labels', function(message) {
-    let html = message.labels.map((v) => {
-      let el = document.createElement("div");
-      el.classList.add("rank-list-item");
-      el.innerHTML = v;
-      return el;
-    })
-    $('#' + message.inputId).html(html)
-    Shiny.setInputValue(message.inputId, message.labels, {priority: 'event'})
-  }
-)
