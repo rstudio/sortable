@@ -159,16 +159,11 @@ update_rank_list <- function(css_id,
                              text = NULL,
                              labels = NULL,
                              session = shiny::getDefaultReactiveDomain()) {
-  id <- session$ns(css_id)
-  if (!is.null(text)) {
-    inputId <- paste0("rank-list-", id)
-    message <- dropNulls(list(id = inputId, text = text))
-    session$sendInputMessage(inputId, message)
-  }
-  if (!is.null(labels)) {
-    session$sendCustomMessage(type = "update-labels",
-                              message = list(inputId = id, labels = labels))
-  }
+
+
+  inputId <- paste0("rank-list-", css_id)
+  message <- dropNulls(list(id = css_id, text = text, labels = labels))
+  session$sendInputMessage(inputId, message)
 }
 
 
@@ -191,9 +186,13 @@ update_rank_list <- function(css_id,
 #'   )
 #'   shiny::runApp(app)
 #' }
-update_bucket_list <- function(css_id, header = NULL,
-                             session = shiny::getDefaultReactiveDomain()) {
+update_bucket_list <- function(css_id,
+                               header = NULL,
+                               labels = NULL,
+
+                               session = shiny::getDefaultReactiveDomain()) {
+
   inputId <- paste0("bucket-list-", css_id)
-  message <- dropNulls(list(id = inputId, header = header))
+  message <- dropNulls(list(id = css_id, header = header, labels = labels))
   session$sendInputMessage(inputId, message)
 }
