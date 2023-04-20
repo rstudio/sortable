@@ -26,14 +26,15 @@ $.extend(ranklistBinding, {
     }
 
     if (data.labels) {
-      let html = data.labels.map((v) => {
+      let labels = [].concat(data.labels)
+      let html = labels.map((v) => {
         let el = document.createElement("div");
         el.classList.add("rank-list-item");
         el.innerHTML = v;
         return el;
       })
       $('#' + data.id).html(html)
-      Shiny.setInputValue(data.id, data.labels, {priority: 'event'})
+      Shiny.setInputValue(data.id, labels, {priority: 'event'})
     }
 
   },
@@ -88,7 +89,8 @@ $.extend(bucketlistBinding, {
     }
 
     if (data.labels) {
-      let html = data.labels.map((v) => {
+      let labels = [].concat(data.labels)
+      let html = labels.map((v) => {
         let el = document.createElement("div");
         el.classList.add("rank-list-item");
         el.innerHTML = v;
