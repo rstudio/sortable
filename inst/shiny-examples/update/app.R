@@ -10,12 +10,14 @@ ui <- fluidPage(
   tags$head(
     tags$style(HTML(".bucket-list-container {min-height: 350px;}"))
   ),
-  mod_sortable_ui("bucket_lists")
+  mod_sortable_ui("mod1"),
+  mod_sortable_ui("mod2")
 )
 
 server <- function(input, output, session) {
 
- mod_sortable_server("bucket_lists")
+  mod_sortable_server("mod1")
+  mod_sortable_server("mod2")
 
 }
 
