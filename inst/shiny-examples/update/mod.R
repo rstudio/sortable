@@ -13,7 +13,7 @@ mod_sortable_ui <- function(id){
     fluidRow(
       column(
         width = 12,
-        h2("Update the title"),
+        h2("Update:", tags$code(id)),
         actionButton(ns("btnUpdateBucket"), label = "Update bucket list title"),
         actionButton(ns("btnUpdateLabels"), label = "Update bucket list labels")
       )
@@ -24,7 +24,8 @@ mod_sortable_ui <- function(id){
         width = 12,
         bucket_list(
           header = "Drag the items in any desired bucket",
-          group_name = "bucket_list_group",
+          group_name = ns("bucket_list_group"),
+          css_id=ns("bucket_list_group"),
           orientation = "horizontal",
           add_rank_list(
             text = "Drag from here",
