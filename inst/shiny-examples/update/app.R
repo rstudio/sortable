@@ -2,9 +2,8 @@
 ## Example shiny app with bucket list
 
 library(shiny)
-devtools::load_all(".")
+library(sortable)
 library(magrittr)
-source("mod.R")
 
 ui <- fluidPage(
   tags$head(
@@ -20,8 +19,6 @@ server <- function(input, output, session) {
   mod_sortable_server("mod2")
 
 }
-
-
 
 
 shinyApp(ui, server)
