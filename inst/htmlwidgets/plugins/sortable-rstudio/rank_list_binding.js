@@ -21,7 +21,6 @@ $.extend(ranklistBinding, {
 
   },
   setValue: function (el, data) {
-    debugger;
     if (data.header) {
       $(el).find(".rank-list-title").text(data.text);
     }
@@ -43,7 +42,6 @@ $.extend(ranklistBinding, {
 
   },
   receiveMessage: function(el, data) {
-    debugger;
     this.setValue(el, data)
   }
 
