@@ -109,7 +109,7 @@ rank_list <- function(
   rank_list_tags <- tagList(
     tags$div(
       class = paste("rank-list-container", paste(class, collapse = " ")),
-      id = paste0("rank-list-", css_id),
+      id = rank_list_id(css_id),
       title_tag,
       tags$div(
         class = "rank-list",
@@ -160,9 +160,8 @@ update_rank_list <- function(css_id,
                              labels = NULL,
                              session = shiny::getDefaultReactiveDomain()) {
 
-
-  inputId <- paste0("rank-list-", css_id)
-  message <- dropNulls(list(id = css_id, text = text, labels = labels))
+  inputId <- rank_list_id(css_id)
+  message <- dropNulls(list(id = session$ns(css_id), text = text, labels = labels))
   session$sendInputMessage(inputId, message)
 }
 
@@ -190,10 +189,8 @@ update_rank_list <- function(css_id,
 update_bucket_list <- function(css_id,
                                header = NULL,
                                labels = NULL,
-
                                session = shiny::getDefaultReactiveDomain()) {
-
-  inputId <- paste0("bucket-list-", css_id)
-  message <- dropNulls(list(id = css_id, header = header, labels = labels))
+  inputId <- bucket_list_id(css_id)
+  message <- dropNulls(list(id = session$ns(css_id), header = header, labels = labels))
   session$sendInputMessage(inputId, message)
 }
