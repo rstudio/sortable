@@ -10,8 +10,9 @@
 
 ## Enhancements
 
-* Add support for `update_rank_list()` and `update_bucket_list()`
-* Add ability to switch the orientation of `rank_list()` items to horizontal. #92
+* Add support for updating `rank_list()` labels and export `update_rank_list()` (#95 @yogat3ch)
+* Add support for `update_rank_list()` and `update_bucket_list()` (#93)
+* Add ability to switch the orientation of `rank_list()` items to horizontal. (#92)
 
 ## Changes
 
