@@ -52,7 +52,8 @@ is_add_rank_list <- function(x) {
 #'   be used to define custom styling.
 #'
 #' @param group_name Passed to `SortableJS` as the group name. Also the input
-#'   value set in Shiny. (`input[[group_name]]`)
+#'   value set in Shiny. (`input[[group_name]]`). Items can be dragged between
+#'   bucket lists which share the same group name.
 #'
 #' @param group_put_max Not yet implemented
 #'
