@@ -26,7 +26,8 @@ where you want the header to be empty - to do this use \code{header = NULL} or
 \link{add_rank_list}.}
 
 \item{group_name}{Passed to \code{SortableJS} as the group name. Also the input
-value set in Shiny. (\code{input[[group_name]]})}
+value set in Shiny. (\code{input[[group_name]]}). Items can be dragged between
+bucket lists which share the same group name.}
 
 \item{css_id}{This is the css id to use, and must be unique in your shiny
 app. This defaults to the value of \code{group_id}, and will be appended to the
@@ -86,6 +87,35 @@ if(interactive()) {
     )
   )
 }
+
+## drag items between bucket lists
+
+if(interactive()) {
+
+  ui <- shiny::fluidPage(
+    shiny::column(4, bucket_list(NULL,
+      group_name = "foo",
+      add_rank_list(
+        text = "Drag from here...",
+        labels = sample(c(1:3, letters[1:2]))
+      )
+    )),
+    shiny::column(4, "Some empty space"),
+    shiny::column(4, bucket_list(NULL,
+      group_name = "foo",
+      add_rank_list(
+        text = "...To here"
+      )
+    ))
+  )
+
+  server <- function(input, output, session) {}
+
+  shiny::shinyApp(ui, server)
+
+
+}
+
 ## Example of a shiny app
 if (interactive()) {
   app <- system.file(
