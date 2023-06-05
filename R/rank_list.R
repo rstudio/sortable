@@ -109,7 +109,7 @@ rank_list <- function(
   rank_list_tags <- tagList(
     tags$div(
       class = paste("rank-list-container", paste(class, collapse = " ")),
-      id = paste0("rank-list-", css_id),
+      id = rank_list_id(css_id),
       title_tag,
       tags$div(
         class = "rank-list",
@@ -144,6 +144,8 @@ dropNulls <- function(x) {
 #'   `shinyServer`.
 #' @seealso [rank_list]
 #' @export
+#' @examples
+#'
 #' ## Example of a shiny app that updates a bucket list and rank list
 #' if (interactive()) {
 #'   app <- system.file(
@@ -152,10 +154,14 @@ dropNulls <- function(x) {
 #'   )
 #'   shiny::runApp(app)
 #' }
-update_rank_list <- function(css_id, text = NULL,
+
+update_rank_list <- function(css_id,
+                             text = NULL,
+                             labels = NULL,
                              session = shiny::getDefaultReactiveDomain()) {
-  inputId <- paste0("rank-list-", css_id)
-  message <- dropNulls(list(id = inputId, text = text))
+
+  inputId <- rank_list_id(css_id)
+  message <- dropNulls(list(id = session$ns(css_id), text = text, labels = labels))
   session$sendInputMessage(inputId, message)
 }
 
@@ -166,6 +172,7 @@ update_rank_list <- function(css_id, text = NULL,
 #' labels.
 #'
 #' @inheritParams bucket_list
+#' @inheritParams update_rank_list
 #' @param session The `session` object passed to function given to
 #'   `shinyServer`.
 #' @seealso [bucket_list]
@@ -179,9 +186,11 @@ update_rank_list <- function(css_id, text = NULL,
 #'   )
 #'   shiny::runApp(app)
 #' }
-update_bucket_list <- function(css_id, header = NULL,
-                             session = shiny::getDefaultReactiveDomain()) {
-  inputId <- paste0("bucket-list-", css_id)
-  message <- dropNulls(list(id = inputId, header = header))
+update_bucket_list <- function(css_id,
+                               header = NULL,
+                               labels = NULL,
+                               session = shiny::getDefaultReactiveDomain()) {
+  inputId <- bucket_list_id(css_id)
+  message <- dropNulls(list(id = session$ns(css_id), header = header, labels = labels))
   session$sendInputMessage(inputId, message)
 }

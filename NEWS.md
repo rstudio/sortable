@@ -1,13 +1,22 @@
 # sortable 0.5
 
+## Breaking changes
+
+* `id` values being used for the `bucket_list()` container or `rank_list()`
+  container have been altered. Previously, the `id` was set to
+  `bucket-list-{css_id}` and `rank-list-{css_id}`. Now, the `id` is set to
+  `{css_id}-bucket-list` and `{css_id}-rank-list`. This change allows for
+  `{sortable}` to work within Shiny modules. (#95 @yogat3ch)
+
 ## Enhancements
 
-* Add support for `update_rank_list()` and `update_bucket_list()`
-* Add ability to switch the orientation of `rank_list()` items to horizontal. #92
+* Add support for updating `rank_list()` labels and export `update_rank_list()` (#95 @yogat3ch)
+* Add support for `update_rank_list()` and `update_bucket_list()` (#93)
+* Add ability to switch the orientation of `rank_list()` items to horizontal. (#92)
 
 ## Changes
 
-* A `rank_list` now has a unique CSS id, to allow updating the `text` of the 
+* A `rank_list` now has a unique CSS id, to allow updating the `text` of the
 container.
 
 # sortable 0.4.6

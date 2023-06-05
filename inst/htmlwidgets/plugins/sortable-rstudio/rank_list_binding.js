@@ -20,13 +20,29 @@ $.extend(ranklistBinding, {
   getValue: function(el) {
 
   },
+  setValue: function (el, data) {
+    if (data.header) {
+      $(el).find(".rank-list-title").text(data.text);
+    }
 
+    if (data.labels) {
+      let labels = [].concat(data.labels)
+      let html = labels.map((v) => {
+        let el = document.createElement("div");
+        el.classList.add("rank-list-item");
+        el.innerHTML = v;
+        return el;
+      })
+      $('#' + data.id).html(html)
+      Shiny.setInputValue(data.id, labels, {priority: 'event'})
+    }
+
+  },
   subscribe: function(el, callback) {
 
   },
-
   receiveMessage: function(el, data) {
-    $(el).find(".rank-list-title").text(data.text);
+    this.setValue(el, data)
   }
 
 });
@@ -67,9 +83,25 @@ $.extend(bucketlistBinding, {
 
 
   },
+  setValue: function (el, data) {
+    if (data.header) {
+      $(el).find(".bucket-list-header").text(data.header);
+    }
 
+    if (data.labels) {
+      let labels = [].concat(data.labels)
+      let html = labels.map((v) => {
+        let el = document.createElement("div");
+        el.classList.add("rank-list-item");
+        el.innerHTML = v;
+        return el;
+      })
+      $('#' + data.id).html(html)
+      Shiny.setInputValue(data.id, data.labels, {priority: 'event'})
+    }
+  },
   receiveMessage: function(el, data) {
-    $(el).find(".bucket-list-header").text(data.header);
+    this.setValue(el, data)
   }
 
 });
