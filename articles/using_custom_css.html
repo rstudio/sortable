@@ -80,7 +80,8 @@
 
 
 
-<script src="using_custom_css_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
+
+<div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.svg" class="logo" alt=""><h1>Using custom styles with CSS</h1>
             
@@ -96,17 +97,25 @@
 <div class="section level2">
 <h2 id="using-custom-styles">Using custom styles<a class="anchor" aria-label="anchor" href="#using-custom-styles"></a>
 </h2>
-<p>Sometimes you want to take control of the styling of your app, e.g. changing colours or sizes.</p>
-<p>The functions <code><a href="../reference/rank_list.html">rank_list()</a></code> and <code><a href="../reference/bucket_list.html">bucket_list()</a></code> allows you to set a custom CSS class, and you can then define your own CSS rules that modifies your shiny app.</p>
-<p>The default CSS style for a rank list is <code>default-sortable</code>, but you can specify your own class by modifying the <code>class</code> argument.</p>
-<p>For example, to add <code>custom-sortable</code> to the CSS class, use:</p>
+<p>Sometimes you want to take control of the styling of your app,
+e.g. changing colours or sizes.</p>
+<p>The functions <code><a href="../reference/rank_list.html">rank_list()</a></code> and <code><a href="../reference/bucket_list.html">bucket_list()</a></code>
+allows you to set a custom CSS class, and you can then define your own
+CSS rules that modifies your shiny app.</p>
+<p>The default CSS style for a rank list is
+<code>default-sortable</code>, but you can specify your own class by
+modifying the <code>class</code> argument.</p>
+<p>For example, to add <code>custom-sortable</code> to the CSS class,
+use:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/rank_list.html">rank_list</a></span><span class="op">(</span></span>
 <span>  class <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"default-sortable"</span>, <span class="st">"custom-sortable"</span><span class="op">)</span>, <span class="co"># add custom style</span></span>
 <span>  <span class="va">...</span></span>
 <span><span class="op">)</span></span></code></pre></div>
-<p>Then you can use any of the standard techniques to <a href="https://shiny.rstudio.com/articles/css.html" class="external-link">Style your apps with CSS</a> to modify your styling.</p>
-<p>For example, to modify the <code>custom-sortable</code> class using a <code>shiny</code> tag, use:</p>
+<p>Then you can use any of the standard techniques to <a href="https://shiny.rstudio.com/articles/css.html" class="external-link">Style your apps with
+CSS</a> to modify your styling.</p>
+<p>For example, to modify the <code>custom-sortable</code> class using a
+<code>shiny</code> tag, use:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">tags</span><span class="op">$</span><span class="fu">style</span><span class="op">(</span></span>
 <span>  <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/HTML.html" class="external-link">HTML</a></span><span class="op">(</span><span class="st">"</span></span>
@@ -118,7 +127,8 @@
 <span><span class="st">    }</span></span>
 <span><span class="st">  "</span><span class="op">)</span></span>
 <span><span class="op">)</span></span></code></pre></div>
-<p>This app contains a fully worked example that turns the background colours of the <code>rank_list</code> into shades of green:</p>
+<p>This app contains a fully worked example that turns the background
+colours of the <code>rank_list</code> into shades of green:</p>
 <div class="shiny-app-frame">
 <iframe src="https://andrie-de-vries.shinyapps.io/sortable_custom_css_app/" width="100%" height="450"></iframe>
 </div>

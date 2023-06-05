@@ -80,7 +80,8 @@
 
 
 
-<script src="cloning_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
+
+<div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.svg" class="logo" alt=""><h1>Cloning and removing elements</h1>
             
@@ -94,13 +95,18 @@
 <div class="section level2">
 <h2 id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
 </h2>
-<p>Sometimes you want the ability to drag an item <strong>multiple times</strong> from a list, in other words the ability to <strong>“clone”</strong> the items of the original list.</p>
-<p>And you may also then want the ability to <strong>remove</strong> cloned items, possibly by dragging to a “bin” or “remove item” list.</p>
+<p>Sometimes you want the ability to drag an item <strong>multiple
+times</strong> from a list, in other words the ability to
+<strong>“clone”</strong> the items of the original list.</p>
+<p>And you may also then want the ability to <strong>remove</strong>
+cloned items, possibly by dragging to a “bin” or “remove item” list.</p>
 <p><img src="figures/clone_delete.gif" style="width:500px;"></p>
 <div class="section level3">
 <h3 id="cloning-an-element">Cloning an element<a class="anchor" aria-label="anchor" href="#cloning-an-element"></a>
 </h3>
-<p>To clone an element from a list, you must add the <code>pull = "clone"</code> option to the <code>sortable_options</code> argument::</p>
+<p>To clone an element from a list, you must add the
+<code>pull = "clone"</code> option to the <code>sortable_options</code>
+argument::</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rstudio.github.io/sortable/">sortable</a></span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
@@ -119,9 +125,12 @@
 <div class="section level3">
 <h3 id="removing-an-element">Removing an element<a class="anchor" aria-label="anchor" href="#removing-an-element"></a>
 </h3>
-<p>To remove an element from the dropped list, one option is to create a “bin” area by using the JavaScript code:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">this</span>.<span class="va">el</span>.<span class="at">removeChild</span>(<span class="va">evt</span>.<span class="at">item</span>)<span class="op">;</span></span></code></pre></div>
-<p>Then add to this JavaScript to the <code>onAdd</code> element of <code><a href="../reference/sortable_options.html">sortable_options()</a></code>. To pass your JavaScript code to R, use the <code><a href="https://rdrr.io/pkg/htmlwidgets/man/JS.html" class="external-link">htmlwidgets::JS()</a></code> function:</p>
+<p>To remove an element from the dropped list, one option is to create a
+“bin” area by using the JavaScript code:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="kw">this</span><span class="op">.</span><span class="at">el</span><span class="op">.</span><span class="fu">removeChild</span>(evt<span class="op">.</span><span class="at">item</span>)<span class="op">;</span></span></code></pre></div>
+<p>Then add to this JavaScript to the <code>onAdd</code> element of
+<code><a href="../reference/sortable_options.html">sortable_options()</a></code>. To pass your JavaScript code to R, use
+the <code><a href="https://rdrr.io/pkg/htmlwidgets/man/JS.html" class="external-link">htmlwidgets::JS()</a></code> function:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/sortable_js.html">sortable_js</a></span><span class="op">(</span></span>
 <span>  <span class="st">"sortable_bin"</span>,</span>
