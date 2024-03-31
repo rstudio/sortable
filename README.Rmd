@@ -1,5 +1,7 @@
 ---
 output: github_document
+format: gfm
+default-image-extension: ""
 ---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
@@ -17,8 +19,9 @@ knitr::opts_chunk$set(
 # sortable <img src='man/figures/logo.png' align="right" height="139" />
 
 <!-- badges: start -->
-[![R build status](https://github.com/rstudio/sortable/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/rstudio/sortable/actions)
 [![CRAN version](http://www.r-pkg.org/badges/version/sortable)](https://cran.r-project.org/package=sortable)
+[![CRAN RStudio mirror downloads](https://cranlogs.r-pkg.org/badges/sortable)](https://www.r-pkg.org/pkg/sortable)
+[![R build status](https://github.com/rstudio/sortable/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/rstudio/sortable/actions)
 [![sortable downloads per month](http://cranlogs.r-pkg.org/badges/sortable)](http://www.rpackages.io/package/sortable)
 [![Codecov test coverage](https://codecov.io/gh/rstudio/sortable/branch/main/graph/badge.svg)](https://codecov.io/gh/rstudio/sortable?branch=main)
 [![Lifecycle: maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
