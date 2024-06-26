@@ -16,10 +16,7 @@
 #'
 #' * [question_rank()]
 #'
-#'
-#' @importFrom assertthat assert_that is.string
 #' @name sortable
-#' @aliases sortable-package sortable
 #' @keywords internal
 "_PACKAGE"
 
@@ -27,5 +24,6 @@
 # The following block is used by usethis to automatically manage
 # roxygen namespace tags. Modify with care!
 ## usethis namespace: start
+#' @importFrom assertthat assert_that is.string
 ## usethis namespace: end
 NULL

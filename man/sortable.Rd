@@ -2,9 +2,8 @@
 % Please edit documentation in R/sortable-package.R
 \docType{package}
 \name{sortable}
-\alias{sortable}
-\alias{_PACKAGE}
 \alias{sortable-package}
+\alias{sortable}
 \title{sortable: Drag-and-Drop in 'shiny' Apps with 'SortableJS'}
 \description{
 \if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
