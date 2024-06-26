@@ -27,6 +27,16 @@ If NULL, the function generates an id of the form
 At the moment, you can only update the \code{text} of the \code{rank_list}, not the
 labels.
 }
+\examples{
+## Example of a shiny app that updates a bucket list and rank list
+if (interactive()) {
+  app <- system.file(
+    "shiny-examples/update/app.R",
+    package = "sortable"
+  )
+  shiny::runApp(app)
+}
+}
 \seealso{
 \link{rank_list}
 }
