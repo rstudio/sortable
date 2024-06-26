@@ -38,8 +38,7 @@ Imports:
     assertthat,
     jsonlite,
     utils,
-    ellipsis,
-    rlang
+    rlang (>= 1.0.0)
 Suggests:
     base64enc,
     knitr,
