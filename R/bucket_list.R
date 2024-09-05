@@ -103,7 +103,7 @@ bucket_list <- function(
   class <- paste(class, collapse = " ")
 
   # capture the dots
-  rlang::check_dots_unnamed()
+  ellipsis::check_dots_unnamed()
   dot_vals <- rlang::list2(...)
 
   # Remove any NULL elements
