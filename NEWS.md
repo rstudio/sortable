@@ -1,4 +1,10 @@
-# sortable 0.5
+# sortable 0.5.0.9000
+
+## Updates
+
+* Update `Sortable.js` to version 1.15.3
+
+# sortable 0.5.0
 
 ## Enhancements
 

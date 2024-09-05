@@ -1,5 +1,4 @@
 
-
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
 # sortable <img src='man/figures/logo.png' align="right" height="139" />
@@ -7,22 +6,15 @@
 <!-- badges: start -->
 
 [![CRAN
-version](http://www.r-pkg.org/badges/version/sortable)](https://cran.r-project.org/package=sortable)
+status](https://www.r-pkg.org/badges/version/sortable)](https://CRAN.R-project.org/package=sortable)
 [![CRAN RStudio mirror
 downloads](https://cranlogs.r-pkg.org/badges/sortable)](https://www.r-pkg.org/pkg/sortable)
 [![R build
 status](https://github.com/rstudio/sortable/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/rstudio/sortable/actions)
-[![sortable downloads per
-month](http://cranlogs.r-pkg.org/badges/sortable)](http://www.rpackages.io/package/sortable)
 [![Codecov test
 coverage](https://codecov.io/gh/rstudio/sortable/branch/main/graph/badge.svg)](https://codecov.io/gh/rstudio/sortable?branch=main)
 [![Lifecycle:
-maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
-[![RStudio Community:
-Teaching](https://img.shields.io/badge/Community%20Support-Teaching-75aadb.svg?style=popout&logo=data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDIyLjEuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiCgkgdmlld0JveD0iMCAwIDYyNS45IDYyNS45IiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA2MjUuOSA2MjUuOTsiIHhtbDpzcGFjZT0icHJlc2VydmUiPgo8c3R5bGUgdHlwZT0idGV4dC9jc3MiPgoJLnN0MHtmaWxsOiM3NUFBREI7fQoJLnN0MXtmaWxsOiM0RDRENEQ7fQoJLnN0MntmaWxsOiNGRkZGRkY7fQoJLnN0M3tmaWxsOnVybCgjU1ZHSURfMV8pO30KCS5zdDR7ZmlsbDp1cmwoI1NWR0lEXzJfKTt9Cgkuc3Q1e2ZpbGw6dXJsKCNTVkdJRF8zXyk7fQoJLnN0NntmaWxsOnVybCgjU1ZHSURfNF8pO30KCS5zdDd7ZmlsbDp1cmwoI1NWR0lEXzVfKTt9Cgkuc3Q4e2ZpbGw6dXJsKCNTVkdJRF82Xyk7fQoJLnN0OXtmaWxsOnVybCgjU1ZHSURfN18pO30KCS5zdDEwe2ZpbGw6dXJsKCNTVkdJRF84Xyk7fQoJLnN0MTF7ZmlsbDp1cmwoI1NWR0lEXzlfKTt9Cgkuc3QxMntmaWxsOnVybCgjU1ZHSURfMTBfKTt9Cgkuc3QxM3tvcGFjaXR5OjAuMTg7ZmlsbDp1cmwoI1NWR0lEXzExXyk7fQoJLnN0MTR7b3BhY2l0eTowLjM7fQo8L3N0eWxlPgo8ZyBpZD0iR3JheV9Mb2dvIj4KPC9nPgo8ZyBpZD0iQmxhY2tfTGV0dGVycyI+CjwvZz4KPGcgaWQ9IkJsdWVfR3JhZGllbnRfTGV0dGVycyI+Cgk8Zz4KCgkJCTxlbGxpcHNlIHRyYW5zZm9ybT0ibWF0cml4KDAuNzA3MSAtMC43MDcxIDAuNzA3MSAwLjcwNzEgLTEyNy45MjY1IDMxNy4wMzE3KSIgY2xhc3M9InN0MCIgY3g9IjMxOC43IiBjeT0iMzEyLjkiIHJ4PSIzMDkuOCIgcnk9IjMwOS44Ii8+CgkJPGc+CgkJCTxwYXRoIGNsYXNzPSJzdDIiIGQ9Ik00MjQuNyw0MTEuOGgzMy42djI2LjFoLTUxLjNMMzIyLDMxMC41aC00NS4zdjEwMS4zaDQ0LjN2MjYuMUgyMDkuNXYtMjYuMWgzOC4zVjE4Ny4zbC0zOC4zLTQuN3YtMjQuNwoJCQkJYzE0LjUsMy4zLDI3LjEsNS42LDQyLjksNS42YzIzLjgsMCw0OC4xLTUuNiw3MS45LTUuNmM0Ni4yLDAsODkuMSwyMSw4OS4xLDcyLjNjMCwzOS43LTIzLjgsNjQuOS02MC43LDc1LjZMNDI0LjcsNDExLjh6CgkJCQkgTTI3Ni43LDI4NS4zbDI0LjMsMC41YzU5LjMsMC45LDgyLjEtMjEuOSw4Mi4xLTUyLjNjMC0zNS41LTI1LjctNDkuNS01OC4zLTQ5LjVjLTE1LjQsMC0zMS4zLDEuNC00OC4xLDMuM1YyODUuM3oiLz4KCQk8L2c+Cgk8L2c+CjwvZz4KPGcgaWQ9IldoaXRlX0xldHRlcnMiPgo8L2c+CjxnIGlkPSJSX0JhbGwiPgo8L2c+Cjwvc3ZnPg==)](https://community.rstudio.com/c/teaching)
-[![RStudio Ask a question:
-sortable](https://img.shields.io/badge/Ask%20a%20question-sortable-75aadb.svg?style=popout&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2ZXJzaW9uPSIxLjEiIHg9IjBweCIgeT0iMHB4IiB2aWV3Qm94PSIwIDAgNjI1LjkgNjI1LjkiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDYyNS45IDYyNS45OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+Cgkuc3Qwe2ZpbGw6Izc1QUFEQjt9Cgkuc3Qxe2ZpbGw6IzRENEQ0RDt9Cgkuc3Qye2ZpbGw6I0ZGRkZGRjt9Cgkuc3Qze2ZpbGw6dXJsKCNTVkdJRF8xXyk7fQoJLnN0NHtmaWxsOnVybCgjU1ZHSURfMl8pO30KCS5zdDV7ZmlsbDp1cmwoI1NWR0lEXzNfKTt9Cgkuc3Q2e2ZpbGw6dXJsKCNTVkdJRF80Xyk7fQoJLnN0N3tmaWxsOnVybCgjU1ZHSURfNV8pO30KCS5zdDh7ZmlsbDp1cmwoI1NWR0lEXzZfKTt9Cgkuc3Q5e2ZpbGw6dXJsKCNTVkdJRF83Xyk7fQoJLnN0MTB7ZmlsbDp1cmwoI1NWR0lEXzhfKTt9Cgkuc3QxMXtmaWxsOnVybCgjU1ZHSURfOV8pO30KCS5zdDEye2ZpbGw6dXJsKCNTVkdJRF8xMF8pO30KCS5zdDEze29wYWNpdHk6MC4xODtmaWxsOnVybCgjU1ZHSURfMTFfKTt9Cgkuc3QxNHtvcGFjaXR5OjAuMzt9Cjwvc3R5bGU+CjxnIGlkPSJHcmF5X0xvZ28iPgo8L2c+CjxnIGlkPSJCbGFja19MZXR0ZXJzIj4KPC9nPgo8ZyBpZD0iQmx1ZV9HcmFkaWVudF9MZXR0ZXJzIj4KCTxnPgoKCQkJPGVsbGlwc2UgdHJhbnNmb3JtPSJtYXRyaXgoMC43MDcxIC0wLjcwNzEgMC43MDcxIDAuNzA3MSAtMTI3LjkyNjUgMzE3LjAzMTcpIiBjbGFzcz0ic3QwIiBjeD0iMzE4LjciIGN5PSIzMTIuOSIgcng9IjMwOS44IiByeT0iMzA5LjgiLz4KCQk8Zz4KCQkJPHBhdGggY2xhc3M9InN0MiIgZD0iTTQyNC43LDQxMS44aDMzLjZ2MjYuMWgtNTEuM0wzMjIsMzEwLjVoLTQ1LjN2MTAxLjNoNDQuM3YyNi4xSDIwOS41di0yNi4xaDM4LjNWMTg3LjNsLTM4LjMtNC43di0yNC43ICAgICBjMTQuNSwzLjMsMjcuMSw1LjYsNDIuOSw1LjZjMjMuOCwwLDQ4LjEtNS42LDcxLjktNS42YzQ2LjIsMCw4OS4xLDIxLDg5LjEsNzIuM2MwLDM5LjctMjMuOCw2NC45LTYwLjcsNzUuNkw0MjQuNyw0MTEuOHogICAgICBNMjc2LjcsMjg1LjNsMjQuMywwLjVjNTkuMywwLjksODIuMS0yMS45LDgyLjEtNTIuM2MwLTM1LjUtMjUuNy00OS41LTU4LjMtNDkuNWMtMTUuNCwwLTMxLjMsMS40LTQ4LjEsMy4zVjI4NS4zeiIvPgoJCTwvZz4KCTwvZz4KPC9nPgo8ZyBpZD0iV2hpdGVfTGV0dGVycyI+CjwvZz4KPGcgaWQ9IlJfQmFsbCI+CjwvZz4KPC9zdmc+)](https://community.rstudio.com/new-topic?title=&category_id=13&tags=sortable&body=%0A%0A%0A%20%20--------%0A%20%20%0A%20%20%3Csup%3EReferred%20here%20by%20%60sortable%60%27s%20GitHub%3C/sup%3E%0A&u=barret)
-
+stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 <!-- badges: end -->
 
 The `sortable` package enables drag-and-drop behaviour in your Shiny
@@ -61,10 +53,93 @@ You can create a drag-and-drop input object in Shiny, using the
 <img src="man/figures/rank_list_shiny.gif" style = 'width:500px;'></img>
 </center>
 
-    #> Warning in file(con, "r"): file("") only supports open = "w+" and open = "w+b":
-    #> using the former
-    #> Warning in knitr::read_chunk(system.file("shiny-examples/rank_list/app.R", :
-    #> code is empty
+``` r
+## Example shiny app with rank list
+
+library(shiny)
+library(sortable)
+
+labels <- list(
+  "one",
+  "two",
+  "three",
+  htmltools::tags$div(
+    htmltools::em("Complex"), " html tag without a name"
+  ),
+  "five" = htmltools::tags$div(
+    htmltools::em("Complex"), " html tag with name: 'five'"
+  )
+)
+
+rank_list_basic <- rank_list(
+  text = "Drag the items in any desired order",
+  labels = labels,
+  input_id = "rank_list_basic"
+)
+
+rank_list_swap <- rank_list(
+  text = "Notice that dragging causes items to swap",
+  labels = labels,
+  input_id = "rank_list_swap",
+  options = sortable_options(swap = TRUE)
+)
+
+rank_list_multi <- rank_list(
+  text = "You can select multiple items, then drag as a group",
+  labels = labels,
+  input_id = "rank_list_multi",
+  options = sortable_options(multiDrag = TRUE)
+)
+
+
+
+ui <- fluidPage(
+  fluidRow(
+    column(
+      width = 12,
+    tags$h2("Default, multi-drag and swapping behaviour"),
+      tabsetPanel(
+        type = "tabs",
+        tabPanel(
+          "Default",
+            tags$b("Exercise"),
+            rank_list_basic,
+            tags$b("Result"),
+            verbatimTextOutput("results_basic")
+        ),
+        tabPanel(
+          "Multi-drag",
+            tags$b("Exercise"),
+            rank_list_multi,
+            tags$b("Result"),
+            verbatimTextOutput("results_multi")
+        ),
+        tabPanel(
+          "Swap",
+            tags$b("Exercise"),
+            rank_list_swap,
+            tags$b("Result"),
+            verbatimTextOutput("results_swap")
+        )
+      )
+    )
+  )
+)
+
+server <- function(input, output) {
+  output$results_basic <- renderPrint({
+    input$rank_list_basic # This matches the input_id of the rank list
+  })
+  output$results_multi <- renderPrint({
+    input$rank_list_multi # This matches the input_id of the rank list
+  })
+  output$results_swap <- renderPrint({
+    input$rank_list_swap # This matches the input_id of the rank list
+  })
+}
+
+shinyApp(ui, server)
+```
 
 ### Bucket list
 
@@ -76,10 +151,86 @@ students to classify objects into multiple categories.
 <img src="man/figures/bucket_list_shiny.gif" style = 'width:500px;'></img>
 </center>
 
-    #> Warning in file(con, "r"): file("") only supports open = "w+" and open = "w+b":
-    #> using the former
-    #> Warning in knitr::read_chunk(system.file("shiny-examples/bucket_list/app.R", :
-    #> code is empty
+``` r
+## Example shiny app with bucket list
+
+library(shiny)
+library(sortable)
+
+
+ui <- fluidPage(
+  tags$head(
+    tags$style(HTML(".bucket-list-container {min-height: 350px;}"))
+  ),
+  fluidRow(
+    column(
+      tags$b("Exercise"),
+      width = 12,
+      bucket_list(
+        header = "Drag the items in any desired bucket",
+        group_name = "bucket_list_group",
+        orientation = "horizontal",
+        add_rank_list(
+          text = "Drag from here",
+          labels = list(
+            "one",
+            "two",
+            "three",
+            htmltools::tags$div(
+              htmltools::em("Complex"), " html tag without a name"
+            ),
+            "five" = htmltools::tags$div(
+              htmltools::em("Complex"), " html tag with name: 'five'"
+            )
+          ),
+          input_id = "rank_list_1"
+        ),
+        add_rank_list(
+          text = "to here",
+          labels = NULL,
+          input_id = "rank_list_2"
+        )
+      )
+    )
+  ),
+  fluidRow(
+    column(
+      width = 12,
+      tags$b("Result"),
+      column(
+        width = 12,
+
+        tags$p("input$rank_list_1"),
+        verbatimTextOutput("results_1"),
+
+        tags$p("input$rank_list_2"),
+        verbatimTextOutput("results_2"),
+
+        tags$p("input$bucket_list_group"),
+        verbatimTextOutput("results_3")
+      )
+    )
+  )
+)
+
+server <- function(input,output) {
+  output$results_1 <-
+    renderPrint(
+      input$rank_list_1 # This matches the input_id of the first rank list
+    )
+  output$results_2 <-
+    renderPrint(
+      input$rank_list_2 # This matches the input_id of the second rank list
+    )
+  output$results_3 <-
+    renderPrint(
+      input$bucket_list_group # Matches the group_name of the bucket list
+    )
+}
+
+
+shinyApp(ui, server)
+```
 
 ### Add drag-and-drop to any HTML element
 

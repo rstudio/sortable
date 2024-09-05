@@ -17,3 +17,5 @@ inst/tutorials/*/*.html
 /Meta/
 
 revdep/*
+
+/.quarto/

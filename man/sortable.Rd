@@ -3,7 +3,6 @@
 \docType{package}
 \name{sortable}
 \alias{sortable}
-\alias{_PACKAGE}
 \alias{sortable-package}
 \title{sortable: Drag-and-Drop in 'shiny' Apps with 'SortableJS'}
 \description{
