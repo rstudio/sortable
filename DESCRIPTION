@@ -1,7 +1,7 @@
 Type: Package
 Package: sortable
 Title: Drag-and-Drop in 'shiny' Apps with 'SortableJS'
-Version: 0.5.0
+Version: 0.5.0.9000
 Authors@R: 
     c(person(given = "Andrie",
              family = "de Vries",
