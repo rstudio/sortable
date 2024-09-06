@@ -1,5 +1,5 @@
 ## ---- update-bucket-list-app -----------------------------------------------
-## Example shiny app with bucket list
+## Example shiny app with bucket list update
 
 library(shiny)
 library(sortable)
