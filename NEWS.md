@@ -4,11 +4,15 @@
 
 * Update `Sortable.js` to version 1.15.3
 
+## Enhancements
+
+* New function `update_bucket_list()` to update the items in a bucket list
+
 # sortable 0.5.0
 
 ## Enhancements
 
-* Add support for `update_rank_list()` and `update_bucket_list()`
+* Add support for `update_rank_list()` 
 * Add ability to switch the orientation of `rank_list()` items to horizontal. #92
 
 ## Changes
