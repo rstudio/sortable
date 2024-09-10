@@ -19,7 +19,8 @@ rank_list(
 
 \item{labels}{A character vector with the text to display inside the widget.
 This can also be a list of html tag elements.  The text content of each
-label or label name will be used to set the shiny \code{input_id} value.}
+label or label name will be used to set the shiny \code{input_id} value.
+To create an empty \code{rank_list}, use \code{labels = list()}.}
 
 \item{input_id}{output variable to read the plot/image from.}
 

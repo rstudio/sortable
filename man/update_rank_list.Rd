@@ -2,7 +2,7 @@
 % Please edit documentation in R/rank_list.R
 \name{update_rank_list}
 \alias{update_rank_list}
-\title{Change the value of a rank list.}
+\title{Change the text or labels of a rank list.}
 \usage{
 update_rank_list(
   css_id,
@@ -23,20 +23,20 @@ If NULL, the function generates an id of the form
 
 \item{labels}{A character vector with the text to display inside the widget.
 This can also be a list of html tag elements.  The text content of each
-label or label name will be used to set the shiny \code{input_id} value.}
+label or label name will be used to set the shiny \code{input_id} value.
+To create an empty \code{rank_list}, use \code{labels = list()}.}
 
 \item{session}{The \code{session} object passed to function given to
 \code{shinyServer}.}
 }
 \description{
-At the moment, you can only update the \code{text} of the \code{rank_list}, not the
-labels.
+Change the text or labels of a rank list.
 }
 \examples{
 ## Example of a shiny app that updates a bucket list and rank list
 if (interactive()) {
   app <- system.file(
-    "shiny-examples/update/app.R",
+    "shiny-examples/update_rank_list/app.R",
     package = "sortable"
   )
   shiny::runApp(app)

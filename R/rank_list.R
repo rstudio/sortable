@@ -44,6 +44,7 @@ as_label_tags <- function(labels) {
 #' @param labels A character vector with the text to display inside the widget.
 #'   This can also be a list of html tag elements.  The text content of each
 #'   label or label name will be used to set the shiny `input_id` value.
+#'   To create an empty `rank_list`, use `labels = list()`.
 #'
 #' @param text Text to appear at top of list.
 #'
@@ -140,10 +141,8 @@ dropNulls <- function(x) {
 }
 
 
-#' Change the value of a rank list.
+#' Change the text or labels of a rank list.
 #'
-#' At the moment, you can only update the `text` of the `rank_list`, not the
-#' labels.
 #'
 #' @inheritParams rank_list
 #' @param session The `session` object passed to function given to
@@ -154,7 +153,7 @@ dropNulls <- function(x) {
 #' ## Example of a shiny app that updates a bucket list and rank list
 #' if (interactive()) {
 #'   app <- system.file(
-#'     "shiny-examples/update/app.R",
+#'     "shiny-examples/update_rank_list/app.R",
 #'     package = "sortable"
 #'   )
 #'   shiny::runApp(app)
