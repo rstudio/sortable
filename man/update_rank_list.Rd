@@ -7,6 +7,7 @@
 update_rank_list(
   css_id,
   text = NULL,
+  labels = NULL,
   session = shiny::getDefaultReactiveDomain()
 )
 }
@@ -19,6 +20,10 @@ If NULL, the function generates an id of the form
 \code{rank_list_id_1}, and will automatically increment for every \code{rank_list}.}
 
 \item{text}{Text to appear at top of list.}
+
+\item{labels}{A character vector with the text to display inside the widget.
+This can also be a list of html tag elements.  The text content of each
+label or label name will be used to set the shiny \code{input_id} value.}
 
 \item{session}{The \code{session} object passed to function given to
 \code{shinyServer}.}

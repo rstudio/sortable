@@ -1,0 +1,14 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "rPackageTask",
+			"problemMatcher": [],
+			"label": "R: Check R package",
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		}
+	]
+}

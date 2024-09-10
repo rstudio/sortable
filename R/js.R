@@ -48,7 +48,9 @@ sortable_js_capture_input <- function(input_id) {
   )
   js_text <- "function(evt) {
   if (typeof Shiny !== \"undefined\") {
-    Shiny.setInputValue(\"%s:sortablejs.rank_list\", %s)
+    Shiny.initializedPromise.then(() => {
+      Shiny.setInputValue(\"%s:sortablejs.rank_list\", %s)
+    });
   }
 }"
 

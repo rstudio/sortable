@@ -34,7 +34,7 @@ Imports:
     htmltools,
     htmlwidgets,
     learnr (>= 0.10.0),
-    shiny,
+    shiny (>= 1.9.0),
     assertthat,
     jsonlite,
     utils,

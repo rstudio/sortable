@@ -1,3 +1,24 @@
+# Create label tags for rank_list
+as_label_tags <- function(labels) {
+  mapply(
+    USE.NAMES = FALSE,
+    SIMPLIFY = FALSE,
+    labels,
+    label_ids(labels),
+    FUN = function(label, label_id) {
+      if (identical(label_id, "")) {
+        label_id <- NULL
+      }
+      tags$div(
+        class = "rank-list-item",
+        "data-rank-id" = label_id,
+        label
+      )
+    }
+  )
+}
+
+
 #' Create a ranking item list.
 #'
 #' @description Creates a ranking item list using the `SortableJS` framework,
@@ -89,22 +110,7 @@ rank_list <- function(
     NULL
   }
 
-  label_tags <- mapply(
-    USE.NAMES = FALSE,
-    SIMPLIFY = FALSE,
-    labels,
-    label_ids(labels),
-    FUN = function(label, label_id) {
-      if (identical(label_id, "")) {
-        label_id <- NULL
-      }
-      tags$div(
-        class = "rank-list-item",
-        "data-rank-id" = label_id,
-        label
-      )
-    }
-  )
+  label_tags <- as_label_tags(labels)
 
   rank_list_tags <- tagList(
     tags$div(
@@ -153,11 +159,15 @@ dropNulls <- function(x) {
 #'   )
 #'   shiny::runApp(app)
 #' }
-update_rank_list <- function(css_id, text = NULL,
+update_rank_list <- function(css_id, text = NULL, labels = NULL,
                              session = shiny::getDefaultReactiveDomain()) {
   inputId <- paste0("rank-list-", css_id)
-  message <- dropNulls(list(id = inputId, text = text))
+  if ( !is.null(labels) && length(labels) > 0) {
+    labels <- as.character(tagList(as_label_tags(labels)))
+  }
+  message <- dropNulls(list(id = inputId, text = text, labels = labels))
   session$sendInputMessage(inputId, message)
+
 }
 
 
