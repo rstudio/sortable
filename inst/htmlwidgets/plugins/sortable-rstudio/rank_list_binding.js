@@ -35,7 +35,7 @@ $.extend(ranklistBinding, {
   subscribe: function(el, callback) { },
 
   receiveMessage: function(el, data) {
-    this.setValue(el, data)
+    this.setValue(el, data);
   }
 
 });
@@ -55,30 +55,29 @@ var bucketlistBinding = new Shiny.InputBinding();
 $.extend(bucketlistBinding, {
 
   find: function(scope) {
-
     // find all instances of class bucket-list-container
     return $(scope).find(".bucket-list-container");
-
   },
 
   // this method will be called on initialization
-  initialize: function(el){
-
-  },
+  initialize: function(el){ },
 
   // this method will also be called on initialisation (to pass the intial state to input$...)
   // and each time when the callback is triggered via the event bound in subscribe
-  getValue: function(el) {
+  getValue: function(el) { },
 
+  setValue: function (el, data) {
+    // console.log(data);
+    if (data.header) {
+      $(el).find(".bucket-list-header").text(data.header);
+    }
   },
 
-  subscribe: function(el, callback) {
 
-
-  },
+  subscribe: function(el, callback) { },
 
   receiveMessage: function(el, data) {
-    $(el).find(".bucket-list-header").text(data.header);
+    this.setValue(el, data);
   }
 
 });

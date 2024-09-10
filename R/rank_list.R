@@ -116,7 +116,7 @@ rank_list <- function(
   rank_list_tags <- tagList(
     tags$div(
       class = paste("rank-list-container", paste(class, collapse = " ")),
-      id = paste0("rank-list-", css_id),
+      id = as_rank_list_id(css_id),
       title_tag,
       tags$div(
         class = "rank-list",
@@ -160,7 +160,7 @@ dropNulls <- function(x) {
 #' }
 update_rank_list <- function(css_id, text = NULL, labels = NULL,
                              session = shiny::getDefaultReactiveDomain()) {
-  inputId <- paste0("rank-list-", css_id)
+  inputId <- as_rank_list_id(css_id)
   if ( !is.null(labels) && length(labels) > 0) {
     labels <- as.character(tagList(as_label_tags(labels)))
   }
@@ -172,13 +172,14 @@ update_rank_list <- function(css_id, text = NULL, labels = NULL,
 
 #' Change the value of a bucket list.
 #'
-#' At the moment, you can only update the `text` of the `bucket_list`, not the
-#' labels.
+#' You can only update the `header` of the `bucket_list`.
+#' To update any of the labels or rank list text, use `update_rank_list()`
+#' instead.
 #'
 #' @inheritParams bucket_list
 #' @param session The `session` object passed to function given to
 #'   `shinyServer`.
-#' @seealso [bucket_list]
+#' @seealso [bucket_list], [update_rank_list]
 #' @export
 #' @examples
 #' ## Example of a shiny app that updates a bucket list and rank list
