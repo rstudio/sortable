@@ -1,12 +1,14 @@
 # sortable 0.5.0.9000
 
+## Enhancements
+
+* New function `update_bucket_list()` to update the items in a bucket list
+* New functionality to update `labels` in `update_rank_list()`
+
 ## Updates
 
 * Update `Sortable.js` to version 1.15.3
 
-## Enhancements
-
-* New function `update_bucket_list()` to update the items in a bucket list
 
 # sortable 0.5.0
 
@@ -19,6 +21,7 @@
 
 * A `rank_list` now has a unique CSS id, to allow updating the `text` of the 
 container.
+
 
 # sortable 0.4.6
 
