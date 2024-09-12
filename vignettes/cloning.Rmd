@@ -79,7 +79,7 @@ And the full code:
 
 ```{r echo=FALSE, cache=FALSE}
 knitr::read_chunk(
-  system.file("shiny-examples/clone_remove/app.R", package = "sortable")
+  system.file("shiny/clone_remove/app.R", package = "sortable")
 )
 ```
 

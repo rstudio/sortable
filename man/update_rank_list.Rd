@@ -36,7 +36,7 @@ Change the text or labels of a rank list.
 ## Example of a shiny app that updates a bucket list and rank list
 if (interactive()) {
   app <- system.file(
-    "shiny-examples/update_rank_list/app.R",
+    "shiny/update_rank_list/app.R",
     package = "sortable"
   )
   shiny::runApp(app)

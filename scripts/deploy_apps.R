@@ -67,7 +67,7 @@ deploy_folder <- function(path, fn) {
 
 
 
-deploy_folder(system.file("shiny-examples", package = "sortable"), deploy_app)
-deploy_folder(system.file("shiny-examples", package = "sortable"), deploy_tutorial)
+deploy_folder(system.file("shiny", package = "sortable"), deploy_app)
+deploy_folder(system.file("shiny", package = "sortable"), deploy_tutorial)
 
 message("done")

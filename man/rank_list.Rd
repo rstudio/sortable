@@ -92,7 +92,7 @@ if (interactive()) {
 }
 ## Example of a shiny app
 if (interactive()) {
-  app <- system.file("shiny-examples/rank_list/app.R", package = "sortable")
+  app <- system.file("shiny/rank_list/app.R", package = "sortable")
   shiny::runApp(app)
 }
 

@@ -36,7 +36,7 @@ get_child_id_or_text_js_fn <- function() {
 #'
 #' ## ------------------------------------
 #' # For an example, see the Shiny app at
-#' system.file("shiny-examples/drag_vars_to_plot/app.R", package = "sortable")
+#' system.file("shiny/drag_vars_to_plot/app.R", package = "sortable")
 sortable_js_capture_input <- function(input_id) {
   # can call jquery as shiny will always have jquery
   inner_text <- paste0(

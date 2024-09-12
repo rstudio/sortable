@@ -74,7 +74,7 @@ as_label_tags <- function(labels) {
 #' @examples
 #' ## Example of a shiny app
 #' if (interactive()) {
-#'   app <- system.file("shiny-examples/rank_list/app.R", package = "sortable")
+#'   app <- system.file("shiny/rank_list/app.R", package = "sortable")
 #'   shiny::runApp(app)
 #' }
 #'
@@ -153,7 +153,7 @@ dropNulls <- function(x) {
 #' ## Example of a shiny app that updates a bucket list and rank list
 #' if (interactive()) {
 #'   app <- system.file(
-#'     "shiny-examples/update_rank_list/app.R",
+#'     "shiny/update_rank_list/app.R",
 #'     package = "sortable"
 #'   )
 #'   shiny::runApp(app)
@@ -185,7 +185,7 @@ update_rank_list <- function(css_id, text = NULL, labels = NULL,
 #' ## Example of a shiny app that updates a bucket list and rank list
 #' if (interactive()) {
 #'   app <- system.file(
-#'     "shiny-examples/update/app.R",
+#'     "shiny/update/app.R",
 #'     package = "sortable"
 #'   )
 #'   shiny::runApp(app)

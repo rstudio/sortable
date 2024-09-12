@@ -22,7 +22,7 @@
 ^logo.svg$
 
 ^inst/tutorials/.*/rsconnect/*
-^inst/shiny-examples/.*/rsconnect/*
+^inst/shiny/.*/rsconnect/*
 ^inst/tutorials/.*\\.html$
 
 ^.*\.scss$

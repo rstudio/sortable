@@ -41,7 +41,7 @@ And the full code:
 
 ```{r echo=FALSE, cache=FALSE}
 knitr::read_chunk(
-  system.file("shiny-examples/update_rank_list_ui/app.R", package = "sortable")
+  system.file("shiny/update_rank_list_ui/app.R", package = "sortable")
 )
 ```
 

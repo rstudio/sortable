@@ -67,7 +67,7 @@ This is the source code:
 
 ```{r echo=FALSE, cache=FALSE}
 knitr::read_chunk(
-  system.file("shiny-examples/rank_list/app.R", package = "sortable")
+  system.file("shiny/rank_list/app.R", package = "sortable")
 )
 ```
 
@@ -102,7 +102,7 @@ This is the source code:
 
 ```{r echo=FALSE, cache=FALSE}
 knitr::read_chunk(
-  system.file("shiny-examples/bucket_list/app.R", package = "sortable")
+  system.file("shiny/bucket_list/app.R", package = "sortable")
 )
 ```
 

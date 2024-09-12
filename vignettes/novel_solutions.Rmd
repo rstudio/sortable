@@ -41,7 +41,7 @@ tags$div(
 
 ```{r echo=FALSE, cache=FALSE}
 knitr::read_chunk(
-  system.file("shiny-examples/drag_vars_to_plot/app.R", package = "sortable")
+  system.file("shiny/drag_vars_to_plot/app.R", package = "sortable")
 )
 ```
 

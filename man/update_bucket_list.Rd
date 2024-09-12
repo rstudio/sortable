@@ -34,7 +34,7 @@ instead.
 ## Example of a shiny app that updates a bucket list and rank list
 if (interactive()) {
   app <- system.file(
-    "shiny-examples/update/app.R",
+    "shiny/update/app.R",
     package = "sortable"
   )
   shiny::runApp(app)

@@ -66,7 +66,7 @@ if(interactive()) {
 
 ## ------------------------------------
 # For an example, see the Shiny app at
-system.file("shiny-examples/drag_vars_to_plot/app.R", package = "sortable")
+system.file("shiny/drag_vars_to_plot/app.R", package = "sortable")
 }
 \seealso{
 \link{sortable_js} and \link{rank_list}.

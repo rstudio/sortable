@@ -74,7 +74,7 @@ is_add_rank_list <- function(x) {
 #' ## Example of a shiny app
 #' if (interactive()) {
 #'   app <- system.file(
-#'     "shiny-examples/bucket_list/app.R",
+#'     "shiny/bucket_list/app.R",
 #'     package = "sortable"
 #'   )
 #'   shiny::runApp(app)

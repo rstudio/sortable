@@ -75,7 +75,7 @@ tags$div(
 
 ```{r echo=FALSE, cache=FALSE}
 knitr::read_chunk(
-  system.file("shiny-examples/custom_css/app.R", package = "sortable")
+  system.file("shiny/custom_css/app.R", package = "sortable")
 )
 ```
 
