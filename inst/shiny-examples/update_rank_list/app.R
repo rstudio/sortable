@@ -27,12 +27,15 @@ server <- function(input, output, session) {
     rv$data <- get(input$data)
   })
 
-  observeEvent(input$sortable, {
-    rv$data <- rv$data[input$sortable]
-  })
+  # observeEvent(input$sortable, {
+  #   rv$data <- rv$data[input$sortable]
+  # })
 
   output$sortable <- renderUI({
-    rank_list("Drag column names to change order", names(rv$data), "sortable")
+    rank_list(
+      "Drag column names to change order",
+      labels = names(rv$data),
+      input_id = "sortable")
   })
 
   output$table <- renderTable({

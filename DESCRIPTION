@@ -34,7 +34,7 @@ Imports:
     htmltools,
     htmlwidgets,
     learnr (>= 0.10.0),
-    shiny,
+    shiny (>= 1.9.0),
     assertthat,
     jsonlite,
     utils,
@@ -53,6 +53,6 @@ VignetteBuilder:
     knitr
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.1
+RoxygenNote: 7.3.2
 Language: en-US
 Config/testthat/edition: 3
