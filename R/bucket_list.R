@@ -103,7 +103,7 @@ bucket_list <- function(
   class <- paste(class, collapse = " ")
 
   # capture the dots
-  ellipsis::check_dots_unnamed()
+  rlang::check_dots_unnamed()
   dot_vals <- rlang::list2(...)
 
   # Remove any NULL elements
@@ -152,7 +152,7 @@ bucket_list <- function(
   z <- tagList(
     tags$div(
       class = paste("bucket-list-container", class),
-      id = paste0("bucket-list-", css_id),
+      id = as_bucket_list_id(css_id),
       title_tag,
       tags$div(
         class = paste(class, "bucket-list",

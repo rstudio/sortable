@@ -26,8 +26,9 @@ where you want the header to be empty - to do this use \code{header = NULL} or
 \code{shinyServer}.}
 }
 \description{
-At the moment, you can only update the \code{text} of the \code{bucket_list}, not the
-labels.
+You can only update the \code{header} of the \code{bucket_list}.
+To update any of the labels or rank list text, use \code{update_rank_list()}
+instead.
 }
 \examples{
 ## Example of a shiny app that updates a bucket list and rank list
@@ -40,5 +41,5 @@ if (interactive()) {
 }
 }
 \seealso{
-\link{bucket_list}
+\link{bucket_list}, \link{update_rank_list}
 }

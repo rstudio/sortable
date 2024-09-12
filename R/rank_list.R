@@ -1,3 +1,24 @@
+# Create label tags for rank_list
+as_label_tags <- function(labels) {
+  mapply(
+    USE.NAMES = FALSE,
+    SIMPLIFY = FALSE,
+    labels,
+    label_ids(labels),
+    FUN = function(label, label_id) {
+      if (identical(label_id, "")) {
+        label_id <- NULL
+      }
+      tags$div(
+        class = "rank-list-item",
+        "data-rank-id" = label_id,
+        label
+      )
+    }
+  )
+}
+
+
 #' Create a ranking item list.
 #'
 #' @description Creates a ranking item list using the `SortableJS` framework,
@@ -23,6 +44,7 @@
 #' @param labels A character vector with the text to display inside the widget.
 #'   This can also be a list of html tag elements.  The text content of each
 #'   label or label name will be used to set the shiny `input_id` value.
+#'   To create an empty `rank_list`, use `labels = list()`.
 #'
 #' @param text Text to appear at top of list.
 #'
@@ -89,27 +111,12 @@ rank_list <- function(
     NULL
   }
 
-  label_tags <- mapply(
-    USE.NAMES = FALSE,
-    SIMPLIFY = FALSE,
-    labels,
-    label_ids(labels),
-    FUN = function(label, label_id) {
-      if (identical(label_id, "")) {
-        label_id <- NULL
-      }
-      tags$div(
-        class = "rank-list-item",
-        "data-rank-id" = label_id,
-        label
-      )
-    }
-  )
+  label_tags <- as_label_tags(labels)
 
   rank_list_tags <- tagList(
     tags$div(
       class = paste("rank-list-container", paste(class, collapse = " ")),
-      id = paste0("rank-list-", css_id),
+      id = as_rank_list_id(css_id),
       title_tag,
       tags$div(
         class = "rank-list",
@@ -134,10 +141,8 @@ dropNulls <- function(x) {
 }
 
 
-#' Change the value of a rank list.
+#' Change the text or labels of a rank list.
 #'
-#' At the moment, you can only update the `text` of the `rank_list`, not the
-#' labels.
 #'
 #' @inheritParams rank_list
 #' @param session The `session` object passed to function given to
@@ -148,28 +153,33 @@ dropNulls <- function(x) {
 #' ## Example of a shiny app that updates a bucket list and rank list
 #' if (interactive()) {
 #'   app <- system.file(
-#'     "shiny-examples/update/app.R",
+#'     "shiny-examples/update_rank_list/app.R",
 #'     package = "sortable"
 #'   )
 #'   shiny::runApp(app)
 #' }
-update_rank_list <- function(css_id, text = NULL,
+update_rank_list <- function(css_id, text = NULL, labels = NULL,
                              session = shiny::getDefaultReactiveDomain()) {
-  inputId <- paste0("rank-list-", css_id)
-  message <- dropNulls(list(id = inputId, text = text))
+  inputId <- as_rank_list_id(css_id)
+  if ( !is.null(labels) && length(labels) > 0) {
+    labels <- as.character(tagList(as_label_tags(labels)))
+  }
+  message <- dropNulls(list(id = inputId, text = text, labels = labels))
   session$sendInputMessage(inputId, message)
+
 }
 
 
 #' Change the value of a bucket list.
 #'
-#' At the moment, you can only update the `text` of the `bucket_list`, not the
-#' labels.
+#' You can only update the `header` of the `bucket_list`.
+#' To update any of the labels or rank list text, use `update_rank_list()`
+#' instead.
 #'
 #' @inheritParams bucket_list
 #' @param session The `session` object passed to function given to
 #'   `shinyServer`.
-#' @seealso [bucket_list]
+#' @seealso [bucket_list], [update_rank_list]
 #' @export
 #' @examples
 #' ## Example of a shiny app that updates a bucket list and rank list
