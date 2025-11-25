@@ -22,7 +22,7 @@ $.extend(ranklistBinding, {
     }
 
     if (data.labels) {
-      const short_id = data.id.replace(/^rank-list-/, "");
+      const short_id = data.namespace + data.id.replace(/-rank-list$/, "");
       $('#' + short_id).html(data.labels);
       const label_ids = $('#' + short_id).children().map((idx, child) => {
         return $(child).attr("data-rank-id") || $.trim(child.innerHTML);

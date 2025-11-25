@@ -164,9 +164,15 @@ update_rank_list <- function(css_id, text = NULL, labels = NULL,
   if ( !is.null(labels) && length(labels) > 0) {
     labels <- as.character(tagList(as_label_tags(labels)))
   }
-  message <- dropNulls(list(id = inputId, text = text, labels = labels))
-  session$sendInputMessage(inputId, message)
 
+  # include namespace in message 
+  # to conveniently correct the nested input IDs 
+  # of a rank-list widget inside rank_list_binding.js 
+  message <- dropNulls(list(id = inputId, 
+    text = text, 
+    labels = labels, 
+    namespace = session$ns("")))
+  session$sendInputMessage(inputId, message)
 }
 
 
