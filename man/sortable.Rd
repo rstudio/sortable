@@ -49,13 +49,13 @@ Useful links:
 
 Authors:
 \itemize{
-  \item Barret Schloerke \email{barret@rstudio.com}
+  \item Barret Schloerke \email{barret@posit.co}
   \item Kenton Russell \email{kent.russell@timelyportfolio.com} (Original author) [conceptor]
 }
 
 Other contributors:
 \itemize{
-  \item RStudio [copyright holder, funder]
+  \item Posit [copyright holder, funder]
   \item Lebedev Konstantin ('SortableJS', https://sortablejs.github.io/Sortable/) [copyright holder]
 }
 

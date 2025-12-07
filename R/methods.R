@@ -24,14 +24,19 @@ print.bucket_list <- function(x, ...){
 
 # The names must be suffix values to allow for modules which use prefix values
 # https://github.com/rstudio/sortable/issues/100
-as_rank_list_id <- function(id) {
-  paste0("rank-list-", id)
+as_rank_list_id <- function(id, use_module = is_modules_enabled()) {
+  if (use_module){
+    paste0(id, "-rank-list")
+  } else {
+    paste0("rank-list-", id)
+  }
 }
-# TODO: in future, change the order of paste, to enable shiny modules
-# paste0(id, "-rank-list")
 
-as_bucket_list_id <- function(id) {
-  paste0("bucket-list-", id)
+as_bucket_list_id <- function(id, use_module = is_modules_enabled()) {
+  if (use_module){
+    paste0(id, "-bucket-list")
+  } else {
+    paste0("bucket-list-", id)
+  }
 }
-# TODO: in future, change the order of paste, to enable shiny modules
-# paste0(id, "-bucket-list")
+

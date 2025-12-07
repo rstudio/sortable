@@ -28,6 +28,7 @@ reference:
   - sortable_output
   - update_rank_list
   - update_bucket_list
+  - is_modules_enabled
 - title: Package documentation
   desc: ~
   contents:

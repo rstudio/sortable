@@ -2,6 +2,18 @@
 
 .onLoad <- function(...) {
 
+
+  # use the `cli` package to send a message on startup to use `enable_modules()`
+  msg <- c("")
+  packageStartupMessage(
+    # rlang::inform("This message will appear only once per session.", .frequency = "once", .frequency_id = "sortable"),
+    rlang::inform(
+      cli::cli_text("To use sortable with shiny modules, run {.run sortable::enable_modules()} to opt into the new standard."),
+    .frequency = "once",
+    .frequency_id = "sortable"
+    )
+  )
+
   as_character_vector <- function(x) {
     # works for both x = NULL and x = list()
     if (length(x) == 0) {
