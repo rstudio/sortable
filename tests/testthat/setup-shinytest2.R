@@ -1,3 +1,2 @@
 # Load application support files into testing environment
-shinytest2::load_app_env() 
-# print(getwd())
+shinytest2::load_app_env()
