@@ -1,10 +1,10 @@
 ---
-title: "Using sortable with Shiny Modules"
+title: "Using `sortable` with `shiny` modules"
 output: rmarkdown::html_vignette
 description: >
-  This vignette explains how to use sortable with Shiny modules, including how to enable module support and how ID handling works with modules.
+  This vignette explains how to use sortable with `shiny` modules, including how to enable module support and how ID handling works with modules.
 vignette: >
-  %\VignetteIndexEntry{Using sortable with Shiny Modules}
+  %\VignetteIndexEntry{Using `sortable` with `shiny` modules}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -27,21 +27,37 @@ pre[class] {
 }
 ```
 
+
+## tl;dr
+
+If you use `sortable` with `shiny` modules, opt into a fix by adding this line of code to your app:
+
+```r
+enable_modules(TRUE)  # or simply enable_modules()
+```
+
+
 ## Introduction
 
-Shiny modules provide a way to create reusable components in Shiny applications. When working with modules, namespacing of input and output IDs is crucial. Due to an early design decision, the `sortable` package (versions <= 0.5.0) did not fully support Shiny modules. This vignette explains how to use sortable with Shiny modules and the changes that were made to support this functionality.
+Shiny modules provide a way to create reusable components in Shiny applications. When working with modules, namespacing of input and output IDs is crucial. 
+
+Due to an early design decision, the `sortable` package (`versions <= 0.5.0`) did not fully support Shiny modules. 
+
+This vignette explains how to use sortable with Shiny modules and the changes that were made to support this functionality.
+
 
 ## Understanding the Module Namespacing Issue
 
 In Shiny modules, element IDs are automatically namespaced using a prefix followed by a dash. For example, if you create a module with ID "mymodule" and an input with ID "myinput", Shiny will create an ID like "mymodule-myinput".
 
-Initially, the `sortable` package used ID formats that were incompatible with this namespacing approach. The IDs were created as "rank-list-{id}" or "bucket-list-{id}", which placed the key part at the beginning of the ID. This caused issues with module namespacing, as reported in [GitHub issue #100](https://github.com/rstudio/sortable/issues/100).
+Initially, the `sortable` package used ID formats that were incompatible with this namespacing approach. The IDs were created as `rank-list-{id}` or `bucket-list-{id}`, which placed the key part at the beginning of the ID. 
 
-## Enabling and Disabling Modules Support
+
+
+## Enabling and disabling shiny modules support
 
 The `sortable` package provides functions to control whether module support is enabled:
 
-### Checking the Current Status
 
 To check if module support is currently enabled:
 
@@ -49,9 +65,6 @@ To check if module support is currently enabled:
 is_modules_enabled()
 ```
 
-This returns `TRUE` if module support is enabled, and `FALSE` otherwise. By default, this returns `FALSE` to maintain backward compatibility.
-
-### Enabling Module Support
 
 To enable module support:
 
@@ -65,7 +78,6 @@ When module support is enabled, the ID format changes:
 
 This change puts the key part at the end, making it compatible with Shiny's module namespacing system.
 
-### Disabling Module Support
 
 To disable module support (reverting to pre-0.5.0 behavior):
 
@@ -73,247 +85,6 @@ To disable module support (reverting to pre-0.5.0 behavior):
 enable_modules(FALSE)
 ```
 
-This reverts the ID generation to the original format.
-
-### When to Enable Module Support
-
-Enable module support if:
-
-1. You're using sortable within Shiny modules
-2. You're experiencing ID conflicts or namespacing issues
-3. You're building a new application that uses modules
-
-It's best practice to call `enable_modules()` at the start of your application, before creating any UI elements.
-
-### Implementation Details
-
-Module support is implemented using a package-level environment variable:
-
-```r
-sortable_env = new.env()
-sortable_env$modules = FALSE  # Default setting
-```
-
-The `is_modules_enabled()` function checks this environment variable, and `enable_modules()` modifies it. This approach allows the setting to persist throughout a session.
-
-## Example Module
-
-Here's an example of using a rank list inside a Shiny module:
-
-```r
-## Example Module UI function
-mod_rank_list_ui <- function(id, text, labels) {
-  ns <- NS(id)
-  fluidRow(
-    # Notice how input_id uses the namespace function
-    rank_list(text, labels, input_id = ns("rank_list_1")),
-    verbatimTextOutput(ns("results"))
-  )
-}
-
-## Example Module Server function
-mod_rank_list_server <- function(id) {
-  moduleServer(id, function(input, output, session) {
-    output$results <- renderPrint({
-      input$rank_list_1 # This matches the input_id of the rank list
-    })
-
-    # Example of updating the rank list within a module
-    observe({
-      update_rank_list(
-        "rank_list_1", # ID within the module's namespace
-        text = "Updated title",
-        session = session # Important: use the module's session
-      )
-    }) %>%
-      bindEvent(input$update_button)
-  })
-}
-```
-
-## Complete Example
-
-Below is a complete example of a Shiny app that uses modules with sortable:
-
-```r
-library(shiny)
-library(sortable)
-library(magrittr)
-
-# First, enable modules support for sortable
-enable_modules()
-
-# Module UI definition
-mod_rank_list_ui <- function(id, text, labels) {
-  ns <- NS(id)
-  fluidRow(
-    rank_list(text, labels, input_id = ns("rank_list_1")),
-    verbatimTextOutput(ns("results")),
-    actionButton(ns("btnUpdateRank"), "Update rank list title")
-  )
-}
-
-# Module server definition
-mod_rank_list_server <- function(id) {
-  moduleServer(id, function(input, output, session) {
-    counter_bucket <- reactiveVal(1)
-
-    output$results <- renderPrint({
-      input$rank_list_1 # This matches the input_id of the rank list
-    })
-
-    observe({
-      update_rank_list(
-        "rank_list_1",
-        text = paste("You pressed the update button", counter_bucket(), "times"),
-        session = session
-      )
-      counter_bucket(counter_bucket() + 1)
-    }) %>%
-      bindEvent(input$btnUpdateRank)
-  })
-}
-
-# Main app UI
-ui <- fluidPage(
-  tags$h1("Sortable with Shiny Modules"),
-  fluidRow(
-    column(
-      width = 6,
-      h2("Rank list A"),
-      mod_rank_list_ui(
-        id = "rl1",
-        text = "Change the order",
-        labels = letters[1:5]
-      )
-    ),
-    column(
-      width = 6,
-      h2("Rank list B"),
-      mod_rank_list_ui(
-        id = "rl2",
-        text = "Second order",
-        labels = LETTERS[6:10]
-      )
-    )
-  )
-)
-
-# Main app server
-server <- function(input, output, session) {
-  mod_rank_list_server("rl1")
-  mod_rank_list_server("rl2")
-}
-
-shinyApp(ui, server)
-```
-
-You can also find an example in the package at `system.file("shiny/modules/app.R", package = "sortable")`.
-
-## Explaining the Fix for Issue #100
-
-### The Problem
-
-GitHub issue [#100](https://github.com/rstudio/sortable/issues/100) reported that the `sortable` package didn't work correctly with Shiny modules. The core problem was in how the package generated HTML element IDs.
-
-In the original implementation:
-
-1. For rank lists, IDs were created as `"rank-list-{id}"` (e.g., `"rank-list-mylist"`)
-2. For bucket lists, IDs were created as `"bucket-list-{id}"` (e.g., `"bucket-list-mybucket"`)
-
-When using these within Shiny modules, the namespace would be applied to the whole ID:
-
-```
-Module namespace: "mymodule"
-Rank list ID: "rank-list-mylist"
-Result in module: "mymodule-rank-list-mylist"
-```
-
-This created a problem because the module namespace was separating the "rank-list" prefix from the actual ID, breaking the internal logic of the sortable package which expected the prefix to be intact.
-
-### The Solution
-
-The solution implemented in the fix was to:
-
-1. Add an environment flag to control whether "module mode" is enabled
-2. When module mode is enabled, change the ID format to place the key part at the end:
-   - From: `"rank-list-{id}"` to `"{id}-rank-list"`
-   - From: `"bucket-list-{id}"` to `"{id}-bucket-list"`
-
-This change ensures that when a module namespace is applied, it doesn't break the logical structure:
-
-```
-Module namespace: "mymodule"
-Rank list ID (with fix): "mylist-rank-list"
-Result in module: "mymodule-mylist-rank-list"
-```
-
-In this format, the namespace is correctly applied as a prefix, while the essential ID structure (`"{id}-rank-list"`) remains intact.
-
-### Implementation Details
-
-The fix was implemented in the following files:
-
-1. In `R/methods.R`, two key functions were updated:
-
-```r
-# The names must be suffix values to allow for modules which use prefix values
-# https://github.com/rstudio/sortable/issues/100
-as_rank_list_id <- function(id, use_module = is_modules_enabled()) {
-  if (use_module){
-    paste0(id, "-rank-list")  # New format: {id}-rank-list
-  } else {
-    paste0("rank-list-", id)  # Original format: rank-list-{id}
-  }
-}
-
-as_bucket_list_id <- function(id, use_module = is_modules_enabled()) {
-  if (use_module){
-    paste0(id, "-bucket-list")  # New format: {id}-bucket-list
-  } else {
-    paste0("bucket-list-", id)  # Original format: bucket-list-{id}
-  }
-}
-```
-
-2. In `R/modules.R`, functions were added to manage the module mode:
-
-```r
-# Create environment for storing shiny module status
-sortable_env = new.env()
-sortable_env$modules = FALSE
-
-# Check if modules are enabled
-is_modules_enabled <- function(){
-  isTRUE(sortable_env$modules)
-}
-
-# Enable or disable modules
-enable_modules <- function(enable = TRUE){
-  assertthat::assert_that(is.logical(enable))
-  sortable_env$modules = enable
-  is_modules_enabled()
-}
-```
-
-### Testing the Fix
-
-The fix was tested with the test file `tests/testthat/test-modules.R`:
-
-```r
-test_that("ids and modules are consistent", {
-  expect_false(is_modules_enabled())
-  expect_equal(as_rank_list_id("one"), "rank-list-one")
-
-  enable_modules()
-  expect_true(is_modules_enabled())
-  expect_equal(as_rank_list_id("one"), "one-rank-list")
-
-  enable_modules(FALSE)
-  expect_false(is_modules_enabled())
-  expect_equal(as_rank_list_id("one"), "rank-list-one")
-})
-```
 
 ### Backward Compatibility
 
@@ -325,22 +96,4 @@ The fix was designed to be backward compatible:
 
 This approach ensures that existing applications won't break, while providing a path forward for applications that need module support.
 
-## Summary
 
-This vignette has explained:
-
-1. The issue with using sortable in Shiny modules (GitHub issue #100)
-2. How to enable module support using `enable_modules()`
-3. How the ID format changes when module support is enabled
-4. Examples of using sortable with Shiny modules
-5. The technical details of the fix
-
-## Best Practices
-
-When using sortable with Shiny modules:
-
-1. Call `enable_modules()` at the start of your application
-2. Always use the `ns()` function for input IDs in module UI functions
-3. Use the correct session object when updating rank or bucket lists from module server functions
-
-Following these practices will ensure that your sortable elements work correctly within Shiny modules.
