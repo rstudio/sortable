@@ -23,6 +23,7 @@ URL: https://rstudio.github.io/sortable/
 BugReports: https://github.com/rstudio/sortable/issues
 Imports:
     assertthat,
+    cli,
     htmltools,
     htmlwidgets,
     jsonlite,
