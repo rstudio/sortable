@@ -55,6 +55,6 @@ articles:
   - cloning
   - updating_rank_list
 
-- title: Using sortable with shiny modules`
+- title: Using `sortable` with `shiny` modules
   contents:
   - shiny_modules
