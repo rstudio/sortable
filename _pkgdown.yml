@@ -35,6 +35,7 @@ reference:
   - sortable
 
 tutorials:
+
 - name: tutorial_question_rank
   title: Using ranking questions in learnr
   url: https://andrie-de-vries.shinyapps.io/sortable_tutorial_question_rank/
@@ -53,3 +54,7 @@ articles:
   - novel_solutions
   - cloning
   - updating_rank_list
+
+- title: Using sortable with shiny modules`
+  contents:
+  - shiny_modules
