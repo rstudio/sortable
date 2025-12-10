@@ -50,6 +50,7 @@ You can create a drag-and-drop input object in Shiny, using the
 `rank_list()` function.
 
 <center>
+
 <img src="man/figures/rank_list_shiny.gif" style = 'width:500px;'></img>
 </center>
 
@@ -148,6 +149,7 @@ object. This can be useful for bucketing tasks, e.g. asking your
 students to classify objects into multiple categories.
 
 <center>
+
 <img src="man/figures/bucket_list_shiny.gif" style = 'width:500px;'></img>
 </center>
 
@@ -237,6 +239,7 @@ shinyApp(ui, server)
 You can also use `sortable_js()` to drag and drop other widgets:
 
 <center>
+
 <img src="man/figures/diagrammer.gif" style = 'width:500px;'></img>
 </center>
 
