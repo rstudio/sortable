@@ -1,19 +1,6 @@
 # nocov start
 
 .onLoad <- function(...) {
-
-
-  # use the `cli` package to send a message on startup to use `enable_modules()`
-  msg <- c("")
-  packageStartupMessage(
-    # rlang::inform("This message will appear only once per session.", .frequency = "once", .frequency_id = "sortable"),
-    rlang::inform(
-      cli::cli_text("To use sortable with shiny modules, run {.run sortable::enable_modules()} to opt into the new standard."),
-    .frequency = "once",
-    .frequency_id = "sortable"
-    )
-  )
-
   as_character_vector <- function(x) {
     # works for both x = NULL and x = list()
     if (length(x) == 0) {
@@ -22,8 +9,7 @@
     unlist(x)
   }
 
-  # Register a handler for a bucket_list to unlist each set of values.
-  # should return a list of character vectors or NULL
+  # Register input handlers
   shiny::registerInputHandler(
     force = TRUE,
     "sortablejs.rank_list",
@@ -33,8 +19,6 @@
     }
   )
 
-  # Register a handler for a bucket_list to unlist each set of values.
-  # should return a list of character vectors or NULL
   shiny::registerInputHandler(
     force = TRUE,
     "sortablejs.bucket_list",
@@ -45,7 +29,18 @@
       ret
     }
   )
+}
 
+.onAttach <- function(libname, pkgname) {
+  packageStartupMessage(
+    rlang::inform(
+      cli::cli_text(
+        "To use sortable with shiny modules, run {.run sortable::enable_modules()} to opt into the new standard."
+      ),
+      .frequency = "once",
+      .frequency_id = "sortable"
+    )
+  )
 }
 
 # nocov end
