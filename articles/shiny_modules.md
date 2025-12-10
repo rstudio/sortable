@@ -1,0 +1,78 @@
+# Using \`sortable\` with \`shiny\` modules
+
+## Summary
+
+If you use `sortable` with `shiny` modules, opt into a fix by adding
+this line of code to your app:
+
+``` r
+enable_modules(TRUE)  # or simply enable_modules()
+```
+
+## Introduction
+
+Modules provide a way to create reusable components `shiny`
+applications. When working with modules, using the correct namespace of
+input and output IDs is crucial.
+
+Due to an early design decision, the `sortable` package
+(`versions <= 0.5.0`) did not fully support `shiny` modules.
+
+This vignette explains how to use sortable with `shiny` modules and the
+changes that were made to support this functionality.
+
+## Understanding the module namespace issue
+
+In `shiny` modules, element IDs are automatically namespaced using a
+prefix followed by a dash. For example, if you create a module with ID
+`mymodule` and an input with ID `myinput`, `shiny` will create an ID
+like `mymodule-myinput`.
+
+Initially, the `sortable` package used ID formats that were incompatible
+with this namespace approach. The IDs were created as `rank-list-{id}`
+or `bucket-list-{id}`, which placed the key part at the beginning of the
+ID.
+
+## Enabling and disabling shiny modules support
+
+The `sortable` package provides functions to control whether module
+support is enabled:
+
+To check if module support is currently enabled:
+
+``` r
+is_modules_enabled()
+```
+
+To enable module support:
+
+``` r
+enable_modules(TRUE)  # or simply enable_modules()
+```
+
+When module support is enabled, the ID format changes: -
+`as_rank_list_id("myid")` will return `"myid-rank-list"` (instead of
+`"rank-list-myid"`) - `as_bucket_list_id("myid")` will return
+`"myid-bucket-list"` (instead of `"bucket-list-myid"`)
+
+This change puts the key part at the end, making it compatible with the
+`shiny` module namespace system.
+
+To disable module support (reverting to `<= 0.5.0` behavior):
+
+``` r
+enable_modules(FALSE)
+```
+
+### Backward Compatibility
+
+The fix was designed to be backward compatible:
+
+1.  By default, module mode is disabled (`sortable_env$modules = FALSE`)
+2.  Users must explicitly opt-in by calling
+    [`enable_modules()`](https://rstudio.github.io/sortable/reference/modules.md)
+3.  Existing code that doesn’t use modules continues to work without
+    changes
+
+This approach ensures that existing applications won’t break, while
+providing a path forward for applications that need module support.
