@@ -35,7 +35,7 @@
   packageStartupMessage(
     rlang::inform(
       cli::cli_text(
-        "To use sortable with shiny modules, run {.run sortable::enable_modules()} to opt into the new standard."
+        "To use sortable with shiny modules, run {.run sortable::enable_modules()} to opt into the new standard. See https://rstudio.github.io/sortable/articles/shiny_modules.html for more information."
       ),
       .frequency = "once",
       .frequency_id = "sortable"
