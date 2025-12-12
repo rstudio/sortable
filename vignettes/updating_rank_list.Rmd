@@ -27,7 +27,7 @@ library(htmltools)
 tags$div(
   class = "shiny-app-frame",
   tags$iframe(
-    src = "https://andrie-de-vries.shinyapps.io/sortable_update_rank_list_ui",
+    src = "https://andrie-de-vries.shinyapps.io/sortable_update_rank_list_app",
     width = 800,
     height = 700
   )
