@@ -5,6 +5,7 @@ app_dir <- system.file("shiny/update_rank_list", package = "sortable")
 test_that("{shinytest2} recording: test_update_title", {
   skip_on_cran()
   skip_on_ci()
+  skip_if_not_installed("shinytest2")
 
   app <- AppDriver$new(
     variant = platform_variant(),
@@ -23,6 +24,7 @@ test_that("{shinytest2} recording: test_update_title", {
 test_that("{shinytest2} recording: test_change_labels", {
   skip_on_cran()
   skip_on_ci()
+  skip_if_not_installed("shinytest2")
 
   app <- AppDriver$new(
     name = "test_change_labels",
@@ -45,6 +47,7 @@ test_that("{shinytest2} recording: test_change_labels", {
 test_that("{shinytest2} recording: test_empty_labels", {
   skip_on_cran()
   skip_on_ci()
+  skip_if_not_installed("shinytest2")
 
   app <- AppDriver$new(
     name = "test_empty_labels",
