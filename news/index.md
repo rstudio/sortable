@@ -1,6 +1,14 @@
 # Changelog
 
-## sortable 0.5.0.9000
+## sortable 0.6.0
+
+### Bug fixes
+
+- Fix the problem with using `sortable` with `shiny` modules. To prevent
+  user code from breaking, this requires opting in by using
+  ’enable_modules()\`. See the
+  [vignette](https://rstudio.github.io/sortable/articles/shiny_modules.html)
+  for more information.
 
 ### Enhancements
 
@@ -12,7 +20,7 @@
 
 ### Updates
 
-- Update `Sortable.js` to version 1.15.3
+- Update `Sortable.js` to version 1.15.6
 
 ## sortable 0.5.0
 

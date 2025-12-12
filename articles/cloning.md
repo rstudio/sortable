@@ -19,7 +19,9 @@ option to the `sortable_options` argument::
 ``` r
 library(sortable)
 #> To use sortable with shiny modules, run `sortable::enable_modules()` to opt
-#> into the new standard.
+#> into the new standard. See
+#> https://rstudio.github.io/sortable/articles/shiny_modules.html for more
+#> information.
 #> 
 #> 
 #> 

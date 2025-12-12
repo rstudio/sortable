@@ -27,9 +27,9 @@ list. The app demonstrates three types of drag-and-drop behaviour:
 
 ## Default, multi-drag and swapping behaviour
 
-- [Default](_w_d3da0862cacd45eea1a4f7b078db0a40/#tab-6334-1)
-- [Multi-drag](_w_d3da0862cacd45eea1a4f7b078db0a40/#tab-6334-2)
-- [Swap](_w_d3da0862cacd45eea1a4f7b078db0a40/#tab-6334-3)
+- [Default](_w_c270d51b79fe4a4d9bad3c78aa2dcf6c/#tab-6825-1)
+- [Multi-drag](_w_c270d51b79fe4a4d9bad3c78aa2dcf6c/#tab-6825-2)
+- [Swap](_w_c270d51b79fe4a4d9bad3c78aa2dcf6c/#tab-6825-3)
 
 **Exercise**
 
