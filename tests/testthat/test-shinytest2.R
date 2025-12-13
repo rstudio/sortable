@@ -1,5 +1,3 @@
-library(shinytest2)
-
 app_dir <- system.file("shiny/update_rank_list", package = "sortable")
 
 test_that("{shinytest2} recording: test_update_title", {
