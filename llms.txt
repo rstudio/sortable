@@ -15,6 +15,7 @@ You can install the released version of sortable from
 [CRAN](https://CRAN.R-project.org) with:
 
 ``` r
+
 install.packages("sortable")
 ```
 
@@ -22,6 +23,7 @@ And the development version from
 [GitHub](https://github.com/rstudio/sortable) with:
 
 ``` r
+
 # install.packages("remotes")
 remotes::install_github("rstudio/sortable")
 ```
@@ -37,6 +39,7 @@ function.
 ![](reference/figures/rank_list_shiny.gif)
 
 ``` r
+
 ## Example shiny app with rank list
 
 library(shiny)
@@ -133,6 +136,7 @@ students to classify objects into multiple categories.
 ![](reference/figures/bucket_list_shiny.gif)
 
 ``` r
+
 ## Example shiny app with bucket list
 
 library(shiny)
@@ -222,6 +226,7 @@ to drag and drop other widgets:
 ![](reference/figures/diagrammer.gif)
 
 ``` r
+
 library(DiagrammeR)
 library(htmltools)
 

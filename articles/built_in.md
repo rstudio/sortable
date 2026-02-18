@@ -27,9 +27,9 @@ list. The app demonstrates three types of drag-and-drop behaviour:
 
 ## Default, multi-drag and swapping behaviour
 
-- [Default](_w_1a0dbd1f6c484d78b4c91b9446ff8d6b/#tab-1576-1)
-- [Multi-drag](_w_1a0dbd1f6c484d78b4c91b9446ff8d6b/#tab-1576-2)
-- [Swap](_w_1a0dbd1f6c484d78b4c91b9446ff8d6b/#tab-1576-3)
+- [Default](_w_e4e0ca2eb1b94fcd930ff8a98be07636/#tab-7183-1)
+- [Multi-drag](_w_e4e0ca2eb1b94fcd930ff8a98be07636/#tab-7183-2)
+- [Swap](_w_e4e0ca2eb1b94fcd930ff8a98be07636/#tab-7183-3)
 
 **Exercise**
 
@@ -93,6 +93,7 @@ three
 This is the source code:
 
 ``` r
+
 ## Example shiny app with rank list
 
 library(shiny)
@@ -227,6 +228,7 @@ input\$bucket_list_group
 This is the source code:
 
 ``` r
+
 ## Example shiny app with bucket list
 
 library(shiny)

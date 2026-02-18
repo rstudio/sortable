@@ -19,14 +19,14 @@
 Source:
 [`DESCRIPTION`](https://github.com/rstudio/sortable/blob/main/DESCRIPTION)
 
-de Vries A, Schloerke B, Russell K (2025). *sortable: Drag-and-Drop in
+de Vries A, Schloerke B, Russell K (2026). *sortable: Drag-and-Drop in
 'shiny' Apps with 'SortableJS'*. R package version 0.6.0,
 <https://rstudio.github.io/sortable/>.
 
     @Manual{,
       title = {sortable: Drag-and-Drop in 'shiny' Apps with 'SortableJS'},
       author = {Andrie {de Vries} and Barret Schloerke and Kenton Russell},
-      year = {2025},
+      year = {2026},
       note = {R package version 0.6.0},
       url = {https://rstudio.github.io/sortable/},
     }

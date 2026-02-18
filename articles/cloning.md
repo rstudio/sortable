@@ -17,6 +17,7 @@ To clone an element from a list, you must add the `pull = "clone"`
 option to the `sortable_options` argument::
 
 ``` r
+
 library(sortable)
 #> To use sortable with shiny modules, run `sortable::enable_modules()` to opt
 #> into the new standard. See
@@ -29,6 +30,7 @@ library(sortable)
 ```
 
 ``` r
+
 sortable_js(
   "sort1",
   options = sortable_options(
@@ -58,6 +60,7 @@ To pass your JavaScript code to R, use the
 function:
 
 ``` r
+
 sortable_js(
   "sortable_bin",
   options = sortable_options(
@@ -76,6 +79,7 @@ sortable_js(
 And the full code:
 
 ``` r
+
 ## Example shiny app to demonstrate cloning and other sortable_options
 
 library(shiny)

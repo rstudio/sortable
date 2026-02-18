@@ -2,6 +2,8 @@
 
 ## sortable 0.6.0
 
+CRAN release: 2025-12-14
+
 ### Bug fixes
 
 - Fix the problem with using `sortable` with `shiny` modules. To prevent

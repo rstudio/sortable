@@ -6,6 +6,7 @@ use powerful, dependency-free interactivity from
 RStudio Viewer, or Shiny apps.
 
 ``` r
+
 library(sortable)
 library(htmltools)
 ```
@@ -70,6 +71,7 @@ both from the `htmltools` package, to create HTML.
 This means you can construct the sortable list using:
 
 ``` r
+
 library(htmltools)
 tagList(
   tags$ul(
@@ -96,6 +98,7 @@ To embed the plots on the page, you can use the `base64::img()` function
 to encode the png images into a format that HTML understands.
 
 ``` r
+
 library(base64enc)
 library(withr)
 
@@ -116,6 +119,7 @@ with_png(pngfile_2, width = 300, height = 200,{
 Again, notice that the HTML `id` matches the `css_id`.
 
 ``` r
+
 tagList(
   tags$div(
     id = "example03",
@@ -136,6 +140,7 @@ builder with something like this example. You’ll notice that it doesn’t
 really do anything, but I hope the intent and direction is clear.
 
 ``` r
+
 knitr::read_chunk(
   system.file("shiny/drag_vars_to_plot/app.R", package = "sortable")
 )
@@ -173,6 +178,7 @@ sortable_js("sortTab")
 And the full code:
 
 ``` r
+
 ## Example shiny app to drag-and-drop tabsets in a shiny app
 
 

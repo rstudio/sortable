@@ -1,6 +1,7 @@
 # Novel solutions using sortable in shiny apps
 
 ``` r
+
 library(sortable)
 #> To use sortable with shiny modules, run `sortable::enable_modules()` to opt
 #> into the new standard. See
@@ -50,6 +51,7 @@ Analyze as y (drag here)
 ## Source code
 
 ``` r
+
 ## Example shiny app to create a plot from sortable inputs
 
 library(shiny)

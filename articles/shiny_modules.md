@@ -6,6 +6,7 @@ If you use `sortable` with `shiny` modules, opt into a fix by adding
 this line of code to your app:
 
 ``` r
+
 enable_modules(TRUE)  # or simply enable_modules()
 ```
 
@@ -41,12 +42,14 @@ support is enabled:
 To check if module support is currently enabled:
 
 ``` r
+
 is_modules_enabled()
 ```
 
 To enable module support:
 
 ``` r
+
 enable_modules(TRUE)  # or simply enable_modules()
 ```
 
@@ -61,6 +64,7 @@ This change puts the key part at the end, making it compatible with the
 To disable module support (reverting to `<= 0.5.0` behavior):
 
 ``` r
+
 enable_modules(FALSE)
 ```
 

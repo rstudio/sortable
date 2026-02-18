@@ -1,6 +1,7 @@
 # Using custom styles with CSS
 
 ``` r
+
 library(sortable)
 #> To use sortable with shiny modules, run `sortable::enable_modules()` to opt
 #> into the new standard. See
@@ -30,6 +31,7 @@ specify your own class by modifying the `class` argument.
 For example, to add `custom-sortable` to the CSS class, use:
 
 ``` r
+
 rank_list(
   class = c("default-sortable", "custom-sortable"), # add custom style
   ...
@@ -44,6 +46,7 @@ For example, to modify the `custom-sortable` class using a `shiny` tag,
 use:
 
 ``` r
+
 tags$style(
   HTML("
     .rank-list-container.custom-sortable {
@@ -81,6 +84,7 @@ five
 ## Source code
 
 ``` r
+
 ## Example shiny app with custom css
 
 library(shiny)
