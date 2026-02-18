@@ -5,8 +5,8 @@ test_that("{shinytest2} recording: test_update_title", {
   skip_on_ci()
   skip_if_not_installed("shinytest2")
 
-  app <- AppDriver$new(
-    variant = platform_variant(),
+  app <- shinytest2::AppDriver$new(
+    variant = shinytest2::platform_variant(),
     name = "test_update_title",
     app_dir = app_dir,
     seed = 123,
@@ -24,7 +24,7 @@ test_that("{shinytest2} recording: test_change_labels", {
   skip_on_ci()
   skip_if_not_installed("shinytest2")
 
-  app <- AppDriver$new(
+  app <- shinytest2::AppDriver$new(
     name = "test_change_labels",
     app_dir = app_dir,
     seed = 123,
@@ -47,7 +47,7 @@ test_that("{shinytest2} recording: test_empty_labels", {
   skip_on_ci()
   skip_if_not_installed("shinytest2")
 
-  app <- AppDriver$new(
+  app <- shinytest2::AppDriver$new(
     name = "test_empty_labels",
     app_dir = app_dir,
     seed = 123,
@@ -70,3 +70,4 @@ test_that("{shinytest2} recording: test_empty_labels", {
   )
   app$expect_values(output = "results")
 })
+
