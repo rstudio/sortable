@@ -121,7 +121,7 @@ bucket_list <- function(
       dot,
       val = list(
         options = sortable_options(group = group_name),
-        class = paste(class, paste0("column_", i))
+        class = paste(class, paste0("column_", i),dot$class)
       )
     )
   })
