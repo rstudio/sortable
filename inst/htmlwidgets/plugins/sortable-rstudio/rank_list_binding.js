@@ -16,18 +16,19 @@ $.extend(ranklistBinding, {
   getValue: function(el) { },
 
   setValue: function (el, data) {
-    // console.log(data);
     if (data.text) {
       $(el).find(".rank-list-title").text(data.text);
     }
 
     if (data.labels) {
-      const short_id = data.id.replace(/^rank-list-/, "");
-      $('#' + short_id).html(data.labels);
-      const label_ids = $('#' + short_id).children().map((idx, child) => {
+      // Get the input ID from the .rank-list child element (not the container)
+      const rankListEl = $(el).find(".rank-list");
+      const inputId = rankListEl.attr("id");
+      rankListEl.html(data.labels);
+      const label_ids = rankListEl.children().map((idx, child) => {
         return $(child).attr("data-rank-id") || $.trim(child.innerHTML);
       }).toArray();
-      Shiny.setInputValue(short_id, label_ids, {priority: 'event'});
+      Shiny.setInputValue(inputId, label_ids, {priority: 'event'});
     }
 
   },
